@@ -1,0 +1,18 @@
+{{ define "main" }}
+  <h1><span class="emoji">📜</span>{{ .Title }}</h1>
+  {{ partial "wikilinks.html" . }}
+  <ul>
+    {{ range .Pages }}
+      <li>
+        <a href="{{ .RelPermalink }}" class="link link--internal">
+          {{ with .Params.emoji }}
+            {{ . }}
+          {{ else }}
+          <span class="emoji">📗</span>
+          {{ end }}
+          {{ .Title }}
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+{{ end }}

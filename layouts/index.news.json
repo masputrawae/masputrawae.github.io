@@ -1,0 +1,8 @@
+[
+  {{- $pages := where site.Pages "Type" "!=" "json" -}}
+  {{- $sortedPages := sort $pages "Date" "desc" -}}
+  {{- range $index, $page := $sortedPages -}}
+    {{- if $index }},{{ end -}}
+    "{{ $page.RelPermalink }}"
+  {{- end -}}
+]

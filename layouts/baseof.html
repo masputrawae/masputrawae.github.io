@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}" data-theme-system="auto" data-theme="dark">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body>
+  <header>
+    <button class="btn btn--emoji" id="toggleThemes" title="Switch Themes" aria-label="Switch Themes">
+      <span class="emoji">🌙</span>
+    </button>
+    <button onclick="window.location.href='{{ site.BaseURL | absURL }}'" title="Go To Home" aria-label="Go To Home">
+      <span class="emoji">🏡</span>
+    </button>
+    <button onclick="window.location.href='{{ "search.html" | relURL }}'" title="Search" aria-label="Search">
+      <span class="emoji">🔍</span>
+    </button>
+  </header>
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+  <footer>
+    <p>&copy; {{ now.Year }} · {{ site.Title }} All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,132 @@
+baseURL           = 'https://masputrawae.github.io/'
+languageCode      = "id"
+title             = "My Notes"
+enableEmoji       = true
+
+[services]
+  [services.googleAnalytics]
+    id = 'G-W9TMTZZYG5'
+
+[privacy]
+  [privacy.googleAnalytics]
+    disable = false
+    respectDoNotTrack = false
+
+[params]
+  author        = "Putra Jaya"
+  description   = "catatan-catatan pribadi yang mungkin hanya berguna untuk saya sendiri (atau mungkin alien di masa depan, siapa tahu? 👽)."
+  shortTitle    = "Notes"
+  logo          = "logo/logo.png"
+  image         = "logo/logo.png"
+  twitter       = "@Masputrawae"
+
+[permalinks]
+  abstracts       = '/:section/:year/:month/:title/'
+  history         = '/:section/:year/:month/:title/'
+  inbox           = '/:section/:year/:month/:title/'
+  programming     = '/:section/:year/:month/:title/'
+  resource        = '/:section/:year/:month/:title/'
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+#============== MARKUP ==============#
+[markup]
+  [markup.tableOfContents]
+    endLevel    = 6
+    ordered     = false
+    startLevel  = 2
+
+  [markup.highlight]
+    codeFences          = true
+    guessSyntax         = true
+    style               = "github-dark"
+    noClasses           = false
+    lineNumbersInTable  = false
+    lineNos             = false
+    anchorLineNos       = false
+    lineAnchors         = ''
+    lineNoStart         = 1
+    tabWidth            = 4
+
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe    = true
+
+    [markup.goldmark.parser]
+      wrapStandAloneImageWithinParagraph = false
+      
+      [markup.goldmark.parser.attribute]
+        block = true
+        title = true
+
+#============== OUTPUT ==============#
+[outputFormats]
+
+  [outputFormats.search-data]
+    mediaType       = "application/json"
+    baseName        = "search-data"
+    isPlainText     = true
+    notAlternative  = true
+  
+  [outputFormats.search]
+    mediaType       = "text/html"
+    baseName        = "search"
+    isPlainText     = true
+    notAlternative  = true
+    
+  [outputFormats.manifest]
+    mediaType       = "application/json"
+    baseName        = "manifest"
+    isPlainText     = true
+    notAlternative  = true
+  
+  [outputFormats.news]
+    mediaType       = "application/json"
+    baseName        = "news"
+    isPlainText     = true
+    notAlternative  = true
+
+  [outputFormats.sw]
+    mediaType       = "text/javascript"
+    baseName        = "sw"
+    isPlainText     = true
+    notAlternative  = true
+
+  [outputFormats.Robots]
+    mediaType = "text/plain"
+    baseName = "robots"
+    isPlainText = true
+    notAlternative = true
+
+[outputs]
+  home = ['html', "search-data", "search", "manifest", 'news', 'sw', "Robots"]
+  page = ['html']
+  section = ['html']
+  taxonomy = ['html']
+  term = ['html']
+
+#============== MODULE ==============#
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = '0.146.5'
+
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+    excludeFiles = "templates/*"
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+    excludeFiles = ".obsidian/*"
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+    excludeFiles = "private/*"
+
+[caches]
+  [caches.assets]
+    dir = ":resourceDir/_gen"
+    maxAge = -1

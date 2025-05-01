@@ -1,0 +1,62 @@
+{{ $icons := dict
+  "tip" "💡"
+  "info" "ℹ️"
+  "success" "✅"
+  "warning" "⚠️"
+  "danger" "🐞"
+  "error" "❌"
+  "bug" "🪲"
+  "note" "📝"
+  "abstract" "⚙️"
+  "todo" "☑️"
+  "question" "❓"
+  "failure" "💥"
+  "example" "📋"
+  "quote" "💬"
+  "important" "‼️"
+  "history" "⏳"
+  "journal" "📔"
+  "person" "👤"
+}}
+
+{{ $icon := index $icons .AlertType }}
+
+{{ if eq .Type "alert" }}
+  <blockquote class="callout callout--{{ .AlertType }}">
+    <strong class="callout__header">
+      <span class="emoji emoji--callout">{{ $icon }}</span>
+      {{ with .AlertTitle }}
+        <span class="callout__title">{{ . }}</span>
+      {{ else }}
+        {{ or (i18n .AlertType) (title .AlertType) }}
+      {{ end }}
+    </strong>
+    <div class="callout__content">
+      {{ .Text }}
+    </div>
+  </blockquote>
+{{ else }}
+<figure class="blockquote">
+  <blockquote class="blockquote__text" {{ with .Attributes.cite }}cite="{{ . }}"{{ end }}>
+    {{ .Text }}
+  </blockquote>
+
+  {{ if or (.Attributes.caption) (.Attributes.source) (.Attributes.cite) }}
+    <figcaption class="blockquote__caption">
+      {{ with .Attributes.caption }}
+      {{ . | safeHTML }}
+      {{ end }}
+
+      {{ if .Attributes.source }}
+        {{ if .Attributes.cite }}
+          &mdash; <a href="{{ .Attributes.cite }}" target="_blank" rel="external noopener noreferrer nofollow" class="blockquote__link">{{ .Attributes.source }}</a>
+        {{ else }}
+          &mdash; {{ .Attributes.source }}
+        {{ end }}
+      {{ else if .Attributes.cite }}
+        &mdash; <a href="{{ .Attributes.cite }}" target="_blank" rel="external noopener noreferrer nofollow" class="blockquote__link">{{ .Attributes.cite }}</a>
+      {{ end }}
+    </figcaption>
+  {{ end }}
+</figure>
+{{ end }}

@@ -1,0 +1,116 @@
+{{ define "main" }}
+
+<form class="search" id="search" onsubmit="handleSearch(event)" method="get" id="search" data-search-url="{{ "search-data.json" | relURL }}">
+  <label class="emoji" for="search-input" aria-label="search" title="search">🔍</label>
+  <input class="search__input" type="search" id="search-input" name="query" placeholder="Search...." autocomplete="off" autocorrect="off" spellcheck="false">
+</form>
+
+<div id="resultsPanel" style="display: none;">
+  <ul class="search__results" id="results" data-collapse="resultsSearch"></ul>
+</div>
+
+<script src="{{ "js/lunr.min.js" | relURL }}" defer></script>
+<script defer>
+  document.addEventListener("DOMContentLoaded", async () => {
+    const $ = (s) => document.querySelector(s);
+    const searchForm = $("#search");
+    const searchInput = $("#search-input");
+    const resultsPanel = $("#resultsPanel");
+    const resultsContainer = $("#results");
+  
+    if (!searchForm || !searchInput || !resultsPanel || !resultsContainer) {
+      console.error("Elemen pencarian tidak lengkap.");
+      return;
+    }
+  
+    const searchUrl = searchForm.getAttribute("data-search-url");
+    if (!searchUrl) {
+      console.error("Data URL pencarian tidak ditemukan.");
+      return;
+    }
+  
+    try {
+      const response = await fetch(searchUrl);
+      const store = await response.json();
+  
+      if (!Array.isArray(store)) {
+        throw new Error("Format data pencarian tidak valid.");
+      }
+  
+      const idx = lunr(function () {
+        this.ref("id");
+        this.field("title", { boost: 50 });
+        this.field("tags", { boost: 30 });
+        this.field("description", { boost: 20 });
+        this.field("category", { boost: 10 });
+        this.field("content", { boost: 5 });
+        this.field("emoji")
+  
+        store.forEach((doc) => this.add(doc));
+      });
+  
+      const escapeHTML = (str) => {
+        const el = document.createElement("div");
+        el.textContent = str;
+        return el.innerHTML;
+      };
+  
+      const displayResults = (results, query) => {
+        const trimmed = query.trim();
+  
+        if (!trimmed) {
+          resultsPanel.style.display = "none";
+          resultsContainer.innerHTML = "";
+          searchInput.focus();
+          return;
+        }
+  
+        resultsPanel.style.display = "block";
+        resultsContainer.innerHTML = results.length
+          ? results
+              .map((r) => {
+                const doc = store.find((d) => d.id === r.ref);
+                return doc
+                  ? `<li class="nav__item" role="option">
+                      <a href="${doc.url}">
+                        <span class="emoji">${escapeHTML(doc.emoji)}</span>
+                        ${escapeHTML(doc.title)}
+                      </a>
+                    </li>`
+                  : "";
+              })
+              .join("")
+          : '<li class="nav__item" role="option">No results found.</li>';
+      };
+  
+      const doSearch = (query) => {
+        const trimmed = query.trim();
+        const results = trimmed ? idx.search(`*${trimmed}* ${trimmed}~1`) : [];
+        displayResults(results, trimmed);
+      };
+  
+      const debounce = (fn, delay = 300) => {
+        let t;
+        return (...args) => {
+          clearTimeout(t);
+          t = setTimeout(() => fn(...args), delay);
+        };
+      };
+  
+      searchInput.addEventListener("input", debounce(() => {
+        doSearch(searchInput.value);
+      }));
+  
+      // Handle query param from URL
+      const urlQuery = new URLSearchParams(window.location.search).get("query");
+      if (urlQuery) {
+        searchInput.value = urlQuery;
+        doSearch(urlQuery);
+      }
+  
+    } catch (err) {
+      console.error("Gagal memuat index pencarian:", err);
+    }
+  });
+</script>
+{{ end }}
