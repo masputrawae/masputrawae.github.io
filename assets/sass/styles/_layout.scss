@@ -63,6 +63,7 @@ header {
   position: fixed;
   right: 1rem;
   bottom: 1rem;
+  z-index: 100;
 
   @include b.max(md){
     flex-direction: row;
@@ -79,6 +80,8 @@ header {
 main {
   min-height: 90vh;
   font-size: 1rem;
+  max-width: 100ch;
+  margin: 0 auto;
 }
 
 // FOOTER
@@ -94,15 +97,16 @@ footer {
   line-height: 1.4;
   margin-top: 2rem;
   padding-bottom: 0.25rem;
-  border-bottom: 1px solid var(--cl-border-default);
+  border-bottom: 1px dashed var(--cl-border-default);
   margin-bottom: 1.5rem;
   color: var(--cl-text-title);
   font-weight: 700;
   text-shadow: var(--text-shadow);
+  font-family: v.$font__family--serif;
 }
 
 // HEADING SIZE (h1 - h6)
-h1 {font-size: v.$font__size--8xl;}
+h1 {font-size: v.$font__size--6xl;}
 h2 {font-size: v.$font__size--5xl;}
 h3 {font-size: v.$font__size--4xl;}
 h4 {font-size: v.$font__size--3xl;}
@@ -182,7 +186,7 @@ li + li {
 }
 
 li > p {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 dl {

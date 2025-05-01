@@ -32,9 +32,6 @@
 <link rel="manifest" href="{{ "manifest.json" | absURL }}">
 
 <link rel="sitemap" type="application/xml" href="{{ "sitemap.xml" | absURL }}" />
-<link rel="sitemap" type="text/plain" href="{{ "sitemap.txt" | absURL }}" />
-
-{{ template "_internal/google_analytics.html" . }}
 
 {{/* |===========| START: SCSS |===========| */}}
 {{- with resources.Get "sass/main.scss" }}
@@ -116,3 +113,5 @@
   }
 </script>
 {{/* |===========| END: SW JS |===========| */}}
+
+{{ template "_internal/google_analytics.html" . }}

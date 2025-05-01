@@ -33,9 +33,9 @@ samp {
   margin-inline: 1rem;
   max-width: 100%;
   overflow-x: auto;
-  border: 3px solid var(--cl-border-default);
+  border: 2px solid var(--cl-border-default);
   border-radius: 1rem;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
   font-family: v.$font__family--mono;
 
   scrollbar-width: thin;

@@ -38,7 +38,7 @@ jobs:
 
       - name: Salin folder garden ke konten Hugo
         run: |
-          cp -r clone_content/garden/* ./content/
+          cp -r clone_content/* ./content/
 
       - name: Remove Clone Content
         run: |

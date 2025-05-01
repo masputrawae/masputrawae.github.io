@@ -82,4 +82,6 @@ toggleBtn.addEventListener("click", () => {
 	sessionStorage.setItem("theme", newTheme);
 });
 initTheme();
-console.log("%cHACKER JANGAN MENYERANG!", "color: cyan; font-weight: bold; font-size: 100px; text-align: center;");
+console.log("%cCARI APA KAWAN!", "color: cyan; font-weight: bold; font-size: 100px; text-align: center;");
+console.log("%cTAK ADA YANG SPESIAL!", "color: cyan; font-weight: bold; font-size: 100px; text-align: center;");
+console.log("%cSILAHKAN KEMBALI!", "color: cyan; font-weight: bold; font-size: 100px; text-align: center;");

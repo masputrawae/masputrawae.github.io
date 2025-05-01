@@ -124,6 +124,10 @@ enableEmoji       = true
   [[module.mounts]]
     source = "content"
     target = "content"
+    excludeFiles = ".trash/*"
+  [[module.mounts]]
+    source = "content"
+    target = "content"
     excludeFiles = "private/*"
 
 [caches]
