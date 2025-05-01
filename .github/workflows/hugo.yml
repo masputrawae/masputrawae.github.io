@@ -30,19 +30,7 @@ jobs:
 
       - name: Clone repo konten (private)
         run: |
-          git clone https://x-access-token:${{ secrets.SECRET_TOKEN_NOTES }}@github.com/masputrawae/obsidian-vault.git clone_content
-
-      - name: Buat folder content
-        run: |
-          mkdir content
-
-      - name: Salin folder garden ke konten Hugo
-        run: |
-          cp -r clone_content/* ./content/
-
-      - name: Remove Clone Content
-        run: |
-          rm -rf clone_content
+          git clone https://x-access-token:${{ secrets.SECRET_TOKEN_NOTES }}@github.com/masputrawae/obsidian-vault.git content
 
       - name: Install Dart Sass
         run: sudo snap install dart-sass
