@@ -23,14 +23,14 @@ jobs:
       - name: Checkout repo utama
         uses: actions/checkout@v4
 
+      - name: Clone repo konten (private)
+        run: |
+          git clone https://x-access-token:${{ secrets.SECRET_TOKEN_NOTES }}@github.com/masputrawae/obsidian-vault.git content
+
       - name: Install Hugo CLI
         run: |
           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
           && sudo dpkg -i ${{ runner.temp }}/hugo.deb
-
-      - name: Clone repo konten (private)
-        run: |
-          git clone https://x-access-token:${{ secrets.SECRET_TOKEN_NOTES }}@github.com/masputrawae/obsidian-vault.git content
 
       - name: Install Dart Sass
         run: sudo snap install dart-sass
