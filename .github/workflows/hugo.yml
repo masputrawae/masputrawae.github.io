@@ -23,10 +23,6 @@ jobs:
       - name: Checkout repo utama
         uses: actions/checkout@v4
 
-      - name: Clone repo konten (private)
-        run: |
-          git clone https://x-access-token:${{ secrets.SECRET_TOKEN_NOTES }}@github.com/masputrawae/obsidian-vault.git content
-
       - name: Install Hugo CLI
         run: |
           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
@@ -36,8 +32,7 @@ jobs:
         run: |
           git clone https://x-access-token:${{ secrets.SECRET_TOKEN_NOTES }}@github.com/masputrawae/obsidian-vault.git clone_content
 
-      # Hanya menyalin folder 'garden' dari repo konten ke folder 'content' di Hugo
-      - name: Salin folder 'garden' ke konten Hugo
+      - name: Salin folder garden ke konten Hugo
         run: |
           cp -r clone_content/garden/* ./content/
 
