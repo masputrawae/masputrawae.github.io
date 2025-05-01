@@ -32,6 +32,10 @@ jobs:
         run: |
           git clone https://x-access-token:${{ secrets.SECRET_TOKEN_NOTES }}@github.com/masputrawae/obsidian-vault.git clone_content
 
+      - name: Buat folder content
+        run: |
+          mkdir content
+
       - name: Salin folder garden ke konten Hugo
         run: |
           cp -r clone_content/garden/* ./content/
