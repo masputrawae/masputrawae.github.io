@@ -21,9 +21,9 @@ enableEmoji       = true
   twitter       = "@Masputrawae"
 
 [permalinks]
-  abstracts       = '/:section/:year/:month/:title/'
-  history         = '/:section/:year/:month/:title/'
-  inbox           = '/:section/:year/:month/:title/'
+  inbox	          = '/:section/:year/:month/:title/'
+  archives        = '/:section/:year/:month/:title/'
+  random          = '/:section/:year/:month/:title/'
   programming     = '/:section/:year/:month/:title/'
   resource        = '/:section/:year/:month/:title/'
 
