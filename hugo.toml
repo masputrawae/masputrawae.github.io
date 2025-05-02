@@ -25,7 +25,7 @@ enableEmoji       = true
   archives        = '/:section/:year/:month/:title/'
   random          = '/:section/:year/:month/:title/'
   programming     = '/:section/:year/:month/:title/'
-  resource        = '/:section/:year/:month/:title/'
+  resources       = '/:section/:year/:month/:title/'
 
 [taxonomies]
   category = "categories"
