@@ -87,6 +87,8 @@ main {
 // FOOTER
 footer {
   text-align: center;
+  max-width: 100ch;
+  margin: 0 auto;
   @include b.max(md){
     padding-bottom: 6rem;
   }

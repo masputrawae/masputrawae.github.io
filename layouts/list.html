@@ -1,3 +1,14 @@
 {{ define "main" }}
   {{ partial "wikilinks.html" . }}
+
+  {{ if and .IsSection (eq .Section "inbox") }}
+    <ul>
+      {{ range .Pages }}
+        <li>
+          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}
+  
 {{ end }}

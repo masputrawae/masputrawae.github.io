@@ -1,3 +1,46 @@
 {{ define "main" }}
   {{ partial "wikilinks" . }}
+  <hr>
+  <h2>Semua Catatan</h2>
+  <div class="masonry">
+    {{ range .Site.Pages }}
+      {{ if .IsSection }}
+        {{ if .Pages }}
+          <div class="masonry__item">
+            <table>
+              <thead>
+                <tr>
+                  <th>
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ range .Pages }}
+                  <tr>
+                    <td><a href="{{ .Permalink }}">{{ .Title }}</a></td>
+                  </tr>
+                {{ end }}
+              </tbody>
+            </table>
+          </div>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  </div>
+  <style>
+    .masonry {
+      column-count: 2;
+    }
+  
+    .masonry__item {
+      break-inside: avoid;
+    }
+
+    @media (max-width: 62em) {
+      .masonry {
+        column-count: 1;
+      }
+    }
+  </style>
 {{ end }}
