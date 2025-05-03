@@ -1,5 +1,6 @@
 {{ define "main" }}
-  <h1><span class="emoji">🏷️</span>{{ .Title }}</h1>
+  <h1>{{ .Title }}</h1>
+  <hr>
   {{ partial "wikilinks.html" . }}
 
   {{ $taxonomy := .Data.Plural }}

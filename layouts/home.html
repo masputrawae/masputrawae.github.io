@@ -1,4 +1,6 @@
 {{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  <hr>
   {{ partial "wikilinks" . }}
   <hr>
   <h2>Semua Catatan</h2>
@@ -6,24 +8,14 @@
     {{ range .Site.Pages }}
       {{ if .IsSection }}
         {{ if .Pages }}
-          <div class="masonry__item">
-            <table>
-              <thead>
-                <tr>
-                  <th>
-                    <a href="{{ .Permalink }}">{{ .Title }}</a>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {{ range .Pages }}
-                  <tr>
-                    <td><a href="{{ .Permalink }}">{{ .Title }}</a></td>
-                  </tr>
-                {{ end }}
-              </tbody>
-            </table>
-          </div>
+          <nav class="masonry__item">
+            <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+            <ul>
+              {{ range .Pages }}
+                <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+              {{ end }}
+            </ul>
+          </nav>
         {{ end }}
       {{ end }}
     {{ end }}

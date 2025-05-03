@@ -1,7 +1,9 @@
 {{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  <hr>
   {{ partial "wikilinks.html" . }}
 
-  {{ if and .IsSection (eq .Section "inbox") }}
+  {{ if and .IsSection (or (eq .Section "inbox") (eq .Section "archives") (eq .Section "daily") (eq .Section "projects") (eq .Section "ideas")) }}
     <ul>
       {{ range .Pages }}
         <li>
@@ -10,5 +12,5 @@
       {{ end }}
     </ul>
   {{ end }}
-  
+
 {{ end }}

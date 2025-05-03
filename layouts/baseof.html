@@ -5,7 +5,7 @@
 </head>
 <body>
   <header>
-    <button class="btn btn--emoji" id="toggleThemes" title="Switch Themes" aria-label="Switch Themes">
+    <button id="toggleThemes" title="Switch Themes" aria-label="Switch Themes">
       <span class="emoji">🌙</span>
     </button>
     <button onclick="window.location.href='{{ site.BaseURL | absURL }}'" title="Go To Home" aria-label="Go To Home">
@@ -16,7 +16,9 @@
     </button>
   </header>
   <main>
-    {{ block "main" . }}{{ end }}
+    <article>
+      {{ block "main" . }}{{ end }}
+    </article>
   </main>
   <footer>
     <hr>

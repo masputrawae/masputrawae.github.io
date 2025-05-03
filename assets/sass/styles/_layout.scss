@@ -78,7 +78,7 @@ header {
 
 // MAIN
 main {
-  min-height: 90vh;
+  min-height: 100vh;
   font-size: 1rem;
   max-width: 100ch;
   margin: 0 auto;
@@ -108,7 +108,7 @@ footer {
 }
 
 // HEADING SIZE (h1 - h6)
-h1 {font-size: v.$font__size--6xl;}
+h1 {font-size: v.$font__size--10xl;}
 h2 {font-size: v.$font__size--5xl;}
 h3 {font-size: v.$font__size--4xl;}
 h4 {font-size: v.$font__size--3xl;}
