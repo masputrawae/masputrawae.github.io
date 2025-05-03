@@ -24,7 +24,7 @@ enableEmoji       = true
   inbox	          = '/:section/:year/:month/:title/'
   archives        = '/:section/:year/:month/:title/'
   random          = '/:section/:year/:month/:title/'
-  programming     = '/:section/:year/:month/:title/'
+  knowledge       = '/:section/:year/:month/:title/'
   resources       = '/:section/:year/:month/:title/'
 
 [taxonomies]
