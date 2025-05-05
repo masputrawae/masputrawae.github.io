@@ -4,10 +4,12 @@
   {{ partial "wikilinks" . }}
   <hr>
 
-  {{ $stages := slice "seedling" "budding" "evergreen" }}
+  {{ $stages := slice "seedling" "sprout" "budding" "lush" "evergreen" }}
   {{ $emojiMap := dict
     "seedling" "🌱"
+    "sprout" "🌿"
     "budding" "🌼"
+    "lush" "🍃"
     "evergreen" "🌲"
   }}
 
