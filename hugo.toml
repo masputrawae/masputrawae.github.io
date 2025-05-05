@@ -21,14 +21,15 @@ enableEmoji       = true
   twitter       = "@Masputrawae"
 
 [permalinks]
-  daily = '/:section/:year/:month/:day/:title/'
-  inbox = '/:section/:title/'
-  garden = '/:section/:title/'
-  literatur = '/:section/:title/'
+  daily = '/:year/:month/:day/:title/'
+  inbox = '/:title/'
+  garden = '/:title/'
+  literatur = '/:title/'
 
 [taxonomies]
   category = "categories"
   tag = "tags"
+  topic = "topic"
 
 #============== MARKUP ==============#
 [markup]
