@@ -21,14 +21,10 @@ enableEmoji       = true
   twitter       = "@Masputrawae"
 
 [permalinks]
-  archives        = '/:section/:year/:month/:title/'
-  daily           = '/:section/:year/:month/:day/:title/'
-  ideas           = '/:section/:year/:month/:day/:title/'
-  inbox	          = '/:section/:year/:month/:title/'
-  knowledge       = '/:section/:year/:month/:title/'
-  projects        = '/:section/:year/:month/:title/'
-  random          = '/:section/:year/:month/:title/'
-  resources       = '/:section/:year/:month/:title/'
+  daily = '/:section/:year/:month/:day/:title/'
+  inbox = '/:section/:title/'
+  garden = '/:section/:title/'
+  literatur = '/:section/:title/'
 
 [taxonomies]
   category = "categories"
