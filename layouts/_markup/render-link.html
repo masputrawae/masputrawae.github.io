@@ -1,74 +1,27 @@
-{{- $isWikilink := eq .Destination "wikilinks" -}}
-{{- $isExternal := or (strings.HasPrefix .Destination "http://")
-                       (strings.HasPrefix .Destination "https://")
-                       (strings.HasPrefix .Destination "mailto:") -}}
+{{- $u := urls.Parse .Destination -}}
+{{- $href := .Destination -}}
 
-{{ if $isWikilink }}
-  {{/* --- Wikilink handling --- */}}
-  {{ $target := .Title | lower | urlize }}
-  {{ $page := or (.Page.GetPage $target) (.Page.Site.GetPage (printf "/%s" $target)) }}
+{{- if strings.HasPrefix $u.String "#" -}}
+  {{- $href = printf "%s#%s" .PageInner.RelPermalink $u.Fragment -}}
 
-  {{ if $page }}
-    <a class="link link--internal" href="{{ $page.RelPermalink }}">
-      {{ .Text | safeHTML }}
-    </a>
-  {{ else }}
-    {{/* Alias detection for wikilink */}}
-    {{ $aliasPage := "" }}
-    {{ range .Page.Site.Pages }}
-      {{ if in .Aliases $target }}
-        {{ $aliasPage = . }}
-        {{ break }}
-      {{ end }}
-    {{ end }}
-    {{ if $aliasPage }}
-      <a class="link link--internal" href="{{ $aliasPage.RelPermalink }}">
-        {{ .Text | safeHTML }}
-      </a>
-    {{ else }}
-      <a class="link link--missing" title="Page Not Found" href="{{ $target | relURL }}">
-        {{ .Text | safeHTML }}
-      </a>
-    {{ end }}
-  {{ end }}
+{{- else if $u.IsAbs -}}
+  <a href="{{ $href }}" target="_blank" rel="noopener noreferrer nofollow" class="link link--external">{{ .Text }}</a>
 
-{{ else if not $isExternal }}
-  {{/* --- Internal markdown links + alias support --- */}}
-  {{ $dest := .Destination }}
-  {{ $page := or (.Page.GetPage $dest) (.Page.Site.GetPage (printf "/%s" $dest)) }}
+{{- else -}}
+  {{- $path := strings.TrimPrefix "./" $u.Path -}}
+  
+  {{- $page := .PageInner.GetPage $path -}}
+  {{- $resource := .PageInner.Resources.Get $path -}}
+  {{- $contentExists := or $page $resource -}}
 
-  {{ if $page }}
-    <a class="link link--internal" href="{{ $page.RelPermalink }}">
-      {{ .Text | safeHTML }}
-    </a>
-  {{ else }}
-    {{/* Alias detection for markdown link */}}
-    {{ $aliasPage := "" }}
-    {{ range .Page.Site.Pages }}
-      {{ if in .Aliases $dest }}
-        {{ $aliasPage = . }}
-        {{ break }}
-      {{ end }}
-    {{ end }}
-    {{ if $aliasPage }}
-      <a class="link link--internal" href="{{ $aliasPage.RelPermalink }}">
-        {{ .Text | safeHTML }}
-      </a>
-    {{ else }}
-      <a class="link link--missing" title="Page Not Found" href="{{ $dest | relURL }}">
-        {{ .Text | safeHTML }}
-      </a>
-    {{ end }}
-  {{ end }}
+  {{- if $contentExists -}}
+    {{- with $contentExists }}
+      {{- $href = .RelPermalink -}}
+    {{- end -}}
+    <a href="{{ $href }}" class="link link--internal">{{ .Text }}</a>
+  {{- else -}}
+    <!-- Link not found, add error class -->
+    <a href="{{ $href }}" class="link link--missing">{{ .Text }}</a>
+  {{- end -}}
 
-{{ else }}
-  {{/* --- External links --- */}}
-  <a 
-    class="link link--external" 
-    href="{{ .Destination | safeURL }}"
-    rel="external noopener noreferrer nofollow" 
-    target="_blank"
-    >
-     {{ .Text | safeHTML }}
-  </a>
-{{ end }}
+{{- end -}}

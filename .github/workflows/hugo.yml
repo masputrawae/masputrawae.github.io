@@ -25,7 +25,7 @@ jobs:
 
       - name: Clone repo konten (private)
         run: |
-          git clone https://x-access-token:${{ secrets.SECRET_TOKEN_NOTES }}@github.com/masputrawae/obsidian-vault.git content
+          git clone https://x-access-token:${{ secrets.SECRET_TOKEN_NOTES }}@github.com/masputrawae/obsidian-vault.git raw_content
 
       - name: Install Hugo CLI
         run: |
@@ -35,6 +35,14 @@ jobs:
       - name: Install Dart Sass
         run: sudo snap install dart-sass
 
+      - name: Convert Wikilinks
+        run: |
+          python3 wikilinks.py
+
+      - name: Remove raw_content
+        run: |
+          rm -rf raw_content
+          
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5

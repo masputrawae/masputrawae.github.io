@@ -5,11 +5,17 @@
 </head>
 <body>
   <header>
-    <button id="toggleThemes" title="Switch Themes" aria-label="Switch Themes">
-      <span class="emoji">🌙</span>
+    <button onclick="window.location.href='{{ "/tags/" | relURL }}'" title="Tags" aria-label="Tags">
+      <span class="emoji">🏷️</span>
+    </button>
+    <button onclick="window.location.href='{{ "/categories/" | relURL }}'" title="Categories" aria-label="Categories">
+      <span class="emoji">🧭</span>
     </button>
     <button onclick="window.location.href='{{ site.BaseURL | absURL }}'" title="Go To Home" aria-label="Go To Home">
       <span class="emoji">🏡</span>
+    </button>
+    <button id="toggleThemes" title="Switch Themes" aria-label="Switch Themes">
+      <span class="emoji">🌙</span>
     </button>
     <button onclick="window.location.href='{{ "search.html" | relURL }}'" title="Search" aria-label="Search">
       <span class="emoji">🔍</span>
