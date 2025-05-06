@@ -3,7 +3,4 @@
 <hr>
 {{ .Content | safeHTML }}
 <hr>
-{{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
-{{ partial "terms.html" (dict "taxonomy" "categories" "page" .) }}
-{{ partial "terms.html" (dict "taxonomy" "topic" "page" .) }}
 {{ end }}
