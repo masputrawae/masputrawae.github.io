@@ -1,7 +1,7 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
   <hr>
-  {{ partial "wikilinks" . }}
+  {{ .Content | safeHTML }}
   <hr>
 
   {{ $stages := slice "seedling" "sprout" "budding" "lush" "evergreen" }}
@@ -9,7 +9,7 @@
     "seedling" "🌱"
     "sprout" "🌿"
     "budding" "🌼"
-    "lush" "🍃"
+    "lush" "🪴"
     "evergreen" "🌲"
   }}
 
@@ -54,7 +54,7 @@
               <span class="emoji">{{ index $emojiMap $stage }}</span>
               <a href="{{.Permalink | relURL }}">{{ .Title }}</a>
             </h3>
-            <p>{{ .Summary | strings.Truncate 100 }}</p>
+            <p>{{ .Summary | strings.Truncate 200 }}</p>
           </div>
         </figure>
       {{ end }}

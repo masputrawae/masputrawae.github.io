@@ -1,7 +1,7 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
   <hr>
-  {{ partial "wikilinks.html" . }}
+  {{ .Content | safeHTML }}
 
   {{ $taxonomy := .Data.Plural }}
   {{ $terms := index .Site.Taxonomies $taxonomy }}
