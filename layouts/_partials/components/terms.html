@@ -12,12 +12,12 @@ For a given taxonomy, renders a list of terms assigned to the page.
 
 {{- with $page.GetTerms $taxonomy }}
   {{- $label := (index . 0).Parent.LinkTitle }}
-  <nav>
-    <strong>{{ $label | title }}:</strong>
+  <div>
+    <div>{{ $label }}:</div>
     <ul>
       {{- range . }}
         <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
       {{- end }}
     </ul>
-  </nav>
+  </div>
 {{- end }}

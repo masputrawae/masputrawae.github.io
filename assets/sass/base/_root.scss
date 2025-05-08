@@ -1,0 +1,65 @@
+@use "../abstracts/dark-theme" as dark;
+@use "../abstracts/light-theme" as light;
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+:root {
+	@include m.theme-vars(light.$light);
+
+	&[data-theme="dark"] {
+		@include m.theme-vars(dark.$dark);
+	}
+}
+
+/* ==== Reset CSS ==== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote, dl, dd {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section {
+  display: block;
+}
+
+// EMOJI STYLE
+.emoji {
+  display: inline-block;
+  font-family: v.$font__family--emoji;
+  font-size: inherit;
+  text-shadow: var(--text-shadow);
+  @include m.transition(transform);
+
+  &:hover {
+    transform: rotate(720deg);
+  }
+}

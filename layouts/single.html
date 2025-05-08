@@ -1,6 +1,6 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
-<hr>
-{{ .Content | safeHTML }}
-<hr>
+  <article class="markdown">
+    <h1 class="heading heading--1">{{ .Title }}</h1>
+    {{ .Content | safeHTML }}
+  </article>
 {{ end }}

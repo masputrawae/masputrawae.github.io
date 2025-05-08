@@ -1,13 +1,15 @@
 {{ define "main" }}
 
-<form class="search" id="search" onsubmit="handleSearch(event)" method="get" id="search" data-search-url="{{ "search-data.json" | relURL }}">
-  <label class="emoji" for="search-input" aria-label="search" title="search">🔍</label>
-  <input class="search__input" type="search" id="search-input" name="query" placeholder="Search...." autocomplete="off" autocorrect="off" spellcheck="false">
-</form>
-
-<div id="resultsPanel" style="display: none;">
-  <ul class="search__results" id="results" data-collapse="resultsSearch"></ul>
-</div>
+<article class="markdown">
+  <form class="search" id="search" onsubmit="handleSearch(event)" method="get" id="search" data-search-url="{{ "search-data.json" | relURL }}">
+    <label class="emoji" for="search-input" aria-label="search" title="search">🔍</label>
+    <input class="search__input" type="search" id="search-input" name="query" placeholder="Search...." autocomplete="off" autocorrect="off" spellcheck="false">
+  </form>
+  
+  <div id="resultsPanel" style="display: none;">
+    <ul class="search__results" id="results" data-collapse="resultsSearch"></ul>
+  </div>
+</article>
 
 <script src="{{ "js/lunr.min.js" | relURL }}" defer></script>
 <script defer>
@@ -72,7 +74,7 @@
                 const doc = store.find((d) => d.id === r.ref);
                 return doc
                   ? `<li class="nav__item" role="option">
-                      <a href="${doc.url}">
+                      <a href="${doc.url}" class"link link--internal">
                         <span class="emoji">${escapeHTML(doc.emoji)}</span>
                         ${escapeHTML(doc.title)}
                       </a>

@@ -1,0 +1,39 @@
+{{/* 
+Cara Panggil: {{ partial "components/section-list.html" (dict "targetSection" "knowledge" "Site" .Site) }}
+*/}}
+
+{{ define "book-item" }}
+  {{ $title := .Title }}
+  {{ $emoji := .Params.emoji }}
+  <a href="{{ .RelPermalink }}" class="book__item" aria-label="{{ $title }}" title="{{ $title }}">
+    {{ with .Params.image }}
+      <picture class="book__cover">
+        <img src="{{ . }}" alt="Cover of {{ $title }}" class="book__image">
+      </picture>
+    {{ else }}
+      <div class="book__cover">
+        <div class="book__image book__image--emoji">
+          <span class="emoji">{{ with $emoji }}{{ . }}{{ else }}📗{{ end }}📖</span>
+          <span class="text">{{ $title }}</span>
+        </div>
+      </div>
+    {{ end }}
+  </a>
+{{ end }}
+
+{{ $targetSection := .targetSection }}
+{{ $site := .Site }}
+
+{{ range $site.Sections }}
+  {{ if eq .Section $targetSection }}
+    {{ if gt (len .Sections) 0 }}
+      {{ range .Sections }}
+        {{ template "book-item" . }}
+      {{ end }}
+    {{ else }}
+      {{ range .Pages }}
+        {{ template "book-item" . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}

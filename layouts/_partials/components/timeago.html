@@ -1,0 +1,17 @@
+<time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+  {{ $now := now }}
+  {{ $then := .Date }}
+  {{ $diff := sub $now.Unix $then.Unix }}
+
+  {{ if lt $diff 3600 }}
+    {{ div $diff 60 }} menit lalu
+  {{ else if lt $diff 86400 }}
+    {{ div $diff 3600 }} jam lalu
+  {{ else if lt $diff 2592000 }}
+    {{ div $diff 86400 }} hari lalu
+  {{ else if lt $diff 31536000 }}
+    {{ div $diff 2592000 }} bulan lalu
+  {{ else }}
+    {{ div $diff 31536000 }} tahun lalu
+  {{ end }}
+</time>

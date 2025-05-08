@@ -21,7 +21,7 @@
     <a href="{{ $href }}" class="link link--internal">{{ .Text }}</a>
   {{- else -}}
     <!-- Link not found, add error class -->
-    <a href="{{ $href }}" class="link link--missing">{{ .Text }}</a>
+    <a href="{{ $href }}" class="link link--error">{{ .Text }}</a>
   {{- end -}}
 
 {{- end -}}

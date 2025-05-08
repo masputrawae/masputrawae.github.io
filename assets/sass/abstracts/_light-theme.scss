@@ -2,7 +2,9 @@ $light: (
   // Backgrounds
   bg-body:                #fafafa,
   bg-second:              #f4f4f5,
-  
+  bg-overlay:             rgba(255, 255, 255, 0.1),
+  bg-overlay-hover:       rgba(255, 255, 255, 0.5),
+
   // Text Colors
   cl-text-default:        #27272a,
   cl-text-title:          #09090b,
@@ -29,38 +31,22 @@ $light: (
   cl-state-success:       #3f6212,
   cl-state-warning:       #854d0e,
   cl-state-danger:        #991b1b,
-  cl-state-error:         #7f1d1d,
-  cl-state-bug:           #86198f,
   cl-state-note:          #a20a4a,
   cl-state-abstract:      #3730a3,
   cl-state-todo:          #5b21b6,
   cl-state-question:      #075985,
-  cl-state-failure:       #9a3412,
-  cl-state-example:       #9d174d,
-  cl-state-quote:         #115e59,
   cl-state-important:     #bb1a1a,
-  cl-state-history:       #581c87,
-  cl-state-journal:       #155e75,
-  cl-state-person:        #3f6212,
 
   bg-state-tip:           #6b21a81c,
   bg-state-info:          #1e40a81c,
   bg-state-success:       #3f62181c,
   bg-state-warning:       #854d081c,
-  bg-state-danger:        #991b181c,
   bg-state-error:         #7f1d181c,
-  bg-state-bug:           #8619881c,
   bg-state-note:          #be18581c,
   bg-state-abstract:      #3730a81c,
   bg-state-todo:          #5b21b81c,
   bg-state-question:      #0759881c,
-  bg-state-failure:       #9a34181c,
-  bg-state-example:       #9d17481c,
-  bg-state-quote:         #115e581c,
   bg-state-important:     #dc26281c,
-  bg-state-history:       #581c881c,
-  bg-state-journal:       #155e781c,
-  bg-state-person:        #3f62181c,
 
   // Base
   cl-syntax-text:             #000000,  // black (max contrast)

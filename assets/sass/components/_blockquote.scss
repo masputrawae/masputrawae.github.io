@@ -1,0 +1,17 @@
+@use "../abstracts/breakpoints" as b;
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+// BlockQuote
+.blockquote {
+  border-left: 4px solid var(--cl-accent);
+  background-color: var(--bg-second);
+  color: var(--cl-text-muted);
+  font-style: normal;
+  font-family: v.$font__family--serif;
+  position: relative;
+  margin: 2rem auto;
+  padding: 1.5rem 2rem;
+  max-width: 80ch;
+  box-shadow: var(--shadow-md);
+}

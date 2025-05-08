@@ -1,36 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}" data-theme-system="auto" data-theme="dark">
 <head>
-  {{ partial "head.html" . }}
+  {{ partial "head/head.html" . }}
 </head>
 <body>
-  <header>
-    <button onclick="window.location.href='{{ "/tags/" | relURL }}'" title="Tags" aria-label="Tags">
-      <span class="emoji">🏷️</span>
-    </button>
-    <button onclick="window.location.href='{{ "/categories/" | relURL }}'" title="Categories" aria-label="Categories">
-      <span class="emoji">🧭</span>
-    </button>
-    <button onclick="window.location.href='{{ site.BaseURL | absURL }}'" title="Go To Home" aria-label="Go To Home">
-      <span class="emoji">🏡</span>
-    </button>
-    <button id="toggleThemes" title="Switch Themes" aria-label="Switch Themes">
-      <span class="emoji">🌙</span>
-    </button>
-    <button onclick="window.location.href='{{ "search.html" | relURL }}'" title="Search" aria-label="Search">
-      <span class="emoji">🔍</span>
-    </button>
-  </header>
-  <main>
-    <article>
-      {{ block "main" . }}{{ end }}
-    </article>
-  </main>
-  <footer>
-    <hr>
-    <p><a class="link link--internal" href="{{ "/disclaimer/" | relURL }}">Disclaimer </a>Semua isi di sini bersifat personal. Aku tidak menjamin keakuratan, karena ini lebih seperti curahan pikiran daripada panduan mutlak.</p>
-    <p>Made with ❤️ using <a href="https://gohugo.io/">Hugo</a></p>
-    <p>&copy; {{ now.Year }} · <strong><a class="link link--external" href="{{ site.BaseURL | relURL }}">{{ site.Title }}</a></strong> All rights reserved.</p>
-  </footer>
+  <header>{{ partial "layouts/header.html" . }}</header>
+  <main>{{ block "main" . }}{{ end }}</main>
+  <footer>{{ partial "layouts/footer.html" . }}</footer>
+
+  {{ partial "head/script.html" . }}
 </body>
 </html>

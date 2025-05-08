@@ -1,76 +1,35 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-  <hr>
-  {{ .Content | safeHTML }}
-  <hr>
-
-  {{ $stages := slice "seedling" "sprout" "budding" "lush" "evergreen" }}
-  {{ $emojiMap := dict
-    "seedling" "🌱"
-    "sprout" "🌿"
-    "budding" "🌼"
-    "lush" "🪴"
-    "evergreen" "🌲"
-  }}
-
-  <style>
-    #posts-container {
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      padding: 1rem;
-    }
-
-    #stage-select {
-      padding: 0.25rem;
-      background-color: var(--bg-second);
-      color: var(--cl-text-default);
-      border-radius: 0.25rem;
-      outline: none;
-    }
-
-    .stage-label {
-      font-weight: bolder;
-      font-size: 1.2rem;
-    }
-  </style>
-  <select id="stage-select">
-    <option value="all">🌍 All Growth Stages</option>
-    {{ range $stages }}
-      <option value="{{ . }}">{{ index $emojiMap . }} {{ . | title }}</option>
-    {{ end }}
-  </select>
-
-  <div id="posts-container">
-    {{ range .Site.RegularPages }}
-      {{ $stage := .Params.stage }}
-      {{ if $stage }}
-        <figure class="figure post-card" data-stage="{{ $stage }}" style="box-shadow:var(--shadow-md);border:1px solid var(--cl-border-default); border-radius:8px; padding:1rem; margin-bottom:1rem;">
-          {{ with .Params.Image }}
-            <img class="figure__image" src="{{ . | relURL }}" alt="{{ .Title }}">
-          {{ end }}
-          <div class="figure__caption">
-            <h3>
-              <span class="emoji">{{ index $emojiMap $stage }}</span>
-              <a href="{{.Permalink | relURL }}">{{ .Title }}</a>
-            </h3>
-            <p>{{ .Summary | strings.Truncate 200 }}</p>
+  <div class="grid">
+    <div class="grid__item">
+      <article class="markdown">
+        <h1 class="heading heading--1">{{ .Title }}</h1>
+        {{ .Content | safeHTML }}
+      </article>
+      <h2 class="heading heading--2">My Collection</h2>
+      <div class="book">
+        {{ range site.Params.bookSections }}
+          <strong class="book__categories">{{ .title }}</strong>
+          <div class="book__list">
+            {{ partial "components/section-list.html" (dict "targetSection" .id "Site" site) }}
           </div>
-        </figure>
-      {{ end }}
-    {{ end }}
+        {{ end }}
+      </div>
+    </div>
+
+    <div class="grid__item">
+      <h2 class="heading heading--2">Pinned</h2>
+      {{ partial "components/pinned.html" . }} 
+    </div>
+  </div>
+  <br>
+  <br>
+  <div style="text-align: center;">
+    <hr>
+    <h2 class="heading heading--1">Whiteboard</h2>
+    <hr>
+  </div>
+  <div class="masonry masonry--d4">
+    {{ partial "components/sticky-notes.html" (dict "category" "Notes" "Site" .Site) }}
   </div>
 
-  <script defer>
-    const select = document.getElementById("stage-select");
-    const posts = document.querySelectorAll(".post-card");
-
-    select.addEventListener("change", () => {
-      const selected = select.value;
-      posts.forEach(post => {
-        const stage = post.dataset.stage;
-        post.style.display = (selected === "all" || stage === selected) ? "block" : "none";
-      });
-    });
-  </script>
 {{ end }}

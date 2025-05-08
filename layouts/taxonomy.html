@@ -1,7 +1,42 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-  <hr>
-  {{ .Content | safeHTML }}
+  <article class="markdown">
+    <h1 class="heading heading--1">{{ .Title }}</h1>
+    {{ .Content | safeHTML }}
+  </article>
+  <style>
+    nav.taxonomy {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    nav.taxonomy .btn {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      background-color: inherit;
+      border-radius: 0.75rem;
+      box-shadow: var(--shadow-sm);
+      text-decoration: none;
+      color: inherit;
+      border: 2px solid transparent;
+    }
+    nav.taxonomy .btn .emoji {
+      margin-right: 0.5rem;
+      font-size: 1.5em;
+    }
+    nav.taxonomy .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--cl-accent);
+    }
+    nav.taxonomy .btn span:last-child {
+      font-weight: 600;
+    }
+  </style>
 
   {{ $taxonomy := .Data.Plural }}
   {{ $terms := index .Site.Taxonomies $taxonomy }}
@@ -58,46 +93,4 @@
       </a>
     {{ end }}
   </nav>
-
-
-  <style>
-    nav.taxonomy {
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    nav.taxonomy .btn {
-      display: flex;
-      align-items: center;
-      padding: 0.75rem 1rem;
-      background-color: inherit;
-      border-radius: 0.75rem;
-      box-shadow: var(--shadow-sm);
-      text-decoration: none;
-      color: inherit;
-      border: 2px solid transparent;
-    }
-
-    /* Emoji dan nama taksonomi */
-    nav.taxonomy .btn .emoji {
-      margin-right: 0.5rem;
-      font-size: 1.5em;
-    }
-
-    /* Hover effect */
-    nav.taxonomy .btn:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--cl-accent);
-    }
-
-    /* Responsive font-size based on $size */
-    nav.taxonomy .btn span:last-child {
-      font-weight: 600;
-    }
-  </style>
 {{ end }}

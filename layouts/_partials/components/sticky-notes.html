@@ -1,11 +1,27 @@
-{{ define "main" }}
-  <article class="markdown">
-    <h1 class="heading heading--1">{{ .Title }}</h1>
-    {{ .Content | safeHTML }}
-  </article>
-  
-  <div class="masonry masonry--d2">
-    {{ range .Pages }}
+{{/* partial dipanggil dengan: 
+  {{ partial "components/card-by-category.html" (dict "category" "Sticky Note" "Site" .Site) }} 
+*/}}
+
+{{ $category := .category }}
+{{ $site := .Site }}
+
+{{ $noteMaps := dict
+  "tip" "💡"
+  "info" "ℹ️"
+  "success" "✅"
+  "warning" "⚠️"
+  "danger" "❌"
+  "note" "📝"
+  "abstract" "⚙️"
+  "todo" "☑️"
+  "question" "❓"
+  "important" "‼️"
+}}
+
+{{ range $site.RegularPages }}
+  {{ $categories := .Params.categories }}
+  {{ if and $categories (in $categories $category) }}
+
     {{ $key := .Params.state | default "note" }}
 
     {{/* Cek apakah key ada di $noteMaps, kalau tidak pakai default emoji */}}
@@ -23,18 +39,17 @@
     {{ end }}
 
     <div class="masonry__item notes" style="background-color: var(--bg-state-{{- $key -}}); border-color: var(--cl-state-{{- $key -}});">
-      <a href="{{ .RelPermalink }}">
+      <a href="{{ .RelPermalink }}" aria-label="{{ .Title }}">
         <strong class="notes__title heading heading--4" style="color: var(--cl-state-{{- $key -}});">
           <span class="emoji">{{ with .Params.emoji }}{{ . }}{{ else }}{{ $icon }}{{ end }}</span>
           {{ .Title }}
         </strong>
         <div class="markdown notes__body">
-          {{ .Content | strings.Truncate 300 | safeHTML }}
+          {{ .Content | safeHTML }}
           <strong>{{ partial "components/timeago.html" . }}</strong>
         </div>
       </a>
     </div>
-  {{ end }}
-  </div>
 
+  {{ end }}
 {{ end }}

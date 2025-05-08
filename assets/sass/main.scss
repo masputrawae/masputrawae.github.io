@@ -1,4 +1,13 @@
-@use './styles/root';
-@use './styles/layout';
-@use './styles/code';
-@use './styles/components';
+@use './base/root';
+@use './base/typography';
+@use './base/layout';
+
+@use './components/blockquote';
+@use './components/book';
+@use './components/button';
+@use './components/card';
+@use './components/code';
+@use './components/image';
+@use './components/navbar';
+@use './components/search';
+@use './components/sticky-notes';

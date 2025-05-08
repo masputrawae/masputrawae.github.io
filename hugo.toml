@@ -12,6 +12,11 @@ enableEmoji       = true
     disable = false
     respectDoNotTrack = false
 
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  # stage = "stage"
+  
 [params]
   author        = "Putra Jaya"
   description   = "catatan-catatan pribadi yang mungkin hanya berguna untuk saya sendiri (atau mungkin alien di masa depan, siapa tahu? 👽)."
@@ -20,16 +25,18 @@ enableEmoji       = true
   image         = "logo/logo.png"
   twitter       = "@Masputrawae"
 
-[permalinks]
-  daily = '/:year/:month/:day/:title/'
-  inbox = '/:title/'
-  garden = '/:title/'
-  literatur = '/:title/'
-
-[taxonomies]
-  category = "categories"
-  tag = "tags"
-  topic = "topic"
+  # [[params.bookSections]]
+  #   id    = "knowledge"
+  #   title = "Knowledge"
+  # [[params.bookSections]]
+  #   id    = "books"
+  #   title = "Books"
+  # [[params.bookSections]]
+  #   id    = "archives"
+  #   title = "Archives"
+  [[params.bookSections]]
+    id    = "garden"
+    title = "Garden"
 
 #============== MARKUP ==============#
 [markup]

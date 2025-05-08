@@ -1,0 +1,23 @@
+@use "../abstracts/breakpoints" as b;
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+.notes {
+  display: block;
+  background-color: var(--bg-second);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+  border: 1px dashed var(--cl-border-default);
+  box-shadow: var(--shadow-md);
+
+  &__title {
+    color: var(--cl-accent);
+    font-size: v.$font__size--md;
+    font-family: v.$font__family--serif;
+  }
+
+  &__body {
+    font-size: v.$font__size--xs;
+  }
+}
