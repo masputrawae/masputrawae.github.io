@@ -31,9 +31,9 @@ enableEmoji       = true
   # [[params.bookSections]]
   #   id    = "books"
   #   title = "Books"
-  # [[params.bookSections]]
-  #   id    = "archives"
-  #   title = "Archives"
+  [[params.bookSections]]
+     id    = "learning"
+     title = "Learning"
   [[params.bookSections]]
     id    = "garden"
     title = "Garden"
