@@ -58,8 +58,9 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
   font-size: inherit;
   text-shadow: var(--text-shadow);
   @include m.transition(transform);
-
+  
   &:hover {
+    cursor: pointer;
     transform: rotate(720deg);
   }
 }

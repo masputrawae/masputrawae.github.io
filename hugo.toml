@@ -16,7 +16,12 @@ enableEmoji       = true
   category = "categories"
   tag = "tags"
   # stage = "stage"
-  
+
+[permalinks]
+  board = '/:year/:month/:day/:title/'
+  garden = '/:year/:month/:day/:title/'
+  learning = '/:title/'
+
 [params]
   author        = "Putra Jaya"
   description   = "catatan-catatan pribadi yang mungkin hanya berguna untuk saya sendiri (atau mungkin alien di masa depan, siapa tahu? 👽)."
@@ -25,25 +30,12 @@ enableEmoji       = true
   image         = "logo/logo.png"
   twitter       = "@Masputrawae"
 
-  # [[params.bookSections]]
-  #   id    = "knowledge"
-  #   title = "Knowledge"
-  # [[params.bookSections]]
-  #   id    = "books"
-  #   title = "Books"
-  [[params.bookSections]]
-     id    = "learning"
-     title = "Learning"
-  [[params.bookSections]]
-    id    = "garden"
-    title = "Garden"
-
 #============== MARKUP ==============#
 [markup]
-  [markup.tableOfContents]
-    endLevel    = 6
-    ordered     = false
-    startLevel  = 2
+  # [markup.tableOfContents]
+  #   endLevel    = 6
+  #   ordered     = false
+  #   startLevel  = 2
 
   [markup.highlight]
     codeFences          = true

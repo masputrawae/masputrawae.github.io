@@ -1,0 +1,74 @@
+{{/* partial dipanggil dengan:
+  {{ partial "components/notes.html" (dict "sections" (slice "garden" "notes") "Site" .Site) }}
+*/}}
+
+{{ $sections := .sections }}
+{{ $site := .Site }}
+
+{{ range $page := $site.RegularPages | shuffle }}
+  {{ if in $sections $page.Section }}
+
+    {{ $description := .Params.description | safeHTML }}
+    {{ $content := .Content | strings.Truncate 200 | safeHTML }}
+
+    {{ $keyState := $page.Params.state | default "note" }}
+
+    {{ $iconState := "🗒️" }}
+    {{ if eq $keyState "tip" }}        {{ $iconState = "💡" }}
+      {{ else if eq $keyState "info" }}  {{ $iconState = "ℹ️" }}
+      {{ else if eq $keyState "success" }}{{ $iconState = "✅" }}
+      {{ else if eq $keyState "warning" }}{{ $iconState = "⚠️" }}
+      {{ else if eq $keyState "danger" }}{{ $iconState = "❌" }}
+      {{ else if eq $keyState "note" }}  {{ $iconState = "📝" }}
+      {{ else if eq $keyState "abstract" }}{{ $iconState = "🧠" }}
+      {{ else if eq $keyState "todo" }}  {{ $iconState = "☑️" }}
+      {{ else if eq $keyState "question" }}{{ $iconState = "❓" }}
+      {{ else if eq $keyState "important" }}{{ $iconState = "‼️" }}
+    {{ end }}
+
+    {{ $keyStage := $page.Params.stage | default "seedling" }}
+    {{ $iconStage := "🌱" }}
+    {{ if eq $keyStage "seedling" }}        {{ $iconStage = "🌱" }}
+      {{ else if eq $keyStage "sprout" }}  {{ $iconStage = "🌿" }}
+      {{ else if eq $keyStage "budding" }}  {{ $iconStage = "🌸" }}
+      {{ else if eq $keyStage "lush" }}{{ $iconStage = "🌳" }}
+      {{ else if eq $keyStage "evergreen" }}{{ $iconStage = "🌲" }}
+    {{ end }}
+
+    <div class="masonry__item card" style="background-color: var(--bg-state-{{- $keyState -}});">
+      {{ with $page.Params.image }}
+        <img src="{{ . | absURL }}" alt="{{ $page.Title }}" loading="lazy" class="card__image">
+      {{ end }}
+
+      <div class="markdown card__body">
+        <a href="{{ .RelPermalink }}" class="card__title" style="color: var(--cl-state-{{- $keyState -}});">
+          <span class="emoji">{{ $iconState }}</span>
+          {{ $page.Title | title }}
+        </a>
+        {{ with $description }}
+          <p>{{ . }}</p>
+        {{ else }}
+          {{ $content }}
+        {{ end }}
+      </div>
+
+      <div class="card__footer">
+        <strong>
+          {{ $keyStage | title }}
+          <span class="emoji">{{ $iconStage }}</span>
+        </strong>
+
+        <strong>
+          {{ with index $page.Params.categories 0 }}
+            <strong>
+              {{ . | title }}:
+            </strong>
+          {{ end }}
+          {{ partial "components/timeago.html" $page }}
+        </strong>
+      </div>
+      <hr>
+      <a href="{{ .RelPermalink }}" class="btn btn--text" aria-label="{{ $page.Title }}" style="background-color: var(--bg-state-{{- $keyState -}});">Read More</a>
+    </div>
+  {{ end }}
+{{ end }}

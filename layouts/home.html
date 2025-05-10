@@ -2,34 +2,31 @@
   <div class="grid">
     <div class="grid__item">
       <article class="markdown">
-        <h1 class="heading heading--1">{{ .Title }}</h1>
+        <div style="text-align: center;">
+          <h1 class="heading heading--1" style="display: block;">{{ .Title }}</h1>
+        </div>
         {{ .Content | safeHTML }}
       </article>
-      <h2 class="heading heading--2">My Collection</h2>
-      <div class="book">
-        {{ range site.Params.bookSections }}
-          <strong class="book__categories">{{ .title }}</strong>
-          <div class="book__list">
-            {{ partial "components/section-list.html" (dict "targetSection" .id "Site" site) }}
-          </div>
-        {{ end }}
-      </div>
     </div>
 
     <div class="grid__item">
-      <h2 class="heading heading--2">Pinned</h2>
-      {{ partial "components/pinned.html" . }} 
+      <div style="text-align: center;">
+        <h2 class="heading heading--1" style="display: block;">My Collection</h2>
+      </div>
+      <div class="collection">
+        <div class="collection__list">
+          {{ partial "components/collections.html" (dict "targetSection" "learning" "Site" site) }}
+        </div>
+      </div>
     </div>
   </div>
   <br>
   <br>
-  <div style="text-align: center;">
-    <hr>
-    <h2 class="heading heading--1">Whiteboard</h2>
-    <hr>
-  </div>
-  <div class="masonry masonry--d4">
-    {{ partial "components/sticky-notes.html" (dict "category" "Notes" "Site" .Site) }}
-  </div>
 
+  <div style="text-align: center;">
+    <h2 class="heading heading--1" style="font-size: 2rem; display: block;">Note Board</h2>
+  </div>
+  <div class="masonry masonry--d3">
+    {{ partial "components/notes.html" (dict "sections" (slice "garden" "board") "Site" .Site) }}
+  </div>
 {{ end }}

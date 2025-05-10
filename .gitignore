@@ -8,6 +8,9 @@
 .hugo_build.lock
 hugo_stats.json
 
+content/
+raw_content/
+
 # Node modules
 /node_modules/
 

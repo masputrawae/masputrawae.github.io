@@ -1,18 +1,18 @@
 {{/* 
-Cara Panggil: {{ partial "components/section-list.html" (dict "targetSection" "knowledge" "Site" .Site) }}
+Cara Panggil: {{ partial "components/collections.html" (dict "targetSection" "knowledge" "Site" .Site) }}
 */}}
 
 {{ define "book-item" }}
   {{ $title := .Title }}
   {{ $emoji := .Params.emoji }}
-  <a href="{{ .RelPermalink }}" class="book__item" aria-label="{{ $title }}" title="{{ $title }}">
+  <a href="{{ .RelPermalink }}" class="collection__item" aria-label="{{ $title }}" title="{{ $title }}">
     {{ with .Params.image }}
-      <picture class="book__cover">
-        <img src="{{ . }}" alt="Cover of {{ $title }}" class="book__image">
+      <picture class="collection__cover">
+        <img src="{{ . }}" alt="Cover of {{ $title }}" class="collection__image">
       </picture>
     {{ else }}
-      <div class="book__cover">
-        <div class="book__image book__image--emoji">
+      <div class="collection__cover">
+        <div class="collection__image collection__image--emoji">
           <span class="emoji">{{ with $emoji }}{{ . }}{{ else }}📗{{ end }}📖</span>
           <span class="text">{{ $title }}</span>
         </div>

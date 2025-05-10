@@ -8,34 +8,37 @@
   padding: 1rem;
   box-shadow: var(--shadow-md);
   transition: transform 0.2s, box-shadow 0.2s;
+  display: block;
 
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
   }
 
-  &__body img {
+  &__image {
     width: 100%;
+    border-radius: inherit;
     height: auto;
-    border-radius: 8px;
     margin-bottom: 0.75rem;
+    box-shadow: var(--shadow-sm);
   }
 
-  &__body a {
+  &__body {
+    font-size: v.$font__size--xs;
+  }
+
+  &__title {
+    font-size: v.$font__size--xl;
+    font-family: v.$font__family--serif;
+    font-weight: 600;
+    border-bottom: 1px solid var(--cl-border-default);
     display: block;
-    font-weight: bold;
-    font-size: 1rem;
-    text-decoration: none;
-    margin-bottom: 0.5rem;
+    width: 100%;
+    margin-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
 
-  &__body p,
-  &__body span {
-    line-height: 1.4;
-  }
-
-  &__meta {
-    margin-top: 0.75rem;
-    font-size: 0.85rem;
+  &__footer {
+    @include m.flex-between;
   }
 }

@@ -133,6 +133,22 @@ body{
     }
   }
 
+  &--d5 {
+    column-count: 5;
+    @include b.max(xl) {
+      column-count: 4;
+    }
+    @include b.max(lg) {
+      column-count: 3;
+    }
+    @include b.max(md) {
+      column-count: 2;
+    }
+    @include b.max(sm) {
+      column-count: 1;
+    }
+  }
+
   &__item {
     break-inside: avoid;
   }

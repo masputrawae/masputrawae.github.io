@@ -41,4 +41,13 @@
       }
     }
   }
+
+  &--text {
+    background-color: var(--bg-second);
+    border-radius: 0.5rem;
+
+    &::after {
+      all: unset;
+    }
+  }
 }

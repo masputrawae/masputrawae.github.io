@@ -2,11 +2,9 @@
 @use "../abstracts/mixins" as m;
 @use "../abstracts/variables" as v;
 
-.book {
-  background-color: var(--bg-second);
+.collection {
   padding: 0.5rem;
   width: 100%;
-  box-shadow: var(--shadow-md);
   border-radius: 0.25rem;
 
   &__list {
@@ -18,7 +16,6 @@
     width: 100%;
     border-radius: 0.25rem;
     position: relative;
-    box-shadow: inset 0px 0px 10px black;
   }
 
   &__item {

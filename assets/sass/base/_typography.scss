@@ -28,6 +28,8 @@
 
 // HEADING STYLE
 .heading {
+  display: flex;
+  gap: 0.75rem;
   line-height: 1.4;
   margin-top: 2rem;
   padding-bottom: 0.25rem;
@@ -37,7 +39,6 @@
   font-weight: 700;
   text-shadow: var(--text-shadow);
   font-family: v.$font__family--serif;
-  display: block;
   width: 100%;
 
   &--1 {font-size: v.$font__size--6xl;}
@@ -46,6 +47,21 @@
   &--4 {font-size: v.$font__size--3xl;}
   &--5 {font-size: v.$font__size--2xl;}
   &--6 {font-size: v.$font__size--xl;}
+
+  &__anchor {
+    opacity: 0;
+  }
+
+  &:hover {
+
+    .heading__anchor {
+      opacity: 1;
+    }
+
+    .emoji {
+      transform: rotate(720deg);
+    }
+  }
 }
 
 .markdown {
