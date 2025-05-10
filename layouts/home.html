@@ -1,32 +1,26 @@
 {{ define "main" }}
-  <div class="grid">
-    <div class="grid__item">
-      <article class="markdown">
-        <div style="text-align: center;">
-          <h1 class="heading heading--1" style="display: block;">{{ .Title }}</h1>
-        </div>
-        {{ .Content | safeHTML }}
-      </article>
+<article class="grid">
+  <section class="grid__item">
+    <h1 class="heading heading--1">{{ .Title }}</h1>
+    <hr>
+    <div class="markdown">
+      {{ .Content | safeHTML }}
     </div>
-
-    <div class="grid__item">
-      <div style="text-align: center;">
-        <h2 class="heading heading--1" style="display: block;">My Collection</h2>
-      </div>
-      <div class="collection">
-        <div class="collection__list">
-          {{ partial "components/collections.html" (dict "targetSection" "learning" "Site" site) }}
-        </div>
-      </div>
+  </section>
+  <section class="grid__item collection">
+    <h2 class="heading heading--1">Collection</h2>
+    <hr>
+    <div class="collection__list">
+      {{ partial "components/collections.html" (dict "targetSection" "posts" "Site" .Site) }}
     </div>
-  </div>
-  <br>
-  <br>
+  </section>
+</article>
 
-  <div style="text-align: center;">
-    <h2 class="heading heading--1" style="font-size: 2rem; display: block;">Note Board</h2>
+<div class="card-container">
+  <h2 class="heading heading--1">Note Board</h2>
+  <hr>
+  <div class="card-masonry">
+    {{ partial "components/notes.html" (dict "sections" (slice "board" "notes" "posts") "Site" .Site) }}
   </div>
-  <div class="masonry masonry--d3">
-    {{ partial "components/notes.html" (dict "sections" (slice "garden" "board") "Site" .Site) }}
-  </div>
+</div>
 {{ end }}

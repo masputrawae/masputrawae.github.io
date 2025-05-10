@@ -2,8 +2,6 @@ $light: (
   // Backgrounds
   bg-body:                #fafafa,
   bg-second:              #f4f4f5,
-  bg-overlay:             rgba(255, 255, 255, 0.1),
-  bg-overlay-hover:       rgba(255, 255, 255, 0.5),
 
   // Text Colors
   cl-text-default:        #27272a,
@@ -20,73 +18,76 @@ $light: (
   cl-link-missing:        #991b1b,
   cl-link-missing-hover:  #7f1d1d,
   
-  text-shadow:            "2px 2px 3px rgba(0, 0, 0, 0.15)",
+  text-shadow-sm:  "0.5px 0.5px 1px rgba(0, 0, 0, 0.05)",
+  text-shadow-md:  "1px 1px 2px rgba(0, 0, 0, 0.08)",
+  text-shadow-lg:  "1.5px 1.5px 3px rgba(0, 0, 0, 0.1)",
 
-  shadow-sm:              "0 1px 3px rgba(0, 0, 0, 0.1)",
-  shadow-md:              "0 4px 6px rgba(0, 0, 0, 0.15)",
-  shadow-lg:              "0 10px 15px rgba(0, 0, 0, 0.2)",
+  shadow-sm:       "0 1px 2px rgba(0, 0, 0, 0.05)",
+  shadow-md:       "0 3px 6px rgba(0, 0, 0, 0.1)",
+  shadow-lg:       "0 8px 16px rgba(0, 0, 0, 0.12)",
   
-  cl-state-tip:           #6b21a8,
-  cl-state-info:          #1e40af,
-  cl-state-success:       #3f6212,
-  cl-state-warning:       #854d0e,
-  cl-state-danger:        #991b1b,
-  cl-state-note:          #a20a4a,
-  cl-state-abstract:      #3730a3,
-  cl-state-todo:          #5b21b6,
-  cl-state-question:      #075985,
-  cl-state-important:     #bb1a1a,
+  // ==== SEMENTARA NGAK PAKAI INI : LAGI MALES HEHE ==== //
+  // cl-state-tip:           #6b21a8,
+  // cl-state-info:          #1e40af,
+  // cl-state-success:       #3f6212,
+  // cl-state-warning:       #854d0e,
+  // cl-state-danger:        #991b1b,
+  // cl-state-note:          #a20a4a,
+  // cl-state-abstract:      #3730a3,
+  // cl-state-todo:          #5b21b6,
+  // cl-state-question:      #075985,
+  // cl-state-important:     #bb1a1a,
 
-  bg-state-tip:           #6b21a81c,
-  bg-state-info:          #1e40a81c,
-  bg-state-success:       #3f62181c,
-  bg-state-warning:       #854d081c,
-  bg-state-error:         #7f1d181c,
-  bg-state-note:          #be18581c,
-  bg-state-abstract:      #3730a81c,
-  bg-state-todo:          #5b21b81c,
-  bg-state-question:      #0759881c,
-  bg-state-important:     #dc26281c,
+  // bg-state-tip:           #6b21a81c,
+  // bg-state-info:          #1e40a81c,
+  // bg-state-success:       #3f62181c,
+  // bg-state-warning:       #854d081c,
+  // bg-state-error:         #7f1d181c,
+  // bg-state-note:          #be18581c,
+  // bg-state-abstract:      #3730a81c,
+  // bg-state-todo:          #5b21b81c,
+  // bg-state-question:      #0759881c,
+  // bg-state-important:     #dc26281c,
 
   // Base
-  cl-syntax-text:             #000000,  // black (max contrast)
-  cl-syntax-bg:               #ffffff,  // white
-  cl-syntax-error:            #dc2626,  // red-700
-  cl-syntax-highlight:        #16a34a,  // green-700
-  cl-syntax-line-number:      #525252,  // neutral-700
-  cl-syntax-line-number-alt:  #404040,  // darker gray
+  cl-syntax-text:             #000000,
+  cl-syntax-bg:               #ffffff,
+  cl-syntax-error:            #dc2626,
+  cl-syntax-highlight:        #16a34a,
+  cl-syntax-line-number:      #525252,
+  cl-syntax-line-number-alt:  #404040,
 
   // Keywords & Logic
-  cl-syntax-keyword:          #c2410c,  // orange-700
-  cl-syntax-keyword-constant: #0369a1,  // sky-700
-  cl-syntax-operator:         #b45309,  // amber-700 (more visible)
-  cl-syntax-traceback:        #a16207,  // yellow-700
+  cl-syntax-keyword:          #c2410c,
+  cl-syntax-keyword-constant: #0369a1,
+  cl-syntax-operator:         #b45309,
+  cl-syntax-traceback:        #a16207,
 
   // Types & Entities
-  cl-syntax-class:            #b45309,  // amber-700
-  cl-syntax-constant:         #075985,  // cyan-700
-  cl-syntax-decorator:        #7e22ce,  // purple-700
-  cl-syntax-entity:           #be185d,  // pink-700
-  cl-syntax-function:         #6d28d9,  // violet-700
-  cl-syntax-label:            #1d4ed8,  // blue-700
-  cl-syntax-namespace:        #15803d,  // emerald-700
+  cl-syntax-class:            #b45309,
+  cl-syntax-constant:         #075985,
+  cl-syntax-decorator:        #7e22ce,
+  cl-syntax-entity:           #be185d,
+  cl-syntax-function:         #6d28d9,
+  cl-syntax-label:            #1d4ed8,
+  cl-syntax-namespace:        #15803d,
 
   // Strings & Data
-  cl-syntax-string:           #047857,  // emerald-700
-  cl-syntax-number:           #0e7490,  // teal-700
-  cl-syntax-literal:          #4d7c0f,  // lime-700
+  cl-syntax-string:           #047857,
+  cl-syntax-number:           #0e7490,
+  cl-syntax-literal:          #4d7c0f,
 
   // Meta
-  cl-syntax-comment:          #4b5563,  // gray-700
-  cl-syntax-generic:          #57534e,  // stone-700
-  cl-syntax-heading:          #1e40af,  // indigo-700
+  cl-syntax-comment:          #4b5563,
+  cl-syntax-generic:          #57534e,
+  cl-syntax-heading:          #1e40af,
 
   // Diff
-  cl-syntax-deleted:          #b91c1c,  // red-700
-  cl-syntax-deleted-bg:       #fee2e2,  // red-100
-  cl-syntax-inserted:         #166534,  // green-700
-  cl-syntax-inserted-bg:      #dcfce7,  // green-100
+  cl-syntax-deleted:          #b91c1c,
+  cl-syntax-deleted-bg:       #fee2e2,
+  cl-syntax-inserted:         #166534,
+  cl-syntax-inserted-bg:      #dcfce7,
 
   // Whitespace
-  cl-syntax-whitespace:       #e5e7eb,  // gray-200 (subtle)
+  cl-syntax-whitespace:       #e5e7eb,
 );

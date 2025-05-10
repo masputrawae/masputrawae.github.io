@@ -3,62 +3,45 @@
 
 {{ range $page := $pages }}
 
-  {{ $content := .Content | strings.Truncate 300 | safeHTML }}
+  {{ $content := .Content | strings.Truncate 180 | safeHTML }}
   {{ $description := .Params.description | safeHTML }}
 
-  {{ $keyState := $page.Params.state | default "note" }}
+  {{ $keyStatus := $page.Params.status | default "note" }}
 
-  {{ $iconState := "🗒️" }}
-  {{ if eq $keyState "tip" }}        {{ $iconState = "💡" }}
-    {{ else if eq $keyState "info" }}  {{ $iconState = "ℹ️" }}
-    {{ else if eq $keyState "success" }}{{ $iconState = "✅" }}
-    {{ else if eq $keyState "warning" }}{{ $iconState = "⚠️" }}
-    {{ else if eq $keyState "danger" }}{{ $iconState = "❌" }}
-    {{ else if eq $keyState "note" }}  {{ $iconState = "📝" }}
-    {{ else if eq $keyState "abstract" }}{{ $iconState = "🧠" }}
-    {{ else if eq $keyState "todo" }}  {{ $iconState = "☑️" }}
-    {{ else if eq $keyState "question" }}{{ $iconState = "❓" }}
-    {{ else if eq $keyState "important" }}{{ $iconState = "‼️" }}
+  {{ $iconStatus := "🗒️" }}
+  {{ if eq $keyStatus "tip" }}        {{ $iconStatus = "💡" }}
+    {{ else if eq $keyStatus "info" }}  {{ $iconStatus = "ℹ️" }}
+    {{ else if eq $keyStatus "success" }}{{ $iconStatus = "✅" }}
+    {{ else if eq $keyStatus "warning" }}{{ $iconStatus = "⚠️" }}
+    {{ else if eq $keyStatus "danger" }}{{ $iconStatus = "❌" }}
+    {{ else if eq $keyStatus "note" }}  {{ $iconStatus = "📝" }}
+    {{ else if eq $keyStatus "abstract" }}{{ $iconStatus = "🧠" }}
+    {{ else if eq $keyStatus "todo" }}  {{ $iconStatus = "☑️" }}
+    {{ else if eq $keyStatus "question" }}{{ $iconStatus = "❓" }}
+    {{ else if eq $keyStatus "important" }}{{ $iconStatus = "‼️" }}
   {{ end }}
 
-  {{ $keyStage := $page.Params.stage | default "seedling" }}
-  {{ $iconStage := "🌱" }}
-  {{ if eq $keyStage "seedling" }}        {{ $iconStage = "🌱" }}
-    {{ else if eq $keyStage "sprout" }}  {{ $iconStage = "🌿" }}
-    {{ else if eq $keyStage "budding" }}  {{ $iconStage = "🌸" }}
-    {{ else if eq $keyStage "lush" }}{{ $iconStage = "🌳" }}
-    {{ else if eq $keyStage "evergreen" }}{{ $iconStage = "🌲" }}
-  {{ end }}
+  <div class="card">
+    <div class="card__header">
+      {{ with $page.Params.image }}
+        <img src="{{ . | absURL }}" alt="{{ $page.Title }}" loading="lazy" class="card__image">
+      {{ end }}
+      <h3 class="card__title"><span class="emoji">{{ $iconStatus }}</span><span>{{ $page.Title | title }}</span></h3>
+    </div>
 
-  <div class="masonry__item card" style="background-color: var(--bg-state-{{- $keyState -}});">
-    {{ with $page.Params.image }}
-      <img src="{{ . | absURL }}" alt="{{ $page.Title }}" class="card__image">
-    {{ end }}
-
-    <section class="markdown card__body">
-      <a href="{{ $page.RelPermalink }}" class="card__title" style="color: var(--cl-state-{{- $keyState -}});">
-        <span class="emoji">{{ $iconState }}</span>
-        {{ $page.Title | title }}
-      </a>
+    <div class="card__body">
       {{ with $description }}
-          <p>{{ . }}</p>
+        <p>{{ . }}</p>
       {{ else }}
         {{ $content }}
       {{ end }}
-    </section>
+    </div>
 
-    <section class="card__footer">
-      {{ with index $page.Params.categories 0 }}
-        <strong>
-          <span class="emoji">{{ $iconStage }}</span>
-          {{ . | title }}
-        </strong>
-      {{ end }}
-
+    <div class="card__footer">
       <strong>
-        {{ partial "components/timeago.html" $page }}
-        <a href="{{ .RelPermalink }}" class="btn btn--text" aria-label="{{ $page.Title }}" style="background-color: var(--bg-state-{{- $keyState -}});">Read More</a>
+        {{ with index $page.Params.tags 0 }}{{ . | title }}: {{ end }}{{ partial "components/timeago.html" $page }}
       </strong>
-    </section>
+      <a href="{{ .RelPermalink }}" class="card__button" aria-label="{{ $page.Title }}" title="{{ $page.Title }}">Read More</a>
+    </div>
   </div>
 {{ end }}

@@ -1,0 +1,122 @@
+@use "../abstracts/breakpoints" as b;
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+:is(html, body){
+  min-height: 100dvb;
+  height: 100dvb;
+  max-width: 100vw;
+  width: 100%;
+  scrollbar-width: none;
+}
+
+body {
+  min-height: 100dvb;
+  padding: 0 calc(1.5rem * 0.5);
+  margin: 0 auto;
+  line-height: 1.6;
+  overflow-x: hidden;
+
+  @include b.min(xxl){
+    max-width: 87.5em;
+  }
+}
+
+.header {
+  @include m.flex-between;
+  margin-top: 1rem;
+  padding: 0 calc(1.5rem * 0.5);
+  height: 5rem;
+  border-radius: 1rem;
+  z-index: 200;
+
+  &__title {
+    font-size: v.$font__size--6xl;
+    text-shadow: var(--text-shadow-lg);
+    font-family: v.$font__family--serif;
+    font-weight: 600;
+  }
+
+  @include b.max(lg){
+    border-top: 1px solid var(--cl-border-default);
+    border-bottom:unset;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: var(--bg-second);
+    width: 100%;
+
+    &__title {
+      display: none;
+    }
+  }
+}
+
+.nav {
+  @include m.flex-center;
+  gap: 1rem;
+
+  &__link {
+    @include m.transition(transform, color, box-shadow, text-shadow);
+    font-family: v.$font__family--serif;
+    font-size: v.$font__size--xl;
+    font-weight: 600;
+    color: var(--cl-accent);
+
+    padding: calc(0.5rem * 0.5) calc(1.5rem * 0.5);
+    box-shadow: var(--shadow-md);
+    text-shadow: var(--text-shadow-md);
+    border-radius: 0.5rem;
+
+    &:hover {
+      color: var(--cl-accent-hover);
+      box-shadow: var(--shadow-lg);
+      text-shadow: var(--text-shadow-lg);
+      transform: translateY(-3px);
+
+      .emoji {
+        transform: rotate(720deg);
+      }
+    }
+  }
+
+  @include b.max(lg){
+    width: 100%;
+    justify-content: space-between;
+
+    span {
+      display: none;
+    }
+
+    .emoji {
+      @include m.flex-center;
+      font-size: v.$font__size--4xl;
+    }
+  }
+}
+
+main {
+  min-height: 100dvh;
+  padding: 0 calc(1.5rem * 0.5);
+}
+
+footer {
+  text-align: center;
+  max-width: 100ch;
+  margin: 0 auto;
+  @include b.max(lg){
+    padding-bottom: 5.5rem;
+  }
+}
+// GRID SET
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+
+  &__item {
+    padding: calc(1.5rem * 0.5);
+    box-shadow: var(--shadow-sm);
+    border-radius: 0.5rem;
+  }
+}

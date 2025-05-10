@@ -1,11 +1,15 @@
 {{ define "main" }}
-  <article class="markdown">
+  <article>
     <h1 class="heading heading--1">{{ .Title }}</h1>
-    {{ .Content | safeHTML }}
+    <hr>
+    <section class="markdown">
+      {{ .Content | safeHTML }}
+    </section>
   </article>
-  
-  <div class="masonry masonry--d2">
-    {{ partial "components/list-page.html" . }}
+  <hr>
+  <div class="card-container">
+    <div class="card-masonry">
+      {{ partial "components/list-page.html" . }}
+    </div>
   </div>
-
 {{ end }}

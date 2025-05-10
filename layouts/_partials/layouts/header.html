@@ -1,31 +1,20 @@
-<a href="{{ site.BaseURL | absURL }}" class="btn site-title">
-  <span class="emoji">📚</span>
-  {{ site.Title }}
-</a>
-
-<nav>
-  <a href="{{ site.BaseURL | absURL }}" aria-label="{{ .Title }}" class="btn">
-    <span class="emoji">🏡</span>
-    <span>Home</span>
-  </a>
-  
-  <a href="{{ "/tags/"| relURL }}" aria-label="Tags" class="btn">
-    <span class="emoji">🏷️</span>
-    <span>Tags</span>
-  </a>
-  
-  <a href="{{ "/categories/" | relURL }}" aria-label="Categories" class="btn">
-    <span class="emoji">📂</span>
-    <span>Categories</span>
+<header class="header">
+  <a href="{{ site.BaseURL | absURL }}" class="header__title">
+    <span class="emoji">{{ site.Params.emoji }}</span>
+    <span>{{ site.Title | title }}</span>
   </a>
 
-  <a href="{{ "search.html" | relURL }}" aria-label="Search" class="btn btn--search">
-    <span class="emoji">🔍</span>
-    <span>Search</span>
-  </a>
+  <nav class="nav">
+    {{ range .Site.Menus.main }}
+      <a href="{{ .PageRef | relURL }}" class="nav__link">
+        <span class="emoji">{{ .Params.emoji }}</span>
+        <span>{{ .Name }}</span>
+      </a>
+    {{ end }}
 
-  <button id="toggleThemes" aria-label="Switch Themes" class="btn">
-    <span class="emoji">☀️</span>
-    <span>Themes</span>
-  </button>
-</nav>
+    <button class="nav__link" id="toggleThemes">
+      <span class="emoji">☀️</span>
+      <span>Themes</span>
+    </button>
+  </nav>
+</header>

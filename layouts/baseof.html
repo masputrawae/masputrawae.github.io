@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}" data-theme-system="auto" data-theme="dark">
+
+{{/*  HEAD  */}}
 <head>
   {{ partial "head/head.html" . }}
+  {{ partialCached "head/css.html" . }}
 </head>
-<body>
-  <header>{{ partial "layouts/header.html" . }}</header>
-  <main>{{ block "main" . }}{{ end }}</main>
-  <footer>{{ partial "layouts/footer.html" . }}</footer>
 
+<body>
+
+  {{/*  LAYOUTS  */}}
+  {{ partial "layouts/header.html" . }}
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ partial "layouts/footer.html" . }}
+
+  {{/*  JAVASCRIPT  */}}
+  {{ partialCached "head/js.html" . }}
   {{ partial "head/script.html" . }}
 </body>
 </html>

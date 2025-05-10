@@ -1,5 +1,47 @@
+{{/* |===========| START: SW JS |===========| */}}
+<script defer>
+  if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+          navigator.serviceWorker.register('{{ "sw.js" | relURL }}', { scope: '{{ .Site.BaseURL | relURL | strings.TrimSuffix "/" }}/' }).then(reg => {
+              console.log('Service worker registered with scope: ', reg.scope);
+          }).catch(err => {
+              console.log('Service worker registration failed: ', err);
+          });
+      });
+  }
+</script>
+{{/* |===========| END: SW JS |===========| */}}
+
+{{/* |===========| START: MATHJAX |===========| */}}
+{{ if .Params.mathjax }}
+  <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
+  <style>
+    mjx-container.MathJax {
+      padding: 1rem;
+      overflow-x: auto;
+      white-space: nowrap;
+      max-width: 100%;
+    }
+  </style>
+  <script defer>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      }
+    };
+  </script>
+{{ end }}
+{{/* |===========| END: MATHJAX |===========| */}}
+
 <script>
-  // SWITCH THEMES
+// SWITCH THEMES
 const html = document.documentElement;
 const toggleBtn = document.getElementById("toggleThemes");
 const emojiSpan = toggleBtn.querySelector(".emoji");
@@ -42,54 +84,5 @@ toggleBtn.addEventListener("click", () => {
 
 // Inisialisasi saat load
 initTheme();
-
-// === ADD CLASS EMOJI === //
-const emojiRegex = /(\p{Extended_Pictographic})/gu;
-
-document
-	.querySelectorAll("p, li, h1, h2, h3, h4, h5, h6, span, strong, b, em, del")
-	.forEach((el) => {
-		const walker = document.createTreeWalker(
-			el,
-			NodeFilter.SHOW_TEXT,
-			null,
-			false
-		);
-
-		let node;
-		const nodesToUpdate = [];
-
-		while ((node = walker.nextNode())) {
-			const parent = node.parentNode;
-			if (parent && parent.classList && parent.classList.contains("emoji")) {
-				continue;
-			}
-
-			if (emojiRegex.test(node.nodeValue)) {
-				nodesToUpdate.push(node);
-			}
-		}
-
-		nodesToUpdate.forEach((textNode) => {
-			const parent = textNode.parentNode;
-			const fragments = textNode.nodeValue.split(emojiRegex);
-			const fragment = document.createDocumentFragment();
-
-			fragments.forEach((part) => {
-				if (emojiRegex.test(part)) {
-					const span = document.createElement("span");
-					span.className = "emoji";
-					span.textContent = part;
-					fragment.appendChild(span);
-				} else {
-					fragment.appendChild(document.createTextNode(part));
-				}
-			});
-
-			parent.replaceChild(fragment, textNode);
-		});
-	});
-  console.log("%cCARI APA KAWAN!", "color: cyan; font-weight: bold; font-size: 100px; text-align: center;");
-  console.log("%cTAK ADA YANG SPESIAL!", "color: cyan; font-weight: bold; font-size: 100px; text-align: center;");
-  console.log("%cSILAHKAN KEMBALI!", "color: cyan; font-weight: bold; font-size: 100px; text-align: center;");
 </script>
+{{ template "_internal/google_analytics.html" . }}

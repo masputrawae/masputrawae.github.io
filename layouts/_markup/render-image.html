@@ -6,8 +6,10 @@
     {{- with .Title }}<figcaption class="figure__caption">{{ . }}</figcaption>{{ end -}}
   </figure>
 {{- else -}}
-  <img class="figure__image" loading="lazy" src="{{ .Destination | safeURL }}"
-    {{- with .PlainText }} alt="{{ . }}"{{ end -}}
-    {{- with .Title }} title="{{ . }}"{{ end -}}
-  >
+  <figure class="figure">
+    <img class="figure__image" loading="lazy" src="{{ .Destination | safeURL }}"
+      {{- with .PlainText }} alt="{{ . }}"{{ end -}}
+      {{- with .Title }} title="{{ . }}"{{ end -}}
+    >
+  </figure>
 {{- end -}}

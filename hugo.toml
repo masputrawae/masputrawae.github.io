@@ -13,13 +13,11 @@ enableEmoji       = true
     respectDoNotTrack = false
 
 [taxonomies]
-  category = "categories"
   tag = "tags"
-  # stage = "stage"
 
 [permalinks]
   board = '/:year/:month/:day/:title/'
-  garden = '/:year/:month/:day/:title/'
+  note = '/:year/:month/:day/:title/'
   learning = '/:title/'
 
 [params]
@@ -29,6 +27,33 @@ enableEmoji       = true
   logo          = "logo/logo.png"
   image         = "logo/logo.png"
   twitter       = "@Masputrawae"
+  emoji         = "📚"
+
+[menus]
+  [[menus.main]]
+    name = 'Home'
+    pageRef = '/'
+    weight = 10
+    params = { emoji = "🏡" }
+
+  [[menus.main]]
+    name = 'Tutorial'
+    pageRef = '/tutorial'
+    weight = 20
+    params = { emoji = "⚙️" }
+
+  [[menus.main]]
+    name = 'Search'
+    pageRef = 'search.html'
+    weight = 30
+    params = { emoji = "🔍" }
+
+  [[menus.main]]
+    name = 'Tags'
+    pageRef = '/tags'
+    weight = 40
+    params = { emoji = "🏷️" }
+
 
 #============== MARKUP ==============#
 [markup]
@@ -129,7 +154,7 @@ enableEmoji       = true
     target = "content"
     excludeFiles = "private/*"
 
-[caches]
-  [caches.assets]
-    dir = ":resourceDir/_gen"
-    maxAge = -1
+# [caches]
+#   [caches.assets]
+#     dir = ":resourceDir/_gen"
+#     maxAge = -1

@@ -56,27 +56,22 @@
       
       .text {
         font-family: v.$font__family--serif;
-        font-size: v.$font__size--xs;
+        font-size: v.$font__size--md;
         font-weight: 600;
         position: absolute;
         
         color: var(--cl-text-title);
-        background-color: var(--bg-overlay);
-        text-shadow: var(--text-shadow);
+        text-shadow: var(--text-shadow-lg);
         display: block;
         border-radius: 0.25rem;
         
         width: 100%;
         bottom: 0;
-        @include m.transition(background-color);
       }
 
       &:hover {
         .emoji {
           transform: translateY(-50%);
-        }
-        .text {
-          background-color: var(--bg-overlay-hover);
         }
       }
     }

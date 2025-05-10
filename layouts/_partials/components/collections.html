@@ -2,7 +2,7 @@
 Cara Panggil: {{ partial "components/collections.html" (dict "targetSection" "knowledge" "Site" .Site) }}
 */}}
 
-{{ define "book-item" }}
+{{ define "collections" }}
   {{ $title := .Title }}
   {{ $emoji := .Params.emoji }}
   <a href="{{ .RelPermalink }}" class="collection__item" aria-label="{{ $title }}" title="{{ $title }}">
@@ -28,11 +28,11 @@ Cara Panggil: {{ partial "components/collections.html" (dict "targetSection" "kn
   {{ if eq .Section $targetSection }}
     {{ if gt (len .Sections) 0 }}
       {{ range .Sections }}
-        {{ template "book-item" . }}
+        {{ template "collections" . }}
       {{ end }}
     {{ else }}
       {{ range .Pages }}
-        {{ template "book-item" . }}
+        {{ template "collections" . }}
       {{ end }}
     {{ end }}
   {{ end }}

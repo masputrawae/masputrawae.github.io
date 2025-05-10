@@ -1,21 +1,19 @@
 {{ $icons := dict
-  "tip" "💡"
-  "info" "ℹ️"
-  "success" "✅"
+  "success" "✔️"
   "warning" "⚠️"
-  "danger" "❌"
-  "note" "📝"
-  "abstract" "⚙️"
-  "todo" "☑️"
-  "question" "❓"
-  "important" "‼️"
+  "error" "❌"
+  "info" "ℹ️"
+  "neutral" "⭕"
+  "disabled" "🚫"
+  "attention" "🟠"
+  "experimental" "🧪"
 }}
 
 {{ $icon := index $icons .AlertType }}
 
 {{ if eq .Type "alert" }}
-  <blockquote class="blockquote blockquote--{{ .AlertType }}" style="border-color: var(--cl-state-{{ .AlertType }}); background-color: var(--bg-state-{{ .AlertType }});">
-    <strong class="blockquote__title" style="color: var(--cl-state-{{ .AlertType }});">
+  <blockquote class="blockquote blockquote--{{ .AlertType }}">
+    <strong class="blockquote__title">
       <span class="emoji">{{ $icon }}</span>
       {{ with .AlertTitle }}
         <span>{{ . }}</span>
@@ -29,7 +27,7 @@
     </div>
   </blockquote>
 {{ else }}
-<blockquote class="blockquote" {{ with .Attributes.cite }}cite="{{ . }}"{{ end }}>
-  {{ .Text }}
-</blockquote>
+  <blockquote class="blockquote" {{ with .Attributes.cite }}cite="{{ . }}"{{ end }}>
+    {{ .Text }}
+  </blockquote>
 {{ end }}

@@ -1,7 +1,10 @@
 {{ define "main" }}
-  <article class="markdown">
+  <article>
     <h1 class="heading heading--1">{{ .Title }}</h1>
-    {{ .Content | safeHTML }}
+    <hr>
+    <section class="markdown">
+      {{ .Content | safeHTML }}
+    </section>
   </article>
   <style>
     nav.taxonomy {
@@ -15,12 +18,19 @@
     }
 
     nav.taxonomy .btn {
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--shadow-md);
+      padding: calc(1.5rem * 0.5);
+      border-radius: 50rem;
+      border: 1px solid transparent;
     }
     
     nav.taxonomy .btn:hover {
       box-shadow: var(--shadow-lg);
       border-color: var(--cl-accent);
+    }
+
+    nav.taxonomy .btn:hover .emoji {
+      transform: rotate(720deg);
     }
 
     nav.taxonomy .btn span:last-child {
@@ -34,7 +44,7 @@
 
   <nav class="taxonomy">
     {{ range $term, $pages := $terms }}
-      {{ $size := div (len $pages) $max | mul 1 | add 1 }}
+      {{ $size := div (len $pages) $max | mul 1 | add 1.2 }}
       {{ $count := len $pages }}
 
       {{/* Banyak level emoji berdasarkan jumlah halaman */}}

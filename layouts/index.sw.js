@@ -1,6 +1,5 @@
-importScripts(
-  "https://cdn.bootcdn.net/ajax/libs/workbox-sw/7.3.0/workbox-sw.js"
-);
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/7.3.0/workbox-sw.js");
+
 
 const CACHE_VERSION = 'v{{ now.Format "0601021504" }}';
 const CACHE_NAME = `${CACHE_VERSION}-site`;
@@ -20,7 +19,7 @@ if (workbox) {
       plugins: [
         new workbox.expiration.ExpirationPlugin({
           maxEntries: 50,
-          maxAgeSeconds: 30 * 86400, // 30 hari
+          maxAgeSeconds: 30 * 86400,
         }),
       ],
     })
@@ -55,35 +54,9 @@ if (workbox) {
     })
   );
 
-  workbox.routing.registerRoute(
-    ({ url }) => url.pathname === '{{ "icons/icons.svg" | relURL }}',
-    new workbox.strategies.CacheFirst({
-      cacheName: `${CACHE_NAME}-icons`,
-      plugins: [
-        new workbox.expiration.ExpirationPlugin({
-          maxEntries: 5,
-          maxAgeSeconds: 30 * 86400, // 30 hari
-        }),
-      ],
-    })
-  );
-
   self.addEventListener("install", (event) => {
-    const ICONS_URL = `{{ "icons/icons.svg" | relURL }}`;
-
     event.waitUntil(
       (async () => {
-        const cache = await caches.open(`${CACHE_NAME}-static`);
-        try {
-          // Cache icons.svg terlebih dahulu
-          const response = await fetch(ICONS_URL);
-          if (!response.ok) throw new Error(`Failed to fetch ${ICONS_URL}`);
-          await cache.put(ICONS_URL, response);
-        } catch (err) {
-          // Silakan tambahkan penanganan kesalahan jika diperlukan
-        }
-
-        // Lanjutkan caching untuk news.json dan lainnya
         const JSON_INDEX_URL = `{{ "news.json" | relURL }}?v=${CACHE_VERSION}`;
         const htmlCache = await caches.open(`${CACHE_NAME}-html`);
 
@@ -103,23 +76,18 @@ if (workbox) {
                 }
                 await htmlCache.put(url, fetchResponse.clone());
               } catch (err) {
-                // Silakan tambahkan penanganan kesalahan jika diperlukan
               }
             })
           );
         } catch (err) {
-          // Silakan tambahkan penanganan kesalahan jika diperlukan
         }
       })()
     );
   });
-
-  // Aktivasi: bersihkan cache lama
   self.addEventListener("activate", (event) => {
     const keep = [
       `${CACHE_NAME}-html`,
       `${CACHE_NAME}-static`,
-      `${CACHE_NAME}-icons`,
     ];
 
     event.waitUntil(
