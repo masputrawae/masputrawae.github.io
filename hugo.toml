@@ -17,7 +17,7 @@ enableEmoji       = true
 
 [permalinks]
   board = '/:year/:month/:day/:title/'
-  note = '/:year/:month/:day/:title/'
+  notes = '/:year/:month/:day/:title/'
   learning = '/:title/'
 
 [params]
@@ -38,7 +38,7 @@ enableEmoji       = true
 
   [[menus.main]]
     name = 'Tutorial'
-    pageRef = '/tutorial'
+    pageRef = '/learning'
     weight = 20
     params = { emoji = "⚙️" }
 
@@ -154,7 +154,7 @@ enableEmoji       = true
     target = "content"
     excludeFiles = "private/*"
 
-# [caches]
-#   [caches.assets]
-#     dir = ":resourceDir/_gen"
-#     maxAge = -1
+[caches]
+  [caches.assets]
+    dir = ":resourceDir/_gen"
+    maxAge = -1
