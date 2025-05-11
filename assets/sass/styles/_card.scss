@@ -13,7 +13,7 @@
     padding: calc(1.5rem * 0.5);
 
     column-count: 4;
-    @include b.max(xl) {
+    @include b.max(xxl) {
       column-count: 3;
     }
     @include b.max(lg) {
@@ -59,14 +59,15 @@
 
   &__title {
     font-family: v.$font__family--serif;
-    font-size: v.$font__size--xl;
+    font-size: v.$font__size--2xl;
     color: var(--cl-text-title);
+    font-weight: 600;
   }
 
   &__body, 
   &__footer {
     padding-top: 0.5rem;
-    font-size: 90%;
+    font-size: 85%;
   }
 
   &__footer {
@@ -78,11 +79,14 @@
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
     box-shadow: var(--shadow-sm);
+    color: var(--cl-accent);
     @include m.transition(box-shadow, transform);
+    font-weight: 600;
 
     &:hover {
       box-shadow: var(--shadow-md);
       transform: translateY(-1px);
+      color: var(--cl-accent-hover);
     }
   }
 }

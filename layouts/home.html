@@ -7,11 +7,13 @@
       {{ .Content | safeHTML }}
     </div>
   </section>
-  <section class="grid__item collection">
-    <h2 class="heading heading--1">Collection</h2>
-    <hr>
-    <div class="collection__list">
-      {{ partial "components/collections.html" (dict "targetSection" "learning" "Site" .Site) }}
+  <section class="grid__item">
+    <div class="collection">
+      <h2 class="heading heading--1">Collection</h2>
+      <hr>
+      <div class="collection__list">
+        {{ partial "components/collections.html" (dict "targetSection" "learning" "Site" .Site) }}
+      </div>
     </div>
   </section>
 </article>
@@ -20,7 +22,13 @@
   <h2 class="heading heading--1">Note Board</h2>
   <hr>
   <div class="card-masonry">
-    {{ partial "components/notes.html" (dict "sections" (slice "board" "notes" "posts") "Site" .Site) }}
+    {{ $sections := slice "garden" "notes" }}
+    {{ $filteredPages := where .Site.RegularPages "Section" "in" $sections }}
+    {{ $paginator := .Paginate $filteredPages }}
+
+    {{ partial "components/notes.html" (dict "pages" $paginator.Pages "sections" $sections "Site" .Site) }}
   </div>
 </div>
+
+{{ partial "pagination.html" . }}
 {{ end }}

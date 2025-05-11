@@ -102,8 +102,11 @@ main {
 
 footer {
   text-align: center;
-  max-width: 100ch;
   margin: 0 auto;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  margin-top: 3rem;
+  border-top: 3px solid var(--cl-border-default);
   @include b.max(lg){
     padding-bottom: 5.5rem;
   }
@@ -118,5 +121,54 @@ footer {
     padding: calc(1.5rem * 0.5);
     box-shadow: var(--shadow-sm);
     border-radius: 0.5rem;
+  }
+}
+
+.pagination {
+  @include m.flex-center;
+  list-style: none;
+  margin: 1rem 0;
+  padding: 1rem 0;
+  gap: 1rem;
+
+  &__item {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__link {
+    box-shadow: var(--shadow-md);
+    font-size: v.$font__size--2xl;
+    font-family: v.$font__family--serif;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    color: var(--cl-text-title);
+    font-weight: 600;
+
+    @include m.transition(color, box-shadow);
+
+    &:hover,
+    &--active {
+      color: var(--cl-accent-hover);
+      box-shadow: var(--shadow-lg);
+    }
+
+    &--active {
+      cursor: not-allowed;
+    }
+
+    &--disabled {
+      color: var(--cl-text-muted);
+
+      &:hover {
+        color: var(--cl-text-muted);
+        box-shadow: var(--shadow-md);
+        cursor: not-allowed;
+      }
+    }
+
+    @include b.max(lg){
+      font-size: v.$font__size--xl;
+    }
   }
 }

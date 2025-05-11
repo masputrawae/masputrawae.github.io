@@ -54,7 +54,10 @@ enableEmoji       = true
     weight = 40
     params = { emoji = "🏷️" }
 
-
+[pagination]
+  disableAliases = false
+  pagerSize = 100
+  path = 'page'
 #============== MARKUP ==============#
 [markup]
   # [markup.tableOfContents]

@@ -1,10 +1,10 @@
-{{ $pages := .Pages | shuffle }}
+{{ $pages := .pages }}
 {{ $site := .Site }}
 
 {{ range $page := $pages }}
 
-  {{ $content := .Content | strings.Truncate 180 | safeHTML }}
-  {{ $description := .Params.description | safeHTML }}
+  {{ $content := $page.Content | strings.Truncate 180 | safeHTML }}
+  {{ $description := $page.Params.description | safeHTML }}
 
   {{ $keyStatus := $page.Params.status | default "note" }}
 
@@ -26,7 +26,7 @@
       {{ with $page.Params.image }}
         <img src="{{ . | absURL }}" alt="{{ $page.Title }}" loading="lazy" class="card__image">
       {{ end }}
-      <h3 class="card__title"><span class="emoji">{{ $iconStatus }}</span><span>{{ $page.Title | title }}</span></h3>
+      <a href="{{ $page.RelPermalink }}" class="card__title" id="{{ $page.Title | md5 }}"><span class="emoji">{{ $iconStatus }}</span><span>{{ $page.Title | title }}</span></a>
     </div>
 
     <div class="card__body">
@@ -41,7 +41,9 @@
       <strong>
         {{ with index $page.Params.tags 0 }}{{ . | title }}: {{ end }}{{ partial "components/timeago.html" $page }}
       </strong>
-      <a href="{{ .RelPermalink }}" class="card__button" aria-label="{{ $page.Title }}" title="{{ $page.Title }}">Read More</a>
+      <button onclick="document.getElementById('{{ $page.Title | md5 }}').click()" class="card__button">
+        Read More
+      </button>
     </div>
   </div>
 {{ end }}

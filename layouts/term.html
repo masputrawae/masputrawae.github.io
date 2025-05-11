@@ -9,7 +9,10 @@
   <hr>
   <div class="card-container">
     <div class="card-masonry">
-      {{ partial "components/list-page.html" . }}
+      {{ $paginator := .Paginate .Pages }}
+
+      {{ partial "components/list-page.html" (dict "pages" $paginator.Pages "Site" .Site) }}
     </div>
   </div>
+  {{ partial "pagination.html" . }}
 {{ end }}

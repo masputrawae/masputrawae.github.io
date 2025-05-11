@@ -3,9 +3,9 @@
     {
         "id": "{{ .Permalink }}",
         "title": "{{ .Title }}",
-        "content": {{ .Summary | plainify | jsonify }},
+        "content": {{ .Content | plainify | jsonify }},
         "emoji": "{{ with .Params.emoji }}{{ . }}{{ else }}📗{{ end }}",
-		"description": {{ .Params.description | plainify | jsonify }},
+		"description": {{ .Summary | plainify | strings.Truncate 48 | jsonify }},
         "url": "{{ .Permalink }}",
         "tags": [{{ range $index, $tag := .Params.Tags }}{{ if $index }}, {{ end }}"{{ $tag }}"{{ end }}],
         "category": "{{ .Params.categories }}"
