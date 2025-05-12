@@ -1,17 +1,17 @@
 $dark: (
-  bg-body:                #18181b,
-  bg-second:              #27272a,
-  
-  cl-text-default:        #e4e4e7,
-  cl-text-title:          #fafafa,
-  cl-text-muted:          #a1a1aa,
-  cl-border-default:      #71717a,
-  cl-accent:              #86efac,
-  cl-accent-hover:        #4ade80,
-  cl-link-external:       #5e9fea,
-  cl-link-external-hover: #2d97d4,
-  cl-link-missing:        #FF6B6B,
-  cl-link-missing-hover:  #FF9A8B,
+  bg-body: #0c0a09,
+  bg-second: #1c1917,
+  bg-third: #292524,
+  bg-overlay: rgba(0,0,0,0.7),
+
+  cl-text-default: #d6d3d1,
+  cl-text-title: #e7e5e4,
+  cl-text-muted: #a8a29e,
+
+  cl-accent: #fcd34d,
+  cl-accent-hover: #fbbf24,
+
+  cl-border: #57534e,
 
   text-shadow-sm:  "0.5px 0.5px 1px rgba(0, 0, 0, 0.25)",
   text-shadow-md:  "1px 1px 2px rgba(0, 0, 0, 0.35)",
@@ -20,68 +20,4 @@ $dark: (
   shadow-sm:       "0 1px 2px rgba(0, 0, 0, 0.25)",
   shadow-md:       "0 3px 6px rgba(0, 0, 0, 0.35)",
   shadow-lg:       "0 8px 16px rgba(0, 0, 0, 0.5)",
-
-  // ==== SEMENTARA NGAK PAKAI INI : LAGI MALES HEHE ==== //
-  // cl-state-tip:           #f5d0fe,
-  // cl-state-info:          #e9d5ff,
-  // cl-state-success:       #bbf7d0,
-  // cl-state-warning:       #fef08a,
-  // cl-state-danger:        #fecaca,
-  // cl-state-note:          #fbcfe8,
-  // cl-state-abstract:      #c7d2fe,
-  // cl-state-todo:          #B1A7F2,
-  // cl-state-question:      #e2e8f0,
-  // cl-state-important:     #fda4af,
-
-  // bg-state-tip:           #f5d0fe1a,
-  // bg-state-info:          #e9d5ff1a,
-  // bg-state-success:       #bbf7d01a,
-  // bg-state-warning:       #fef08a1a,
-  // bg-state-danger:        #fecaca1a,
-  // bg-state-note:          #fbcfe81a,
-  // bg-state-abstract:      #c7d2fe1a,
-  // bg-state-todo:          #B1A7F21a,
-  // bg-state-question:      #e2e8f01a,
-  // bg-state-important:     #fda4af1a,
-
-  cl-syntax-text:             #f0f0f0,
-  cl-syntax-bg:               #242426,
-  cl-syntax-error:            #FF6B6B,
-  cl-syntax-highlight:        #86EFAC,
-  cl-syntax-line-number:      #A1A1AA,
-  cl-syntax-line-number-alt:  #71717A,
-
-  // Keywords & Logic
-  cl-syntax-keyword:          #FFD43B,
-  cl-syntax-keyword-constant: #67E8F9,
-  cl-syntax-operator:         #FFA94D,
-  cl-syntax-traceback:        #FDE047,
-
-  // Types & Entities
-  cl-syntax-class:            #FCD34D,
-  cl-syntax-constant:         #67E8F9,
-  cl-syntax-decorator:        #C084FC,
-  cl-syntax-entity:           #FF9A8B,
-  cl-syntax-function:         #D8B4FE,
-  cl-syntax-label:            #7DD3FC,
-  cl-syntax-namespace:        #BEF264,
-
-  // Strings & Data
-  cl-syntax-string:           #FF9A8B,
-  cl-syntax-number:           #67E8F9,
-  cl-syntax-literal:          #BEF264,
-
-  // Meta
-  cl-syntax-comment:          #7DD3FC,
-  cl-syntax-generic:          #A1A1AA,
-  cl-syntax-heading:          #67E8F9,
-
-  // Diff
-  cl-syntax-deleted:          #FF6B6B,
-  cl-syntax-deleted-bg:       #490202,
-  cl-syntax-inserted:         #4ADE80,
-  cl-syntax-inserted-bg:      #0F5323,
-
-  // Whitespace
-  cl-syntax-whitespace:       #3F3F46,
 );

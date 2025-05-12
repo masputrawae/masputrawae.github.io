@@ -1,96 +1,24 @@
 {{ define "main" }}
-  <article>
-    <h1 class="heading heading--1">{{ .Title }}</h1>
-    <hr>
-    <section class="markdown">
-      {{ .Content | safeHTML }}
-    </section>
+  <article class="markdown">
+    <h1 class="heading heading--h1 drawer__title">{{ .Title | title }}</h1>
+    {{ .Content | safeHTML }}
   </article>
-  <style>
-    nav.taxonomy {
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
 
-    nav.taxonomy .btn {
-      box-shadow: var(--shadow-md);
-      padding: calc(1.5rem * 0.5);
-      border-radius: 50rem;
-      border: 1px solid transparent;
-    }
-    
-    nav.taxonomy .btn:hover {
-      box-shadow: var(--shadow-lg);
-      border-color: var(--cl-accent);
-    }
-
-    nav.taxonomy .btn:hover .emoji {
-      transform: rotate(720deg);
-    }
-
-    nav.taxonomy .btn span:last-child {
-      font-weight: 600;
-    }
-  </style>
-
-  {{ $taxonomy := .Data.Plural }}
-  {{ $terms := index .Site.Taxonomies $taxonomy }}
-  {{ $max := math.Max (len $terms) 1 }}
-
-  <nav class="taxonomy">
-    {{ range $term, $pages := $terms }}
-      {{ $size := div (len $pages) $max | mul 1 | add 1.2 }}
-      {{ $count := len $pages }}
-
-      {{/* Banyak level emoji berdasarkan jumlah halaman */}}
-      {{ $emoji := "🌑" }}
-      {{ if lt $count 3 }}
-        {{ $emoji = "🌱" }}
-      {{ else if lt $count 5 }}
-        {{ $emoji = "🍃" }}
-      {{ else if lt $count 8 }}
-        {{ $emoji = "🌿" }}
-      {{ else if lt $count 10 }}
-        {{ $emoji = "🍀" }}
-      {{ else if lt $count 12 }}
-        {{ $emoji = "🌵" }}
-      {{ else if lt $count 14 }}
-        {{ $emoji = "🌴" }}
-      {{ else if lt $count 16 }}
-        {{ $emoji = "🌳" }}
-      {{ else if lt $count 18 }}
-        {{ $emoji = "🎋" }}
-      {{ else if lt $count 20 }}
-        {{ $emoji = "🎄" }}
-      {{ else if lt $count 22 }}
-        {{ $emoji = "🏡" }}
-      {{ else if lt $count 25 }}
-        {{ $emoji = "🏘️" }}
-      {{ else if lt $count 28 }}
-        {{ $emoji = "🏢" }}
-      {{ else if lt $count 30 }}
-        {{ $emoji = "🏬" }}
-      {{ else if lt $count 35 }}
-        {{ $emoji = "🏯" }}
-      {{ else if lt $count 40 }}
-        {{ $emoji = "🏛️" }}
-      {{ else if lt $count 45 }}
-        {{ $emoji = "🗼" }}
-      {{ else if lt $count 50 }}
-        {{ $emoji = "🗽" }}
-      {{ else }}
-        {{ $emoji = "🏰" }}
-      {{ end }}
-
-      <a href="{{ .Page.RelPermalink }}" class="btn" style="font-size: {{ $size }}em;">
-        <span class="emoji">{{ $emoji }}</span>
-        <span>{{ .Page.Name }} ({{ $count }})</span>
-      </a>
+  <div class="drawer">
+    {{ range .Pages }}
+      <div class="drawer__list">
+        <button class="drawer__button" data-drawer="{{ .LinkTitle | md5 }}">{{ .LinkTitle | title }}</button>
+        <ul class="drawer__fill" id="{{ .LinkTitle | md5 }}">
+          <button class="drawer__button drawer__button--closed" data-drawer="{{ .LinkTitle | md5 }}">{{ .LinkTitle | title }}</button>
+          {{ range .Pages }}
+            <li class="drawer__item">
+              <a href="{{ .RelPermalink }}" class="link link--internal drawer__link">
+                {{ .Title | title }}
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
     {{ end }}
-  </nav>
+  </div>
 {{ end }}

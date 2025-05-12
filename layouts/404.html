@@ -1,14 +1,14 @@
 {{ define "main" }}
-  <article>
-    <h1><span class="emoji">👻</span>404 Not Found</h1>
+  <article class="markdown">
+    <h1 class="heading heading--h1"><span class="emoji">👻</span>404 Not Found</h1>
     <hr>
     <p>The page you requested cannot be found.</p>
     <p>
-      <a href="{{ .Site.Home.RelPermalink }}">
+      <a class="link" href="{{ .Site.Home.RelPermalink }}">
         Return to the home page
       </a>
     </p>
-    <h2>Coba Cari Disini?</h2>
+    <h2 class="heading heading--h2">Coba Cari Disini?</h2>
 
     <form class="search" id="search" onsubmit="handleSearch(event)" method="get" id="search" data-search-url="{{ "search-data.json" | relURL }}">
       <label class="emoji" for="search-input" aria-label="search" title="search">🔍</label>

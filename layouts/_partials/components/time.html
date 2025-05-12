@@ -1,0 +1,16 @@
+<span>
+  {{ $ctx := .ctx }}
+  {{ $createLabel := .createLabel | default "Create On" }}
+  {{ $updateLabel := .updateLabel | default "Update On" }}
+
+  {{ $dateMachine := $ctx.Date | time.Format "2006-01-02T15:04:05-07:00" }}
+  {{ $dateHuman := $ctx.Date | time.Format ":date_long" }}
+
+  <time datetime="{{ $dateMachine }}">{{ $createLabel }}: {{ $dateHuman }}</time> <br>
+
+  {{ with $ctx.Params.update }}
+    {{ $updateDateMachine := . | time.Format "2006-01-02T15:04:05-07:00" }}
+    {{ $updateDateHuman := . | time.Format ":date_long" }}
+    <time datetime="{{ $updateDateMachine }}">{{ $updateLabel }}: {{ $updateDateHuman }}</time>
+  {{ end }}
+</span>

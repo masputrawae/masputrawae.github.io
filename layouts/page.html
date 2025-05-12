@@ -1,0 +1,12 @@
+{{ define "main" }}
+  <article class="markdown">
+    {{ partial "components/time.html" (dict "ctx" . "createLabel" "Published" "updateLabel" "Updated") }}
+    <hr>
+    {{ .Content | safeHTML }}
+    <hr>
+    <div class="card-container">
+      {{ partial "components/terms.html" (dict "taxonomy" "tags" "page" .) }}
+      {{ partial "components/terms.html" (dict "taxonomy" "categories" "page" .) }}
+    </div>
+  </article>
+{{ end }}

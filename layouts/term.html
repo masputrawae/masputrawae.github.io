@@ -1,18 +1,23 @@
 {{ define "main" }}
-  <article>
-    <h1 class="heading heading--1">{{ .Title }}</h1>
-    <hr>
-    <section class="markdown">
-      {{ .Content | safeHTML }}
-    </section>
+  <article class="markdown">
+    <h1 class="heading heading--h1">{{ .Title }}</h1>
+    {{ .Content | safeHTML }}
   </article>
-  <hr>
-  <div class="card-container">
-    <div class="card-masonry">
-      {{ $paginator := .Paginate .Pages }}
 
-      {{ partial "components/list-page.html" (dict "pages" $paginator.Pages "Site" .Site) }}
-    </div>
+  <div class="u-container card-container">
+    {{ $pages := .Pages }}
+    {{ $paginator := .Paginate $pages }}
+
+    {{ range $paginator.Pages }}
+      <div class="u-container card">
+        <div class="markdown card__body">
+          {{ .Content | safeHTML }}
+        </div>
+        <div class="card__footer">
+          {{ partial "components/time.html" (dict "ctx" . "createLabel" "Published" "updateLabel" "Updated") }}
+          <button class="card__button" onclick="window.location.href='{{ .RelPermalink }}'">Read More</button>
+        </div>
+      </div>
+    {{ end }}
   </div>
-  {{ partial "pagination.html" . }}
 {{ end }}

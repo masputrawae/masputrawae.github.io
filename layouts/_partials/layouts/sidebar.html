@@ -1,0 +1,21 @@
+<figure class="brand">
+  <picture class="brand__picture">
+    <img src="{{ site.Params.logo | default "https://placehold.co/80" | absURL }}" alt="Logo {{ site.Params.author }}" class="brand__logo">
+  </picture>
+
+  <figcaption class="brand__caption">
+    <a href="{{ site.BaseURL | absURL }}" class="brand__title">{{ site.Params.author | title }}</a>
+    <div class="brand__info">
+      <a href="{{ site.Params.github }}" class="link link--internal brand__link">Github</a><span class="emoji"> • </span>
+      <a href="{{ site.Params.facebook }}" class="link link--internal brand__link">Facebook</a><span class="emoji"> • </span>
+      <a href="{{ site.Params.discord }}" class="link link--internal brand__link">Discord</a>
+    </div>
+    <em class="brand__description">{{ site.Params.description }}</em>
+  </figcaption>
+
+  <button class="btn btn--emoji brand__button" data-sidebar="sidebar">
+    <span class="emoji">✖️</span>
+  </button>
+</figure>
+
+{{ partial "components/menu.html" (dict "menuID" "main" "page" .) }}

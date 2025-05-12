@@ -5,14 +5,13 @@
     <label class="emoji" for="search-input" aria-label="search" title="search">🔍</label>
     <input class="search__input" type="search" id="search-input" name="query" placeholder="Search...." autocomplete="off" autocorrect="off" spellcheck="false">
   </form>
-</article>
-
-<div class="card-container" id="resultsPanel" style="display: none;">
-  <h1 class="heading heading--1">Results</h1>
-  <hr>
-  <div class="search__results card-masonry" id="results" data-collapse="resultsSearch">
+  <div id="resultsPanel" style="display: none;">
+    <h1 class="heading heading--h1">Results</h1>
+    <hr>
+    <ul id="results" data-collapse="resultsSearch">
+    </ul>
   </div>
-</div>
+</article>
 
 <script src="{{ "js/lunr.min.js" | relURL }}" defer></script>
 <script defer>
@@ -76,20 +75,12 @@
               .map((r) => {
                 const doc = store.find((d) => d.id === r.ref);
                 return doc
-                  ? `<article class="card">
-                      <section class="card__header">
-                        <a href="${doc.url}" class="card__title">
-                          <span class="emoji">${escapeHTML(doc.emoji)}</span>
-                          ${escapeHTML(doc.title)}
-                        </a>
-                      </section>
-                      <section class="card__body">${(doc.description)}</section>
-                      <section class="card__footer">
-                        <a href="${doc.url}" class="card__button">
-                          Read More
-                        </a>
-                      </section>
-                    </article>`
+                  ? `<li>
+                    <a href="${doc.url}" class="link link--internal">
+                      <span class="emoji">${escapeHTML(doc.emoji)}</span>
+                      ${escapeHTML(doc.title)}
+                    </a>
+                  </li>`
                   : "";
               })
               .join("")

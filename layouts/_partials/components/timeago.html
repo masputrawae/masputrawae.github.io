@@ -4,14 +4,14 @@
   {{ $diff := sub $now.Unix $then.Unix }}
 
   {{ if lt $diff 3600 }}
-    {{ div $diff 60 }} menit lalu
+    Publish: {{ div $diff 60 }} Minutes ago
   {{ else if lt $diff 86400 }}
-    {{ div $diff 3600 }} jam lalu
+    Publish: {{ div $diff 3600 }} Hours ago
   {{ else if lt $diff 2592000 }}
-    {{ div $diff 86400 }} hari lalu
+    Publish: {{ div $diff 86400 }} Days ago
   {{ else if lt $diff 31536000 }}
-    {{ div $diff 2592000 }} bulan lalu
+    Publish: {{ div $diff 2592000 }} Months ago
   {{ else }}
-    {{ div $diff 31536000 }} tahun lalu
+    Publish: {{ div $diff 31536000 }} Years ago
   {{ end }}
 </time>

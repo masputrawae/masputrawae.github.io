@@ -1,8 +1,19 @@
+#============== BASE ==============#
 baseURL           = 'https://masputrawae.github.io/'
 languageCode      = "id"
 title             = "My Notes"
 enableEmoji       = true
 
+#============== PARAMS ==============#
+[params]
+  author        = "Putra Jaya"
+  description   = "catatan-catatan pribadi yang mungkin hanya berguna untuk saya sendiri, atau mungkin alien di masa depan, siapa tahu? 👽"
+  shortTitle    = "Notes"
+  logo          = "logo/logo.png"
+  image         = "logo/logo.png"
+  twitter       = "@Masputrawae"
+
+#============== GOOGLE ANALYTICS ==============#
 [services]
   [services.googleAnalytics]
     id = 'G-W9TMTZZYG5'
@@ -12,52 +23,54 @@ enableEmoji       = true
     disable = false
     respectDoNotTrack = false
 
+#============== TAXONOMIES ==============#
 [taxonomies]
   tag = "tags"
+  category = "categories"
 
+#============== PERMALINKS ==============#
 [permalinks]
   board = '/:year/:month/:day/:title/'
   notes = '/:year/:month/:day/:title/'
   learning = '/:title/'
 
-[params]
-  author        = "Putra Jaya"
-  description   = "catatan-catatan pribadi yang mungkin hanya berguna untuk saya sendiri (atau mungkin alien di masa depan, siapa tahu? 👽)."
-  shortTitle    = "Notes"
-  logo          = "logo/logo.png"
-  image         = "logo/logo.png"
-  twitter       = "@Masputrawae"
-  emoji         = "📚"
-
+#============== MENUS ==============#
 [menus]
   [[menus.main]]
     name = 'Home'
     pageRef = '/'
     weight = 10
-    params = { emoji = "🏡" }
+    params = {emoji = "🏡"}
 
   [[menus.main]]
-    name = 'Tutorial'
-    pageRef = '/learning'
+    name = 'Notes'
+    pageRef = '/notes'
     weight = 20
-    params = { emoji = "⚙️" }
+    params = {emoji = "📑"}
 
   [[menus.main]]
-    name = 'Search'
-    pageRef = 'search.html'
+    name = 'Projects'
+    pageRef = '/projects'
     weight = 30
-    params = { emoji = "🔍" }
+    params = {emoji = "🧰"}
 
   [[menus.main]]
     name = 'Tags'
     pageRef = '/tags'
     weight = 40
-    params = { emoji = "🏷️" }
+    params = {emoji = "🏷️"}
 
+  [[menus.main]]
+    name = 'Categories'
+    pageRef = '/Categories'
+    weight = 50
+    params = {emoji = "📂"}
+
+#============== PAGINATION ==============#
 [pagination]
   disableAliases = false
   pagerSize = 100
-  path = 'page'
+
 #============== MARKUP ==============#
 [markup]
   # [markup.tableOfContents]
@@ -66,8 +79,8 @@ enableEmoji       = true
   #   startLevel  = 2
 
   [markup.highlight]
-    codeFences          = true
-    guessSyntax         = true
+    codeFences          = false # false
+    guessSyntax         = false # false
     style               = "github-dark"
     noClasses           = false
     lineNumbersInTable  = false
@@ -87,6 +100,29 @@ enableEmoji       = true
       [markup.goldmark.parser.attribute]
         block = true
         title = true
+
+#============== MODULE ==============#
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = '0.146.0'
+
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+    excludeFiles = "templates/*"
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+    excludeFiles = ".obsidian/*"
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+    excludeFiles = ".trash/*"
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+    excludeFiles = "private/*"
 
 #============== OUTPUT ==============#
 [outputFormats]
@@ -133,31 +169,3 @@ enableEmoji       = true
   section = ['html']
   taxonomy = ['html']
   term = ['html']
-
-#============== MODULE ==============#
-[module]
-  [module.hugoVersion]
-    extended = true
-    min = '0.146.5'
-
-  [[module.mounts]]
-    source = "content"
-    target = "content"
-    excludeFiles = "templates/*"
-  [[module.mounts]]
-    source = "content"
-    target = "content"
-    excludeFiles = ".obsidian/*"
-  [[module.mounts]]
-    source = "content"
-    target = "content"
-    excludeFiles = ".trash/*"
-  [[module.mounts]]
-    source = "content"
-    target = "content"
-    excludeFiles = "private/*"
-
-[caches]
-  [caches.assets]
-    dir = ":resourceDir/_gen"
-    maxAge = -1

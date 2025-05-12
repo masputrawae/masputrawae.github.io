@@ -1,0 +1,22 @@
+@use "../abstracts/breakpoints" as b;
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+.u-container {
+	padding: 0 calc(1.5rem * 0.5);
+	margin: 0 auto;
+
+	$container-max-widths: (
+		sm: 540px,
+		md: 720px,
+		lg: 960px,
+		xl: 1140px,
+		xxl: 1320px,
+	);
+
+	@each $breakpoint, $max-width in $container-max-widths {
+		@include b.min($breakpoint) {
+			max-width: $max-width;
+		}
+	}
+}

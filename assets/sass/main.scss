@@ -1,9 +1,9 @@
 @use './styles/root';
+@use './styles/utility';
 @use './styles/typography';
-@use './styles/layout';
-
+@use './styles/button';
 @use './styles/card';
-@use './styles/code';
-@use './styles/collection';
-@use './styles/image';
-@use './styles/search';
+@use './styles/taxonomy';
+@use './styles/layout';
+@use './styles/navigation';
+@use './styles/brand';

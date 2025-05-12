@@ -1,20 +1,12 @@
-<header class="header">
-  <a href="{{ site.BaseURL | absURL }}" class="header__title">
-    <span class="emoji">{{ site.Params.emoji }}</span>
-    <span>{{ site.Title | title }}</span>
-  </a>
+<button class="btn btn--emoji" data-sidebar="sidebar">
+  <span class="emoji btn__emoji">🧭</span>
+</button>
 
-  <nav class="nav">
-    {{ range .Site.Menus.main }}
-      <a href="{{ .PageRef | relURL }}" class="nav__link">
-        <span class="emoji">{{ .Params.emoji }}</span>
-        <span>{{ .Name }}</span>
-      </a>
-    {{ end }}
+<a href="{{ "search.html" | relURL }}" class="btn btn--search">
+  <span class="emoji btn__emoji">🔍</span>
+  <span class="btn__text">Search......</span>
+</a>
 
-    <button class="nav__link" id="toggleThemes">
-      <span class="emoji">☀️</span>
-      <span>Themes</span>
-    </button>
-  </nav>
-</header>
+<button class="btn btn--emoji" id="toggleThemes">
+  <span class="emoji btn__emoji">☀️</span>
+</button>

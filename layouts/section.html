@@ -1,21 +1,13 @@
 {{ define "main" }}
-  <article class="markdown markdown--home">
+  <article class="markdown">
     {{ .Content | safeHTML }}
-    <a href="#myNotes" class="cta">
-      <span>My Notes</span>
-      <span class="emoji">⮛</span>
-    </a>
   </article>
-  <h2 class="heading heading--h1" id="myNotes">My Notes</h2>
   <div class="card-container">
-    {{ $notes := where site.RegularPages "Type" "notes" }}
-    {{ $learning := where site.RegularPages "Type" "daily" }}
-    {{ $pages := append $notes $learning }}
-    {{ $sortedPages := sort $pages "Date" "desc" }}
-    {{ $paginator := .Paginate $sortedPages }}
+    {{ $pages := .Pages }}
+    {{ $paginator := .Paginate $pages }}
 
     {{ range $paginator.Pages }}
-      <article class="u-container card">
+      <div class="u-container card">
         <div class="markdown card__body">
           {{ .Content | safeHTML }}
         </div>
@@ -23,9 +15,8 @@
           {{ partial "components/time.html" (dict "ctx" . "createLabel" "Published" "updateLabel" "Updated") }}
           <button class="card__button" onclick="window.location.href='{{ .RelPermalink }}'">Read More</button>
         </div>
-      </article>
+      </div>
     {{ end }}
-
   </div>
   {{ template "_internal/pagination.html" . }}
 {{ end }}
