@@ -4,57 +4,74 @@
 
 // MENU
 .menu {
-  @include m.flex-center;
-  flex-direction: column;
-  
+  padding-inline: 2rem;
   &__list {
-    width: 80%;
-    text-align: center;
     list-style: none;
-    margin: 0;
-    padding: 0;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    border: 3px solid transparent;
-    border-top-color: var(--cl-accent);
-    border-bottom-color: var(--cl-accent);
-    box-shadow: var(--shadow-lg);
-  }
-
-  &__item {
-    margin: 0;
     padding: 0;
   }
 
   &__link {
-    font-size: v.$font__size--2xl;
-    color: var(--cl-text-title);
+    @include m.flex-between;
+    width: 100%;
+    padding: 0.25rem;
+    font-size: v.$font__size--lg;
+    border-bottom: 1px solid var(--cl-border);
     font-weight: 600;
-    text-shadow: var(--text-shadow-md);
 
-    display: block;
-    padding-bottom: 0.5rem;
-    margin-bottom: 0.25rem;
+    color: var(--cl-text-title);
 
-    &:hover, &--active, &--ancestor {
-      color: var(--cl-accent-hover)
+    &::after {
+      content: "\25A0";
+    }
+
+    &:is(:hover, &--active, &--ancestor){
+      color: var(--cl-accent);
     }
   }
 }
 
+.result {
+  position: absolute;
+  background-color: var(--bg-second);
+  top: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow-y: auto;
+  height: 50vh;
+  width: 70%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-size: 14px;
+  box-shadow: var(--shadow-lg);
+  border: 3px solid var(--cl-border);
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg-second) var(--cl-border);
+
+  &__link {
+    text-decoration: none;
+  }
+
+  @include b.max(lg){
+    width: 100%;
+  }
+}
+
 .search {
+  @include m.flex-center;
   padding: 0.5rem;
   background-color: var(--bg-second);
-  border: 1px solid var(--cl-border);
+  border: 2px solid var(--cl-border);
   border-radius: 0.5rem;
-  width: max-content;
+  height: 45px;
+  width: 70%;
 
   &__input {
-    width: 80%;
+    width: 100%;
     background-color: transparent;
     border: none;
     color: var(--cl-accent);
     border-radius: 0.5rem;
+    height: 45px;
 
     &::placeholder {
       color: var(--cl-text-muted);

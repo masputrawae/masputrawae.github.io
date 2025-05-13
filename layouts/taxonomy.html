@@ -1,24 +1,26 @@
 {{ define "main" }}
-  <article class="markdown">
-    <h1 class="heading heading--h1 drawer__title">{{ .Title | title }}</h1>
-    {{ .Content | safeHTML }}
+  <article class="content">
+    <section class="content__markdown">
+      {{ .Content | safeHTML }}
+    </section>
   </article>
 
-  <div class="drawer">
-    {{ range .Pages }}
-      <div class="drawer__list">
-        <button class="drawer__button" data-drawer="{{ .LinkTitle | md5 }}">{{ .LinkTitle | title }}</button>
-        <ul class="drawer__fill" id="{{ .LinkTitle | md5 }}">
-          <button class="drawer__button drawer__button--closed" data-drawer="{{ .LinkTitle | md5 }}">{{ .LinkTitle | title }}</button>
-          {{ range .Pages }}
-            <li class="drawer__item">
-              <a href="{{ .RelPermalink }}" class="link link--internal drawer__link">
-                {{ .Title | title }}
-              </a>
-            </li>
-          {{ end }}
-        </ul>
-      </div>
-    {{ end }}
+  <div class="content">
+    <h1 class="heading heading--h1 drawer__title">{{ .Title | title }}</h1>
+    <div class="drawer">
+      {{ range .Pages }}
+        <div class="drawer__list">
+          <button class="drawer__button" data-drawer="{{ .LinkTitle | md5 }}">{{ .LinkTitle | title }}</button>
+          <ul class="drawer__fill" id="{{ .LinkTitle | md5 }}">
+            <button class="drawer__button drawer__button--closed" data-drawer="{{ .LinkTitle | md5 }}">Close</button>
+            {{ range .Pages }}
+              <li class="drawer__item">
+                <a href="{{ .RelPermalink }}" class="drawer__link">{{ .Title | title }}</a>
+              </li>
+            {{ end }}
+          </ul>
+        </div>
+      {{ end }}
+    </div>
   </div>
 {{ end }}

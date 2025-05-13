@@ -69,7 +69,7 @@ enableEmoji       = true
 #============== PAGINATION ==============#
 [pagination]
   disableAliases = false
-  pagerSize = 100
+  pagerSize = 20
 
 #============== MARKUP ==============#
 [markup]
@@ -79,8 +79,8 @@ enableEmoji       = true
   #   startLevel  = 2
 
   [markup.highlight]
-    codeFences          = false # false
-    guessSyntax         = false # false
+    codeFences          = true
+    guessSyntax         = true
     style               = "github-dark"
     noClasses           = false
     lineNumbersInTable  = false

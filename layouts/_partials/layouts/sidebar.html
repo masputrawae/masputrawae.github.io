@@ -6,14 +6,14 @@
   <figcaption class="brand__caption">
     <a href="{{ site.BaseURL | absURL }}" class="brand__title">{{ site.Params.author | title }}</a>
     <div class="brand__info">
-      <a href="{{ site.Params.github }}" class="link link--internal brand__link">Github</a><span class="emoji"> • </span>
-      <a href="{{ site.Params.facebook }}" class="link link--internal brand__link">Facebook</a><span class="emoji"> • </span>
-      <a href="{{ site.Params.discord }}" class="link link--internal brand__link">Discord</a>
+      <a href="{{ site.Params.github }}" class="brand__link">Github</a><span class="emoji"> • </span>
+      <a href="{{ site.Params.facebook }}" class="brand__link">Facebook</a><span class="emoji"> • </span>
+      <a href="{{ site.Params.discord }}" class="brand__link">Discord</a>
     </div>
     <em class="brand__description">{{ site.Params.description }}</em>
   </figcaption>
 
-  <button class="btn btn--emoji brand__button" data-sidebar="sidebar">
+  <button class="btn btn--emoji btn--sidebar" data-sidebar="sidebar">
     <span class="emoji">✖️</span>
   </button>
 </figure>

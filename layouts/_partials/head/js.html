@@ -1,5 +1,5 @@
 {{/* |===========| START: MAIN.JS |===========| */}}
-{{/*  {{- with resources.Get "js/main.js" }}
+{{- with resources.Get "js/main.js" }}
   {{- $opts := dict
     "minify" (not hugo.IsDevelopment)
     "sourceMap" (cond hugo.IsDevelopment "external" "")
@@ -14,7 +14,11 @@
       {{- end }}
     {{- end }}
   {{- end }}
-{{- end }}  */}}
+{{- end }}
 {{/* |===========| END: MAIN.JS |===========| */}}
-{{ partial "head/script.js" . }}
+
+{{ partial "head/sw-script.html" . }}
+{{ partial "head/mathjax-script.html" . }}
+{{ partial "head/search-script.html" . }}
+
 {{ template "_internal/google_analytics.html" . }}

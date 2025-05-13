@@ -5,11 +5,19 @@
   {{ partialCached "head/css.html" . }}
 </head>
 <body>
-  <aside class="sidebar" id="sidebar">{{ partial "layouts/sidebar.html" . }}</aside>
+  <aside class="sidebar" id="sidebar">
+    {{ partial "layouts/sidebar.html" . }}
+  </aside>
   <div class="layout">
-    <header class="u-container header">{{ partial "layouts/header.html" . }}</header>
-    <main class="u-container main">{{ block "main" . }}{{ end }}</main>
-    <footer class="u-container markdown footer">{{ partial "layouts/footer.html" . }}</footer>
+    <header class="u-container layout__header">
+      {{ partial "layouts/header.html" . }}
+    </header>
+    <main class="u-container layout__main">
+      {{ block "main" . }}{{ end }}
+    </main>
+    <footer class="u-container layout__footer">
+      {{ partial "layouts/footer.html" . }}
+    </footer>
   </div>
   {{ partialCached "head/js.html" . }}
 </body>

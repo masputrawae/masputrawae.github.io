@@ -5,9 +5,10 @@
 // BRAND
 .brand {
   @include m.flex-center;
+
   flex-direction: column;
   text-align: center;
-  padding-block: 1rem;
+  padding-block: 1.5rem;
   position: relative;
 
   &__title {
@@ -17,8 +18,9 @@
   }
 
   &__picture {
-    @include m.width-height(120px, 120px);
+    @include m.width-height(180px, 180px);
     @include m.transition(box-shadow);
+
     overflow: hidden;
     border-radius: 50%;
     border: 3px solid var(--cl-accent);
@@ -31,17 +33,18 @@
   }
 
   &__logo {
-    object-fit: contain;
-    width: 100%;
-    height: 100%;
+    @include m.width-height(100%, 100%);
     @include m.transition(scale);
+
+    object-fit: contain;
     &:hover {
-      scale: 1.1;
+      scale: 1.5;
     }
   }
 
   &__info {
     @include m.flex-center;
+    
     margin-top: 0.5rem;
     gap: 1rem;
     font-size: v.$font__size--3xs;
@@ -63,16 +66,5 @@
     font-style: normal;
     font-size: v.$font__size--3xs;
     color: var(--cl-text-muted);
-  }
-
-  &__button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: none;
-
-    @include b.max(lg){
-      display: flex;
-    }
   }
 }

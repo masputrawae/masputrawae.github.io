@@ -1,31 +1,35 @@
 {{ define "main" }}
-  <article class="markdown markdown--home">
-    {{ .Content | safeHTML }}
-    <a href="#myNotes" class="cta">
-      <span>My Notes</span>
-      <span class="emoji">⮛</span>
-    </a>
+  <article class="content content--home">
+    <section class="content__markdown">
+      {{ .Content | safeHTML }}
+    </section>
+    <a href="#myNotes" class="btn btn--cta btn--home">Catatan Terbaru</a>
   </article>
-  <h2 class="heading heading--h1" id="myNotes">My Notes</h2>
-  <div class="card-container">
-    {{ $notes := where site.RegularPages "Type" "notes" }}
-    {{ $learning := where site.RegularPages "Type" "daily" }}
-    {{ $pages := append $notes $learning }}
-    {{ $sortedPages := sort $pages "Date" "desc" }}
-    {{ $paginator := .Paginate $sortedPages }}
 
-    {{ range $paginator.Pages }}
-      <article class="u-container card">
-        <div class="markdown card__body">
-          {{ .Content | safeHTML }}
-        </div>
-        <div class="card__footer">
-          {{ partial "components/time.html" (dict "ctx" . "createLabel" "Published" "updateLabel" "Updated") }}
-          <button class="card__button" onclick="window.location.href='{{ .RelPermalink }}'">Read More</button>
-        </div>
-      </article>
-    {{ end }}
+  <div class="content">
+    <h2 class="heading heading--h1" id="myNotes">My Notes</h2>
+    <div class="u-masonry u-masonry--c2">
+      {{ $notes := where site.RegularPages "Type" "notes" }}
+      {{ $learning := where site.RegularPages "Type" "daily" }}
+      {{ $pages := append $notes $learning }}
+      {{ $sortedPages := sort $pages "Date" "desc" }}
+      {{ $paginator := .Paginate $sortedPages }}
 
+      {{ range $paginator.Pages }}
+        <div class="u-masonry__item">
+          <article class="card">
+            <section class="card__body">
+              {{ .Content | safeHTML }}
+            </section>
+            <section class="card__footer">
+              <div class="card__date">{{ partial "components/timeago.html" . }}</div>
+              <button class="btn card__button" onclick="window.location.href='{{ .RelPermalink }}'">Read More</button>
+            </section>
+          </article>
+        </div>
+      {{ end }}
+    </div>
+
+    {{ partial "pagination.html" . }}
   </div>
-  {{ template "_internal/pagination.html" . }}
 {{ end }}

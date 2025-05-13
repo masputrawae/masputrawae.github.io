@@ -2,25 +2,30 @@
 @use "../abstracts/mixins" as m;
 @use "../abstracts/variables" as v;
 
-// CARD
-.card-container {
-	column-count: 2;
-	column-gap: 1rem;
-	margin-block: 1rem;
-
-  @include b.max(lg){
-    column-count: 1;
-  }
-}
-
 .card {
-	break-inside: avoid;
-  border: 1px dashed var(--cl-border);
+	background-color: var(--bg-second);
 	border-radius: 0.5rem;
-	margin-bottom: 1rem;
 	box-shadow: var(--shadow-md);
   overflow: hidden;
+	padding: 1rem;
+	
+	font-size: 14px;
 
+	border: 2px solid transparent;
+
+	@include m.transition(box-shadow, transform, border-color);
+
+	&:hover {
+		box-shadow: var(--shadow-lg);
+		transform: translateY(-1px);
+		border-color: var(--cl-accent);
+	}
+
+	&__footer {
+		@include m.flex-between;
+	}
+
+	// HEADING
 	.heading {
     margin-top: 0.75rem;
 		&--h1 {
@@ -40,28 +45,17 @@
 		}
 	}
 
-	&__body {
-		font-size: 14px;
+	// IMAGE
+	.figure {
+		margin: 0;
+		padding: 0;
+		&__image {
+			width: 100%;
+			height: auto;
+		}
 	}
 
-  &__footer {
-    @include m.flex-between;
-    border-top: 1px dashed var(--cl-border);
-    margin-block: 1rem;
-  }
-
-  &__button {
-    @include m.flex-center;
-    padding: 0.75rem;
-    background-color: var(--bg-second);
-    border: 1px dashed var(--cl-border);
-    border-top: none;
-    border-radius: 0rem 0 0.75rem 0.75rem;
-    color: var(--cl-accent);
-    font-weight: 700;
-    
-    &:hover {
-      color: var(--cl-accent-hover);
-    }
-  }
+	@include b.max(lg) {
+		font-size: 12px;
+	}
 }

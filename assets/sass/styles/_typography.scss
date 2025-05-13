@@ -11,7 +11,7 @@ html {
 	color: var(--cl-text-default);
 	@include m.transition(color, background-color, border-color);
 
-	@include b.max(lg){
+	@include b.max(xl) {
 		font-size: 14px;
 	}
 }
@@ -21,20 +21,22 @@ html {
 	text-shadow: var(--text-shadow-md);
 	font-weight: 700;
 	margin-top: 2rem;
-  margin-bottom: 1rem;
+	margin-bottom: 1rem;
 	padding-bottom: 0.25rem;
 	border-bottom: 1px dashed var(--cl-border);
 
-  scroll-margin-top: 5rem;
+	scroll-margin-top: 5rem;
 
 	&--h1 {
 		font-size: v.$font__size--6xl;
-    text-align: center;
-    @include m.flex-center;
+		text-align: center;
+		@include m.flex-center;
 
-    .heading__anchor {display: none;}
+		.heading__anchor {
+			display: none;
+		}
 	}
-  
+
 	&--h2 {
 		font-size: v.$font__size--5xl;
 	}
@@ -52,188 +54,130 @@ html {
 	}
 }
 
-.markdown {
-	line-height: 1.6;
-	max-width: 100ch;
-	margin: 0 auto;
-	padding: 0 calc(1.5rem * 0.5);
+// STRONG & BOLD
+:is(b, strong) {
+	color: var(--cl-text-title);
+	font-weight: 700;
+}
 
-  &--home {
-    text-align: center;
-    min-height: 100vh;
-    position: relative;
+p {
+	margin-bottom: 1em;
+}
 
-    .cta {
-      display: block;
-      position: absolute;
-      bottom: 10rem;
-      left: 0;
-      right: 0;
-      width: 100%;
-      background-color: var(--bg-third);
-      color: var(--cl-accent);
-      font-size: v.$font__size--6xl;
-    }
-  }
+p + p {
+	margin-top: 1em;
+}
 
-	// STRONG & BOLD
-	:is(b, strong) {
+:is(ul, ol) {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-left: 2em;
+}
+
+:is(ol ol, ul ol) {
+	list-style-type: lower-roman;
+}
+
+:is(ul ul ol, ul ol ol, ol ul ol, ol ol ol) {
+	list-style-type: lower-alpha;
+}
+
+:is(ul ul, ul ol, ol ol, ol ul) {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+li + li {
+	margin-top: 0.25em;
+}
+
+li > p {
+	margin-top: 1rem;
+}
+
+dl {
+	dt {
+		font-weight: bold;
+		margin-top: 15px;
 		color: var(--cl-text-title);
-		font-weight: 700;
 	}
 
-	p {
-		margin-bottom: 1em;
+	dd {
+		margin-left: 20px;
+		margin-bottom: 10px;
+	}
+}
+
+// TABLE
+table {
+	margin: 1rem auto;
+	border-spacing: 0;
+	border-collapse: collapse;
+	min-width: 100%;
+	max-width: 100%;
+	box-shadow: var(--shadow-md);
+
+	&:hover {
+		scrollbar-color: var(--cl-accent) var(--bg-body);
 	}
 
-	p + p {
-		margin-top: 1em;
+	th {
+		background-color: var(--bg-second);
+		color: var(--cl-text-title);
+		padding: 15px;
+		text-align: left;
 	}
 
-	:is(ul, ol) {
-		margin-top: 0;
-		margin-bottom: 0;
-		padding-left: 2em;
+	td {
+		padding: 12px 15px;
+		border-bottom: 1px solid var(--cl-border);
 	}
 
-	:is(ol ol, ul ol) {
-		list-style-type: lower-roman;
+	tr:last-child td {
+		border-bottom: none;
 	}
 
-	:is(ul ul ol, ul ol ol, ol ul ol, ol ol ol) {
-		list-style-type: lower-alpha;
+	tr:hover {
+		background-color: var(--bg-third);
+		color: var(--cl-text-title);
 	}
+}
 
-	:is(ul ul, ul ol, ol ol, ol ul) {
-		margin-top: 0;
-		margin-bottom: 0;
+hr {
+	border: 0;
+	height: 3px;
+	max-width: 100%;
+	background-color: var(--cl-border);
+	margin: 20px 0;
+}
+
+a {
+	@include m.transition(color);
+	color: var(--cl-accent);
+	text-shadow: var(--text-shadow-md);
+
+	&:hover {
+		color: var(--cl-accent-hover);
 	}
+}
 
-	li + li {
-		margin-top: 0.25em;
-	}
+.link {
+	text-decoration: underline;
 
-	li > p {
-		margin-top: 1rem;
-	}
-
-	dl {
-		dt {
-			font-weight: bold;
-			margin-top: 15px;
-			color: var(--cl-text-title);
-		}
-
-		dd {
-			margin-left: 20px;
-			margin-bottom: 10px;
-		}
-	}
-
-	// TABLE
-	table {
-		margin: 1rem auto;
-		border-spacing: 0;
-		border-collapse: collapse;
-		min-width: 100%;
-		max-width: 100%;
-		box-shadow: var(--shadow-md);
+	&--external {
+		color: var(--cl-link-external);
 
 		&:hover {
-			scrollbar-color: var(--cl-accent) var(--bg-body);
-		}
-
-		th {
-			background-color: var(--bg-second);
-			color: var(--cl-text-title);
-			padding: 15px;
-			text-align: left;
-		}
-
-		td {
-			padding: 12px 15px;
-			border-bottom: 1px solid var(--cl-border-default);
-		}
-
-		tr:last-child td {
-			border-bottom: none;
-		}
-
-		tr:hover {
-			background-color: var(--bg-state-info);
+			color: var(--cl-link-external-hover);
 		}
 	}
 
-	hr {
-		border: 0;
-		height: 3px;
-		max-width: 100%;
-		background-color: var(--cl-border);
-		margin: 20px 0;
-	}
-
-	.link {
-		@include m.transition(color);
-		color: var(--cl-accent);
-		text-decoration: none;
-		font-weight: 600;
-    text-decoration: underline;
-		text-shadow: var(--text-shadow-md);
-		cursor: grab;
+	&--missing {
+		color: var(--cl-link-missing);
+		cursor: not-allowed;
 
 		&:hover {
-			color: var(--cl-accent-hover);
-		}
-
-		&--external {
-			color: var(--cl-link-external);
-
-			&:hover {
-				color: var(--cl-link-external-hover);
-			}
-		}
-
-		&--missing {
-			color: var(--cl-link-missing);
-			cursor: not-allowed;
-
-			&:hover {
-				color: var(--cl-link-missing-hover);
-			}
+			color: var(--cl-link-missing-hover);
 		}
 	}
-
-  :is(:not(pre) > code, kbd, samp){
-    background-color: var(--bg-second);
-    font-family: v.$font__family--mono;
-    padding: 0.2em 0.4em;
-    border-radius: 3px;
-		font-size: 80%;
-  }
-  
-  kbd {
-    border: 1px solid var(--cl-border);
-  }
-  
-  samp {
-    border: 1px solid var(--cl-accent);
-  }
-
-  pre {
-    background-color: var(--bg-second);
-    padding: 1rem;
-    margin-block: 2.5rem;
-    margin-inline: 1rem;
-    max-width: 100%;
-    border: 2px solid var(--cl-border);
-    border-radius: 0.25rem;
-    box-shadow: var(--shadow-md);
-    font-family: v.$font__family--mono;
-
-    overflow-x: scroll;
-    overflow-y: hidden;
-
-    scrollbar-width: thin;
-    scrollbar-color: var(--bg-second) var(--bg-body);
-  }
 }

@@ -1,22 +1,30 @@
 {{ define "main" }}
-  <article class="markdown">
-    {{ .Content | safeHTML }}
+  <article class="content">
+    <section class="content__markdown">
+      {{ .Content | safeHTML }}
+    </section>
   </article>
-  <div class="card-container">
-    {{ $pages := .Pages }}
-    {{ $paginator := .Paginate $pages }}
 
-    {{ range $paginator.Pages }}
-      <div class="u-container card">
-        <div class="markdown card__body">
-          {{ .Content | safeHTML }}
+  <div class="content">
+    <h2 class="heading heading--h1">Content</h2>
+    <div class="masonry masonry--c2">
+      {{ $pages := .Pages }}
+      {{ $paginator := .Paginate $pages }}
+
+      {{ range $paginator.Pages }}
+        <div class="masonry__item">
+          <article class="card">
+            <section class="card__body">
+              {{ .Content | safeHTML }}
+            </section>
+            <section class="card__footer">
+              <div class="card__date">{{ partial "components/timeago.html" . }}</div>
+              <button class="card__button" onclick="window.location.href='{{ .RelPermalink }}'">Read More</button>
+            </section>
+          </article>
         </div>
-        <div class="card__footer">
-          {{ partial "components/time.html" (dict "ctx" . "createLabel" "Published" "updateLabel" "Updated") }}
-          <button class="card__button" onclick="window.location.href='{{ .RelPermalink }}'">Read More</button>
-        </div>
-      </div>
-    {{ end }}
+      {{ end }}
+    </div>
+    {{ partial "pagination.html" . }}
   </div>
-  {{ template "_internal/pagination.html" . }}
 {{ end }}

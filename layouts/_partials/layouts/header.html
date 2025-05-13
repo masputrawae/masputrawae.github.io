@@ -2,11 +2,22 @@
   <span class="emoji btn__emoji">🧭</span>
 </button>
 
-<a href="{{ "search.html" | relURL }}" class="btn btn--search">
-  <span class="emoji btn__emoji">🔍</span>
-  <span class="btn__text">Search......</span>
-</a>
+<form 
+  class="search" 
+  id="search" 
+  onsubmit="handleSearch(event)" 
+  method="get" 
+  id="search" 
+  data-search-url="{{ "search-data.json" | relURL }}"
+  >
+  <label class="emoji" for="search-input" aria-label="search" title="search">🔍</label>
+  <input class="search__input" type="search" id="search-input" name="query" placeholder="Search...." autocomplete="off" autocorrect="off" spellcheck="false">
+</form>
 
 <button class="btn btn--emoji" id="toggleThemes">
   <span class="emoji btn__emoji">☀️</span>
 </button>
+
+<div class="result" id="resultsPanel" style="display: none;">
+  <ul class="result__list" id="results" data-collapse="resultsSearch"></ul>
+</div>
