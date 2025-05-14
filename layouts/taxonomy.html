@@ -10,7 +10,7 @@
     <div class="drawer">
       {{ range .Pages }}
         <div class="drawer__list">
-          <button class="drawer__button" data-drawer="{{ .LinkTitle | md5 }}">{{ .LinkTitle | title }}</button>
+          <button class="drawer__button" data-drawer="{{ .LinkTitle | md5 }}">{{ .LinkTitle | title }} <span class="drawer__count">{{ len .Pages }}</span></button>
           <ul class="drawer__fill" id="{{ .LinkTitle | md5 }}">
             <button class="drawer__button drawer__button--closed" data-drawer="{{ .LinkTitle | md5 }}">Close</button>
             {{ range .Pages }}

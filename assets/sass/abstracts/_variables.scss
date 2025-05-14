@@ -24,7 +24,7 @@ $breakpoints: (
 
 $font__family--sans: "Noto Sans",system-ui, Roboto, Oxygen, Ubuntu, Cantarell, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 $font__family--emoji: "Noto Color Emoji", "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
-$font__family--serif: "Noto Serif", serif;
+$font__family--serif: "Noto Serif", Georgia, "Times New Roman", serif;
 $font__family--mono: "Noto Sans Mono", ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
 
 @use "sass:math";

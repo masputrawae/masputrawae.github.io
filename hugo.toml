@@ -12,6 +12,10 @@ enableEmoji       = true
   logo          = "logo/logo.png"
   image         = "logo/logo.png"
   twitter       = "@Masputrawae"
+  
+  instagram     = "https://www.instagram.com/masputrawae/"
+  github        = "https://github.com/masputrawae"
+  discord       = "https://discord.gg/nM4EP8DJFZ"
 
 #============== GOOGLE ANALYTICS ==============#
 [services]
@@ -69,7 +73,8 @@ enableEmoji       = true
 #============== PAGINATION ==============#
 [pagination]
   disableAliases = false
-  pagerSize = 100
+  pagerSize = 20
+  path = 'page'
 
 #============== MARKUP ==============#
 [markup]
@@ -110,7 +115,7 @@ enableEmoji       = true
   [[module.mounts]]
     source = "content"
     target = "content"
-    excludeFiles = "template/*"
+    excludeFiles = "templates/*"
   [[module.mounts]]
     source = "content"
     target = "content"
@@ -130,12 +135,6 @@ enableEmoji       = true
   [outputFormats.search-data]
     mediaType       = "application/json"
     baseName        = "search-data"
-    isPlainText     = true
-    notAlternative  = true
-  
-  [outputFormats.search]
-    mediaType       = "text/html"
-    baseName        = "search"
     isPlainText     = true
     notAlternative  = true
     
@@ -164,8 +163,17 @@ enableEmoji       = true
     notAlternative = true
 
 [outputs]
-  home = ['html', "search-data", "search", "manifest", 'news', 'sw', "Robots"]
+  home = ['html', "search-data", "manifest", 'news', 'sw', "Robots"]
   page = ['html']
   section = ['html']
   taxonomy = ['html']
   term = ['html']
+
+[sitemap]
+  filename = 'sitemap.xml'
+  priority = 1.0
+
+[caches]
+  [caches.assets]
+    dir = ":resourceDir/_gen"
+    maxAge = -1

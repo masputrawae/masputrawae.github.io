@@ -23,6 +23,10 @@
   }
 
   &__button {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 1rem;
     padding: 1rem;
     border: 1px solid var(--cl-border);
     box-shadow: var(--shadow-md);
@@ -35,9 +39,26 @@
       border-radius: 0.5rem;
     }
 
-    &:hover {
+    &:hover, &:focus-visible {
       box-shadow: var(--shadow-lg);
+      border-color: var(--cl-accent);
+      color: var(--cl-text-title);
+
+      .drawer__count {
+        transform: rotate(720deg);
+        border-color: var(--cl-accent);
+        color: var(--cl-text-title);
+      }
     }
+  }
+
+  &__count {
+    @include m.flex-center;
+    @include m.width-height(35px, 35px);
+    @include m.transition(transform);
+    border: 2px solid var(--cl-border);
+    border-radius: 50%;
+    box-shadow: var(--shadow-sm);
   }
 
   &__fill {
@@ -94,7 +115,8 @@
     }
 
     &::before {
-      content: "📑";
+      content: "\25A0";
+      padding-right: 0.5rem;
     }
   }
 }

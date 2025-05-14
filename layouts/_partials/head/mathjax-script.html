@@ -1,27 +1,25 @@
 {{/* |===========| START: MATHJAX |===========| */}}
-{{ if .Params.mathjax }}
-  <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
-  <style>
-    mjx-container.MathJax {
-      padding: 1rem;
-      overflow-x: auto;
-      white-space: nowrap;
-      max-width: 100%;
+<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
+<style>
+  mjx-container.MathJax {
+    padding: 1rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+</style>
+<script defer>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],
+    },
+    svg: {
+      fontCache: 'global'
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
     }
-  </style>
-  <script defer>
-    window.MathJax = {
-      tex: {
-        inlineMath: [['\\(', '\\)']],
-        displayMath: [['\\[', '\\]'], ['$$', '$$']],
-      },
-      svg: {
-        fontCache: 'global'
-      },
-      options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-      }
-    };
-  </script>
-{{ end }}
+  };
+</script>
 {{/* |===========| END: MATHJAX |===========| */}}

@@ -27,7 +27,7 @@
 
 	// HEADING
 	.heading {
-    margin-top: 0.75rem;
+    margin-top: 0.5rem;
 		&--h1 {
 			font-size: v.$font__size--3xl;
 		}
@@ -49,6 +49,7 @@
 	.figure {
 		margin: 0;
 		padding: 0;
+		
 		&__image {
 			width: 100%;
 			height: auto;

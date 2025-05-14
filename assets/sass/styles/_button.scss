@@ -15,8 +15,6 @@
   background-color: var(--bg-second);
   box-shadow: var(--shadow-md);
 
-  @include m.transition(box-shadow, background-color, color);
-
   &:hover {
     border-color: var(--cl-accent);
     box-shadow: var(--shadow-lg);
@@ -51,10 +49,6 @@
     bottom: 0.5rem;
     right: 0.5rem;
     z-index: 999;
-
-    &::hover {
-      opacity: 0.8;
-    }
   }
 
   &--cta {

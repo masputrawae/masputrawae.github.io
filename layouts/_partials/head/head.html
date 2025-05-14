@@ -32,3 +32,11 @@
 <link rel="manifest" href="{{ "manifest.json" | absURL }}">
 
 <link rel="sitemap" type="application/xml" href="{{ "sitemap.xml" | absURL }}" />
+
+{{ partialCached "head/css.html" . }}
+{{ partialCached "head/js.html" . }}
+
+<script src="{{ "js/lunr.min.js" | relURL }}" defer></script>
+{{ if .Params.mathjax }}{{ partial "head/mathjax-script.html" . }}{{ end }}
+{{ partial "head/sw-script.html" . }}
+{{ template "_internal/google_analytics.html" . }}

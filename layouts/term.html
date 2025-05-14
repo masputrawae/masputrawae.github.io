@@ -1,11 +1,13 @@
 {{ define "main" }}
-  <article class="content">
-    <section class="content__markdown">
-      {{ .Content | safeHTML }}
-    </section>
-  </article>
+  {{ if eq .Paginator.PageNumber 1 }}
+    <article class="content">
+      <section class="content__markdown">
+        {{ .Content | safeHTML }}
+      </section>
+    </article>
+  {{ end }}
 
-  <div class="content">
+  <div class="u-container content">
     <h1 class="heading heading--h1">{{ .Title }}</h1>
     <div class="u-masonry u-masonry--c2">
       {{ $pages := .Pages }}
@@ -15,7 +17,7 @@
         <div class="u-masonry__item">
           <article class="card">
             <section class="card__body">
-              {{ .Content | safeHTML }}
+              {{ .Content | strings.Truncate 280 | safeHTML }}
             </section>
             <section class="card__footer">
               <div class="card__date">{{ partial "components/timeago.html" . }}</div>

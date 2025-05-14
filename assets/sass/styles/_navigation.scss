@@ -15,6 +15,7 @@
     width: 100%;
     padding: 0.25rem;
     font-size: v.$font__size--lg;
+    font-family: v.$font__family--serif;
     border-bottom: 1px solid var(--cl-border);
     font-weight: 600;
 
@@ -33,7 +34,7 @@
 .result {
   position: absolute;
   background-color: var(--bg-second);
-  top: 5rem;
+  top: 5.5rem;
   left: 50%;
   transform: translateX(-50%);
   overflow-y: auto;
