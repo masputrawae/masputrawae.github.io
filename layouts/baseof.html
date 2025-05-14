@@ -9,13 +9,13 @@
     {{ partial "layouts/sidebar.html" . }}
   </aside>
   <div class="layout">
-    <header class="u-container layout__header">
+    <header class="layout__header">
       {{ partial "layouts/header.html" . }}
     </header>
     <main class="u-container layout__main">
       {{ block "main" . }}{{ end }}
     </main>
-    <footer class="u-container layout__footer">
+    <footer class="layout__footer">
       {{ partial "layouts/footer.html" . }}
     </footer>
   </div>

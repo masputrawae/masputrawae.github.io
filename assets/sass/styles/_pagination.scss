@@ -20,9 +20,10 @@
     font-size: v.$font__size--2xl;
     font-family: v.$font__family--serif;
     padding: 0.75rem;
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
     color: var(--cl-text-title);
     font-weight: 600;
+    border: 1px solid var(--cl-border);
 
     @include m.transition(color, box-shadow);
 
@@ -30,6 +31,7 @@
     &--active {
       color: var(--cl-accent-hover);
       box-shadow: var(--shadow-lg);
+      border-color: var(--cl-accent-hover);
     }
 
     &--active {

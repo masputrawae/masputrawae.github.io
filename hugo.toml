@@ -30,7 +30,7 @@ enableEmoji       = true
 
 #============== PERMALINKS ==============#
 [permalinks]
-  board = '/:year/:month/:day/:title/'
+  daily = '/:year/:month/:day/:title/'
   notes = '/:year/:month/:day/:title/'
   learning = '/:title/'
 
@@ -69,7 +69,7 @@ enableEmoji       = true
 #============== PAGINATION ==============#
 [pagination]
   disableAliases = false
-  pagerSize = 20
+  pagerSize = 100
 
 #============== MARKUP ==============#
 [markup]

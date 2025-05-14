@@ -58,4 +58,11 @@ button {
   font-size: inherit;
   font-family: v.$font__family--emoji;
   text-shadow: var(--text-shadow-md);
+  cursor: pointer;
+
+  @include m.transition(transform);
+  
+  &:hover {
+    transform: rotate(720deg);
+  }
 }

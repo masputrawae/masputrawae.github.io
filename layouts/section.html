@@ -7,19 +7,19 @@
 
   <div class="content">
     <h2 class="heading heading--h1">Content</h2>
-    <div class="masonry masonry--c2">
+    <div class="u-masonry u-masonry--c2">
       {{ $pages := .Pages }}
       {{ $paginator := .Paginate $pages }}
 
       {{ range $paginator.Pages }}
-        <div class="masonry__item">
+        <div class="u-masonry__item">
           <article class="card">
             <section class="card__body">
               {{ .Content | safeHTML }}
             </section>
             <section class="card__footer">
               <div class="card__date">{{ partial "components/timeago.html" . }}</div>
-              <button class="card__button" onclick="window.location.href='{{ .RelPermalink }}'">Read More</button>
+              <button class="btn card__button" onclick="window.location.href='{{ .RelPermalink }}'">Read More</button>
             </section>
           </article>
         </div>

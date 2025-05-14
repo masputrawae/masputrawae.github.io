@@ -89,10 +89,7 @@
 
   &--home {
     font-size: v.$font__size--2xl;
-    position: absolute;
-    bottom: 10rem;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-top: 5rem;
   }
 }
 
