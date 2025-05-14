@@ -110,7 +110,7 @@ enableEmoji       = true
   [[module.mounts]]
     source = "content"
     target = "content"
-    excludeFiles = "templates/*"
+    excludeFiles = "template/*"
   [[module.mounts]]
     source = "content"
     target = "content"
