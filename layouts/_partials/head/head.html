@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 
-<meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | strings.Truncate 200 }}{{ end }}">
+<meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | plainify | strings.Truncate 200 }}{{ end }}">
 <link rel="canonical" href="{{ .Permalink }}">
 <meta name="robots" content="index, follow">
 <meta name="author" content="{{ .Params.author | default site.Params.author }}">
@@ -12,14 +12,14 @@
 {{/*  Open Graph / Facebook  */}}
 <meta property="og:type" content="article">
 <meta property="og:title" content="{{ .Title }}">
-<meta property="og:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | strings.Truncate 200 }}{{ end }}">
+<meta property="og:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | plainify | strings.Truncate 200 }}{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:image" content="{{ .Params.image | default site.Params.image | absURL }}">
 
 {{/*  Twitter Card  */}}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ .Title }}">
-<meta name="twitter:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | strings.Truncate 200 }}{{ end }}">
+<meta name="twitter:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | plainify | strings.Truncate 200 }}{{ end }}">
 <meta name="twitter:image" content="{{ .Params.image | default site.Params.image | absURL }}">
 <meta name="twitter:site" content="{{ site.Params.twitter }}">
 
