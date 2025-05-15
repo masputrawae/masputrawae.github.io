@@ -3,11 +3,13 @@
 @use "../abstracts/variables" as v;
 
 :is(:not(pre) > code, kbd, samp){
-  background-color: var(--bg-second);
+  background-color: var(--cl-syntax-bg);
+  color: var(--cl-text-title);
   font-family: v.$font__family--mono;
-  padding: 0.2em 0.4em;
+  padding: 0em 0.4em;
   border-radius: 3px;
   font-size: 80%;
+  border: 1px solid var(--cl-border);
 }
 
 kbd {
