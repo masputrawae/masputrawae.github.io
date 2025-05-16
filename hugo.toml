@@ -3,6 +3,7 @@ baseURL           = 'https://masputrawae.github.io/'
 languageCode      = "id"
 title             = "My Notes"
 enableEmoji       = true
+buildFuture = true
 
 #============== PARAMS ==============#
 [params]
