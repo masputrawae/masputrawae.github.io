@@ -37,6 +37,7 @@ enableEmoji       = true
   daily = '/:year/:month/:day/:title/'
   notes = '/:year/:month/:day/:title/'
   learning = '/:title/'
+  vocab = '/:title/'
 
 #============== MENUS ==============#
 [menus]
