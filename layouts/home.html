@@ -1,5 +1,9 @@
 {{ define "main" }}
-  {{ if eq .Paginator.PageNumber 1 }}
+  {{ $pages := where site.RegularPages "Section" "ne" "vocab" }}
+  {{ $sortedPages := sort $pages "Date" "desc" }}
+  {{ $paginator := .Paginate $sortedPages }}
+
+  {{ if eq $paginator.PageNumber 1 }}
     <article class="content content--home">
       <section class="content__markdown">
         {{ .Content | safeHTML }}
@@ -11,10 +15,6 @@
   <div class="u-container content">
     <h2 class="heading heading--h1" id="myNotes">My Notes</h2>
     <div class="u-masonry u-masonry--c2">
-      {{ $pages := site.RegularPages }}
-      {{ $sortedPages := sort $pages "Date" "desc" }}
-      {{ $paginator := .Paginate $sortedPages }}
-
       {{ range $paginator.Pages }}
         <div class="u-masonry__item">
           <article class="card">

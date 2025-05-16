@@ -73,7 +73,7 @@ enableEmoji       = true
 #============== PAGINATION ==============#
 [pagination]
   disableAliases = false
-  pagerSize = 20
+  pagerSize = 10
   path = 'page'
 
 #============== MARKUP ==============#
