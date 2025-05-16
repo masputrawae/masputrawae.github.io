@@ -37,8 +37,8 @@ buildFuture = true
 [permalinks]
   daily = '/:year/:month/:day/:title/'
   notes = '/:year/:month/:day/:title/'
-  learning = '/:title/'
-  vocab = '/:title/'
+  learning = '/:section/:title/'
+  vocab = '/:section/:title/'
 
 #============== MENUS ==============#
 [menus]
