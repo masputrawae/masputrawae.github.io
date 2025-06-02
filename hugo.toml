@@ -1,22 +1,23 @@
 #============== BASE ==============#
 baseURL           = 'https://masputrawae.github.io/'
 languageCode      = "id"
-title             = "My Notes"
+title             = "Putra Jaya"
 enableEmoji       = true
-buildFuture = true
+buildFuture       = true
+
+[permalinks]
+  tutorial = '/:title/'
+  notes = '/:year/:month/:day/:title/'
+  projects = '/:title/'
+  vocab = '/:title/'
 
 #============== PARAMS ==============#
 [params]
   author        = "Putra Jaya"
-  description   = "catatan-catatan pribadi yang mungkin hanya berguna untuk saya sendiri, atau mungkin alien di masa depan, siapa tahu? 👽"
-  shortTitle    = "Notes"
+  tagline       = "Manusia Biasa"
+  description   = "Catatan-catatan pribadi yang mungkin hanya berguna untuk saya sendiri, atau mungkin alien di masa depan, siapa tahu?"
   logo          = "logo/logo.png"
-  image         = "logo/logo.png"
-  twitter       = "@Masputrawae"
-  
-  instagram     = "https://www.instagram.com/masputrawae/"
-  github        = "https://github.com/masputrawae"
-  discord       = "https://discord.gg/nM4EP8DJFZ"
+  thumbnail     = "images/for-blog.jpg"
 
 #============== GOOGLE ANALYTICS ==============#
 [services]
@@ -28,85 +29,74 @@ buildFuture = true
     disable = false
     respectDoNotTrack = false
 
-#============== TAXONOMIES ==============#
-[taxonomies]
-  tag = "tags"
-  category = "categories"
-
-#============== PERMALINKS ==============#
-[permalinks]
-  daily = '/:year/:month/:day/:title/'
-  notes = '/:year/:month/:day/:title/'
-  learning = '/:section/:title/'
-  vocab = '/:section/:title/'
-
-#============== MENUS ==============#
-[menus]
+#============== MENU MAIN ==============#
   [[menus.main]]
-    name = 'Home'
-    pageRef = '/'
-    weight = 10
-    params = {emoji = "🏡"}
+  name           = 'Home'
+  pageRef        = '/'
+  params         = {icon = "icon--house-door"}
+  weight         = 10
 
   [[menus.main]]
-    name = 'Notes'
-    pageRef = '/notes'
-    weight = 20
-    params = {emoji = "📑"}
+  name           = 'About'
+  pageRef        = '/about'
+  params         = {icon = "icon--person"}
+  weight         = 20
 
   [[menus.main]]
-    name = 'Projects'
-    pageRef = '/projects'
-    weight = 30
-    params = {emoji = "🧰"}
+  name           = 'Projects'
+  pageRef        = '/projects'
+  params         = {icon = "icon--kanban"}
+  weight         = 30
+
 
   [[menus.main]]
-    name = 'Tags'
-    pageRef = '/tags'
-    weight = 40
-    params = {emoji = "🏷️"}
+  name           = 'Notes'
+  pageRef        = '/notes'
+  params         = {icon = "icon--journal-text"}
+  weight         = 40
 
   [[menus.main]]
-    name = 'Categories'
-    pageRef = '/Categories'
-    weight = 50
-    params = {emoji = "📂"}
+  name           = 'Tutorial'
+  pageRef        = '/tutorial'
+  params         = {icon = "icon--tools"}
+  weight         = 50
+
+  [[menus.main]]
+  name           = 'Search'
+  pageRef        = '/search'
+  params         = {icon = "icon--search"}
+  weight         = 60
+
+#   [[menus.main]]
+#   name           = 'Gallery'
+#   pageRef        = '/gallery'
+#   params         = {icon = "icon--images"}
+#   weight         = 40
+
+#============== MENU SOCIAL ==============#
+  [[menus.social]]
+  name        = "Instagram"
+  url         = "https://www.instagram.com/masputrawae/"
+  params      = {icon = "icon--instagram"}
+  weight      = 10
+
+  [[menus.social]]
+  name        = "Github"
+  url         = "https://github.com/masputrawae"
+  params      = {icon = "icon--github"}
+  weight      = 20
+
+  [[menus.social]]
+  name        = "Discord"
+  url         = "https://discord.gg/nM4EP8DJFZ"
+  params      = {icon = "icon--discord"}
+  weight      = 30
 
 #============== PAGINATION ==============#
 [pagination]
   disableAliases = false
   pagerSize = 10
   path = 'page'
-
-#============== MARKUP ==============#
-[markup]
-  # [markup.tableOfContents]
-  #   endLevel    = 6
-  #   ordered     = false
-  #   startLevel  = 2
-
-  [markup.highlight]
-    codeFences          = true
-    guessSyntax         = true
-    style               = "github-dark"
-    noClasses           = false
-    lineNumbersInTable  = false
-    lineNos             = false
-    anchorLineNos       = false
-    lineAnchors         = ''
-    lineNoStart         = 1
-    tabWidth            = 4
-
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe    = true
-
-    [markup.goldmark.parser]
-      wrapStandAloneImageWithinParagraph = false
-      
-      [markup.goldmark.parser.attribute]
-        block = true
-        title = true
 
 #============== MODULE ==============#
 [module]
@@ -131,6 +121,31 @@ buildFuture = true
     target = "content"
     excludeFiles = "private/*"
 
+#============== MARKUP ==============#
+[markup]
+  [markup.highlight]
+    codeFences          = true
+    guessSyntax         = true
+    style               = "vim"
+    noClasses           = true
+    lineNumbersInTable  = true
+    lineNos             = false
+    anchorLineNos       = false
+    lineAnchors         = ''
+    lineNoStart         = 1
+    tabWidth            = 4
+
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe    = true
+
+    [markup.goldmark.parser]
+      wrapStandAloneImageWithinParagraph = false
+      
+      [markup.goldmark.parser.attribute]
+        block = true
+        title = true
+
 #============== OUTPUT ==============#
 [outputFormats]
 
@@ -145,37 +160,10 @@ buildFuture = true
     baseName        = "manifest"
     isPlainText     = true
     notAlternative  = true
-  
-  [outputFormats.news]
-    mediaType       = "application/json"
-    baseName        = "news"
-    isPlainText     = true
-    notAlternative  = true
-
-  [outputFormats.sw]
-    mediaType       = "text/javascript"
-    baseName        = "sw"
-    isPlainText     = true
-    notAlternative  = true
-
-  [outputFormats.Robots]
-    mediaType = "text/plain"
-    baseName = "robots"
-    isPlainText = true
-    notAlternative = true
 
 [outputs]
-  home = ['html', "search-data", "manifest", 'news', 'sw', "Robots"]
+  home = ['html', "search-data", "manifest"]
   page = ['html']
   section = ['html']
   taxonomy = ['html']
   term = ['html']
-
-[sitemap]
-  filename = 'sitemap.xml'
-  priority = 1.0
-
-[caches]
-  [caches.assets]
-    dir = ":resourceDir/_gen"
-    maxAge = -1

@@ -14,15 +14,16 @@
 <meta property="og:title" content="{{ .Title }}">
 <meta property="og:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | plainify | strings.Truncate 200 }}{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:image" content="{{ .Params.image | default site.Params.image | absURL }}">
+<meta property="og:image" content="{{ .Params.thumbnail | default site.Params.thumbnail | absURL }}">
 
 {{/*  Twitter Card  */}}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ .Title }}">
 <meta name="twitter:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | plainify | strings.Truncate 200 }}{{ end }}">
-<meta name="twitter:image" content="{{ .Params.image | default site.Params.image | absURL }}">
+<meta name="twitter:image" content="{{ .Params.thumbnail | default site.Params.thumbnail | absURL }}">
 <meta name="twitter:site" content="{{ site.Params.twitter }}">
 
+{{/*  ====================== START: FAVICONS ====================== */}}
 <link rel="icon" href="{{ "favicons/favicon.ico" | absURL }}" type="image/x-icon">
 <link rel="apple-touch-icon" sizes="180x180" href="{{ "favicons/apple-touch-icon.png" | absURL }}">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicons/favicon-32x32.png" | absURL }}">
@@ -30,13 +31,47 @@
 <link rel="icon" type="image/png" sizes="192x192" href="{{ "favicons/android-chrome-192x192.png" | absURL }}">
 <link rel="icon" type="image/png" sizes="512x512" href="{{ "favicons/android-chrome-512x512.png" | absURL }}">
 <link rel="manifest" href="{{ "manifest.json" | absURL }}">
+{{/*  ====================== END: FAVICONS ====================== */}}
 
 <link rel="sitemap" type="application/xml" href="{{ "sitemap.xml" | absURL }}" />
 
-{{ partialCached "head/css.html" . }}
-{{ partialCached "head/js.html" . }}
+{{/*  ====================== START: SASS ====================== */}}
+{{- with resources.Get "sass/main.scss" }}
+  {{- $opts := dict
+    "enableSourceMap" (not hugo.IsProduction)
+    "outputStyle" (cond hugo.IsProduction "compressed" "expanded")
+    "targetPath" "assets/css/main.css"
+    "transpiler" "dartsass"
+  }}
+  {{- with . | toCSS $opts }}
+    {{- if hugo.IsProduction }}
+      {{- with . | fingerprint }}
+        <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+      {{- end }}
+    {{- else }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}">
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{/*  ====================== END: SASS ====================== */}}
 
-<script src="{{ "js/lunr.min.js" | relURL }}" defer></script>
-{{ if .Params.mathjax }}{{ partial "head/mathjax-script.html" . }}{{ end }}
-{{ partial "head/sw-script.html" . }}
+{{/*  ====================== START: JAVASCRIPT ====================== */}}
+{{/*  {{- with resources.Get "js/main.js" }}
+  {{- $opts := dict
+    "minify" (not hugo.IsDevelopment)
+    "sourceMap" (cond hugo.IsDevelopment "external" "")
+    "targetPath" "assets/js/main.js"
+  }}
+  {{- with . | js.Build $opts }}
+    {{- if hugo.IsDevelopment }}
+      <script src="{{ .RelPermalink }}" defer></script>
+    {{- else }}
+      {{- with . | fingerprint }}
+        <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" defer></script>
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end }}  */}}
+{{/*  ====================== END: JAVASCRIPT ====================== */}}
+
 {{ template "_internal/google_analytics.html" . }}

@@ -1,32 +1,12 @@
 {{ define "main" }}
-  {{ if eq .Paginator.PageNumber 1 }}
-    <article class="content">
-      <section class="content__markdown">
-        {{ .Content | safeHTML }}
-      </section>
-    </article>
-  {{ end }}
+<article class="content content--hero">
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+</article>
 
-  <div class="u-container content">
-    <h1 class="heading heading--h1">{{ .Title }}</h1>
-    <div class="u-masonry u-masonry--c2">
-      {{ $pages := .Pages }}
-      {{ $paginator := .Paginate $pages }}
-  
-      {{ range $paginator.Pages }}
-        <div class="u-masonry__item">
-          <article class="card">
-            <section class="card__body">
-              {{ .Content | strings.Truncate 280 | safeHTML }}
-            </section>
-            <section class="card__footer">
-              <div class="card__date">{{ partial "components/timeago.html" . }}</div>
-              <button class="btn card__button" onclick="window.location.href='{{ .RelPermalink }}'">Read More</button>
-            </section>
-          </article>
-        </div>
-      {{ end }}
-    </div>
-    {{ partial "pagination.html" . }}
-  </div>
+<article class="content content--featured content--taxonomy">
+    {{ range .Pages }}
+        <a href="{{ .RelPermalink }}" class="btn">{{ .LinkTitle }}</a>
+    {{ end }}
+</article>
 {{ end }}

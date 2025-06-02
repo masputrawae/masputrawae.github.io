@@ -1,0 +1,13 @@
+<div class="header">
+    <figure class="brand brand--mobile" onclick='window.location.href="{{ site.BaseURL | relURL }}"'>
+        <img src="{{ site.Params.logo | absURL }}" alt="{{ site.Params.author | title }}" class="brand__img" loading="lazy"/>
+        <figcaption class="brand__caption">
+            <strong class="text-w-400 text-2xl brand__title">{{ site.Params.author | title }}</strong>
+            <em class="text-sm brand__tagline">{{ site.Params.tagline | title }}</em>
+        </figcaption>
+    </figure>
+
+    <button class="btn btn--icon" data-sidebar="sidebar" aria-label="Toggle Sidebar">
+        {{ partial "icons.html" (dict "icon" "icon--list") }}
+    </button>
+</div>

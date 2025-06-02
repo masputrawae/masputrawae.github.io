@@ -1,0 +1,16 @@
+<footer class="footer text-sm">
+    <p>&copy; {{ now.Year }} · {{ site.Title }} · All rights reserved. | 
+        <a class="link link--internal" href="{{ "/disclaimer/" | relURL }}">Disclaimer</a>
+    </p>
+    <p>Made with <strong>❤️</strong> using <a href="https://gohugo.io/" class="link">Hugo 0.146.0</a></p>
+</footer>
+
+<script>
+    //========== SIDEBAR ==========//
+    document.querySelectorAll("[data-sidebar]").forEach(e =>{
+        e.addEventListener('click', ()=>{
+            document.getElementById(e.getAttribute("data-sidebar")).classList.toggle("sidebar--active")
+            document.querySelector(".layout").classList.toggle("layout--no-scroll")
+        })
+    })
+</script>

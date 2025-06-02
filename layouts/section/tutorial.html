@@ -1,0 +1,55 @@
+{{ define "main" }}
+{{ $pages := .RegularPages }}
+{{ $sortedPages := sort $pages "Date" "desc" }}
+{{ $paginator := .Paginate $sortedPages }}
+
+{{ if eq $paginator.PageNumber 1 }}
+    {{ partial "hero.html" . }}
+{{ end }}
+
+<div class="content content--featured">
+    <div class="grid grid--col-2">
+
+        {{ range $paginator.Pages }}
+            <figure class="card">
+
+                <picture class="card__pic">
+                    {{ if .Params.thumbnail }}
+                        <img src="{{ .Params.thumbnail | absURL }}" alt="{{ .Title | title }}" class="card__img">
+                    {{ end }}
+                </picture>
+
+                <figcaption class="card__body">
+                    <div class="card__meta">
+                        <time datetime="{{ .Date | time.Format "2006-01-02T15:04:05-07:00" }}">{{ .Date | time.Format "January 02. 2006" }}</time>
+                        <em class="card__meta">
+                            {{ range .GetTerms "tags" | first 3 }}
+                                <a href="{{ .RelPermalink }}" class="btn text-2xs">{{ .LinkTitle }}</a>
+                            {{ end }}
+                        </em>
+                    </div>
+    
+                    <strong class="text-w-400 text-4xl">{{ .Title | title }}</strong>
+
+                    {{ if .Params.description }}
+                        <p>{{ .Params.description }}</p>
+                    {{ else }}
+                        {{ .Summary | strings.Truncate 280 | safeHTMLAttr }}
+                    {{ end }}
+                </figcaption>
+    
+                <div class="card__footer">
+                    <button class="btn btn--primary text-lg" onclick='window.location.href="{{ .RelPermalink | relURL }}"'>
+                        Read More
+                    </button>
+                </div>
+    
+            </figure>
+        {{ end }}
+    </div>
+</div>
+
+<div class="content content--pagination">
+    {{ partial "pagination.html" . }}
+</div>
+{{ end }}

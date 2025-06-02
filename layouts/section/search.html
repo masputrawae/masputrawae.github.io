@@ -1,0 +1,155 @@
+{{ define "main" }} 
+{{ partial "hero.html" . }}
+<style>
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 3rem;
+}
+
+.search__input {
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    border: 1px solid #525252;
+    color: #d4d4d4;
+    padding-inline: calc(1.5rem * 0.5);
+    border-radius: 0.75rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+</style>
+<div style="min-height: 100dvh;">
+    <article class="content content--hero">
+        <form 
+            class="search" 
+            id="search" 
+            onsubmit="handleSearch(event)" 
+            method="get" 
+            id="search"
+        >
+            <input class="search__input" type="search" id="search-input" name="query" placeholder="Bantu Aku Cari Resep Nasi Goreng!" autocomplete="off" autocorrect="off" spellcheck="false">
+        </form>
+    </article>
+
+    <article class="content content--markdown" id="resultsPanel" style="display: none;">
+        <h2>Results</h2>
+        <ul id="results" data-collapse="resultsSearch"></ul>
+    </article>
+</div>
+
+<script src="{{ "js/lunr.min.js" | relURL }}" defer></script>
+<script>
+    // === SEARCH === //
+    document.addEventListener('DOMContentLoaded', async () => {
+        // === UTILITIES === //
+        const $ = (sel, ctx = document) => ctx.querySelector(sel);
+        const $$ = (sel, ctx = document) => ctx.querySelectorAll(sel);
+        const setAttr = (el, name, value) => el && el.setAttribute(name, value);
+
+        const searchForm = $('#search')
+        const searchInput = $('#search-input')
+        const resultsPanel = $('#resultsPanel')
+        const resultsContainer = $('#results')
+
+        if (!searchForm || !searchInput || !resultsPanel || !resultsContainer) {
+            console.error('Elemen pencarian tidak lengkap.')
+            return
+        }
+
+        const searchUrl = '{{ "search-data.json" | absURL }}'
+        if (!searchUrl) {
+            console.error('Data URL pencarian tidak ditemukan.')
+            return
+        }
+
+        try {
+            const response = await fetch(searchUrl)
+            const store = await response.json()
+
+            if (!Array.isArray(store)) {
+                throw new Error('Format data pencarian tidak valid.')
+            }
+
+            const idx = lunr(function () {
+                this.ref('id')
+                this.field('title', { boost: 50 })
+                this.field('tags', { boost: 30 })
+                this.field('description', { boost: 20 })
+                this.field('category', { boost: 10 })
+                this.field('content', { boost: 5 })
+
+                store.forEach(doc => this.add(doc))
+            })
+
+            const escapeHTML = str => {
+                const el = document.createElement('div')
+                el.textContent = str
+                return el.innerHTML
+            }
+
+            const displayResults = (results, query) => {
+                const trimmed = query.trim()
+
+                if (!trimmed) {
+                    resultsPanel.style.display = 'none'
+                    resultsContainer.innerHTML = ''
+                    searchInput.focus()
+                    return
+                }
+
+                resultsPanel.style.display = 'block'
+                resultsContainer.innerHTML = results.length
+                    ? results
+                        .map(r => {
+                            const doc = store.find(d => d.id === r.ref)
+                            return doc
+                                ? `<li>
+                                        <a href="${doc.url}">
+                                            ${escapeHTML(doc.title)}
+                                        </a>
+                                    </li>`
+                                : ''
+                        })
+                        .join('')
+                    : '<li class="nav__item" role="option">No results found.</li>'
+            }
+
+            const doSearch = query => {
+                const trimmed = query.trim()
+                const results = trimmed
+                    ? idx.search(`*${trimmed}* ${trimmed}~1`)
+                    : []
+                displayResults(results, trimmed)
+            }
+
+            const debounce = (fn, delay = 300) => {
+                let t
+                return (...args) => {
+                    clearTimeout(t)
+                    t = setTimeout(() => fn(...args), delay)
+                }
+            }
+
+            searchInput.addEventListener(
+                'input',
+                debounce(() => {
+                    doSearch(searchInput.value)
+                })
+            )
+
+            // Handle query param from URL
+            const urlQuery = new URLSearchParams(window.location.search).get(
+                'query'
+            )
+            if (urlQuery) {
+                searchInput.value = urlQuery
+                doSearch(urlQuery)
+            }
+        } catch (err) {
+            console.error('Gagal memuat index pencarian:', err)
+        }
+    })
+</script>
+{{ end }}

@@ -1,12 +1,20 @@
 {{ define "main" }}
-  <article class="content">
-    <section class="content__markdown">
-      <div class="content__meta">
-        {{ partial "components/time.html" (dict "ctx" . "createLabel" "Published" "updateLabel" "Updated") }}
-        {{ partial "components/terms.html" (dict "taxonomy" "tags" "page" .) }}
-        {{ partial "components/terms.html" (dict "taxonomy" "categories" "page" .) }}
-      </div>
-      {{ .Content | safeHTML }}
-    </section>
-  </article>
+<header class="content content--hero">
+    {{ if .Params.thumbnail }}
+        <picture class="content__thumbnail">
+            <img src="{{ .Params.thumbnail | absURL }}" alt="{{ .Title }}" class="content__img">
+        </picture>
+    {{ end }}
+    <div class="content__caption">
+        <h1>{{ .Title }}</h1>
+        <nav class="content__meta">
+            {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+            {{ partial "terms.html" (dict "taxonomy" "categories" "page" .) }}
+            <time datetime="{{ .Date | time.Format "2006-01-02T15:04:05-07:00" }}"><strong>Publish on: </strong> {{ .Date | time.Format ":date_long" }}</time>
+        </nav>
+    </div>
+</header>
+<article class="content content--markdown">
+    {{ .Content }}
+</article>
 {{ end }}

@@ -1,22 +1,17 @@
 <!DOCTYPE html>
-<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
-<head>
-  {{ partial "head/head.html" . }}
-</head>
-<body>
-  <aside class="sidebar" id="sidebar">
-    {{ partial "layouts/sidebar.html" . }}
-  </aside>
-  <div class="layout">
-    <header class="layout__header">
-      {{ partial "layouts/header.html" . }}
-    </header>
-    <main class="u-container layout__main">
-      {{ block "main" . }}{{ end }}
-    </main>
-    <footer class="layout__footer">
-      {{ partial "layouts/footer.html" . }}
-    </footer>
-  </div>
-</body>
+<html
+    lang="{{ site.Language.LanguageCode }}"
+    dir="{{ or site.Language.LanguageDirection `ltr` }}"
+>
+    <head>
+        {{ partial "head.html" . }}
+    </head>
+    <body class="layout">
+        {{ partial "sidebar.html" . }}
+        <main class="main">
+            {{ partial "header.html" . }}
+            {{ block "main" . }}{{ end }}
+            {{ partial "footer.html" . }}
+        </main>
+    </body>
 </html>

@@ -1,33 +1,10 @@
-{{ $icons := dict
-  "success" "✔️"
-  "warning" "⚠️"
-  "error" "❌"
-  "info" "ℹ️"
-  "neutral" "⭕"
-  "disabled" "🚫"
-  "attention" "🟠"
-  "experimental" "🧪"
-}}
-
-{{ $icon := index $icons .AlertType }}
-
-{{ if eq .Type "alert" }}
-  <blockquote class="blockquote blockquote--{{ .AlertType }}">
-    <strong class="blockquote__title">
-      <span class="emoji">{{ $icon }}</span>
-      {{ with .AlertTitle }}
-        <span>{{ . }}</span>
-      {{ else }}
-        {{ or (i18n .AlertType) (title .AlertType) }}
-      {{ end }}
-    </strong>
-
-    <div class="blockquote__content">
-      {{ .Text }}
-    </div>
-  </blockquote>
-{{ else }}
-  <blockquote class="blockquote" {{ with .Attributes.cite }}cite="{{ . }}"{{ end }}>
+<figure class="blockquote">
+  <blockquote {{ with .Attributes.cite }}cite="{{ . }}"{{ end }} class="blockquote__body">
     {{ .Text }}
   </blockquote>
-{{ end }}
+  {{ with .Attributes.caption }}
+    <figcaption class="blockquote__caption">
+      {{ . | safeHTML }}
+    </figcaption>
+  {{ end }}
+</figure>

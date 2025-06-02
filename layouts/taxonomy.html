@@ -1,26 +1,12 @@
 {{ define "main" }}
-  {{/*  <article class="content">
-    <section class="content__markdown">
-      {{ .Content | safeHTML }}
-    </section>
-  </article>  */}}
-  
-  <div class="u-container content">
-    <h1 class="heading heading--h1 drawer__title">{{ .Title | title }}</h1>
-    <div class="drawer">
-      {{ range .Pages }}
-        <div class="drawer__list">
-          <button class="drawer__button" data-drawer="{{ .LinkTitle | md5 }}">{{ .LinkTitle | title }} <span class="drawer__count">{{ len .Pages }}</span></button>
-          <ul class="drawer__fill" id="{{ .LinkTitle | md5 }}">
-            <button class="drawer__button drawer__button--closed" data-drawer="{{ .LinkTitle | md5 }}">Close</button>
-            {{ range .Pages }}
-              <li class="drawer__item">
-                <a href="{{ .RelPermalink }}" class="drawer__link">{{ .Title | title }}</a>
-              </li>
-            {{ end }}
-          </ul>
-        </div>
-      {{ end }}
-    </div>
-  </div>
+<article class="content content--hero">
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+</article>
+
+<article class="content content--featured content--taxonomy">
+    {{ range .Pages }}
+        <a href="{{ .RelPermalink }}" class="btn">{{ .LinkTitle }}</a>
+    {{ end }}
+</article>
 {{ end }}

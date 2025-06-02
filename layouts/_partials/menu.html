@@ -11,21 +11,19 @@ Renders a menu for the given menu ID.
 {{- $menuID := .menuID }}
 
 {{- with index site.Menus $menuID }}
-  <nav class="u-container menu">
-    <ul class="menu__list">
-      {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
-    </ul>
-  </nav>
+  <ul class="nav">
+    {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+  </ul>
 {{- end }}
 
 {{- define "_partials/inline/menu/walk.html" }}
   {{- $page := .page }}
   {{- range .menuEntries }}
-    {{- $attrs := dict "href" .URL "class" "menu__link" }}
+    {{- $attrs := dict "href" .URL "class" "btn btn--nav" }}
     {{- if $page.IsMenuCurrent .Menu . }}
-      {{- $attrs = merge $attrs (dict "class" "menu__link menu__link--active" "aria-current" "page") }}
+      {{- $attrs = merge $attrs (dict "class" "btn btn--nav btn--primary" "aria-current" "page") }}
     {{- else if $page.HasMenuCurrent .Menu .}}
-      {{- $attrs = merge $attrs (dict "class" "menu__link menu__link--ancestor" "aria-current" "true") }}
+      {{- $attrs = merge $attrs (dict "class" "btn btn--nav btn--primary" "aria-current" "true") }}
     {{- end }}
     {{- $name := .Name }}
     {{- with .Identifier }}
@@ -33,7 +31,7 @@ Renders a menu for the given menu ID.
         {{- $name = . }}
       {{- end }}
     {{- end }}
-    <li class="menu__item">
+    <li class="nav__item">
       <a
         {{- range $k, $v := $attrs }}
           {{- with $v }}
@@ -41,15 +39,13 @@ Renders a menu for the given menu ID.
           {{- end }}
         {{- end -}}
       >
-        {{/*  {{ with .Params.emoji }}
-          <span class="emoji">{{ . }}</span>
-        {{ end }}  */}}
-        <span>
-          {{ $name }}
-        </span>
+        {{ with .Params.icon }}
+          {{ partial "icons.html" (dict "icon" . "class" "icon--menu") }}
+        {{ end }}
+        {{ $name }}
       </a>
       {{- with .Children }}
-        <ul class="menu__list">
+        <ul class="nav">
           {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
         </ul>
       {{- end }}

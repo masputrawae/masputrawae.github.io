@@ -1,0 +1,307 @@
+@use './abstracts/breakpoints' as b;
+@use './abstracts/mixins' as m;
+@use './abstracts/variables' as v;
+
+//========== TYPOGRAPHY ==========//
+body {
+    background-color: v.$cl__bg--body;
+    color: v.$cl__text;
+
+    font-family: v.$font__family--sans;
+    font-size: v.$font__size--md;
+}
+
+//========== HEADING SIZE ==========//
+:is(h1, h2, h3, h4, h5, h6, .h) {
+    display: block;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+
+    font-weight: 400;
+    color: v.$cl__text--title;
+    text-shadow: v.$cl__shadow-text;
+
+    &:hover {
+        text-shadow: v.$cl__shadow-text--alt;
+    }
+}
+
+//========== TEXT SIZE ==========//
+:is(h1, .h1, .text-6xl) {
+    font-size: v.$font__size--6xl;
+}
+:is(h2, .h2, .text-5xl) {
+    font-size: v.$font__size--5xl;
+}
+:is(h3, .h3, .text-4xl) {
+    font-size: v.$font__size--4xl;
+}
+:is(h4, .h4, .text-3xl) {
+    font-size: v.$font__size--3xl;
+}
+:is(h5, .h5, .text-2xl) {
+    font-size: v.$font__size--2xl;
+}
+:is(h6, .h6, .text-xl) {
+    font-size: v.$font__size--xl;
+}
+
+.text-w-400 {
+    font-weight: 400;
+}
+
+.text-xs {
+    font-size: v.$font__size--xs;
+}
+.text-2xs {
+    font-size: v.$font__size--2xs;
+}
+.text-3xs {
+    font-size: v.$font__size--3xs;
+}
+.text-sm {
+    font-size: v.$font__size--sm;
+}
+.text-md {
+    font-size: v.$font__size--md;
+}
+.text-lg {
+    font-size: v.$font__size--lg;
+}
+
+//========== HR ==========//
+hr {
+    border: 0;
+    height: 3px;
+    max-width: 100%;
+    background-color: v.$cl__border;
+    margin: 20px 0;
+}
+
+//========== PARAGRAPH ==========//
+p {
+    margin-bottom: 1rem;
+}
+p + p {
+    margin-top: 1.5rem;
+}
+
+//========== STRONG & BOLD ==========//
+:is(b, strong) {
+    color: v.$cl__text--title;
+}
+
+//========== LIST ==========//
+:is(ul, ol) {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 2em;
+}
+
+:is(ol ol, ul ol) {
+    list-style-type: lower-roman;
+}
+
+:is(ul ul ol, ul ol ol, ol ul ol, ol ol ol) {
+    list-style-type: lower-alpha;
+}
+
+:is(ul ul, ul ol, ol ol, ol ul) {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+li + li {
+    margin-top: 0.25em;
+}
+
+li > p {
+    margin-top: 1rem;
+}
+
+//========== DEFINITION LIST ==========//
+dl {
+    dt {
+        font-weight: 700;
+        margin-top: 15px;
+        color: v.$cl__text--title;
+    }
+
+    dd {
+        margin-left: 20px;
+        margin-bottom: 10px;
+    }
+}
+
+//========== LINK ==========//
+a {
+    color: v.$cl__link;
+    text-decoration: none;
+
+    &:hover {
+        color: v.$cl__link--hover;
+    }
+}
+
+.link {
+    text-decoration: underline;
+
+    &--error{
+        color: red;
+    }
+}
+
+//========== BlockQuote ==========//
+.blockquote {
+  margin: 2rem 0;
+  padding: 1rem 1.5rem;
+  border-left: 3px solid v.$cl__accent;
+  color: v.$cl__text--muted;
+  font-style: italic;
+  background-color: v.$cl__bg--second;
+  box-shadow: v.$cl__shadow--sm;
+
+  &__body {
+    margin: 0;
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+
+  &__caption {
+    margin-top: 0.5rem;
+    padding-left: 0.5rem;
+    font-size: 0.875rem;
+    color: v.$cl__text;
+    font-style: normal;
+    text-align: left;
+
+    &::before {
+      content: "— ";
+    }
+  }
+}
+
+//========== CODE & PRE ==========//
+:is(:not(pre) > code, kbd, samp) {
+    background-color: v.$cl__bg--second;
+    color: v.$cl__text--title;
+    font-family: v.$font__family--mono;
+    padding: 0em 0.4em;
+    border-radius: 3px;
+    font-size: 80%;
+    border: 1px solid v.$cl__border;
+}
+
+kbd {
+    border: 1px solid v.$cl__border;
+}
+
+samp {
+    border: 1px solid v.$cl__accent;
+}
+
+pre {
+    padding: 1rem;
+    margin-block: 2.5rem;
+    margin-inline: 1rem;
+    max-width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    border: 2px solid v.$cl__border;
+    border-radius: 0.25rem;
+    box-shadow: v.$cl__shadow--md;
+    font-family: v.$font__family--mono;
+
+    scrollbar-width: thin;
+    scrollbar-color: v.$cl__bg--second v.$cl__bg--second;
+}
+
+//========== CODE & PRE ==========//
+table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: v.$cl__shadow--sm;
+    border-radius: 8px;
+    overflow: hidden;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+
+    thead,
+    tbody,
+    tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    th {
+        background-color: v.$cl__bg--second;
+        color: v.$cl__text--title;
+        padding: 12px 15px;
+        text-align: left;
+    }
+
+    td {
+        padding: 12px 15px;
+        border-bottom: 1px solid v.$cl__border;
+        color: v.$cl__text--muted;
+        white-space: normal;
+    }
+
+    tr:hover {
+        background-color: v.$cl__bg--third;
+    }
+
+    tr:last-child td {
+        border-bottom: none;
+    }
+
+    @include b.max(md) {
+        th,
+        td {
+            padding: 8px 10px;
+            font-size: 0.9em;
+        }
+    }
+}
+
+ul li:has(input[type="checkbox"]) {
+  list-style: none;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    appearance: none;
+    -webkit-appearance: none;
+    border: 2px solid v.$cl__text--title;
+    position: relative;
+    cursor: not-allowed;
+
+    &:checked::after {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 5px;
+      width: 4px;
+      height: 9px;
+      border: solid v.$cl__text--title;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+  }
+}
+
+.figure, .figure__image {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    box-shadow: v.$cl__shadow--sm;
+}

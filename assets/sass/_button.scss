@@ -1,0 +1,72 @@
+@use './abstracts/breakpoints' as b;
+@use './abstracts/mixins' as m;
+@use './abstracts/variables' as v;
+
+.btn {
+    @include m.transition(color, background-color, border-color, box-shadow);
+    
+    display: inline-block;
+    padding: 0.6rem 1rem;
+
+    text-decoration: none;
+    font-weight: 500;
+    
+    text-align: center;
+    font-style: normal;
+    
+    color: v.$cl__text;
+
+    border: 1px solid v.$cl__border;
+    border-radius: 0.25rem;
+    box-shadow: v.$cl__shadow--sm;
+
+    &:hover {
+        background-color: v.$cl__bg--third;
+        border-color: v.$cl__bg--third;
+        box-shadow: v.$cl__shadow--md;
+        color: v.$cl__text--title;
+    }
+
+    &--nav {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        
+        border-color: transparent;
+        box-shadow: none;
+        width: 100%;
+        text-align: left;
+    }
+
+    &--icon {
+        border: none;
+        box-shadow: unset;
+
+        .icon {
+            width: 30px;
+            height: 30px;
+        }
+
+        &:hover {
+            background-color: v.$cl__bg--body;
+            border-color: v.$cl__bg--body;
+            box-shadow: unset;
+            color: v.$cl__text--title;
+        }
+    }
+
+    &--primary {
+        background-color: v.$cl__bg--second;
+        color: v.$cl__text--title;
+        border-color: v.$cl__border;
+    }
+
+    &--disabled {
+        color: v.$cl__text--muted;
+        cursor: not-allowed;
+
+        &:hover {
+            color: v.$cl__text--muted;
+        }
+    }
+}

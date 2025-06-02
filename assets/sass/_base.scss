@@ -1,0 +1,166 @@
+@use './abstracts/breakpoints' as b;
+@use './abstracts/mixins' as m;
+@use './abstracts/variables' as v;
+
+//========== LAYOUTS ==========//
+.layout {
+    max-width: 100vw;
+    min-height: 100dvb;
+
+    display: grid;
+    grid-template-columns: 320px minmax(0, 1fr);
+
+    @include b.max(lg) {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+//========== HEADER ==========//
+.header {
+    display: none;
+
+    @include b.max(lg) {
+        @include m.flex-between();
+        padding: 1rem calc(1.5rem * 0.5);
+        position: sticky;
+        top: 0;
+        background-color: v.$cl__bg--body;
+        border-bottom: 1px solid v.$cl__border;
+        z-index: 100;
+    }
+}
+
+//========== NAIN ==========//
+.main {
+    max-width: 67em;
+    width: 100%;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+//========== BRAND ==========//
+.brand {
+    padding: 0.75rem;
+    margin: 0.75rem;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    gap: 1rem;
+
+    &__img {
+        @include m.width-height(50px, 50px);
+        display: block;
+        border-radius: 50%;
+    }
+
+    &__title {
+        display: block;
+        text-shadow: v.$cl__shadow-text--alt;
+    }
+
+    &__tagline {
+        font-style: normal;
+        color: v.$cl__text--muted;
+    }
+
+    &--mobile {
+        gap: 0.75rem;
+        margin: 0 0.75rem;
+        padding: 0;
+        line-height: 1.15;
+    }
+}
+
+//========== CONTENT ==========//
+.cta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.content {
+    display: block;
+    padding-inline: calc(1.5rem * 0.5);
+    padding-top: 5rem;
+
+    &__thumbnail {
+        display: block;
+
+        margin: auto;
+        aspect-ratio: 4 / 2;
+        overflow: hidden;
+
+        border-radius: 0.75rem;
+        box-shadow: v.$cl__shadow--sm;
+    }
+
+    &__meta {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &--featured,
+    &--markdown {
+        margin-bottom: 4rem;
+    }
+
+    &--markdown {
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+    &--taxonomy {
+        @include m.flex-center();
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    @include b.max(lg) {
+        padding-top: 2rem;
+    }
+}
+
+.grid {
+    display: grid;
+    gap: 1rem;
+
+    &--col-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        @include b.max(md) {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.pagination {
+    @include m.flex-center();
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 1rem 0;
+    padding: 1rem 0;
+    gap: 1rem;
+    margin-top: 5rem;
+
+    &__item {
+        margin: 0;
+        padding: 0;
+    }
+
+    @include b.max(md) {
+        .btn {
+            font-size: 0.5rem;
+        }
+    }
+}
+
+//========== FOOTER ==========//
+.footer {
+    @include m.flex-between();
+    border-top: 1px solid v.$cl__border;
+    padding-inline: 1rem;
+
+    @include b.max(lg) {
+        flex-direction: column-reverse;
+    }
+}

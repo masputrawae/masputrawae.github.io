@@ -1,0 +1,20 @@
+<figure class="featured" onclick='window.location.href="{{ .RelPermalink | relURL }}"'>
+    <picture class="featured__pic">
+        <img src="{{ .Params.thumbnail | absURL }}" alt="{{ .Title | title }}" class="featured__img">
+    </picture>
+
+    <figcaption class="featured__body">
+        <strong class="text-w-400 text-3xl featured__title">{{ .Title | title }}</strong>
+
+        <em class="featured__meta">
+            {{ range .GetTerms "tags" | first 3 }}
+                <a href="{{ .RelPermalink }}" class="btn text-2xs">{{ .LinkTitle }}</a>
+            {{ end }}
+        </em>
+
+        <blockquote class="featured__content">{{ .Params.description }}</blockquote>
+        <button class="btn btn--primary text-lg">
+            View Projects
+        </button>
+    </figcaption>
+</figure>

@@ -1,0 +1,19 @@
+{{ define "main" }}
+{{ $pages := .RegularPages }}
+{{ $sortedPages := sort $pages "Date" "desc" }}
+{{ $paginator := .Paginate $sortedPages }}
+
+{{ if eq $paginator.PageNumber 1 }}
+    {{ partial "hero.html" . }}
+{{ end }}
+
+<div class="content content--featured">
+    {{ range $paginator.Pages }}
+        {{ partial "featured.html" . }}
+    {{ end }}
+</div>
+
+<div class="content content--pagination">
+    {{ partial "pagination.html" . }}
+</div>
+{{ end }}

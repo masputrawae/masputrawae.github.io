@@ -1,0 +1,19 @@
+<header class="content content--hero">
+    {{ if eq .Section "about" }}
+        {{ if .Params.thumbnail }}
+            <picture class="content__thumbnail">
+                <img src="{{ .Params.thumbnail | absURL }}" alt="{{ .Title }}" class="content__img">
+            </picture>
+        {{ end }}
+    {{ end }}
+    {{ .Content | safeHTML }}
+
+    {{ with .Params.cta }}
+        <nav class="cta">
+            {{ range . }}
+                <a href="{{ .url | absURL }}" class="btn {{ if .primary }} btn--primary {{ end }} text-xl">{{ .name | title }}</a>
+            {{ end }}
+        </nav>
+    {{ end }}
+
+</header>

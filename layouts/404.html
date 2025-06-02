@@ -1,14 +1,10 @@
 {{ define "main" }}
-  <article class="content">
-    <section class="content__content">
-      <h1 class="heading heading--h1"><span class="emoji">👻</span>404 Not Found</h1>
-      <hr>
-      <p>The page you requested cannot be found.</p>
-      <p>
-        <a class="link" href="{{ .Site.Home.RelPermalink }}">
-          Return to the home page
-        </a>
-      </p>
-    </section>
-  </article>
+<article class="content" style="min-height: 100dvb">
+    <h1><span>👻</span>404 Not Found</h1>
+    <hr />
+    <p>The page you requested cannot be found.</p>
+    <p>
+        <a href="{{ .Site.Home.RelPermalink }}"> Return to the home page </a>
+    </p>
+</article>
 {{ end }}

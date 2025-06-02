@@ -1,13 +1,8 @@
-@use './styles/root';
-@use './styles/utility';
-@use './styles/typography';
-@use './styles/code';
-@use './styles/layout';
-@use './styles/navigation';
-@use './styles/brand';
-@use './styles/button';
-@use './styles/card';
-@use './styles/image';
+@use './reset';
 
-@use './styles/taxonomy';
-@use './styles/pagination';
+@use './typography';
+@use './button';
+@use './featured';
+
+@use './base';
+@use './sidebar';

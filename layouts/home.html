@@ -1,35 +1,12 @@
 {{ define "main" }}
-  {{ $pages := where site.RegularPages "Section" "ne" "vocab" }}
-  {{ $sortedPages := sort $pages "Date" "desc" }}
-  {{ $paginator := .Paginate $sortedPages }}
+{{ partial "hero.html" . }}
 
-  {{ if eq $paginator.PageNumber 1 }}
-    <article class="content content--home">
-      <section class="content__markdown">
-        {{ .Content | safeHTML }}
-        <a href="#myNotes" class="btn btn--cta btn--home">Catatan Terbaru</a>
-      </section>
-    </article>
-  {{ end }}
+<div class="content content--featured">
+    <h2 class="h h--h1">Last Projects</h2>
+    
+    {{ range where site.RegularPages "Type" "projects" | first 2 }}
+        {{ partial "featured.html" . }}
+    {{ end }}
 
-  <div class="u-container content">
-    <h2 class="heading heading--h1" id="myNotes">My Notes</h2>
-    <div class="u-masonry u-masonry--c2">
-      {{ range $paginator.Pages }}
-        <div class="u-masonry__item">
-          <article class="card">
-            <section class="card__body">
-              {{ .Content | strings.Truncate 280 | safeHTML }}
-            </section>
-            <section class="card__footer">
-              <div class="card__date">{{ partial "components/timeago.html" . }}</div>
-              <button class="btn card__button" onclick="window.location.href='{{ .RelPermalink }}'">Read More</button>
-            </section>
-          </article>
-        </div>
-      {{ end }}
-    </div>
-
-    {{ partial "pagination.html" . }}
-  </div>
+</div>
 {{ end }}

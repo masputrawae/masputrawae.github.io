@@ -1,0 +1,68 @@
+@use './abstracts/breakpoints' as b;
+@use './abstracts/mixins' as m;
+@use './abstracts/variables' as v;
+
+//========== SIDEBAR ==========//
+.sidebar {
+    background-color: v.$cl__bg--body;
+
+    overflow: hidden;
+    height: 100dvb;
+    
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 300;
+
+    border-right: 1px solid v.$cl__border;
+
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+
+    &__button {
+        display: none;
+    }
+}
+
+.menu {
+    padding-inline: 1rem;
+}
+
+.nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    &__item {
+        margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
+    }
+}
+
+//========== BREAKPOINT ==========//
+@include b.max(lg){
+    .sidebar {
+        @include m.transition(transform, visibility);
+
+        overflow-y: auto;
+        position: fixed;
+
+        width: 360px;
+        max-width: 100%;
+
+        visibility: hidden;
+        transform: translateX(-100%);
+        
+        &--active {
+            transform: translateX(0%);
+            visibility: visible;
+        }
+
+        &__button {
+            display: inline-block;
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+        }
+    }
+}

@@ -4,6 +4,7 @@
         "id": "{{ .Permalink }}",
         "title": "{{ .Title }}",
         "content": {{ .Content | plainify | jsonify }},
+        "thumbnail": "{{ .Params.thumbnail | absURL }}",
         "emoji": "{{ with .Params.emoji }}{{ . }}{{ else }}📗{{ end }}",
 		"description": {{ .Summary | plainify | strings.Truncate 48 | jsonify }},
         "url": "{{ .Permalink }}",
