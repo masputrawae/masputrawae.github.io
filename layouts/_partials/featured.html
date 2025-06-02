@@ -1,6 +1,6 @@
 <figure class="featured" onclick='window.location.href="{{ .RelPermalink | relURL }}"'>
     <picture class="featured__pic">
-        <img src="{{ .Params.thumbnail | absURL }}" alt="{{ .Title | title }}" class="featured__img">
+        <img src="{{ .Params.thumbnail | default "images/for-projects.jpg" | absURL }}" alt="{{ .Title | title }}" class="featured__img">
     </picture>
 
     <figcaption class="featured__body">
