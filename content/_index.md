@@ -2,7 +2,7 @@
 title: 'Selamat Datang'
 date: 2025-05-03T22:51:33+07:00
 description: 'Temukan perjalanan saya dalam dunia pemrograman, teknologi, dan eksperimen kreatif. Sebuah ruang untuk belajar, berbagi, dan berkembang.'
-thumbnail: 'images/for-home.jpg'
+thumbnail: 'logo/logo.png'
 tags:
   - page
 cta:
