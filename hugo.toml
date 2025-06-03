@@ -126,7 +126,7 @@ buildFuture       = true
   [markup.highlight]
     codeFences          = true
     guessSyntax         = true
-    style               = "vim"
+    style               = "github-dark"
     noClasses           = true
     lineNumbersInTable  = true
     lineNos             = false
