@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{ $pages := .RegularPages }}
+{{ $pages := .Pages }}
 {{ $sortedPages := sort $pages "Date" "desc" }}
 {{ $paginator := .Paginate $sortedPages }}
 
@@ -22,7 +22,7 @@
                 <figcaption class="card__body">
                     <div class="card__meta">
                         <time datetime="{{ .Date | time.Format "2006-01-02T15:04:05-07:00" }}">{{ .Date | time.Format "January 02. 2006" }}</time>
-                        <em class="card__meta">
+                        <em>
                             {{ range .GetTerms "tags" | first 3 }}
                                 <a href="{{ .RelPermalink }}" class="btn text-2xs">{{ .LinkTitle }}</a>
                             {{ end }}

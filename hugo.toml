@@ -57,7 +57,7 @@ buildFuture       = true
 
   [[menus.main]]
   name           = 'Tutorial'
-  pageRef        = '/tutorial'
+  pageRef        = '/series'
   params         = {icon = "icon--tools"}
   weight         = 50
 

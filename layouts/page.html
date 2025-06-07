@@ -6,7 +6,6 @@
         </picture>
     {{ end }}
     <div class="content__caption">
-        <h1>{{ .Title }}</h1>
         <nav class="content__meta">
             {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
             {{ partial "terms.html" (dict "taxonomy" "categories" "page" .) }}

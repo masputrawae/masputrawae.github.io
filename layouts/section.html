@@ -14,7 +14,7 @@
             <figure class="card" onclick='window.location.href="{{ .RelPermalink | relURL }}"'>
                 <figcaption class="card__body">
                     <time datetime="{{ .Date | time.Format "2006-01-02T15:04:05-07:00" }}" style="display: block;">{{ .Date | time.Format "January 02. 2006" }}</time>
-                    <strong class="text-w-400 text-4xl">{{ .Title | title }}</strong>
+                    {{/*  <strong class="text-w-400 text-4xl">{{ .Title | title }}</strong>  */}}
                     {{ .Summary | strings.Truncate 280 | safeHTML }}
                 </figcaption>
                 <div class="card__footer">
