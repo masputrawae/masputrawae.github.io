@@ -34,8 +34,8 @@ if (isLoggedIn) {
 
 **Terkait**:
 
-- [[If Statement Di JavaScript]]
-- [[Else If Statement Di JavaScript]]
+- [[20250628205351 If Statement Di JavaScript]]
+- [[20250628211305 Else If Statement Di JavaScript]]
 - [[Switch Statement Di JavaScript]]
 - [[20250628161357 Ternary Operator Di JavaScript]]
 - [[20250628171342 Operator Perbandingan Di JavaScript]]
