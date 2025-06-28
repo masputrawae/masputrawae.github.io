@@ -1,8 +1,6 @@
 ---
 unique_Id: "20250620070610"
 title: Strict Mode Di JavaScript
-topic:
-  - JavaScript
 tags:
   - javascript
   - variable

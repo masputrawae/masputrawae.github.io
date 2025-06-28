@@ -1,8 +1,6 @@
 ---
 unique_id: "20250628071334"
 title: Callback Function di JavaScript
-topic:
-  - JavaScript
 tags:
   - javascript
   - function

@@ -1,8 +1,6 @@
 ---
 unique_Id: "20250621101503"
 title: Tandai Link Halaman Aktif di Astro
-topic:
-  - Astro Build
 tags:
   - astro_js
   - javascript

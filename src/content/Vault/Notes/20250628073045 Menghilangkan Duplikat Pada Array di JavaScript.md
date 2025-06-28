@@ -1,8 +1,6 @@
 ---
 unique_id: "20250628073045"
 title: Menghilangkan Duplikat Pada Array di JavaScript
-topic:
-  - JavaScript
 tags:
   - javascript
   - array

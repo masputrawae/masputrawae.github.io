@@ -1,8 +1,6 @@
 ---
 unique_id: "20250628070829"
 title: Promise Di JavaScript
-topic:
-  - JavaScript
 tags:
   - javascript
   - function

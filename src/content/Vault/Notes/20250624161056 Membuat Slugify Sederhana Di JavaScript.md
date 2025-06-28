@@ -1,8 +1,6 @@
 ---
 unique_Id: "20250624161056"
 title: Membuat Slugify Sederhana Di JavaScript
-topic:
-  - JavaScript
 tags:
   - javascript
   - function

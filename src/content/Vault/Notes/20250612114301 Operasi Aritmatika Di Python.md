@@ -1,8 +1,6 @@
 ---
 unique_Id: "20250612114301"
 title: Operasi Aritmatika Di Python
-topic:
-  - Python
 tags:
   - python
   - operator

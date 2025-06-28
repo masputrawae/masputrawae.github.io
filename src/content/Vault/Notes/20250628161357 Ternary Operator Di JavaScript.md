@@ -1,8 +1,6 @@
 ---
 unique_id: "20250628161357"
 title: Ternary Operator Di JavaScript
-topic:
-  - JavaScript
 tags:
   - javascript
   - operator

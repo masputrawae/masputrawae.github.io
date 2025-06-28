@@ -1,8 +1,6 @@
 ---
 unique_Id: "20250610174804"
 title: Array Di JavaScript
-topic:
-  - JavaScript
 tags:
   - javascript
   - array

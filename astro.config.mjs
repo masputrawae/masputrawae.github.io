@@ -23,7 +23,7 @@ export default defineConfig({
         plugins: [tailwindcss()]
     },
     integrations: [brainDbAstro({
-        root: 'src/content/Notes',
+        root: 'src/content/Vault',
         source: '/',
         remarkWikiLink: true,
         git: false,

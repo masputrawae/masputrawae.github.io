@@ -1,8 +1,6 @@
 ---
 unique_Id: "20250623211931"
 title: Fenomena Lemot Tapi Ngak Lemot
-topic:
-  - Thinking
 tags:
   - astro_js
   - framework

@@ -1,8 +1,6 @@
 ---
 unique_Id: "20250612114841"
 title: Percabangan Di Python
-topic:
-  - Python
 tags:
   - python
   - conditional

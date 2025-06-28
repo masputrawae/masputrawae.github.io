@@ -1,8 +1,6 @@
 ---
 unique_Id: "20250614162037"
 title: Apa Perbedaan Bash Dan Shell
-topic:
-  - Linux
 tags:
   - linux
   - bash

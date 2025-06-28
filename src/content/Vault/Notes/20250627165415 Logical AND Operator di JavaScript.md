@@ -1,8 +1,6 @@
 ---
 unique_id: "20250627165415"
 title: Logical AND Operator di JavaScript
-topic:
-  - JavaScript
 tags:
   - javascript
 date: 2025-06-27T16:54:15+07:00

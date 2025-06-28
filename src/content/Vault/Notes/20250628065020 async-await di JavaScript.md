@@ -1,8 +1,6 @@
 ---
 unique_id: "20250628065020"
 title: async-await di JavaScript
-topic:
-  - JavaScript
 tags:
   - javascript
   - function

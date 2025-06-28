@@ -2,8 +2,8 @@
 import { Image } from 'astro:assets'
 import BaseLayout from '../layouts/BaseLayout.astro'
 
-const imageFiles = import.meta.glob('../content/Notes/Images/*', { eager: true })
-const image = Object.values(imageFiles);
+const imageFiles = import.meta.glob('../content/Images/*', { eager: true })
+const image = Object.values(imageFiles)
 const meta = {
 	title: 'Gallery',
 	description: 'Kumpulan gambar'
@@ -13,9 +13,37 @@ const meta = {
 <BaseLayout meta={meta}>
 	<main class="mx-auto mb-5 w-full columns-1 gap-3 px-4 sm:columns-2 lg:columns-3">
 		{
-			image.map((img:any) => (
-				<Image src={img.default} width="600" alt="Photo of a pizza" class="mb-3 w-full rounded" />
+			image.map((img: any) => (
+				<Image
+					src={img.default}
+					width="600"
+					alt="Image"
+					class="gallery-img mb-3 w-full cursor-zoom-in rounded"
+					onclick="lightBox(this)"
+				/>
 			))
 		}
 	</main>
+
+	<div id="lightbox" class="fixed inset-0 hidden z-50 items-center justify-center bg-black/90" onclick="closeLightbox()">
+    <button onclick="closeLightbox()" class="absolute top-4 right-4 text-white text-3xl">&times;</button>
+    <img id="lightbox-img" src="" alt="Preview" class="max-h-[90%] max-w-[90%] rounded shadow-xl" />
+  </div>
+
+	<script is:inline>
+		function lightBox(img) {
+			const lightbox = document.getElementById('lightbox')
+			const lightboxImg = document.getElementById('lightbox-img')
+
+			lightboxImg.src = img.src
+			lightbox.classList.remove('hidden')
+			lightbox.classList.add('flex')
+		}
+
+		function closeLightbox() {
+      const lightbox = document.getElementById('lightbox')
+      lightbox.classList.add('hidden')
+      lightbox.classList.remove('flex')
+    }
+	</script>
 </BaseLayout>

@@ -1,8 +1,6 @@
 ---
 unique_Id: "20250615144253"
 title: Fungsi Slice Di JavaScript
-topic:
-  - JavaScript
 tags:
   - javascript
   - function

@@ -1,8 +1,6 @@
 ---
 unique_id: "20250628151617"
 title: Membanggakan Diri Sendiri Kepada Orang Lain
-topic:
-  - Thinking
 tags:
   - social
   - reflection

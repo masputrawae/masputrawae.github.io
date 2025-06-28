@@ -1,8 +1,6 @@
 ---
 unique_id: "20250627164057"
 title: Jenis Nilai Yang Falsy dan Truthy JavaScript
-topic:
-  - JavaScript
 tags:
   - javascript
   - operator

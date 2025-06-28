@@ -6,8 +6,6 @@ tags:
   - data_type
   - variable
 date: 2025-06-21T09:51:30+07:00
-topic:
-  - JavaScript
 ---
 
 # Tipe Data Di JavaScript

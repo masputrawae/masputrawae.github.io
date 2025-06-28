@@ -1,8 +1,6 @@
 ---
 unique_Id: "20250622075934"
 title: Tipe Data Di Python
-topic:
-  - Python
 date: 2025-06-22T07:59:34+07:00
 tags:
   - python

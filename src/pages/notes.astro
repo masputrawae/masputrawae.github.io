@@ -8,12 +8,13 @@ import Search from 'astro-pagefind/components/Search'
 import { Content as Markdown } from '../components/page/NotesContent.md'
 import { getPosts, sorted } from '../utils/getPosts'
 
-const getAllPosts = await getPosts("isNotProjects")
+const getAllPosts = await getPosts('isNotProjects')
 const posts = sorted(getAllPosts)
 
 const meta = {
-  title: "Notes",
-  description: "Kumpulan Catatan"
+	title: 'Notes',
+	description:
+		'Pernah nggak sih kalian bertanya-tanya, kenapa nasi goreng di warung pinggir jalan itu bisa seenak itu? 🤔 Aku sudah mencoba berbagai resep dari seluruh penjuru dunia—dari dapur rumah sampai dapur YouTube—tapi tetap saja rasanya belum nendang!'
 }
 ---
 
@@ -24,7 +25,7 @@ const meta = {
 		<div class="typography prose-em:not-italic">
 			<Markdown />
 		</div>
-    <Search id="search" className="pagefind-ui" uiOptions={{ showImages: false }} />
+		<Search id="search" className="pagefind-ui" uiOptions={{ showImages: false }} />
 	</header>
 	<main class="mt-10">
 		<ListNotes items={posts} />

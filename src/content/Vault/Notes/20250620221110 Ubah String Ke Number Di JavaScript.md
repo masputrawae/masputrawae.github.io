@@ -1,8 +1,6 @@
 ---
 unique_Id: "20250620221110"
 title: Ubah String Ke Number Di JavaScript
-topic:
-  - JavaScript
 tags:
   - javascript
   - data_type

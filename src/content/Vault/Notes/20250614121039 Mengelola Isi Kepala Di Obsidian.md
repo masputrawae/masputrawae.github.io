@@ -1,8 +1,6 @@
 ---
 unique_Id: "20250614121039"
 title: Mengelola Isi Kepala Di Obsidian
-topic:
-  - Thinking
 tags:
   - reflection
   - method

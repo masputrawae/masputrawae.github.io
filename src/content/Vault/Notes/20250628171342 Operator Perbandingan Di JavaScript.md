@@ -1,8 +1,6 @@
 ---
 unique_id: "20250628171342"
 title: Operator Perbandingan Di JavaScript
-topic:
-  - JavaScript
 tags:
   - javascript
   - operator

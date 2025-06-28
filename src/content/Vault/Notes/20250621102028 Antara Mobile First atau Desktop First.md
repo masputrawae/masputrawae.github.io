@@ -1,8 +1,6 @@
 ---
 unique_Id: "20250621102028"
 title: Antara Mobile First atau Desktop First
-topic:
-  - Thinking
 tags:
   - css
   - responsive

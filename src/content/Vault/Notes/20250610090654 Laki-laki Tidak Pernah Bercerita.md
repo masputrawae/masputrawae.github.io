@@ -1,8 +1,6 @@
 ---
 unique_Id: "20250610090654"
 title: Laki-laki Tidak Pernah Bercerita
-topic:
-  - Thinking
 tags:
   - reflection
   - social

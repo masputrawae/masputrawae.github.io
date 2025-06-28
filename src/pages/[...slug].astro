@@ -14,11 +14,8 @@ const { entry } = Astro.props
 const { Content } = await render(entry)
 
 const meta = {
-  //@ts-ignore
 	title: entry.data.title,
-	//@ts-ignore
 	description: entry.data.description || `Catatan yang membahas tentang ${entry.data.title}`,
-	//@ts-ignore
 	thumbnail: entry.data.thumbnail
 }
 ---

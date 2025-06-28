@@ -1,8 +1,6 @@
 ---
 unique_Id: "20250612225923"
 title: Math Object Di JavaScript
-topic:
-  - JavaScript
 tags:
   - javascript
   - math

@@ -1,8 +1,6 @@
 ---
 unique_id: "20250627160058"
 title: Nullis Coalescing Operator
-topic:
-  - JavaScript
 tags:
   - javascript
   - operator

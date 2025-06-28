@@ -1,8 +1,6 @@
 ---
 unique_Id: "20250612040535"
 title: Perbedaan const let dan var Di JavaScript
-topic:
-  - JavaScript
 tags:
   - javascript
   - variable

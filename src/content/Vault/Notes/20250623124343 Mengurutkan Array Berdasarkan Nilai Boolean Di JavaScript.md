@@ -1,8 +1,6 @@
 ---
 unique_Id: "20250623124343"
 title: Mengurutkan Array Berdasarkan Nilai Boolean Di JavaScript
-topic:
-  - JavaScript
 tags:
   - javascript
   - array

@@ -2,7 +2,7 @@ import { defineCollection, z } from 'astro:content'
 import { glob, file } from 'astro/loaders'
 
 const vault = defineCollection({
-	loader: glob({ pattern: '**/*.{md,mdx}', base: 'src/content/Notes' }),
+	loader: glob({ pattern: '**/*.{md,mdx}', base: 'src/content/Vault' }),
 	schema: z.object({
 		title: z.string(),
 		tags: z.array(z.string()),

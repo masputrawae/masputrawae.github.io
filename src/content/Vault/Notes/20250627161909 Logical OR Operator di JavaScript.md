@@ -1,8 +1,6 @@
 ---
 unique_id: "20250627161909"
 title: Logical OR Operator di JavaScript
-topic:
-  - JavaScript
 tags:
   - javascript
   - operator

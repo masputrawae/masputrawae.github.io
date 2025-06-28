@@ -1,7 +1,5 @@
 ---
 unique_Id: "20250620070056"
-topic:
-  - JavaScript
 title: Variabel Tanpa Keyword Di JavaScript
 tags:
   - javascript
