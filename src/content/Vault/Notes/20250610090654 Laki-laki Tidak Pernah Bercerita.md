@@ -4,7 +4,8 @@ title: Laki-laki Tidak Pernah Bercerita
 topic:
   - Thinking
 tags:
-  - refleksi
+  - reflection
+  - social
 date: 2025-06-10T09:06:54+07:00
 ---
 

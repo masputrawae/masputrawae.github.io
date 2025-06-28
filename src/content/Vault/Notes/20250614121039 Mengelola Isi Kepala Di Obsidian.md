@@ -4,7 +4,8 @@ title: Mengelola Isi Kepala Di Obsidian
 topic:
   - Thinking
 tags:
-  - refleksi
+  - reflection
+  - method
 date: 2025-06-14T12:10:39+07:00
 ---
 

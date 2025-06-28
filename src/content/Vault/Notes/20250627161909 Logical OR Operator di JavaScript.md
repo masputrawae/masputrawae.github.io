@@ -42,7 +42,7 @@ console.log(nilai) // Output: 18
 > **Jawaban**:
 > 
 > Secara memang 0 adalah nilai falsy (false) jadi jika pakai `||` itu akan membandingkan nilai antara falsy dan truthy saja. Cara mengatasi kasus tersebut ada di sini👇
-> - [[Nullis Coalescing Operator]]
-> - [[Jenis Nilai Yang Falsy dan Truthy JavaScript]]
+> - [[20250627160058 Nullis Coalescing Operator]]
+> - [[20250627164057 Jenis Nilai Yang Falsy dan Truthy JavaScript]]
 > 
 

@@ -32,6 +32,6 @@ getData(API_URL)
 ```
 
 **Terkait**:
-- [[Asynchronous Di JavaScript]]
-- [[Promise Di JavaScript]]
-- [[Callback Function di JavaScript]]
+- [[20250627234640 Asynchronous Di JavaScript]]
+- [[20250628070829 Promise Di JavaScript]]
+- [[20250628071334 Callback Function di JavaScript]]

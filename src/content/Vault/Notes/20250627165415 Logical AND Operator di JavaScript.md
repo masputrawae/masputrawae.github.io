@@ -32,3 +32,10 @@ if(isLoggedIn){
 }
 // output: John Doe
 ```
+
+**Terkait**:
+- [[If Statement Di JavaScript]]
+- [[Else If Statement Di JavaScript]]
+- [[Switch Statement Di JavaScript]]
+- [[20250628161357 Ternary Operator Di JavaScript]]
+- [[Operator Perbandingan Di JavaScript]]
