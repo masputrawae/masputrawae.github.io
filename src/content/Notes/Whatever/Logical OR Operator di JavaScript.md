@@ -4,10 +4,8 @@ title: Logical OR Operator di JavaScript
 topic:
   - JavaScript
 tags:
-  - operator
-  - logical
-  - or
   - javascript
+  - operator
 date: 2025-06-27T16:19:09+07:00
 ---
 # Logical OR Operator di JavaScript

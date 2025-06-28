@@ -5,8 +5,7 @@ topic:
   - Python
 tags:
   - python
-  - kondisi
-  - percabangan
+  - conditional
 date: 2025-06-12T11:48:41+07:00
 ---
 

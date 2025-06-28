@@ -6,8 +6,6 @@ topic:
 tags:
   - css
   - scss
-  - sass
-  - stylesheet
 date: 2025-06-25T01:22:40+07:00
 ---
 

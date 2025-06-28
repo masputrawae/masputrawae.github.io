@@ -4,10 +4,9 @@ title: Callback Function di JavaScript
 topic:
   - JavaScript
 tags:
-  - function
-  - callback
-  - asynchronous
   - javascript
+  - function
+  - asynchronous
 date: 2025-06-28T07:13:34+07:00
 ---
 

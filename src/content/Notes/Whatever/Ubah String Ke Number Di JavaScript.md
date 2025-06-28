@@ -5,8 +5,8 @@ topic:
   - JavaScript
 tags:
   - javascript
-  - casting
-  - tipe_data
+  - data_type
+  - variable
 date: 2025-06-20T22:11:10+07:00
 ---
 

@@ -5,8 +5,7 @@ topic:
 title: Variabel Tanpa Keyword Di JavaScript
 tags:
   - javascript
-  - variabel
-  - scope
+  - variable
 date: 2025-06-20T07:00:56+07:00
 ---
 

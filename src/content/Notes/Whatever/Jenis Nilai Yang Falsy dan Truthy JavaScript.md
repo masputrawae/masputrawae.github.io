@@ -4,11 +4,8 @@ title: Jenis Nilai Yang Falsy dan Truthy JavaScript
 topic:
   - JavaScript
 tags:
-  - falsy
-  - truthy
   - javascript
   - operator
-  - logical
 date: 2025-06-27T16:40:57+07:00
 ---
 

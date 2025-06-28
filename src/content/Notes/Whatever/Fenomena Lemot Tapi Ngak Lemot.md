@@ -5,6 +5,7 @@ topic:
   - Thinking
 tags:
   - astro_js
+  - framework
 date: 2025-06-23T21:19:31+07:00
 ---
 

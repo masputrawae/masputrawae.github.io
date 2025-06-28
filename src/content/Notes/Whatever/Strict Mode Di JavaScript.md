@@ -5,9 +5,7 @@ topic:
   - JavaScript
 tags:
   - javascript
-  - strict_mode
-  - variabel
-  - scope
+  - variable
 date: 2025-06-20T07:06:10+07:00
 ---
 

@@ -5,7 +5,6 @@ topic:
   - JavaScript
 tags:
   - javascript
-  - builtin_object
   - math
 date: 2025-06-12T22:59:23+07:00
 ---

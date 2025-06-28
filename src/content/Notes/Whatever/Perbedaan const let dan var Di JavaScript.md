@@ -5,7 +5,7 @@ topic:
   - JavaScript
 tags:
   - javascript
-  - variabel
+  - variable
 date: 2025-06-12T04:05:35+07:00
 ---
 

@@ -8,5 +8,5 @@
 }
 
 .typography {
-	@apply prose prose-invert prose-neutral prose-headings:font-normal prose-a:text-blue-400 prose-a:hover:text-blue-300 prose-code:before:content-none prose-code:after:content-none prose-code:font-normal prose-code:text-sm prose-pre:font-mono prose-code:font-mono max-w-full text-sm leading-relaxed 2xl:text-base;
+	@apply prose prose-invert prose-neutral prose-headings:font-normal prose-a:text-blue-400 prose-a:hover:text-blue-300 prose-code:before:content-none prose-code:after:content-none prose-code:font-normal prose-code:text-sm prose-pre:font-mono prose-code:font-mono max-w-full text-sm leading-relaxed 2xl:text-base prose-pre:shadow-md prose-pre:shadow-black prose-pre:border prose-pre:border-neutral-700;
 }

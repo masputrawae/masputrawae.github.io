@@ -5,8 +5,7 @@ topic:
   - Python
 tags:
   - python
-  - aritmatika
-  - matematika
+  - operator
 date: 2025-06-12T11:43:01+07:00
 ---
 

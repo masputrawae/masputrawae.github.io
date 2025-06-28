@@ -4,8 +4,9 @@ title: Menghilangkan Duplikat Pada Array di JavaScript
 topic:
   - JavaScript
 tags:
-  - array
   - javascript
+  - array
+  - variable
 date: 2025-06-28T07:30:45+07:00
 ---
 

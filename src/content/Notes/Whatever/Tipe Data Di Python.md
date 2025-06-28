@@ -6,8 +6,8 @@ topic:
 date: 2025-06-22T07:59:34+07:00
 tags:
   - python
-  - tipe_data
-  - variabel
+  - data_type
+  - variable
 ---
 
 # Tipe Data Di Python

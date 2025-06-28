@@ -5,9 +5,7 @@ topic:
   - Thinking
 tags:
   - css
-  - stylesheet
   - responsive
-  - design
 date: 2025-06-21T10:20:28+07:00
 ---
 

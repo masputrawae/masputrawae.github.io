@@ -5,7 +5,7 @@ topic:
   - JavaScript
 tags:
   - javascript
-  - slugify
+  - function
 date: 2025-06-24T16:10:56+07:00
 ---
 

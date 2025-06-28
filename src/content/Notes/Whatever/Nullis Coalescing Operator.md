@@ -4,9 +4,8 @@ title: Nullis Coalescing Operator
 topic:
   - JavaScript
 tags:
-  - operator
-  - nullis
   - javascript
+  - operator
 date: 2025-06-27T16:00:58+07:00
 ---
 
@@ -15,11 +14,13 @@ date: 2025-06-27T16:00:58+07:00
 Hanya memilih nilai di Kanan ketika nilai dikiri `null` atau `undefined`, Fungsinya mirip seperti `||` tapi lebih spesifik 
 
 **Syntax**:
+
 ```javascript
 const nilai = nilaiKiri ?? nilaiKanan
 ```
 
 **Artinya**:
+
 - Jika `nilaiKiri` bukan `null` atau `undefined` maka gunakan `nilaiKiri`
 - Jika `nilaiKiri` berisi `null` atau `undefined` maka gunakan `nilaiKanan`
 

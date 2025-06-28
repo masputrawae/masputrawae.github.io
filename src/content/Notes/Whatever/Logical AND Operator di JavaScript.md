@@ -4,10 +4,8 @@ title: Logical AND Operator di JavaScript
 topic:
   - JavaScript
 tags:
-  - AND
-  - operator
-  - logical
   - javascript
+  - operator
 date: 2025-06-27T16:54:15+07:00
 ---
 

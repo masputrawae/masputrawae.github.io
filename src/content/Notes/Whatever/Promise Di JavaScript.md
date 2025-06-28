@@ -4,9 +4,9 @@ title: Promise Di JavaScript
 topic:
   - JavaScript
 tags:
-  - promise
   - javascript
   - function
+  - asynchronous
 date: 2025-06-28T07:08:29+07:00
 ---
 

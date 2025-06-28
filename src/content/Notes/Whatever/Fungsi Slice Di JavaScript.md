@@ -6,8 +6,6 @@ topic:
 tags:
   - javascript
   - function
-  - slice
-  - builtin_function
 date: 2025-06-15T14:42:53+07:00
 ---
 

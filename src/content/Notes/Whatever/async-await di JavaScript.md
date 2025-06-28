@@ -4,10 +4,9 @@ title: async-await di JavaScript
 topic:
   - JavaScript
 tags:
-  - asynchronous
   - javascript
-  - async_await
   - function
+  - asynchronous
 date: 2025-06-28T06:50:20+07:00
 ---
 

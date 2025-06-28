@@ -1,10 +1,11 @@
 ---
-unique_Id: '20250613172712'
+unique_Id: "20250613172712"
 title: Menampilkan Output Di JavaScript
 topic:
   - JavaScript
 tags:
   - javascript
+  - output
 date: 2025-06-13T17:27:12+07:00
 ---
 
@@ -23,8 +24,8 @@ menampilkan **teks beserta Tag HTML**.
 ```html
 <div id="output"></div>
 <script>
-	document.getElementById('output').innerHTML =
-		'<h2>Ini heading 2, ditampilkan sebagai elemen HTML</h2>'
+	document.getElementById("output").innerHTML =
+		"<h2>Ini heading 2, ditampilkan sebagai elemen HTML</h2>";
 </script>
 ```
 
@@ -35,7 +36,8 @@ hanya menampilkan **teks biasa**, tanpa memproses Tag HTML.
 ```html
 <div id="output"></div>
 <script>
-	document.getElementById('output').innerText = '<h2>Tag h2 ditampilkan sebagai teks</h2>'
+	document.getElementById("output").innerText =
+		"<h2>Tag h2 ditampilkan sebagai teks</h2>";
 </script>
 ```
 
@@ -44,7 +46,7 @@ hanya menampilkan **teks biasa**, tanpa memproses Tag HTML.
 Umum digunakan untuk debugging atau mencatat informasi saat program berjalan. Output ini hanya terlihat di developer console — berguna saat pengembangan, baik di browser maupun di Node.js.
 
 ```javascript
-console.log('Ini muncul di console')
+console.log("Ini muncul di console");
 ```
 
 ## 3. Menggunakan alert box dengan `window.alert()`
@@ -52,7 +54,7 @@ console.log('Ini muncul di console')
 Menampilkan pesan dalam bentuk pop-up. Cocok untuk notifikasi sederhana, meski jarang dipakai dalam aplikasi nyata karena bisa mengganggu pengalaman pengguna.
 
 ```javascript
-window.alert('Ini muncul di alert box')
+window.alert("Ini muncul di alert box");
 ```
 
 ## 4. Menggunakan `document.write()`
@@ -60,7 +62,7 @@ window.alert('Ini muncul di alert box')
 Menulis langsung ke halaman HTML. Namun metode ini **tidak direkomendasikan** untuk penggunaan nyata karena dapat menggantikan seluruh isi halaman jika digunakan setelah dokumen dimuat.
 
 ```javascript
-document.write('Hello, World!')
+document.write("Hello, World!");
 ```
 
 > [!warning]

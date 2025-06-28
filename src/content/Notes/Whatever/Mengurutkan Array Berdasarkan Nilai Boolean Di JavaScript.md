@@ -6,6 +6,7 @@ topic:
 tags:
   - javascript
   - array
+  - variable
 date: 2025-06-23T12:43:43+07:00
 ---
 

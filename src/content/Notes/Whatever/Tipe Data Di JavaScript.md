@@ -3,8 +3,8 @@ unique_Id: "20250621095130"
 title: Tipe Data Di JavaScript
 tags:
   - javascript
-  - tipe_data
-  - variabel
+  - data_type
+  - variable
 date: 2025-06-21T09:51:30+07:00
 topic:
   - JavaScript
