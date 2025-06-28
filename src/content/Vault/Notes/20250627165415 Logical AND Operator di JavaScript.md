@@ -5,7 +5,6 @@ topic:
   - JavaScript
 tags:
   - javascript
-  - operator
 date: 2025-06-27T16:54:15+07:00
 ---
 
@@ -38,4 +37,4 @@ if(isLoggedIn){
 - [[Else If Statement Di JavaScript]]
 - [[Switch Statement Di JavaScript]]
 - [[20250628161357 Ternary Operator Di JavaScript]]
-- [[Operator Perbandingan Di JavaScript]]
+- [[20250628171342 Operator Perbandingan Di JavaScript]]
