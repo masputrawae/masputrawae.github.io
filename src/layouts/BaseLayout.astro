@@ -1,0 +1,110 @@
+---
+import '../global.css'
+
+import Sidebar from '../components/main/Sidebar.astro'
+import MobileTopBar from '../components/main/MobileTopBar.astro'
+import Footer from '../components/main/Footer.astro'
+
+function makeAbsoluteUrl(url: string) {
+	return url.startsWith('https') ? url : new URL(url, Astro.site).href
+}
+
+const { meta = {} } = Astro.props
+const fallbackTitle = 'Halaman Rahasia 😅'
+const siteTitle = 'Putra Jaya'
+const pathname = Astro.url?.pathname ?? '/'
+const fullUrl = new URL(pathname, Astro.site).href
+const title = pathname === '/' ? siteTitle : `${siteTitle} | ${meta.title ?? fallbackTitle}`
+const author = 'Putra Jaya'
+const twitter = '@Masputrawae'
+const description =
+	meta.description ?? 'Ini ruang pribadiku untuk belajar, bereksperimen, dan bersenang-senang'
+const thumbnail = makeAbsoluteUrl(meta.thumbnail ?? '/thumbnail.webp')
+import { ClientRouter } from 'astro:transitions'
+---
+
+<html lang="id" class="font-sans">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="theme-color" content="#0f172a" />
+		<link rel="canonical" href={fullUrl} />
+
+		<!-- START: FAVICONS -->
+		<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png" />
+		<link rel="icon" type="image/png" sizes="512x512" href="/favicons/android-chrome-512x512.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+		<link rel="icon" type="image/x-icon" href="/favicons/favicon.ico" />
+		<link rel="manifest" href="/favicons/site.webmanifest" />
+		<!-- END -->
+
+		<!-- Open Graph -->
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={thumbnail} />
+		<meta property="og:url" content={fullUrl} />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content={siteTitle} />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={thumbnail} />
+		<meta name="twitter:site" content={twitter} />
+
+		<!-- SEO -->
+		<title>{title}</title>
+		<meta name="author" content={author} />
+		<meta name="description" content={description} />
+		<meta name="language" content="id" />
+		<meta name="robots" content="index, follow" />
+		<meta name="copyright" content={`© ${new Date().getFullYear()} ${author}`} />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+
+		<ClientRouter />
+	</head>
+	<body class="grid bg-neutral-900 text-neutral-300 lg:grid-cols-[320px_minmax(0,1fr)]">
+		<Sidebar />
+		<div>
+			<MobileTopBar />
+			<div class="container mx-auto mt-10 px-5 md:px-6 lg:px-10">
+				<slot />
+			</div>
+			<Footer />
+		</div>
+	</body>
+</html>
+
+<style is:global>
+	@font-face {
+		font-display: swap;
+		font-family: 'Noto Sans';
+		font-style: normal;
+		font-weight: 400;
+		src: url('/fonts/noto-sans-v39-latin-regular.woff2') format('woff2');
+	}
+	@font-face {
+		font-display: swap;
+		font-family: 'Noto Sans';
+		font-style: normal;
+		font-weight: 700;
+		src: url('/fonts/noto-sans-v39-latin-700.woff2') format('woff2');
+	}
+	@font-face {
+		font-display: swap;
+		font-family: 'Fira Code';
+		font-style: normal;
+		font-weight: 400;
+		/* Optional <=== */
+		font-variant-ligatures: none;
+		font-feature-settings:
+			'liga' 0,
+			'calt' 0;
+		/* Optional ===> */
+		src: url('/fonts/fira-code-v26-latin-regular.woff2') format('woff2');
+	}
+</style>

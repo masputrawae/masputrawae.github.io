@@ -1,0 +1,49 @@
+---
+import Badge from './Badge.astro'
+
+import { Image } from 'astro:assets'
+import { titleWord } from '../utils/titleWord'
+import { Icon } from 'astro-icon/components'
+import Button from './Button.astro'
+
+const { items, heading } = Astro.props
+---
+
+{heading && <h2 class="my-10 text-2xl text-white">{heading}</h2>}
+
+{
+	items.map(item => {
+		const slug = `/${item.id}/`
+		const title = item.data.title
+		const description = item.data.description
+		const thumbnail = item.data.thumbnail
+		const tags = item.data.tags
+		const isFeatured = item.data.featured
+
+		return (
+			<figure class="grid items-center border-t border-neutral-700 py-10 md:grid-cols-2 md:gap-20 lg:grid-cols-1 lg:gap-0 xl:grid-cols-2 xl:gap-20">
+				<Image
+					src={thumbnail}
+					alt={title}
+					width={1920}
+					height={1080}
+					quality={`high`}
+					class="aspect-video rounded-2xl shadow-md shadow-black"
+				/>
+				<figcaption class="m-auto grid gap-1.5">
+					<strong class="my-5 flex items-center gap-1 text-2xl text-white">
+						{isFeatured && <Icon name="icon-sparkles" class="text-amber-500" />}
+						{title}
+					</strong>
+					<nav class="flex items-center gap-1.5">
+						{tags.map(tag => (
+							<Badge href={`/tag/${tag}/`} label={titleWord(tag)} />
+						))}
+					</nav>
+					<p class="my-5 text-sm 2xl:text-base">{description}</p>
+					<Button label="Lihat Proyek" onclick={`window.location.href="${slug}"`} />
+				</figcaption>
+			</figure>
+		)
+	})
+}

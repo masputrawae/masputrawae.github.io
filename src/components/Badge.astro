@@ -1,0 +1,17 @@
+---
+const { href, label, className, ...rest } = Astro.props
+const classes =
+	`text-neutral-300 no-underline inline-flex items-center w-fit gap-2 px-4 py-2 rounded-full shadow-sm shadow-black border border-neutral-800 hover:bg-neutral-700 hover:text-white transition-all duration-300 font-bold text-xs text-shadow-sm text-shadow-black cursor-pointer ${className}`.trim()
+---
+
+{
+	href ? (
+		<a href={href} class={classes} {...rest}>
+			{label ?? <slot />}
+		</a>
+	) : (
+		<span class={classes} {...rest}>
+			{label ?? <slot />}
+		</span>
+	)
+}

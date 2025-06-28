@@ -1,0 +1,27 @@
+---
+import Button from '../components/Button.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import ProjectCards from '../components/ProjectCards.astro'
+
+import { Content as Markdown } from '../components/page/HomeContent.md'
+import { tagCloud } from '../utils/tagCloud.js'
+import { getPosts } from '../utils/getPosts.js'
+
+const cta = [
+	{ label: 'About', href: '/about/', primary: true },
+	{ label: 'My Notes', href: '/notes/', primary: false }
+]
+const featuredProjects = await getPosts('Projects', true, 2)
+---
+
+<BaseLayout>
+	<header class="typography prose-em:not-italic">
+		<Markdown />
+		<nav class="flex items-center gap-2.5">
+			{cta.map(i => <Button hraf={i.href} label={i.label} primary={i.primary} />)}
+		</nav>
+	</header>
+	<main>
+    <ProjectCards items={featuredProjects} heading="Top Projects" />
+  </main>
+</BaseLayout>

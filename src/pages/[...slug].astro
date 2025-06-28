@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+import { getCollection } from 'astro:content'
+import { render } from 'astro:content'
+import { getPosts } from '../utils/getPosts'
+
+export const getStaticPaths = async () => {
+	const allPosts = await getCollection('vault')
+
+	return [...allPosts.map(entry => ({ params: { slug: entry.id }, props: { entry: entry } }))]
+}
+const { entry } = Astro.props
+const { Content } = await render(entry)
+
+const meta = {
+  //@ts-ignore
+	title: entry.data.title,
+	//@ts-ignore
+	description: entry.data.description || `Catatan yang membahas tentang ${entry.data.title}`,
+	//@ts-ignore
+	thumbnail: entry.data.thumbnail
+}
+---
+
+<BaseLayout meta={meta}>
+	<main>
+		<article class="typography dark">
+			<Content />
+		</article>
+	</main>
+</BaseLayout>

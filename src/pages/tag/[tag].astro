@@ -1,0 +1,40 @@
+---
+// src/pages/[tag].astro
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import ListNotes from '../../components/ListNotes.astro'
+
+import { titleWord } from '../../utils/titleWord'
+import type { GetStaticPaths } from 'astro'
+import { tagCloud } from '../../utils/tagCloud.js'
+import { getPosts, sorted } from '../../utils/getPosts'
+
+export const getStaticPaths = (async() => {
+  const allTags = await tagCloud()
+
+  return [
+    ...allTags.map(tag => ({
+      params: { tag: tag.tag},
+      props: { tag: tag}
+    }))
+  ];
+}) satisfies GetStaticPaths;
+
+const { tag } = Astro.props
+const allPosts = await getPosts()
+const filtered = allPosts?.filter(post => post.data.tags.includes(tag.tag))
+const sortPost = sorted(filtered)
+
+const tagTitle = titleWord(tag.tag)
+const tagCount = tag.count
+
+const meta = {
+  title: tagTitle,
+  description: `Daftar Catatan Dengan Tag ${tagTitle}`
+}
+---
+
+<BaseLayout meta={meta}>
+	<header>
+		<ListNotes items={sortPost} label={`Catatan Dengan Tag: ${tagTitle}, Total Catatan ${tagCount}`} />
+	</header>
+</BaseLayout>

@@ -1,0 +1,66 @@
+---
+// src/pages/topic/[topic].astro
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import ListNotes from '../../components/ListNotes.astro'
+
+import { getCollection } from 'astro:content'
+import { Image } from 'astro:assets'
+import { titleWord } from '../../utils/titleWord'
+import type { GetStaticPaths } from 'astro'
+
+export const getStaticPaths = (async () => {
+	const allPost = await getCollection('vault')
+	const getTopic = allPost.flatMap(item => {
+		const topic = item.data.topic
+		return Array.isArray(topic) ? topic : topic ? [topic] : []
+	})
+	const uniqueTopic = [...new Set(getTopic)]
+
+	return [
+    ...uniqueTopic.map(item => ({
+      params: { topic: item},
+      props: { topic: item}
+    }))
+  ];
+}) satisfies GetStaticPaths
+
+
+const { topic } = Astro.props
+
+const topicData = await getCollection('topic')
+const filterTopic = topicData.filter(item => item.data.title.includes(topic))
+
+const postData = await getCollection('vault')
+const filterPost = postData.filter(item => item.data.topic?.includes(topic))
+
+const meta = {
+  title: filterTopic[0]?.data.title || topic,
+  description: filterTopic[0]?.data.description || `Membahas tentang topik ${topic}`
+}
+---
+
+<BaseLayout meta={meta}>
+	{
+		filterTopic[0] ? (
+			<header class="typography relative">
+				<div class="top-4 left-4 z-10 text-shadow-black text-shadow-sm">
+					<h1>{filterTopic[0]?.data.title}</h1>
+					<p>{filterTopic[0]?.data.description}</p>
+				</div>
+				<Image
+					src={filterTopic[0]?.data.thumbnail}
+					alt={filterTopic[0]?.data.title}
+					width={1920}
+					height={1080}
+					loading={`eager`}
+					class="aspect-video rounded-2xl shadow-md shadow-black brightness-50"
+				/>
+			</header>
+		) : (
+			<p>Tidak data terkait kategori {topic}</p>
+		)
+	}
+	<main>
+		<ListNotes items={filterPost} label={`Catatan Dengan Topik: ${titleWord(topic)}`} />
+	</main>
+</BaseLayout>

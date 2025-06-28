@@ -1,0 +1,37 @@
+---
+import { Icon } from 'astro-icon/components'
+import { timeFormat } from '../utils/timeFormat'
+
+const { items, label } = Astro.props
+---
+
+<h2 class="mb-4 border-b border-b-neutral-700 pb-3 text-2xl text-white">{label ?? `All Notes`}</h2>
+<nav class="grid gap-2 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+	{
+		items.map((item: any) => {
+			const slug = `/${item.id}/`
+			const title = item.data.title
+			const timeIso = new Date(item.data.date).toISOString()
+			const fullDate = timeFormat(item.data.date, true)
+			const simpleDate = timeFormat(item.data.date, false)
+			const featured = item.data.featured
+
+			return (
+				<a
+					href={slug}
+					class="group grid rounded-lg border border-neutral-700 px-6 py-3 shadow-sm shadow-black"
+				>
+					<strong class="flex items-center gap-1 group-hover:text-amber-500">
+						<span>{title}</span>
+						{featured && <Icon name="icon-sparkles" class="size-4 text-amber-500" />}
+					</strong>
+					<time datetime={timeIso} class="text-sm text-neutral-400">
+						<span>Create On: </span>
+						<span class="hidden lg:inline">{fullDate}</span>
+						<span class="lg:hidden">{simpleDate}</span>
+					</time>
+				</a>
+			)
+		})
+	}
+</nav>

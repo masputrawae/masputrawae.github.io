@@ -1,0 +1,45 @@
+---
+import { Image } from 'astro:assets'
+import { getCollection } from 'astro:content'
+
+// GET ALL topic
+const topics = await getCollection('topic')
+---
+
+<style is:inline>
+	.cs-scrollbar {
+		scrollbar-width: thin;
+		scrollbar-color: #2a2a2a #0000004a;
+	}
+</style>
+
+<div class="cs-scrollbar mb-10 flex snap-x snap-mandatory overflow-x-auto scroll-smooth">
+	{
+		topics.map((topic) => {
+			const href = `/topic/${topic.id}/`
+			const title = topic.data.title
+			const thumbnail = topic.data.thumbnail
+			const description = topic.data.description
+
+			return (
+				<figure class="relative w-full shrink-0 snap-start p-5 md:w-sm lg:w-md">
+					<Image
+						src={thumbnail}
+						alt={title}
+						width={1920}
+						height={1080}
+						layout={`constrained`}
+						loading={`eager`}
+						class="aspect-video rounded-2xl shadow-lg shadow-black brightness-50"
+					/>
+					<figcaption class="absolute bottom-0 left-0 p-10 text-shadow-black text-shadow-md">
+						<blockquote class="text-xs text-white">{description}</blockquote>
+						<a href={href} class="text-2xl text-amber-500">
+							{title}
+						</a>
+					</figcaption>
+				</figure>
+			)
+		})
+	}
+</div>

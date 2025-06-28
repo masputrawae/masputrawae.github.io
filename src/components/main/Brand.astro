@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets'
+import logo from '../../../public/logo.webp'
+
+const title = 'Putra Jaya'
+const tagline = 'Manusia Biasa'
+---
+
+<figure class="flex cursor-pointer items-center gap-1.5" onclick='window.location.href="/"'>
+	<Image
+		src={logo}
+		width={50}
+		height={50}
+		format={`webp`}
+		quality={`high`}
+		loading={`eager`}
+		alt={`Logo ${title}`}
+		class="rounded-full border-2 border-neutral-900 shadow-sm shadow-black"
+	/>
+	<figcaption class="grid text-shadow-black text-shadow-sm">
+		<strong class="text-white">{title}</strong>
+		<em class="text-xs not-italic">{tagline}</em>
+	</figcaption>
+</figure>

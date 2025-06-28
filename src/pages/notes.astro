@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import TopicList from '../components/TopicList.astro'
+import TagCloud from '../components/TagCloud.astro'
+import ListNotes from '../components/ListNotes.astro'
+import Search from 'astro-pagefind/components/Search'
+
+import { Content as Markdown } from '../components/page/NotesContent.md'
+import { getPosts, sorted } from '../utils/getPosts'
+
+const getAllPosts = await getPosts("isNotProjects")
+const posts = sorted(getAllPosts)
+
+const meta = {
+  title: "Notes",
+  description: "Kumpulan Catatan"
+}
+---
+
+<BaseLayout meta={meta}>
+	<header>
+		<TopicList />
+		<TagCloud />
+		<div class="typography prose-em:not-italic">
+			<Markdown />
+		</div>
+    <Search id="search" className="pagefind-ui" uiOptions={{ showImages: false }} />
+	</header>
+	<main class="mt-10">
+		<ListNotes items={posts} />
+
+		<style is:inline>
+			.pagefind-ui {
+				--pagefind-ui-scale: 0.75;
+				--pagefind-ui-primary: white;
+				--pagefind-ui-text: white;
+				--pagefind-ui-border: var(--color-neutral-800);
+				--pagefind-ui-background: rgba(0, 0, 0, 0.1);
+				--pagefind-ui-border-width: 1px;
+				--pagefind-ui-border-radius: 0.25rem;
+				--pagefind-ui-font: sans-serif;
+
+				width: 100%;
+				margin-top: 1rem;
+			}
+
+			.pagefind-ui .pagefind-ui__drawer:not(.pagefind-ui__hidden) {
+				position: absolute;
+				left: 0;
+				right: 0;
+				margin-top: 0px;
+				z-index: 9999;
+				padding: 0 2em 1em;
+				overflow-y: auto;
+				border-bottom-right-radius: var(--pagefind-ui-border-radius);
+				border-bottom-left-radius: var(--pagefind-ui-border-radius);
+				background-color: var(--color-neutral-800);
+			}
+
+			.pagefind-ui .pagefind-ui__result-link {
+				color: var(--color-blue-500);
+			}
+
+			.pagefind-ui .pagefind-ui__result-excerpt {
+				color: var(--color-neutral-300);
+			}
+		</style>
+	</main>
+</BaseLayout>

@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import ProjectCards from '../components/ProjectCards.astro'
+
+import { Content as Markdown } from '../components/page/ProjectsContent.md'
+import { getPosts, sorted } from '../utils/getPosts.js'
+
+const allProjects = await getPosts('Projects')
+const sortProjects = sorted(allProjects)
+
+const meta ={
+  title: "Projects",
+  description: "Kumpulan Proyek"
+}
+---
+
+<BaseLayout meta={meta}>
+	<header class="typography prose-em:not-italic">
+		<Markdown />
+	</header>
+	<main class="mt-10">
+		<ProjectCards items={sortProjects} />
+	</main>
+</BaseLayout>

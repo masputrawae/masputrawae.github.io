@@ -1,0 +1,75 @@
+---
+import Brand from './Brand.astro'
+import { Icon } from 'astro-icon/components'
+
+const main = [
+	{ label: 'Home', href: '/', icon: 'icon-home' },
+	{ label: 'Projects', href: '/projects/', icon: 'icon-wrench-screwdriver' },
+	{ label: 'About', href: '/about/', icon: 'icon-person-circle' },
+	{ label: 'Notes', href: '/notes/', icon: 'icon-pencil-square' },
+	{ label: 'Gallery', href: '/gallery/', icon: 'icon-photo' }
+]
+
+const social = [
+	{ label: 'Instagram', href: 'https://www.instagram.com/masputrawae/', icon: 'icon-instagram' },
+	{ label: 'Github', href: 'https://github.com/masputrawae/', icon: 'icon-github' },
+	{ label: 'Discord', href: 'https://discord.gg/nM4EP8DJFZ', icon: 'icon-discord' }
+]
+
+const menus = [main, social]
+---
+
+<header
+	id="sidebar"
+	class="invisible fixed top-0 left-0 z-50 grid h-dvh w-xs max-w-full -translate-x-full grid-rows-[auto_minmax(0,1fr)_auto] gap-5 border-r border-neutral-800 bg-neutral-900 p-5 shadow-sm shadow-black transition-all duration-700 lg:visible lg:sticky lg:translate-none"
+>
+	<div class="flex items-center justify-between">
+		<Brand />
+		<button onclick="sidebarClose()" class="lg:hidden">
+			<Icon name="icon-x-mark" class="size-6" />
+		</button>
+	</div>
+
+	{
+		menus.map(menu => (
+			<nav>
+				{menu.map(item => {
+					const { pathname } = Astro.url
+
+					const icon = item.icon
+					const href = item.href
+					const label = item.label
+					const isActive = href === pathname || (href !== '/' && pathname.startsWith(href))
+
+					return (
+						<a
+							href={href}
+							class={`flex items-center gap-1 px-5 py-3 ${isActive ? 'rounded-md border border-neutral-800 text-white shadow-sm shadow-black' : 'hover:text-white'}`}
+						>
+							<Icon name={icon} class="size-4" />
+							<span>{label}</span>
+						</a>
+					)
+				})}
+			</nav>
+		))
+	}
+</header>
+
+<div
+	onclick="sidebarClose()"
+	id="overlay"
+	class="invisible fixed z-40 size-full bg-black/80 opacity-0 transition-all duration-500 lg:hidden"
+>
+</div>
+
+<script is:inline>
+	function sidebarOpen() {
+		document.getElementById('sidebar').classList.remove('-translate-x-full', 'invisible')
+		document.getElementById('overlay').classList.remove('opacity-0', 'invisible')
+	}
+	function sidebarClose() {
+		document.getElementById('sidebar').classList.add('-translate-x-full', 'invisible')
+		document.getElementById('overlay').classList.add('opacity-0', 'invisible')
+	}
+</script>
