@@ -37,4 +37,3 @@ Jadi, shell adalah kategori umum, sedangkan bash dan lainnya adalah jenis-jenisn
 ## Kesimpulan
 
 > Semua Bash adalah Shell, tetapi tidak semua Shell adalah Bash.
-

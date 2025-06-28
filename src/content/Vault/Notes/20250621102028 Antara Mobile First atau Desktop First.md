@@ -40,4 +40,3 @@ Secara umum, pendekatan **Mobile First** cenderung lebih efisien dan mudah, teru
 > Secara umum dan modern, mobile-first lebih mudah, lebih efisien, dan lebih cocok untuk kebanyakan proyek.
 
 Namun pada akhirnya kembali pada kebutuhan proyek dan kenyamanan tim. Keduanya adalah pendekatan yang sah digunakan.
-

@@ -36,4 +36,3 @@ const arr = [1, 2, 3, 4, 5, 6];
 const newArr = arr.slice(2, 5);
 console.log(newArr); // Output: [3, 4, 5] !❌ 6 tidak termasuk
 ```
-

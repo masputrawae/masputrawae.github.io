@@ -13,7 +13,8 @@ date: 2025-06-28T07:30:45+07:00
 # Menghilangkan Duplikat Pada Array di JavaScript
 
 ## Cara 1: pakai Set
-cara paling mudah dan cepat 
+
+cara paling mudah dan cepat
 
 ```javascript
 const arr = [1, 1, 2, 3, 4, 5, 5, 6, 5, 7, 8, 6];
@@ -24,33 +25,33 @@ console.log(uniqueArray);
 ```
 
 **Penjelasan**:
+
 - `Set` Hanya menyimpan nilai unik
 - `new Set(arr)` Menyimpan array ke set
-- `...` (spread operator) mengubah set kembali ke array 
+- `...` (spread operator) mengubah set kembali ke array
 
 ## Cara 2: Pakai filter + indexOf
 
 ```javascript
 const arr = [1, 1, 2, 3, 4, 5, 5, 6, 5, 7, 8, 6];
-const uniqueArr = 
-	arr.filter((item, index)=>(
-	    arr.indexOf(item) === index)
-    );
+const uniqueArr = arr.filter((item, index) => arr.indexOf(item) === index);
 console.log(uniqueArr);
 ```
 
 **Penjelasan**:
+
 - `indexOf(item)` Mengembalikan indexs pertama pada item ditemukan di array
 - Jika `indexOf(item)` sama dengan `index` artinya ini kemunculan pertama => Item disimpan
 
 ## Cara Ketiga: reduce + includes
+
 Agak sedikit manual
 
 ```javascript
 const arr = [1, 1, 2, 3, 4, 5, 5, 6, 5, 7, 8, 6];
 const uniqueArr = arr.reduce((acc, item) => {
-    if (!acc.includes(item)) acc.push(item);
-    return acc;
+	if (!acc.includes(item)) acc.push(item);
+	return acc;
 }, []);
 console.log(uniqueArr);
 ```

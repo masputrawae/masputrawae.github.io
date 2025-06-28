@@ -12,6 +12,7 @@ date: 2025-06-27T16:40:57+07:00
 # Jenis Nilai Yang Falsy dan Truthy JavaScript
 
 Nilai ini dianggap false kalau digunakan di kondisi (if, logical operator, dsb). Hanya 7 nilai ini yang falsy:
+
 - false
 - 0
 - -0
@@ -21,7 +22,7 @@ Nilai ini dianggap false kalau digunakan di kondisi (if, logical operator, dsb).
 - undefined
 - NaN
 
-Selain 7 diatas dianggap truthy. 
+Selain 7 diatas dianggap truthy.
 Contoh truthy yang sering ditemui:
 
 - true

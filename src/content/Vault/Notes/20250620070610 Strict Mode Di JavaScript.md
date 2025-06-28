@@ -41,4 +41,5 @@ x = 5; // Tidak error walaupun kamu tidak deklarasikan `x`
 > Kalau kamu pakai module (`type="module"` di HTML atau file `.mjs`), JavaScript otomatis dalam mode strict—tanpa perlu `"use strict"` lagi.
 
 **Terkait**:
+
 - [[20250620070056 Variabel Tanpa Keyword Di JavaScript]]

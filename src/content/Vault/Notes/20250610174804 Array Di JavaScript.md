@@ -55,4 +55,3 @@ console.log(rakBuku[1]);
 ## Kesimpulan:
 
 Array adalah struktur data seperti rak yang menyimpan banyak data (dalam urutan), bisa diakses menggunakan nomor urut (indeks), dan sangat sering digunakan dalam JavaScript.
-

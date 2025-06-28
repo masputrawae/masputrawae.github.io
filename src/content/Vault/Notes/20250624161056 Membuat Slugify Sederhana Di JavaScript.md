@@ -24,6 +24,7 @@ function slugify(text) {
 const hasil = slugify("Ini adalah_judul Artikel!");
 console.log(hasil); // "ini-adalah-judul-artikel"
 ```
+
 ## Penjelasan:
 
 - `toLowerCase()` → biar slug-nya konsisten huruf kecil.

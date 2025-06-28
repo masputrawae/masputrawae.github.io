@@ -18,4 +18,3 @@ Aku tidak sepenuhnya setuju. Laki-laki juga punya perasaan, mental, dan pikiran.
 > Sekuat itukah laki-laki hingga mereka tidak boleh bercerita tentang beban hidup mereka?
 
 Catatan ini adalah pengingat bahwa membuka ruang cerita untuk semua gender adalah bagian dari masyarakat yang lebih sehat secara mental dan emosional.
-

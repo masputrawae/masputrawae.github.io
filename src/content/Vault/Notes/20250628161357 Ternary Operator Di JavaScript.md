@@ -11,11 +11,12 @@ date: 2025-06-28T16:13:57+07:00
 
 # Ternary Operator Di JavaScript
 
-Pengkondisian satu baris, Cocok untuk kondisi ringkas 
+Pengkondisian satu baris, Cocok untuk kondisi ringkas
 
 **Syntax**:
+
 ```javascript
-const condition = a ? b : c
+const condition = a ? b : c;
 ```
 
 jika `a` benar maka lakukan `b` jika salah lakukan `c`
@@ -30,23 +31,24 @@ const alertMessage = "Not Logged In";
 console.log(isLoggedIn ? userName : alertMessage);
 ```
 
-**Sama Seperti**: 
+**Sama Seperti**:
+
 ```javascript
 const isLoggedIn = true;
 const userName = "John Doe";
 const alertMessage = "Not Logged In";
 
-if(isLoggedIn){
-    console.log(userName);
+if (isLoggedIn) {
+	console.log(userName);
 } else {
-    console.log(alertMessage);
-};
+	console.log(alertMessage);
+}
 ```
 
 **Contoh Lain**:
 
 ```javascript
-const nilai = 90
+const nilai = 90;
 
-console.log(nilai > 80 ? 'Anda Lulus' : 'Tidak Lulus')
+console.log(nilai > 80 ? "Anda Lulus" : "Tidak Lulus");
 ```

@@ -13,23 +13,22 @@ date: 2025-06-28T07:08:29+07:00
 # Promise Di JavaScript
 
 ```javascript
-const API_URL = 'https://jsonplaceholder.typicode.com/todos/1'
+const API_URL = "https://jsonplaceholder.typicode.com/todos/1";
 
 function getData(url) {
-	return new Promise((resolve, reject)=>{
-	fetch(url)
-	    .then(res => res.json())
-	    .then(data => resolve(data))
-	    .then(err => reject(err))
-	})
+	return new Promise((resolve, reject) => {
+		fetch(url)
+			.then((res) => res.json())
+			.then((data) => resolve(data))
+			.then((err) => reject(err));
+	});
 }
 
 getData(API_URL)
-    .then(data => {
-	    console.log('Data Diterima: ', data)
-    })
-    .catch(error => {
-	    console.log('Terjadi Error: ', error)
-    })
-  
+	.then((data) => {
+		console.log("Data Diterima: ", data);
+	})
+	.catch((error) => {
+		console.log("Terjadi Error: ", error);
+	});
 ```
