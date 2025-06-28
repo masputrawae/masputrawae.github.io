@@ -3,36 +3,36 @@
     "id": "JavaScript",
     "title": "JavaScript",
     "description": "Bahasa pemrograman populer untuk pengembangan web yang berjalan di sisi klien maupun server, dikenal fleksibel dan didukung oleh banyak framework modern.",
-    "thumbnail": "/src/content/Notes/Images/pexels-luis-gomes-166706-546819.jpg"
+    "thumbnail": "https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU"
   },
   {
     "id": "Linux",
     "title": "Linux",
     "description": "Sistem operasi open-source berbasis kernel Linux, terkenal dengan kestabilan, keamanan, dan fleksibilitasnya untuk server, desktop, dan perangkat embedded.",
-    "thumbnail": "/src/content/Notes/Images/pexels-realtoughcandy-11034131.jpg"
+    "thumbnail": "https://fastly.picsum.photos/id/180/2400/1600.jpg?hmac=Ig-CXcpNdmh51k3kXpNqNqcDYTwXCIaonYiBOnLXBb8"
   },
   {
     "id": "Python",
     "title": "Python",
     "description": "Bahasa pemrograman tingkat tinggi yang mudah dibaca, digunakan secara luas untuk pengembangan web, data science, otomatisasi, dan banyak lagi.",
-    "thumbnail": "/src/content/Notes/Images/pexels-godiatima-4976710.jpg"
+    "thumbnail": "https://fastly.picsum.photos/id/341/5000/3337.jpg?hmac=au9Ex3OCaHWkfF3Ttoe4sXkQOsGPGeA1vrRwhmB2aug"
   },
   {
     "id": "SASS & SCSS",
     "title": "SASS & SCSS",
     "description": "Preprocessor CSS yang memperluas kemampuan stylesheet dengan fitur seperti variabel, nesting, dan mixin, mempermudah pengelolaan kode CSS yang kompleks.",
-    "thumbnail": "/src/content/Notes/Images/pexels-bibekghosh-14553705.jpg"
+    "thumbnail": "https://fastly.picsum.photos/id/366/4000/3000.jpg?hmac=zphhHOH9ofToN2jNHd8z-nc98NrBd8y2okWXEXetLDg"
   },
   {
     "id": "Thinking",
     "title": "Thinking",
     "description": "Topik yang berfokus pada pengembangan keterampilan berpikir kritis, pemecahan masalah, dan kemampuan analitis untuk mendukung pembelajaran dan produktivitas.",
-    "thumbnail": "/src/content/Notes/Images/pexels-pixabay-355952.jpg"
+    "thumbnail": "https://fastly.picsum.photos/id/20/3670/2462.jpg?hmac=CmQ0ln-k5ZqkdtLvVO23LjVAEabZQx2wOaT4pyeG10I"
   },
   {
     "id": "General",
     "title": "General",
     "description": "Kategori umum untuk topik yang tidak termasuk dalam kategori khusus lainnya, mencakup berbagai informasi, diskusi, atau pembelajaran lintas bidang.",
-    "thumbnail": "/src/content/Notes/Images/pexels-valentinantonucci-1275393.jpg"
+    "thumbnail": "https://fastly.picsum.photos/id/400/5000/3333.jpg?hmac=XKAazck_prwhbeyjBv4hERt3PeQAn0aX52O92xOXdrM"
   }
 ]
