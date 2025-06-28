@@ -18,7 +18,7 @@ const featuredProjects = await getPosts('Projects', true, 2)
 	<header class="typography prose-em:not-italic">
 		<Markdown />
 		<nav class="flex items-center gap-2.5">
-			{cta.map(i => <Button hraf={i.href} label={i.label} primary={i.primary} />)}
+			{cta.map(i => <Button href={i.href} label={i.label} primary={i.primary} />)}
 		</nav>
 	</header>
 	<main>
