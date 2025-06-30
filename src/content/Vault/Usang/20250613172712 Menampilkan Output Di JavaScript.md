@@ -1,8 +1,6 @@
 ---
 unique_Id: "20250613172712"
 title: Menampilkan Output Di JavaScript
-topic:
-  - JavaScript
 tags:
   - javascript
   - output

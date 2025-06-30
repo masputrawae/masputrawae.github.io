@@ -2,8 +2,8 @@
 unique_Id: "20250625011618"
 title: Cara Cepat Buat Typescale Dengan SCSS
 tags:
-  - css
   - scss
+  - css
 date: 2025-06-25T01:16:18+07:00
 ---
 

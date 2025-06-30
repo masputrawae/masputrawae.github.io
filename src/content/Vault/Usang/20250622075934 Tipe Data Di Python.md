@@ -47,3 +47,11 @@ sedang_tidur = False
 
 print(f"Variabel sedang_bermain bertipe: {type(sedang_bermain)}")
 ```
+
+**Terkait**:
+- [[20250629084509 Mendeklarasikan Variabel Di Python]]
+- [[Array Di Python]]
+- [[20250629231646 List Di Python]]
+- [[20250629232511 Dictionary Di Python]]
+- [[20250629233929 Tuple Di Python]]
+- [[20250612114301 Operasi Aritmatika Di Python]]

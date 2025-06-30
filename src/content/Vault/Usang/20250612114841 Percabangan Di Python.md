@@ -50,3 +50,4 @@ Secara sederhananya kondisi ini akan mencocokkan nilai dengan perbandingan lebih
     - Tampilkan Great C
 - Jika tidak ada satupun Kondisi di atas
     - Tampilkan Great D
+

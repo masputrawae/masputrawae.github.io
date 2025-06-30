@@ -14,7 +14,7 @@ const usia = 18
 const sudahPunyaSIM = true
 
 if (usai >= 18) {
-	console.log("Boleh Mengemudi Jika sudah SIM!")
+	console.log("Boleh Mengemudi Jika sudah punya SIM!")
 
 	if(sudahPunyaSIM){
 		console.log("Sudah Punya SIM, Boleh Mengemudi")
@@ -28,7 +28,7 @@ if (usai >= 18) {
 
 **Penjelasannya**:
 - Cek Apakah sudah berusia lebih dari sama dengan 18?
-- Jika iya cetak `Boleh Mengemudi Jika sudah SIM!` dan lanjut cek apakah sudah punya sim? jika iya cetak `Sudah Punya SIM, Boleh Mengemudi` 
+- Jika iya cetak `Boleh Mengemudi Jika sudah punya SIM!` dan lanjut cek apakah sudah punya sim? jika iya cetak `Sudah Punya SIM, Boleh Mengemudi` 
 - Else akan dijalankan jika tidak memenuhi syarat 
 - Perhatikan kondisinya, Kita bisa melakukan percabangan kondisi lebih dalam, atau kondisi bersarang (nesting conditions)
 

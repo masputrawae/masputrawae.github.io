@@ -45,3 +45,10 @@ Kalau mau `false` dulu baru `true`, tinggal balik urutannya jadi:
 ```js
 items.sort((a, b) => (a.featured === b.featured ? 0 : a.featured ? 1 : -1));
 ```
+
+**Terkait**:
+- [[Mengurutkan Array Object Berdasarkan Tanggal]]
+- [[20250630113534 Fungsi map Di JavaScript]]
+- [[20250629175251 Fungsi filter Di JavaScrip]]
+- [[Fungsi reduce Di JavaScript]]
+- [[Contoh penggunaan map filter dan reduce Di JavaScript]]
