@@ -1,0 +1,12 @@
+---
+import { SITE_PARAMS } from '../../site.config'
+import { absUrl, relUrl } from '../utils/urls'
+
+const { seo = {} } = Astro.props
+const { pathname } = Astro.url
+---
+
+<meta charset="UTF-8" />
+<meta name="generator" content={Astro.generator} />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>

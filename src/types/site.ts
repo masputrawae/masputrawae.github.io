@@ -1,3 +1,4 @@
+// types/site.ts
 export type SiteParams = {
   /** Example: "https://username.github.io". Don't use "/" at the end. */
   site: string;
@@ -37,6 +38,9 @@ export type SiteParams = {
 
   /** Default Themes: Dark / Light, or undefined (dark) */
   defaultThemes?: boolean;
+
+  /** Tags */
+  tags: string[];
 };
 
 /**

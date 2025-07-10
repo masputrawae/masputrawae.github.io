@@ -16,6 +16,8 @@ export const SITE_PARAMS: SiteParams = {
   github: 'https://github.com/masputrawae',
   repo: 'masputrawae/repo',
   branch: 'main',
+
+  tags: ['Tags', 'Tugs']
 }
 
 export const SIDEBAR: SidebarMenus[] = [
