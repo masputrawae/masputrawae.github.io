@@ -37,7 +37,7 @@ export type SiteParams = {
 	branch: string
 
 	/** Default Themes: Dark / Light, or undefined (dark) */
-	defaultThemes?: boolean
+	defaultThemes?: 'dark' | 'light'
 
 	/** Tags */
 	tags: string[]

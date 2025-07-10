@@ -3,26 +3,31 @@ import { SITE_PARAMS } from '../../site.config'
 
 import '../styles/global.css'
 import Meta from '../components/Meta.astro'
+import { Icon } from 'astro-icon/components'
 ---
 
 <!doctype html>
-<html lang="id" data-theme={SITE_PARAMS.defaultThemes || 'dark'}>
+<html lang="id" data-theme="light">
 	<head>
 		<Meta />
 	</head>
 	<body>
+		<button id="switchTheme">
+			<Icon name="icon-sun" class="icon-theme icon-theme-sun" />
+			<Icon name="icon-moon" class="icon-theme icon-theme-moon" />
+		</button>
 		<slot />
+
+		<script src="../scripts/switchTheme.js">
+    </script>
 	</body>
 </html>
 
 <style>
 	@reference '../styles/global.css';
 	@layer base {
-    body {
-      @apply px-2 dark:bg-zinc-900 light:bg-zinc-50;
-    }
-		.markdown {
-			@apply prose prose-invert prose-neutral prose-headings:border-b prose-headings:border-b-neutral-700 prose-headings:pb-2 prose-headings:pt-4 prose-headings:scroll-mt-24 prose-h1:text-5xl prose-h2:text-4xl prose-h3:text-3xl prose-h4:text-2xl prose-h5:text-xl prose-h6:text-lg prose-headings:font-normal prose-a:text-sky-400 prose-a:hover:text-sky-500 prose-a:visited:text-sky-600 prose-pre:overflow-x-auto font-noto prose-pre:font-fira prose-code:font-fira prose-code:before:content-none prose-code:after:content-none max-w-full text-[14px] leading-relaxed;
+		html {
+			@apply dark:bg-zinc-900 dark:text-zinc-300;
 		}
 	}
 </style>
