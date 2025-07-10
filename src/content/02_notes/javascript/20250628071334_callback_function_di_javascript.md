@@ -1,5 +1,5 @@
 ---
-id: "20250628071334"
+id: '20250628071334'
 title: Callback Function di JavaScript
 tags:
   - javascript
@@ -14,22 +14,22 @@ updated: 2025-07-10T17:46:07+07:00
 const API_URL = 'https://jsonplaceholder.typicode.com/todos/1'
 
 function getData(url, callback) {
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      callback(null, data)
-    })
-    .catch(error => {
-      callback(error, null)
-    })
+	fetch(url)
+		.then((response) => response.json())
+		.then((data) => {
+			callback(null, data)
+		})
+		.catch((error) => {
+			callback(error, null)
+		})
 }
 
 getData(API_URL, (error, data) => {
-  if (error) {
-    console.log('Terjadi Error: ', error)
-  } else {
-    console.log('Data Diterima: ', data)
-  }
+	if (error) {
+		console.log('Terjadi Error: ', error)
+	} else {
+		console.log('Data Diterima: ', data)
+	}
 })
 
 // OUTPUT:

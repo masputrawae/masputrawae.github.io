@@ -1,5 +1,5 @@
 ---
-id: "20250630165318"
+id: '20250630165318'
 title: Function Di JavaScript
 tags:
   - javascript
@@ -23,7 +23,7 @@ Function atau fungsi, adalah serangkaian kode yang memiliki tugas tertentu, yang
 ```javascript
 // Buat Fungsi Penjumlahan
 function penjumlahan(a, b) {
-  return a + b
+	return a + b
 }
 
 // Gunakan Fungsi
@@ -38,7 +38,7 @@ Tentang Return: [[Return Di JavaScript]]
 
 ```javascript
 function sapa(nama) {
-  return `Hai ${nama}, Bagaimana Kabarnya?`
+	return `Hai ${nama}, Bagaimana Kabarnya?`
 }
 
 console.log(sapa('Joko')) // Output: Hai Joko Bagaimana Kabarnya?

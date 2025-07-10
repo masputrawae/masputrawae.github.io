@@ -1,5 +1,5 @@
 ---
-id: "20250628065020"
+id: '20250628065020'
 title: async-await di JavaScript
 tags:
   - javascript
@@ -17,13 +17,13 @@ Cara yang mudah dan modern untuk menangani proses Asynchronous adalah menggunaka
 const API_URL = 'https://jsonplaceholder.typicode.com/todos/1'
 
 async function getData(url) {
-  try {
-    const res = await fetch(url)
-    const data = await res.json()
-    console.log(data)
-  } catch (err) {
-    console.log('Terjadi Error: ', err)
-  }
+	try {
+		const res = await fetch(url)
+		const data = await res.json()
+		console.log(data)
+	} catch (err) {
+		console.log('Terjadi Error: ', err)
+	}
 }
 
 getData(API_URL)
@@ -32,5 +32,5 @@ getData(API_URL)
 **Terkait**:
 
 - [[20250627234640_asynchronous_di_javascript]]
-- [[Promise Di JavaScript]]
+- [[20250628070829_promise_di_javascript]]
 - [[20250628071334_callback_function_di_javascript]]

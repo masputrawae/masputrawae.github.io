@@ -1,5 +1,5 @@
 ---
-id: "20250614121039"
+id: '20250614121039'
 title: Mengelola Isi Kepala Di Obsidian
 tags:
   - reflection

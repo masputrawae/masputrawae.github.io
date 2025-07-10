@@ -1,5 +1,5 @@
 ---
-id: "20250621101503"
+id: '20250621101503'
 title: Tandai Link Halaman Aktif di Astro
 tags:
   - framework
@@ -40,8 +40,7 @@ Simpan hasil Operator Perbandingan dalam Variabel Boolean, misalnya:
 
 ```javascript
 const isActive =
-  Astro.url.pathname === item.url ||
-  (item.url !== '/' && Astro.url.pathname.startsWith(item.url))
+	Astro.url.pathname === item.url || (item.url !== '/' && Astro.url.pathname.startsWith(item.url))
 ```
 
 Gunakan `isActive` untuk beri gaya khusus pada menu yang aktif

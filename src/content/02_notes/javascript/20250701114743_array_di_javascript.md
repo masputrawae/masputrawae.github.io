@@ -1,5 +1,5 @@
 ---
-id: "20250701114743"
+id: '20250701114743'
 title: Array Di JavaScript
 tags:
   - javascript
@@ -14,12 +14,7 @@ Dalam bahasa Indonesia, _array_ bisa diartikan sebagai **susunan**. Bayangkan se
 Contoh array di JavaScript:
 
 ```javascript
-const rakBuku = [
-  'Resep Nasi Goreng',
-  'Filosofi',
-  'Belajar Matematika',
-  'Kamus Bahasa Inggris',
-]
+const rakBuku = ['Resep Nasi Goreng', 'Filosofi', 'Belajar Matematika', 'Kamus Bahasa Inggris']
 ```
 
 Variabel `rakBuku` di sini seperti rak buku sungguhan, yang berisi beberapa buku. Setiap buku memiliki indeks (nomor urut), dan dimulai dari 0 _yang artinya urutan 0 dimulai dari `Resep Nasi Goreng`_
@@ -29,8 +24,8 @@ Variabel `rakBuku` di sini seperti rak buku sungguhan, yang berisi beberapa buku
 Kita bisa menggunakan forEach, yaitu method array untuk menjalankan fungsi pada setiap elemen.
 
 ```javascript
-rakBuku.forEach(buku => {
-  console.log(buku)
+rakBuku.forEach((buku) => {
+	console.log(buku)
 })
 // Output:
 // Resep Nasi Goreng

@@ -1,5 +1,5 @@
 ---
-id: "20250627234640"
+id: '20250627234640'
 title: Asynchronous Di JavaScript
 tags:
   - javascript
@@ -18,6 +18,6 @@ Kenapa ini penting?. Bayangkan ada satu proses yang mengambil data API dari serv
 **Terkait**:
 
 - [[20250628065020_async_await_di_javascript]]
-- [[Promise Di JavaScript]]
+- [[20250628070829_promise_di_javascript]]
 - [[20250628071334_callback_function_di_javascript]]
 - [[Praktik Mengambil Data Dari API Public Dengan JavaScript]]

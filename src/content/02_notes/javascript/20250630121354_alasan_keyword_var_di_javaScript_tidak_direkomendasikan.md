@@ -1,5 +1,5 @@
 ---
-id: "20250630121354"
+id: '20250630121354'
 title: Alasan Keyword var Di JavaScript Tidak Direkomendasikan
 tags:
   - javascript
@@ -19,8 +19,8 @@ updated: 2025-07-10T17:41:28+07:00
 
 ```javascript
 {
-  var a = 5
-  console.log(a)
+	var a = 5
+	console.log(a)
 }
 console.log(a)
 // Output:
@@ -55,4 +55,4 @@ console.log(nama)
 
 - [[20250630124757_alasan_let_dan_const_lebih_direkomendasikan]]
 - [[Apa Itu Hoisting]]
-- [[Jenis Jenis Scope Di JavaScript]]
+- [[20250630162416_jenis_jenis_scope_di_javascript]]

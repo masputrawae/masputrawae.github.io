@@ -1,5 +1,5 @@
 ---
-id: "20250628211305"
+id: '20250628211305'
 title: Else If Statement Di JavaScript
 tags:
   - javascript
@@ -9,7 +9,7 @@ created: 2025-06-28T21:13:05+07:00
 updated: 2025-07-10T17:49:18+07:00
 ---
 
-Lanjutan dari [[If Statement Di JavaScript]]
+Lanjutan dari [[20250628205351_if_statement_di_javascript]]
 
 Untuk membuat alur yang lebih kompleks, Kita bisa gunakan else if (jika tidak) atau else (kalau tidak) misalnya:
 
@@ -17,11 +17,11 @@ Untuk membuat alur yang lebih kompleks, Kita bisa gunakan else if (jika tidak) a
 const nilai = 70
 
 if (nilai > 90) {
-  console.log('Great A')
+	console.log('Great A')
 } else if (nilai > 70) {
-  console.log('Great B')
+	console.log('Great B')
 } else {
-  console.log('Great C')
+	console.log('Great C')
 }
 ```
 
@@ -32,11 +32,11 @@ if (nilai > 90) {
 - Jika tidak sama sekali makan cetak Great C
 
 else sebagai kondisi akhir jika kondisi diatasnya tidak ada yang terpenuhi.
-untuk operator perbandingan bisa lihat 👉 [[Operator Perbandingan Di JavaScript]]
+untuk operator perbandingan bisa lihat 👉 [[20250628171342_operator_perbandingan_di_javascript]]
 
 **Terkait**:
 
 - [[Switch Statement Di JavaScript]]
-- [[Operator Perbandingan Di JavaScript]]
-- [[Ternary Operator Di JavaScript]]
+- [[20250628171342_operator_perbandingan_di_javascript]]
+- [[20250701054353_ternary_operator_di_javascript]]
 - [[20250628212840_contoh_pengkondisian_yang_lebih_kompleks_di_javascript]]

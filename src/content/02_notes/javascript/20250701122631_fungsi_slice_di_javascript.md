@@ -1,5 +1,5 @@
 ---
-id: "20250701122631"
+id: '20250701122631'
 title: Fungsi Slice Di JavaScript
 tags:
   - javascript

@@ -1,5 +1,5 @@
 ---
-id: "20250703000737"
+id: '20250703000737'
 title: Home
 description: Saya belajar pemrograman secara otodidak karena sudah lama putus sekolah dan tidak punya akses ke pendidikan formal. Tidak ada motivasi besar atau tujuan mulia—saya cuma ingin mengisi hari-hari dengan sesuatu yang berarti, dan belajar hal baru setiap hari terasa lebih baik daripada tidak belajar apa-apa sama sekali.
 image: https://picsum.photos/1080/720?1
@@ -7,10 +7,6 @@ tags:
   - knowledge
 created: 2025-07-03T00:07:37+07:00
 updated: 2025-07-03T00:07:37+07:00
-sidebar:
-  active: true
-  order: 1
-  group: main-page
 ---
 
 <em>Dari Jawa Timur, Indonesia.</em>
@@ -24,4 +20,3 @@ Saya percaya bahwa belajar harus menyenangkan. Prinsip saya sederhana: lakukan a
 ## Sedikit tentang Hobi
 
 Dulu saya suka main Dota 2, sekarang lebih sering nonton turnamennya aja. Saya juga pernah hobi main gitar, meskipun sekarang udah jarang. Tentang hal menarik dari diri saya? Mungkin bukan saya yang bisa menilai—biar orang lain saja yang merasakannya 😄
-

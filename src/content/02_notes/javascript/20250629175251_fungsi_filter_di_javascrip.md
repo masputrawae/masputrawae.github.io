@@ -1,5 +1,5 @@
 ---
-id: "20250629175251"
+id: '20250629175251'
 title: Fungsi filter Di JavaScrip
 tags:
   - javascript
@@ -16,7 +16,7 @@ filter atau penyaringan, seperti namanya yaitu berfungsi untuk menyaring.
 ```javascript
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-const filterArr = arr.filter(item => item > 5)
+const filterArr = arr.filter((item) => item > 5)
 console.log(filterArr) // Output: [6, 7, 8, 9]
 ```
 

@@ -1,5 +1,5 @@
 ---
-id: "20250623211931"
+id: '20250623211931'
 title: Fenomena Lemot Tapi Ngak Lemot
 tags:
   - framework

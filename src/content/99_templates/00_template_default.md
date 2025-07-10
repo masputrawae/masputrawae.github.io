@@ -2,9 +2,8 @@
 id: '{{date:YYYYMMDDHHmmss}}'
 title: '{{title}}'
 tags:
-created: {{date:YYYY-MM-DDTHH:mm:ssZ}}
-updated: {{date:YYYY-MM-DDTHH:mm:ssZ}}
+created: { { date:YYYY-MM-DDTHH:mm:ssZ } }
+updated: { { date:YYYY-MM-DDTHH:mm:ssZ } }
 ---
 
-For File Title: {{date:YYYYMMDDHHmmss}}_{{title}}
-
+For File Title: {{date:YYYYMMDDHHmmss}}\_{{title}}

@@ -1,4 +1,4 @@
-import { SITE_PARAMS } from "../../site.config"
+import { SITE_PARAMS } from '../../site.config'
 
 const SITE_URL = SITE_PARAMS.site || 'https://example.com'
 const BASE_URL = SITE_PARAMS.base || '/'

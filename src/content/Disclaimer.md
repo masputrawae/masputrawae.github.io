@@ -7,10 +7,6 @@ tags:
   - docs
 created: 2025-07-03T00:12:50+07:00
 updated: 2025-07-03T00:12:50+07:00
-sidebar:
-  active: true
-  order: 5
-  group: 'main-page'
 ---
 
 Seluruh konten yang tersedia di situs ini merupakan catatan pribadi saya, Putra, yang ditujukan sebagai dokumentasi pembelajaran, eksplorasi, eksperimen, dan refleksi pribadi.

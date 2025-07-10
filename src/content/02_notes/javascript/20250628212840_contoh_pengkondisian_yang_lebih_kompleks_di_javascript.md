@@ -1,5 +1,5 @@
 ---
-id: "20250628212840"
+id: '20250628212840'
 title: Contoh Pengkondisian Yang Lebih Kompleks di JavaScript
 tags:
   - javascript
@@ -14,17 +14,15 @@ const usia = 18
 const sudahPunyaSIM = true
 
 if (usai >= 18) {
-  console.log('Boleh Mengemudi Jika sudah punya SIM!')
+	console.log('Boleh Mengemudi Jika sudah punya SIM!')
 
-  if (sudahPunyaSIM) {
-    console.log('Sudah Punya SIM, Boleh Mengemudi')
-  } else {
-    console.loh('Belum Punya SIM, Tidak Boleh Mengemudi')
-  }
+	if (sudahPunyaSIM) {
+		console.log('Sudah Punya SIM, Boleh Mengemudi')
+	} else {
+		console.loh('Belum Punya SIM, Tidak Boleh Mengemudi')
+	}
 } else {
-  console.log(
-    'Masih Dibawah Umur, Tidak Boleh Mengemudi, Dan Belum Bisa Memiliki SIM'
-  )
+	console.log('Masih Dibawah Umur, Tidak Boleh Mengemudi, Dan Belum Bisa Memiliki SIM')
 }
 ```
 
@@ -37,6 +35,6 @@ if (usai >= 18) {
 
 **Terkait**:
 
-- [[Operator Perbandingan Di JavaScript]]
+- [[20250628171342_operator_perbandingan_di_javascript]]
 - [[Switch Statement Di JavaScript]]
-- [[Ternary Operator Di JavaScript]]
+- [[20250701054353_ternary_operator_di_javascript]]

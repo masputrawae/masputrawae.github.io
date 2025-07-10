@@ -1,5 +1,5 @@
 ---
-id: "20250630124757"
+id: '20250630124757'
 title: Alasan let Dan const Lebih Direkomendasikan
 tags:
   - javascript
@@ -32,8 +32,8 @@ Lebih jelas daripada hanya `Undefined`
 
 ```javascript
 {
-  let a = 10
-  console.log(a)
+	let a = 10
+	console.log(a)
 }
 console.log(a)
 
@@ -58,6 +58,6 @@ console.log(nama)
 ## 🔗 Terkait
 
 - [[20250630121354_alasan_keyword_var_di_javaScript_tidak_direkomendasikan]]
-- [[Jenis Jenis Scope Di JavaScript]]
+- [[20250630162416_jenis_jenis_scope_di_javascript]]
 - [[Apa Itu Hoisting]]
-- [[Perbedaan var let dan const]]
+- [[20250630160418_perbedaan_var_let_dan_const]]
