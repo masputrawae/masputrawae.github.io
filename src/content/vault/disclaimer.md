@@ -1,6 +1,6 @@
 ---
 id: '20250703001250'
-title: disclaimer
+title: Disclaimer
 description: 'Seluruh konten yang tersedia di situs ini merupakan catatan pribadi saya, Putra, yang ditujukan sebagai dokumentasi pembelajaran, eksplorasi, eksperimen, dan refleksi pribadi.'
 image: https://picsum.photos/1080/720?2
 tags:

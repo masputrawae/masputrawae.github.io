@@ -29,19 +29,19 @@ export const SIDEBAR: SidebarMenus[] = [
 		items: [
 			{
 				name: 'Main Page',
-				filePath: 'src/content/docs/home.md',
+				href: '/',
 				icon: 'icon-name',
 				order: 1
 			},
 			{
 				name: 'About',
-				filePath: 'src/content/docs/about.md',
+				href: '/about/',
 				icon: 'icon-name',
 				order: 2
 			},
 			{
 				name: 'Random Page',
-				filePath: 'src/content/docs/random-page.md',
+				href: 'src/content/docs/random-page.md',
 				icon: 'icon-name',
 				order: 2
 			}

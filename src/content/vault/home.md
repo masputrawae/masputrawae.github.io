@@ -7,7 +7,10 @@ tags:
   - knowledge
 created: 2025-07-03T00:07:37+07:00
 updated: 2025-07-03T00:07:37+07:00
+slug: /
 ---
+
+[[20250612225923_math_object_di_javascript]]
 
 <em>Dari Jawa Timur, Indonesia.</em>
 

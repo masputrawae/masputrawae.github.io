@@ -50,8 +50,8 @@ export type SidebarItems = {
 	/** Display name. If not provided, use frontmatter title from the markdown file. */
 	name?: string
 
-	/** Path to markdown or content file. Example: "src/content/docs/home.md" */
-	filePath: string
+	/** Example: /notes/, or https://www.example/notes/ */
+	href: string
 
 	/** Icon for the item. Currently placeholder. Should be updated to actual icon name or path. */
 	icon: string
