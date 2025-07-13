@@ -1,0 +1,20 @@
+---
+import NavTreeComponent from './NavTree.astro'
+
+const { tree, formatName } = Astro.props
+---
+
+<ul>
+  {tree.map((item:any) => (
+    <li>
+      {item.url ? (
+        <a href={item.url}>{formatName(item.name)}</a>
+      ) : (
+        <>
+          <strong>{formatName(item.name)}</strong>
+          {item.children && <NavTreeComponent tree={item.children} formatName={formatName} />}
+        </>
+      )}
+    </li>
+  ))}
+</ul>

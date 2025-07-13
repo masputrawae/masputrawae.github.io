@@ -36,9 +36,6 @@ export type SiteParams = {
 	/** Branch name. Example: "main". */
 	branch: string
 
-	/** Default Themes: Dark / Light, or undefined (dark) */
-	defaultThemes?: 'dark' | 'light'
-
 	/** Tags */
 	tags: string[]
 }
@@ -77,5 +74,5 @@ export type SidebarMenus = {
 	defaultActive?: boolean
 
 	/** List of items under this group. */
-	items: SidebarItems[]
+	// items: SidebarItems[]
 }

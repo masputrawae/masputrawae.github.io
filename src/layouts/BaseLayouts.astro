@@ -1,33 +1,29 @@
 ---
-import { SITE_PARAMS } from '../../site.config'
-
 import '../styles/global.css'
+
 import Meta from '../components/Meta.astro'
+import Sidebar from '../components/Sidebar.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+
+import { SITE_PARAMS } from '../../site.config'
 import { Icon } from 'astro-icon/components'
 ---
 
 <!doctype html>
-<html lang="id" data-theme="light">
+<html lang="id" data-theme='dark'>
 	<head>
 		<Meta />
 	</head>
-	<body>
-		<button id="switchTheme">
-			<Icon name="icon-sun" class="icon-theme icon-theme-sun" />
-			<Icon name="icon-moon" class="icon-theme icon-theme-moon" />
-		</button>
-		<slot />
-
-		<script src="../scripts/switchTheme.js">
-    </script>
+	<body class="bg-zinc-50 text-zinc-800 dark:bg-zinc-900 dark:text-zinc-300">
+		<div class="isolate">
+			<Sidebar />
+			<div>
+				<Header />
+				<slot />
+				<Footer />
+			</div>
+		</div>
+		<script src="../scripts/switchTheme.js"></script>
 	</body>
 </html>
-
-<style>
-	@reference '../styles/global.css';
-	@layer base {
-		html {
-			@apply dark:bg-zinc-900 dark:text-zinc-300;
-		}
-	}
-</style>
