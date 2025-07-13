@@ -12,6 +12,7 @@ import remarkRemoveHeading from './src/utils/remarkRemoveH1'
 export default defineConfig({
 	site: SITE_PARAMS.site,
 	base: SITE_PARAMS.base,
+  redirects: { '/': '/home/'},
 	integrations: [
 		brainDbAstro({
 			root: 'src/content/vault',

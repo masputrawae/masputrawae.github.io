@@ -1,23 +1,31 @@
 ---
-import type { GetStaticPaths } from "astro";
-import { render } from "astro:content";
-import { getCollection } from "astro:content";
-import BaseLayouts from "../layouts/BaseLayouts.astro";
+import type { GetStaticPaths } from 'astro'
 
-export const getStaticPaths = (async() => {
-  const vault = await getCollection('vault');
+import { render } from 'astro:content'
+import { getCollection } from 'astro:content'
 
-  return [
-    ...vault.map(entry => ({
-      params: { slug: entry.id },
-      props: { entry }
-    }))
-  ];
-}) satisfies GetStaticPaths;
+import BaseLayouts from '../layouts/BaseLayouts.astro'
+
+export const getStaticPaths = (async () => {
+	const vault = await getCollection('vault')
+
+	return [
+		...vault.map(entry => ({
+			params: { slug: entry.id },
+			props: { entry }
+		}))
+	]
+}) satisfies GetStaticPaths
 
 const { entry } = Astro.props
 const { Content } = await render(entry)
 ---
+
 <BaseLayouts>
-  <Content />
+	<article class="markdown">
+		<h1>{entry.data.title}</h1>
+		<section>
+			<Content />
+		</section>
+	</article>
 </BaseLayouts>

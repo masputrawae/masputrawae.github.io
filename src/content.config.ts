@@ -9,11 +9,11 @@ const vault = defineCollection({
 	schema: z.object({
 		id: z.string(),
 		title: z.string(),
-		created: z.coerce.date()
-		// updated: z.coerce.date(),
-		// tags: z.array(z.string()),
-		// description: z.string().optional(),
-		// image: z.string().optional(),
+		created: z.coerce.date(),
+		updated: z.coerce.date(),
+		tags: z.array(z.string()),
+		description: z.string().optional(),
+		image: z.string().optional(),
 	})
 })
 

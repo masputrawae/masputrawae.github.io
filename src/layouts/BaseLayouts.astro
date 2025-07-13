@@ -3,11 +3,8 @@ import '../styles/global.css'
 
 import Meta from '../components/Meta.astro'
 import Sidebar from '../components/Sidebar.astro'
-import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
-
-import { SITE_PARAMS } from '../../site.config'
-import { Icon } from 'astro-icon/components'
+import Header from '../components/Header.astro'
 ---
 
 <!doctype html>
@@ -15,15 +12,29 @@ import { Icon } from 'astro-icon/components'
 	<head>
 		<Meta />
 	</head>
-	<body class="bg-zinc-50 text-zinc-800 dark:bg-zinc-900 dark:text-zinc-300">
-		<div class="isolate">
-			<Sidebar />
-			<div>
-				<Header />
-				<slot />
-				<Footer />
-			</div>
+	<body>
+		<div class="layout">
+      <Sidebar />
+      <div class="main">
+        <Header activeIn="header" />
+        <slot />
+        <Footer />
+      </div>
 		</div>
 		<script src="../scripts/switchTheme.js"></script>
 	</body>
 </html>
+
+<style>
+  @reference '../styles/global.css';
+
+  body {
+    @apply
+      bg-zinc-50 text-zinc-800
+      dark:bg-zinc-900 dark:text-zinc-300;
+  }
+
+  .layout {
+    @apply isolate;
+  }
+</style>

@@ -33,9 +33,6 @@ export type SiteParams = {
 	/** GitHub repo path. Example: "username/repo". */
 	repo: string
 
-	/** Branch name. Example: "main". */
-	branch: string
-
 	/** Tags */
 	tags: string[]
 }

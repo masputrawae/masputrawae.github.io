@@ -1,18 +1,28 @@
 ---
 import NavTreeComponent from './NavTree.astro'
-const { tree, formatName, path = '' } = Astro.props
+const { tree, path = '' } = Astro.props
+
+function formatName(name: string) {
+	return name
+		.replace(/^\d+_?/, '')
+		.replace(/_/g, ' ')
+		.replace(/-/g, ' ')
+		.replace(/\b\w/g, c => c.toUpperCase())
+}
 ---
 
 <ul>
 	{
 		tree.map((item: any) => {
 			const currentPath = path + '/' + item.name
-      const linkActive = Astro.url.pathname.includes(item.url)
+			const linkActive = Astro.url.pathname.includes(item.url)
 
 			return (
 				<li>
 					{!item.children ? (
-						<a href={item.url} class:list={linkActive ? 'active' : 'nonactive'}>{formatName(item.name)}</a>
+						<a href={item.url} class:list={linkActive ? 'active' : 'nonactive'}>
+							{formatName(item.name)}
+						</a>
 					) : (
 						<>
 							<button class="folder-toggle" data-folder-id={currentPath}>
