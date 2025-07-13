@@ -1,4 +1,4 @@
-// utils/buildNavTreeFromSlugs.ts
+import { relUrl } from "./urls";
 
 export type TreeNode = {
   name: string
@@ -6,7 +6,23 @@ export type TreeNode = {
   children?: TreeNode[]
 }
 
-export function buildNavTreeFromSlugs(slugs: string[]): TreeNode[] {
+function sortTree(nodes: TreeNode[]): TreeNode[] {
+  return nodes
+    .sort((a, b) => {
+      const aIsFolder = !!a.children
+      const bIsFolder = !!b.children
+
+      if (aIsFolder && !bIsFolder) return -1 // folder dulu
+      if (!aIsFolder && bIsFolder) return 1
+      return a.name.localeCompare(b.name) // lalu urut alfabetis
+    })
+    .map((node) => ({
+      ...node,
+      children: node.children ? sortTree(node.children) : undefined
+    }))
+}
+
+export function buildTree(slugs: string[]): TreeNode[] {
   const root: TreeNode[] = []
 
   for (const slug of slugs) {
@@ -21,7 +37,7 @@ export function buildNavTreeFromSlugs(slugs: string[]): TreeNode[] {
       if (!existing) {
         existing = {
           name: part,
-          ...(isLeaf ? { url: `${slug}` } : { children: [] })
+          ...(isLeaf ? { url: relUrl(slug) } : { children: [] })
         }
         currentLevel.push(existing)
       }
@@ -32,5 +48,5 @@ export function buildNavTreeFromSlugs(slugs: string[]): TreeNode[] {
     }
   }
 
-  return root
+  return sortTree(root)
 }

@@ -1,20 +1,30 @@
 ---
 import NavTreeComponent from './NavTree.astro'
-
-const { tree, formatName } = Astro.props
+const { tree, formatName, path = '' } = Astro.props
 ---
 
 <ul>
-  {tree.map((item:any) => (
-    <li>
-      {item.url ? (
-        <a href={item.url}>{formatName(item.name)}</a>
-      ) : (
-        <>
-          <strong>{formatName(item.name)}</strong>
-          {item.children && <NavTreeComponent tree={item.children} formatName={formatName} />}
-        </>
-      )}
-    </li>
-  ))}
+	{
+		tree.map((item: any) => {
+			const currentPath = path + '/' + item.name
+      const linkActive = Astro.url.pathname.includes(item.url)
+
+			return (
+				<li>
+					{!item.children ? (
+						<a href={item.url} class:list={linkActive ? 'active' : 'nonactive'}>{formatName(item.name)}</a>
+					) : (
+						<>
+							<button class="folder-toggle" data-folder-id={currentPath}>
+								📁 {formatName(item.name)}
+							</button>
+							<div id={currentPath} class="nested">
+								<NavTreeComponent tree={item.children} formatName={formatName} path={currentPath} />
+							</div>
+						</>
+					)}
+				</li>
+			)
+		})
+	}
 </ul>

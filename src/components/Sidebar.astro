@@ -1,7 +1,20 @@
 ---
-import { Icon } from 'astro-icon/components'
----
+import { getCollection } from 'astro:content'
+import { buildTree } from '../utils/buildTree'
+import NavTree from '../components/NavTree.astro'
 
-<header>
-	
-</header>
+const vault = await getCollection('vault')
+const slugs = vault.map(i => i.id)
+const navTree = buildTree(slugs)
+
+function formatName(name: string) {
+	return name
+		.replace(/^\d+_?/, '')
+		.replace(/_/g, ' ')
+		.replace(/-/g, ' ')
+		.replace(/\b\w/g, c => c.toUpperCase())
+}
+---
+<aside>
+  <NavTree tree={navTree} formatName={formatName} />
+</aside>
