@@ -72,7 +72,7 @@ jobs:
 
       #==================== OPTIONAL
       - name: Generate Index.md
-        run: python3 ./index_generator.py
+        run: python3 index_generator.py
       #====================
 
       - name: Build with Hugo
