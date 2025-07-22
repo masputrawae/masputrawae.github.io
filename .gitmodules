@@ -1,0 +1,3 @@
+[submodule "themes/lumos_theme"]
+	path = themes/lumos_theme
+	url = git@github.com:masputrawae/lumos_theme

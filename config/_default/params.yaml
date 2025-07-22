@@ -1,0 +1,102 @@
+# ===================
+# 
+# ===================
+author    : Putra Jaya
+# logo      : assets/images/logo.png
+emoji     : '🍀'
+image     : assets/images/default-image.webp
+twitter   : '@Masputrawae'
+
+# ===================
+# 
+# ===================
+ghrepo      : https://github.com/masputrawae/masputrawae.github.io
+branch      : main
+
+# ===================
+# 
+# ===================
+editPage  : true
+toc       : true
+math      : false
+
+# ===================
+# 
+# ===================
+displayTaxonomies: 
+  - tags
+  - categories
+
+# ===================
+# 
+# ===================
+giscus      : true
+giscusConfig:
+  dataRepo              : 'masputrawae/masputrawae.github.io'
+  dataRepoId            : 'R_kgDOPAdouw'
+  dataCategory          : 'General'
+  dataCategoryId        : 'DIC_kwDOPAdou84CtQ2d'
+  dataMapping           : 'title'
+  dataStrict            : 0
+  dataReactionsEnabled  : 1
+  dataEmitMetadata      : 1
+  dataInputPosition     : 'top'
+  dataLang              : 'id'
+
+# ===================
+# 
+# ===================
+social:
+  - name  : Instagram
+    url   : https://www.instagram.com/masputrawae/
+    icon  : instagram
+
+  - name  : Twitter X
+    url   : https://x.com/Masputrawae
+    icon  : twitter-x
+
+  - name  : Discord
+    url   : https://discord.gg/nM4EP8DJFZ
+    icon  : discord
+
+  - name  : GitHub
+    url   : https://github.com/masputrawae/
+    icon  : github
+
+# ===================
+# 
+# ===================
+favicons:
+  - rel   : icon
+    type  : image/x-icon
+    href  : assets/favicons/favicon.ico
+
+  - rel   : apple-touch-icon
+    type  : image/png
+    size  : 180x180
+    href  : assets/favicons/apple-touch-icon.png
+
+  - rel   : icon
+    type  : image/png
+    size  : 32x32
+    href  : assets/favicons/favicon-32x32.png
+
+  - rel   : icon
+    type  : image/png
+    size  : 16x16
+    href  : assets/favicons/favicon-16x16.png
+
+  - rel   : icon
+    type  : image/png
+    size  : 192x192
+    href  : assets/favicons/android-chrome-192x192.png
+
+  - rel   : icon
+    type  : image/png
+    size  : 512x512
+    href  : assets/favicons/android-chrome-512x512.png
+
+# ===================
+# Copyright (optional, but it's good practice to keep it for attribution)
+# ===================
+copyright: Theme by Putra Jaya

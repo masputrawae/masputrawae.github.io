@@ -1,0 +1,30 @@
+main:
+  - name      : Home
+    pageRef   : /
+    weight    : 10
+    params    : 
+      icon    : house
+
+  - name      : Tags
+    pageRef   : /tags
+    weight    : 20
+    params    : 
+      icon    : tags
+
+  - name      : Tutorial
+    pageRef   : /tutorial
+    weight    : 30
+    params    :
+      icon    : paragraph
+
+  - name      : Code Snippet
+    pageRef   : /snippet
+    weight    : 40
+    params    :
+      icon    : rocket-takeoff
+      
+  - name      : About Me
+    pageRef   : /about
+    weight    : 50
+    params    :
+      icon    : person-circle

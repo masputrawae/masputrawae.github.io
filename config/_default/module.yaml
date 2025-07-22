@@ -1,0 +1,17 @@
+hugoVersion:
+  extended        : true
+  min             : '0.148.1'
+
+mounts:
+  - source        : 'content'
+    target        : 'content'
+    excludeFiles  : 'templates/*'
+  - source        : 'content'
+    target        : 'content'
+    excludeFiles  : '.obsidian/*'
+  - source        : 'content'
+    target        : 'content'
+    excludeFiles  : '.trash/*'
+  - source        : 'content'
+    target        : 'content'
+    excludeFiles  : 'private/*'

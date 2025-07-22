@@ -1,0 +1,108 @@
+# ===================
+# 
+# ===================
+baseURL        : 'https://masputrawae.github.io/'
+languageCode   : 'id'
+title          : 'My Notes'
+enableEmoji    : true
+enableGitInfo  : true
+theme          : lumos_theme
+
+# ===================
+# 
+# ===================
+services:
+  googleAnalytics:
+    id: 'G-W9TMTZZYG5'
+
+# ===================
+# 
+# ===================
+privacy:
+  googleAnalytics:
+    disable              : false
+    respectDoNotTrack    : false
+
+# ===================
+# 
+# ===================
+frontmatter:
+  date:
+    - created
+    - date
+    - publishdate
+    - pubdate
+    - published
+    - lastmod
+    - modified
+
+  expiryDate:
+    - expirydate
+    - unpublishdate
+  
+  lastmod:
+    - :git
+    - lastmod
+    - modified
+    - date
+    - publishdate
+    - pubdate
+    - published
+  
+  publishDate:
+    - publishdate
+    - pubdate
+    - published
+    - date
+
+# ===================
+# 
+# ===================
+mediaType                : 'application/json'
+outputFormats:
+  search:
+    mediaType            : 'application/json'
+    baseName             : 'search'
+    isPlainText          : true
+    notAlternative       : true
+  manifest:
+    mediaType            : 'application/json'
+    baseName             : 'manifest'
+    isPlainText          : true
+    notAlternative       : true
+  sw:
+    mediaType            : 'text/javascript'
+    baseName             : 'sw'
+    isPlainText          : true
+    notAlternative       : true
+  news:
+    mediaType            : 'application/json'
+    baseName             : 'news'
+    isPlainText          : true
+    notAlternative       : true
+  offline:
+    mediaType            : 'text/html'
+    baseName             : 'offline'
+    isPlainText          : true
+    notAlternative       : true
+
+# ===================
+# 
+# ===================
+outputs:
+  home:
+    - html
+    - rss
+    - sitemap
+    - search
+    - manifest
+    - sw
+    - news
+    - offline
+
+# ===================
+# 
+# ===================
+sitemap:
+  filename  : 'sitemap.xml'
+  priority  : 1.0
