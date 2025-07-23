@@ -21,6 +21,8 @@ Kita akan:
 >[!warning]
 > Yang menggunakan multilingual wikilink ini agak tricky soal nama file ambigu, jadi kurang cocok untuk situs multilingual
 > Aku juga sedang mencari cara agar bisa digunakan dengan lancar di multilingual, kalau ada saran boleh komentar di bawah, atau kita diskusikan bersama
+> Dibahas disini [[202507231124_masalah_wikilink_di_hugo]]
+
 
 ## Membuat layouts/\_markup/render-link.html
 
@@ -32,7 +34,7 @@ layouts/_markup/render-link.html
 
 Isi dengan kode berikut:
 
-````html
+````go-template-html
 {{- $isWikilink := eq .Destination "wikilinks" -}}
 {{- $isExternal := or (strings.HasPrefix .Destination "http://")
                        (strings.HasPrefix .Destination "https://")
@@ -137,7 +139,7 @@ layouts/_partials/wikilink.html
 
 Isi dengan:
 
-````html
+````go-template-html
 {{ $content := .RawContent }}
 {{ $placeholders := slice }}
 {{ $i := 0 }}
@@ -182,13 +184,13 @@ Isi dengan:
 
 Di layout post (`single.html`), ganti:
 
-```
+```go-template-html
 {{ .Content }}
 ```
 
 menjadi:
 
-```
+```go-template-html
 {{ partial "wikilink.html" . }}
 ```
 
@@ -198,25 +200,14 @@ menjadi:
 
 Di markdown:
 
-```
-[[/my-note|Baca catatan ini]]
+```md
+[[my-note|Baca catatan ini]]
 
-[[/second-note]]
+[[second-note]]
 
 [[https://example.com|Contoh Eksternal]]
 
 [[https://google.com]]
 ```
-
----
-
-### Kelebihan Cara Ini
-
-- Tidak pakai plugin.  
-- SEO-friendly.  
-- Ada indikator link rusak.  
-- Bisa langsung **plug-and-play**.
-
-Selesai! Dengan ini kamu bisa membuat **wiki-style Zettelkasten** di Hugo seperti Obsidian, tapi **langsung publish ke blog** dengan cara yang ringan.
 
 ---
