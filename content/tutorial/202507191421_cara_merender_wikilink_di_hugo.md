@@ -211,3 +211,6 @@ Di markdown:
 ```
 
 ---
+
+## Coba cara lain
+satu cara yang aku anggap lebih baik 👉 [[202507232007_kesimpulan_final_wikilink_di_hugo]] Tapi opsional silahkan coba mana yang lebih baik menurut kalian.

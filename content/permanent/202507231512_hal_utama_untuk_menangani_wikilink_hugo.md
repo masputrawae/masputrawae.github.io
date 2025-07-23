@@ -17,9 +17,6 @@ updated: 2025-07-23T15:12:52+07:00
 - `[[foo#bar|label]]` => `[label](foo#bar)`
 - `[[folder/foo#bar]]` =>  `[folder/foo#bar](folder/foo#bar)`
 - `[[folder/foo#bar|label]]` =>  `[label](folder/foo#bar)`
-- `[[#^1]]` => 
-- `[[foo#^1]]` =>
-- `[[folder/foo#^1]]`
 - `![[foo.jpg]]` => `![foo.jpg](foo.jpg)`
 - `![[foo.jpg|label]]` => `![label](foo.jpg)`
 
