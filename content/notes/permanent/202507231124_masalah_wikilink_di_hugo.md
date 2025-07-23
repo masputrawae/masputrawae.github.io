@@ -14,6 +14,7 @@ Ambiguitas yang masih jadi masalah
 
 > [!note] Belum Dipecahkan
 > Belum menemukan solusi yang tepat 
+> Ide Sementara Yang Terfikir: [[202507231153_fitur_wikilinks_experiental_untuk_tema_hugo]]
 
 
 ---
