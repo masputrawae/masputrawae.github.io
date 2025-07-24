@@ -3,6 +3,7 @@ id: "202507182359"
 title: Error semi-colon Sass
 tags:
   - error_handling
+  - meaning_word
 created: 2025-07-18T23:59:52+07:00
 updated: 2025-07-19T13:53:21+07:00
 ---

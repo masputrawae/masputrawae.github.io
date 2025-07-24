@@ -78,11 +78,3 @@ Kemudian untuk  `layouts/_markup/render-image.html`
 Untuk penjelasan detail bisa kunjungi:  [radicaledward101](https://www.radicaledward101.com/blag/2023/08/14/blag-article-wiki-links-in-hugo.html)
 
 ---
-
-## Lihat Juga
-
-- [[202507231153_fitur_wikilinks_experiental_untuk_tema_hugo]]
-- [[202507231124_masalah_wikilink_di_hugo]]
-- [[202507191421_cara_merender_wikilink_di_hugo]]
-- [[202507232007_kesimpulan_final_wikilink_di_hugo]]
-- [[202507231512_hal_utama_untuk_menangani_wikilink_hugo]]
