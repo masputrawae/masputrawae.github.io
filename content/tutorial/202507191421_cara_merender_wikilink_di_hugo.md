@@ -34,7 +34,7 @@ layouts/_markup/render-link.html
 
 Isi dengan kode berikut:
 
-````go-template-html
+````go-html-template { file="layouts/_markup/render-link.html" }
 {{- $isWikilink := eq .Destination "wikilinks" -}}
 {{- $isExternal := or (strings.HasPrefix .Destination "http://")
                        (strings.HasPrefix .Destination "https://")
@@ -139,7 +139,7 @@ layouts/_partials/wikilink.html
 
 Isi dengan:
 
-````go-template-html
+````go-html-template { file="layouts/_partials/wikilink.html" }
 {{ $content := .RawContent }}
 {{ $placeholders := slice }}
 {{ $i := 0 }}
@@ -182,15 +182,15 @@ Isi dengan:
 
 ## Cara Menggunakan
 
-Di layout post (`single.html`), ganti:
+Di layout post (`page.html`), ganti:
 
-```go-template-html
+```go-html-template { file="layouts/page.html" }
 {{ .Content }}
 ```
 
 menjadi:
 
-```go-template-html
+```go-html-template { file="layouts/page.html" }
 {{ partial "wikilink.html" . }}
 ```
 

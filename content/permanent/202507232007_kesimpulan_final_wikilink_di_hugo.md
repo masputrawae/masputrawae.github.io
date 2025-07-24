@@ -43,14 +43,14 @@ Kemudian di `layouts/_markup/render-link.html` yang aku rasa cukup stabil saat c
   {{ define "render-link" }}
     <a class="link link--internal" href="{{ .href }}">
       {{ .text }}
-      {{ partial "components/icon" (dict "name" "folder-symlink") }}
+      🔗
     </a>
   {{ end }}
 
   {{ define "render-broken" }}
     <span class="link link--broken" title="{{ i18n "missingLink" }}">
       {{ .text }}
-      {{ partial "components/icon" (dict "name" "x-circle") }}
+      ❌
     </span>
   {{ end }}
 
@@ -112,7 +112,7 @@ Kemudian di `layouts/_markup/render-link.html` yang aku rasa cukup stabil saat c
       target="_blank"
     >
       {{ $text }}
-      {{ partial "components/icon" (dict "name" "box-arrow-up-right") }}
+      🌐
     </a>
   {{ end }}
 
@@ -135,7 +135,7 @@ Kemudian di `layouts/_markup/render-link.html` yang aku rasa cukup stabil saat c
     {{- if $u.IsAbs }}
       {{ partial "components/icon" (dict "name" "box-arrow-up-right") }}
     {{ else -}}
-      {{ partial "components/icon" (dict "name" "folder-symlink") }}
+      🔗
     {{ end }}
   </a>
 {{ end }}
