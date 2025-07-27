@@ -1,0 +1,3 @@
+[submodule "themes/silver-fishstick"]
+	path = themes/silver-fishstick
+	url = git@github.com:masputrawae/silver-fishstick.git
