@@ -1,8 +1,8 @@
 ---
 id: "202507122145"
 title: Beranda
-description: "Catatan perjalanan belajarku, penuh spontanitas, ide liar, dan potongan referensi untuk masa depan."
-image: /images/default-image.webp
+description: Catatan perjalanan belajarku, penuh spontanitas, ide liar, dan potongan referensi untuk masa depan.
+image: assets/images/default-image.webp
 tags:
   - my_notes
 created: 2025-07-12T21:45:03+07:00

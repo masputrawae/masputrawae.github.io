@@ -1,8 +1,8 @@
 ---
-id: '202507122154'
+id: "202507122154"
 title: About Me
-description: 'Profil singkat saya, kenapa saya belajar secara otodidak, dan prinsip yang saya pegang dalam perjalanan ini.'
-image: images/default-image.webp
+description: Profil singkat saya, kenapa saya belajar secara otodidak, dan prinsip yang saya pegang dalam perjalanan ini.
+image: assets/images/default-image.webp
 tags:
   - doc
 created: 2025-07-12T21:54:07+07:00
