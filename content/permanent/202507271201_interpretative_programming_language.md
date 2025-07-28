@@ -27,4 +27,5 @@ Umumnya Bahasa Pemrograman Interpretatif cenderung sedikit lebih lambat di bandi
 
 - [[202507271729_interpreter]]
 - [[202507271215_compilative_programming_language]]
+- [[202507280949_source_code]]
 - [[arti_runtime]]

@@ -27,3 +27,4 @@ Umumnya bahasa pemrograman kompilatif bisa jauh lebih cepat daripada bahasa pemr
 
 - [[202507271201_interpretative_programming_language]]
 - [[202507271145_arti_general_purpose]]
+- [[202507280949_source_code]]
