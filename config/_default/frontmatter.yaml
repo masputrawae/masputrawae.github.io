@@ -1,0 +1,25 @@
+date:
+  - created
+  - date
+  - publishdate
+  - pubdate
+  - published
+  - lastmod
+  - modified
+expiryDate:
+  - expirydate
+  - unpublishdate
+lastmod:
+  - :git
+  - updated
+  - lastmod
+  - modified
+  - date
+  - publishdate
+  - pubdate
+  - published
+publishDate:
+  - publishdate
+  - pubdate
+  - published
+  - date
