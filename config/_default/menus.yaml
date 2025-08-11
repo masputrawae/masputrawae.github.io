@@ -1,0 +1,25 @@
+main:
+  - name: Beranda
+    pageRef: /
+    weight: 10
+    params: { icon: house }
+  - name: Kotak Masuk
+    pageRef: /inbox
+    weight: 20
+    params: { icon: rocket-takeoff }
+  - name: Permanent
+    pageRef: /permanent
+    weight: 30
+    params: { icon: tools }
+  - name: References
+    pageRef: /references
+    weight: 40
+    params: { icon: paragraph }
+  - name: Tentang
+    pageRef: /about
+    weight: 50
+    params: { icon: person-circle }
+  - name: Disclaimer
+    pageRef: /disclaimer
+    weight: 60
+    params: { icon: person-circle }

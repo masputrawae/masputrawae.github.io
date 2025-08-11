@@ -1,0 +1,41 @@
+baseURL: https://masputrawae.github.io/
+title: My Notes
+languageCode: id
+defaultContentLanguage: id
+defaultContentLanguageInSubdir: false
+disableDefaultLanguageRedirect: true
+enableEmoji: true
+enableGitInfo: true
+theme: lumora
+mediaType: "application/json"
+outputFormats:
+  search:
+    mediaType: "application/json"
+    baseName: "search"
+    isPlainText: true
+    notAlternative: true
+
+  manifest:
+    mediaType: "application/json"
+    baseName: "manifest"
+    isPlainText: true
+    notAlternative: true
+
+outputs:
+  home:
+    - html
+    - rss
+    - sitemap
+    - search
+    - manifest
+
+enableRobotsTXT: true
+module:
+  hugoVersion:
+    extended: true
+    min: "0.148.1"
+
+  mounts:
+    - excludeFiles: templates/*
+      source: content
+      target: content

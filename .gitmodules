@@ -1,0 +1,3 @@
+[submodule "themes/lumora"]
+	path = themes/lumora
+	url = git@github.com:masputrawae/lumora.git
