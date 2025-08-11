@@ -1,5 +1,6 @@
 author: Putra Jaya
 emoji: 📚
+logo: "assets/images/logo.png"
 image: "assets/images/default-image.webp"
 defaultEditPage: true
 defaultMath: false
@@ -8,6 +9,8 @@ ghrepo: masputrawae/masputrawae.github.io/
 branch: main
 displayTaxonomies:
   - tags
+  - stage
+  - categories
 giscusConfig:
   dataRepo: "masputrawae/masputrawae.github.io"
   dataRepoId: "R_kgDOPTix1Q"

@@ -6,6 +6,10 @@ defaultContentLanguageInSubdir: false
 disableDefaultLanguageRedirect: true
 enableEmoji: true
 enableGitInfo: true
+taxonomies:
+  tag: tags
+  category: categories
+  stage: stage
 theme: lumora
 mediaType: "application/json"
 outputFormats:
@@ -14,13 +18,11 @@ outputFormats:
     baseName: "search"
     isPlainText: true
     notAlternative: true
-
   manifest:
     mediaType: "application/json"
     baseName: "manifest"
     isPlainText: true
     notAlternative: true
-
 outputs:
   home:
     - html
@@ -28,13 +30,11 @@ outputs:
     - sitemap
     - search
     - manifest
-
 enableRobotsTXT: true
 module:
   hugoVersion:
     extended: true
     min: "0.148.1"
-
   mounts:
     - excludeFiles: templates/*
       source: content
