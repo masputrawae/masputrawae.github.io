@@ -1,10 +1,14 @@
 ---
-id: "202508052225"
-title: "202508052225"
-created: 2025-08-05T22:25:47+07:00
+id: "202508122320"
+title: Menulis Program Pertama Di Bahasa C
+stage:
+  - Seedlings
+tags:
+  - programming
+  - c
+created: 2025-08-12T23:20:59+07:00
+updated: 2025-08-12T23:20:59+07:00
 ---
-
-Program pertama di bahasa c
 
 **Buat File**
 

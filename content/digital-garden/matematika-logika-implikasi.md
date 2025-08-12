@@ -1,7 +1,14 @@
 ---
-id: "202508041226"
-title: "202508041226"
-created: 2025-08-04T12:26:19+07:00
+id: "202508122313"
+title: Matematika Logika Implikasi
+stage:
+  - Seedlings
+tags:
+  - mathematic
+  - Implication
+  - logic
+created: 2025-08-12T23:13:36+07:00
+updated: 2025-08-12T23:13:36+07:00
 ---
 
 Implikasi logika Matematika

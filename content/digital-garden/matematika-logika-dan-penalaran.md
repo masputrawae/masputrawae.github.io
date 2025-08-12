@@ -1,7 +1,14 @@
 ---
-id: "202508041215"
-title: "202508041215"
-created: 2025-08-04T12:15:29+07:00
+id: "202508122311"
+title: Matematika Logika Dan Penalaran
+stage:
+  - Seedlings
+tags:
+  - mathematics
+  - reasoning
+  - logic
+created: 2025-08-12T23:11:02+07:00
+updated: 2025-08-12T23:11:02+07:00
 ---
 
 Logika dan Penalaran di Matematika
@@ -24,5 +31,3 @@ Hanya Benar Jika Keduanya Benar
 Benar jika salah satu atau keduanya benar
 
 **¬ A** = "**TIDAK BENAR** bahwa hari ini hujan"
-
----
