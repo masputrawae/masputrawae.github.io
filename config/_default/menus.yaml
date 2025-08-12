@@ -3,23 +3,19 @@ main:
     pageRef: /
     weight: 10
     params: { icon: house }
-  - name: Kotak Masuk
-    pageRef: /inbox
+  - name: Tag
+    pageRef: /tags
     weight: 20
-    params: { icon: rocket-takeoff }
-  - name: Permanent
-    pageRef: /permanent
+    params: { icon: tags }
+  - name: Taman Digital
+    pageRef: /digital-garden
     weight: 30
-    params: { icon: tools }
-  - name: References
+    params: { icon: tree }
+  - name: Referensi
     pageRef: /references
     weight: 40
-    params: { icon: paragraph }
+    params: { icon: folder-symlink }
   - name: Tentang
     pageRef: /about
     weight: 50
-    params: { icon: person-circle }
-  - name: Disclaimer
-    pageRef: /disclaimer
-    weight: 60
     params: { icon: person-circle }
