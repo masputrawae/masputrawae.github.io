@@ -1,14 +1,13 @@
 ---
-id: "202507271135"
+id: "202508121221"
 title: Resep Telur Dadar Darurat
+stage:
+  - Seedlings
 tags:
-  - need_linking
-  - recipe
-  - cooking
-  - egg
-  - simple
-created: 2025-07-27T11:35:30+07:00
-updated: 2025-07-27T11:35:30+07:00
+  - resep
+  - telur
+created: 2025-08-12T12:21:16+07:00
+updated: 2025-08-12T12:21:16+07:00
 ---
 
 - Satu Butir Telur
@@ -19,9 +18,3 @@ updated: 2025-07-27T11:35:30+07:00
 - Goreng sampai matang dengan api kecil (biar ngak gosong)
 
 Resep ini kemarin kepikiran karena keadaan ngak ada lauk sama sekali, cuman ada telur dan nasi aja, dan kalau cuma telur dadar ngak kenyang cuma dikit 😁.
-
----
-
-## Terhubung Ke
-
-- Need Linking
