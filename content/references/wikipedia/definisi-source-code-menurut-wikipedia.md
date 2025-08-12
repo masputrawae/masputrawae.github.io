@@ -1,6 +1,6 @@
 ---
 id: "202507281007"
-title: Definisi Source Code
+title: Definisi Source Code Menurut Wikipedia
 tags:
   - reference
   - wikipedia
@@ -13,4 +13,5 @@ Dalam ilmu komputer, kode sumber (bahasa Inggris: source code) atau kode program
 ---
 
 ## Sumber Dari
+
 - [Wikipedia: Kode Sumber](https://id.wikipedia.org/wiki/Kode_sumber?wprov=sfla1)

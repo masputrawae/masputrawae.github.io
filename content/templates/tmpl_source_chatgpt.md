@@ -1,7 +1,7 @@
 ---
 id: "{{date:YYYYMMDDHHmm}}"
-tags:
-  - source/chatgpt
+source:
+  - chatgpt
 created: {{date:YYYY-MM-DDTHH:mm:ssZ}}
 ---
 
@@ -16,4 +16,3 @@ created: {{date:YYYY-MM-DDTHH:mm:ssZ}}
 Content
 
 ## 💡Interesting
-

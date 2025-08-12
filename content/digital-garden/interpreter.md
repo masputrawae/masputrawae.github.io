@@ -1,27 +1,22 @@
 ---
-id: "202507271729"
+id: "202508122153"
 title: Interpreter
+stage:
+  - Seedlings
 tags:
   - execution
   - process
   - programming
-created: 2025-07-27T17:29:15+07:00
-updated: 2025-07-27T17:29:15+07:00
+created: 2025-08-12T21:53:47+07:00
+updated: 2025-08-12T21:53:47+07:00
 ---
 
 Interpreter adalah penerjemah dari sebuah bahasa pemrograman ke kode biner (bahasa mesin) tanpa perlu _compilation_. Interpreter akan membaca kode baris demi baris pada saat kode dijalankan, ini tidak menghasilkan file baru atau extension baru.
 
 **Contoh**:
+
 - JavaScript
 - Python
 - Ruby
 - PHP
 - perl
-
----
-
-## Terhubung Ke
-
-- [[202507271201_interpretative_programming_language]]
-- [[202507271215_compilative_programming_language]]
-- [[202507280949_source_code]]

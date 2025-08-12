@@ -1,9 +1,9 @@
 ---
 id: "{{date:YYYYMMDDHHmm}}"
-tags:
-  - source/wikipedia
-  - source/youtube
-  - source/books
+source:
+  - wikipedia
+  - youtube
+  - books
 created: {{date:YYYY-MM-DDTHH:mm:ssZ}}
 ---
 

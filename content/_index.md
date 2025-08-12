@@ -2,9 +2,8 @@
 id: "202507122145"
 title: Beranda
 description: Catatan perjalanan belajarku, penuh spontanitas, ide liar, dan potongan referensi untuk masa depan.
-image: assets/images/default-image.webp
-tags:
-  - my_notes
+images:
+  - assets/images/default-image.webp
 created: 2025-07-12T21:45:03+07:00
 updated: 2025-07-22T21:45:03+07:00
 edit_page: false
@@ -14,4 +13,7 @@ Apapun yang tertulis di sini adalah sebuah bagian dari perjalanan proses belajar
 
 Aku berharap jika kalian mampir, paling tidak ada sedikit ilmu yang diperoleh (walaupun tidak dijamin 😂).
 
+Btw yang mau pakai tema website ini bisa ambil aja di [https://github.com/masputrawae/lumora](https://github.com/masputrawae/lumora) bebas pakai aja.
+
 _Selamat menjelajah!_
+
