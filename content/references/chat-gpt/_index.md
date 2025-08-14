@@ -1,4 +1,0 @@
----
-title: Chat Gpt
-date: 2025-08-12
----

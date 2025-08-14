@@ -1,7 +1,13 @@
 ---
 id: "{{date:YYYYMMDDHHmm}}"
+tags:
+  - reference/chat_ai
+  - foo
 source:
-  - chatgpt
+  - ChatGPT
+  - Gemini AI
+  - DeepSeek
+  - Copilot
 created: {{date:YYYY-MM-DDTHH:mm:ssZ}}
 ---
 
