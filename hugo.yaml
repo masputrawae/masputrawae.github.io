@@ -25,16 +25,23 @@ taxonomies:
   stage: stage
   source: source
   
+frontmatter:
+  date:
+    - created
+    - :git
+  lastmod:
+    - updated
+    - :git
 #===================
 # PARAMS SETTING
 #===================
 params:
   author: Putra Jaya
   description: "Catatan perjalanan belajarku, penuh spontanitas, ide liar, dan potongan referensi untuk masa depan."
-  logo: assets/images/logo.png
+  logo: images/logo.png
   images:
-    - assets/images/logo.png
-    - assets/images/default-image.png
+    - images/logo.png
+    - images/default-image.png
   social:
     facebook_admin: "61566134978045"
     facebook_app_id: "1112672776879424"
@@ -72,7 +79,7 @@ params:
           url: ""
           weight: 10
         - name: Recent Change
-          url: recent-change/
+          url: recent_change/
           weight: 20
         - name: Random Page
           url: random-page.html
@@ -119,27 +126,27 @@ params:
   favicons:
     - rel: icon
       type: image/x-icon
-      href: assets/favicons/favicon.ico
+      href: favicons/favicon.ico
     - rel: apple-touch-icon
       type: image/png
       size: 180x180
-      href: assets/favicons/apple-touch-icon.png
+      href: favicons/apple-touch-icon.png
     - rel: icon
       type: image/png
       size: 32x32
-      href: assets/favicons/favicon-32x32.png
+      href: favicons/favicon-32x32.png
     - rel: icon
       type: image/png
       size: 16x16
-      href: assets/favicons/favicon-16x16.png
+      href: favicons/favicon-16x16.png
     - rel: icon
       type: image/png
       size: 192x192
-      href: assets/favicons/android-chrome-192x192.png
+      href: favicons/android-chrome-192x192.png
     - rel: icon
       type: image/png
       size: 512x512
-      href: assets/favicons/android-chrome-512x512.png
+      href: favicons/android-chrome-512x512.png
 
 #===================
 # OUTPUT SETTING
