@@ -1,8 +1,8 @@
 ---
-id: "202508122148"
+id: "202508122148_bahasa_pemrograman_interpretatif"
 title: Bahasa Pemrograman Interpretatif
 stage:
-  - Seedlings
+  - Seedling
 tags:
   - language
   - programming

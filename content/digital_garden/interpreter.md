@@ -1,8 +1,8 @@
 ---
-id: "202508122153"
+id: "202508122153_interpreter"
 title: Interpreter
 stage:
-  - Seedlings
+  - Seedling
 tags:
   - execution
   - process

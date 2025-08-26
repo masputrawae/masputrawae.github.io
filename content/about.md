@@ -6,7 +6,7 @@ images:
   - assets/images/default-image.webp
 created: 2025-07-12T21:54:07+07:00
 updated: 2025-07-12T21:54:07+07:00
-edit_page: false
+editPage: false
 ---
 
 _Hy Saya Putra, dari Jawa Timur, Indonesia._

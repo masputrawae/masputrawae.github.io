@@ -1,11 +1,11 @@
 ---
-id: "202508122151"
+id: "202508122151_bahasa_pemrograman_kompilatif"
 title: Bahasa Pemrograman Kompilatif
 stage:
-  - Seedlings
+  - Seedling
 tags:
   - language
-  - programming
+  - pemrograman
   - execution
   - process
 created: 2025-08-12T21:51:20+07:00

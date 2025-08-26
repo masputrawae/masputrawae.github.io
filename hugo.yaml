@@ -6,6 +6,7 @@ languageCode: id
 title: My Notes
 enableGitInfo: true
 enableEmoji: true
+theme: my_theme
 
 #===================
 # GOOGLE ANALYTICS SETTING
@@ -18,12 +19,18 @@ privacy:
     disable: false
     respectDoNotTrack: true
 
+taxonomies:
+  tag: tags
+  category: categories
+  stage: stage
+  source: source
+  
 #===================
 # PARAMS SETTING
 #===================
 params:
   author: Putra Jaya
-  description: "Consectetur occaecat ut aute sint aliqua pariatur in nisi commodo."
+  description: "Catatan perjalanan belajarku, penuh spontanitas, ide liar, dan potongan referensi untuk masa depan."
   logo: assets/images/logo.png
   images:
     - assets/images/logo.png
