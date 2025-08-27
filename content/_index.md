@@ -3,7 +3,7 @@ cascade:
   params:
     repoBasePath: notes
   target:
-    path: '{/notes,/notes/**}'
+    path: '{/quickly/**,/references/**,/copas/**,/cheat-sheet/**}'
 id: "20250712214503"
 title: Beranda
 description: Catatan perjalanan belajarku, penuh spontanitas, ide liar, dan potongan referensi untuk masa depan.
