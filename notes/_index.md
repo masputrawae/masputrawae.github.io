@@ -1,5 +1,0 @@
----
-casade:
-  params:
-    repoBasePath: notes
----
