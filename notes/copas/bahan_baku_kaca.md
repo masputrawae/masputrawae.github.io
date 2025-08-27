@@ -9,6 +9,7 @@ created: 2025-08-24T02:44:58+07:00
 ---
 
 ## Prompt
+
 ```plaintext
 Bahan baku kaca itu sebenarnya apa?
 ```
@@ -22,4 +23,3 @@ Bahan baku utama untuk membuat kaca adalah **pasir silika** (silikon dioksida, S
 3. **Bahan tambahan** (opsional): Seperti oksida logam (misalnya, magnesium oksida atau aluminium oksida) untuk mengubah sifat kaca, seperti warna, ketahanan, atau kilau.
 
 Prosesnya melibatkan pelelehan bahan-bahan ini pada suhu tinggi (sekitar 1.500-1.600°C) hingga membentuk cairan kaca, yang kemudian dibentuk dan didinginkan. Jenis kaca tertentu, seperti kaca borosilikat, bisa menggunakan bahan tambahan seperti boron oksida untuk ketahanan panas.
-
