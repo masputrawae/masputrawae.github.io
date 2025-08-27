@@ -1,5 +1,5 @@
 ---
-id: "202508122308"
+id: "20250812230826"
 title: Regex VSCode - Hapus Semua Komentar Css dan Scss
 tags:
   - cheat_sheet

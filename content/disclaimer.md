@@ -1,8 +1,8 @@
 ---
-id: "202507030012"
+id: "20250703001250"
 title: Disclaimer
 description: Seluruh konten yang tersedia di situs ini merupakan catatan pribadi saya, Putra, yang ditujukan sebagai dokumentasi pembelajaran, eksplorasi, eksperimen, dan refleksi pribadi.
-images: 
+images:
   - assets/images/default-image.webp
 created: 2025-07-03T00:12:50+07:00
 updated: 2025-07-03T00:12:50+07:00

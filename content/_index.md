@@ -1,5 +1,5 @@
 ---
-id: "202507122145"
+id: "20250712214503"
 title: Beranda
 description: Catatan perjalanan belajarku, penuh spontanitas, ide liar, dan potongan referensi untuk masa depan.
 images:

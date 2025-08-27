@@ -1,11 +1,13 @@
 ---
-id: "202508121221"
+id: "20250812122116"
 title: Resep Telur Dadar Darurat
 stage:
-  - Seedlings
+  - Seedling
 tags:
-  - resep
-  - telur
+  - recipe
+  - egg
+  - rice
+  - cooking
 created: 2025-08-12T12:21:16+07:00
 updated: 2025-08-12T12:21:16+07:00
 ---

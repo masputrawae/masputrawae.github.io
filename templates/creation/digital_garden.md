@@ -14,7 +14,7 @@ const stage = await tp.system.suggester(
 
 const tmpl = 
 `---
-id: "${tp.date.now("YYYYMMDDHHmm")}"
+id: "${tp.date.now("YYYYMMDDHHmmss")}"
 title: "${title}"
 stage: ["${stage}"]
 tags:

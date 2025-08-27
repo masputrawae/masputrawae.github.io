@@ -1,10 +1,11 @@
 ---
-id: "202508270038"
-title: "Kode Sumber"
-stage: ["Seedling"]
+id: "20250827003843"
+title: Kode Sumber
+stage:
+  - Seedling
 tags:
-  - "pemrograman"
-  - "kode_sumber"
+  - source_code
+  - programming
 created: 2025-08-27T00:38:43+07:00
 updated: 2025-08-27T00:38:43+07:00
 ---

@@ -1,8 +1,8 @@
 ---
-id: "202508052232"
+id: "20250805223234"
 title: Wajib Titik Koma di bahasa C
 stage:
-  - Seedlings
+  - Seedling
 tags:
   - language
   - programming

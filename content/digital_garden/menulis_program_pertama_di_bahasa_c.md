@@ -1,8 +1,8 @@
 ---
-id: "202508122320"
+id: "20250812232059"
 title: Menulis Program Pertama Di Bahasa C
 stage:
-  - Seedlings
+  - Seedling
 tags:
   - programming
   - c

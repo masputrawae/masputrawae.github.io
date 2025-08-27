@@ -1,5 +1,5 @@
 ---
-id: "202508240244"
+id: "20250824024458"
 title: Bahan Baku Kaca
 source:
   - GrokAI

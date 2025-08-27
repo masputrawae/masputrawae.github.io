@@ -9,7 +9,7 @@ const tagsInput = await tp.system.prompt("Tags (separate with commas)") || "unca
 const tags = tagsInput.split(",").map(t => t.trim()).filter(Boolean);
 const tmpl = 
 `---
-id: "${tp.date.now("YYYYMMDDHHmm")}"
+id: "${tp.date.now("YYYYMMDDHHmmss")}"
 title: "${title}"
 description: "${await tp.system.prompt("Description") || ""}"
 images: ["${await tp.system.prompt("Image") || "assets/images/default-image.webp"}"]

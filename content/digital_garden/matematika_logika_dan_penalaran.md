@@ -1,8 +1,8 @@
 ---
-id: "202508122311"
+id: "20250812231102"
 title: Matematika Logika Dan Penalaran
 stage:
-  - Seedlings
+  - Seedling
 tags:
   - mathematics
   - reasoning

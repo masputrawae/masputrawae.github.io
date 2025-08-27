@@ -1,8 +1,8 @@
 ---
-id: "202508122313"
+id: "20250812231336"
 title: Matematika Logika Implikasi
 stage:
-  - Seedlings
+  - Seedling
 tags:
   - mathematic
   - Implication

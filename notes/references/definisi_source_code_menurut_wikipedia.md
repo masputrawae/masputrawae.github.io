@@ -1,5 +1,5 @@
 ---
-id: "202507281007"
+id: "20250728100727"
 title: Definisi Source Code Menurut Wikipedia
 created: 2025-07-28T10:07:27+07:00
 updated: 2025-07-28T10:07:27+07:00

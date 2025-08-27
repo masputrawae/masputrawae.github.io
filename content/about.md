@@ -1,5 +1,5 @@
 ---
-id: "202507122154"
+id: "20250712215407"
 title: Tentang Saya
 description: Profil singkat saya, kenapa saya belajar secara otodidak, dan prinsip yang saya pegang dalam perjalanan ini.
 images:

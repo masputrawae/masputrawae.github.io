@@ -1,5 +1,5 @@
 ---
-id: "202508122148_bahasa_pemrograman_interpretatif"
+id: "20250812214806"
 title: Bahasa Pemrograman Interpretatif
 stage:
   - Seedling
