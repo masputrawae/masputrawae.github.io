@@ -1,12 +1,15 @@
 ---
-id: "20250824024458"
-title: Bahan Baku Kaca
-source:
-  - GrokAI
+id: "20250828162917"
+title: "Bahan Baku Kaca"
 tags:
-  - uncategorized
-created: 2025-08-24T02:44:58+07:00
+  - copas
+  - materials
+  - glass
+  - sand
+created: 2025-08-28T16:29:17+07:00
 ---
+
+**Source of**: [GrokAi](https://grok.com/)
 
 ## Prompt
 
