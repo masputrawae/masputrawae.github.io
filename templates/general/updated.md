@@ -1,3 +1,1 @@
----
-updated: {{date:YYYY-MM-DDTHH:mm:ssZ}}
----
+updated: <% tp.file.last_modified_date("YYYY-MM-DDTHH:mm:ssZ") %>
