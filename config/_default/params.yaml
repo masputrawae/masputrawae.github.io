@@ -1,0 +1,70 @@
+author: Putra Jaya
+description: "Catatan perjalanan belajarku, penuh spontanitas, ide liar, dan potongan referensi untuk masa depan."
+logo: images/logo.png
+
+images:
+  - images/default-image.png
+  - images/logo.png
+
+social:
+  facebook_admin: "61566134978045"
+  facebook_app_id: "1112672776879424"
+  twitter: Masputrawae
+
+defaultDiscussion: true
+defaultEditPage: true
+defaultMath: false
+
+ghrepo: masputrawae/masputrawae.github.io
+branch: main
+
+#===================
+# FOOTER MESSAGE
+#===================
+footerMessage:
+  - "Website ini hanyalah catatan kecil dari perjalanan belajar yang penuh dengan typo, error yang bikin bingung, dan momen ‘oh ternyata gitu’. Semua ditulis di sela-sela ngopi dan bergulat dengan tab browser yang kebanyakan. Kalau ada yang terasa aneh, anggap saja itu bagian dari eksperimen belajar yang belum selesai."
+  - "Dibangun dengan Hugo, Linux, dan semangat coba-coba yang kadang lebih kuat dari logika. Setiap halaman mungkin menyimpan bug terselubung, tapi bukankah itu justru membuat belajar jadi seru? Jadi kalau kamu menemukan keanehan, bisa saja itu fitur rahasia… atau sekadar aku lupa nge-save"
+  - "Semua konten di sini lahir di antara secangkir kopi, playlist yang diputar berulang, dan kucing yang selalu memilih keyboard sebagai tempat favoritnya. Jadi kalau ada tulisan atau tampilan yang aneh, kemungkinan besar ada jejak cakar yang terlibat. Anggap saja itu menambah karakter."
+  - "Kalau ada yang terasa aneh di sini, tenang saja... itu bagian dari eksperimen belajar yang belum selesai. 😅"
+
+#===================
+# GISCUS SETTING
+#===================
+giscusConfig:
+  dataRepo: "masputrawae/masputrawae.github.io"
+  dataRepoId: "R_kgDOPTix1Q"
+  dataCategory: "General"
+  dataCategoryId: "DIC_kwDOPTix1c4Ctd3E"
+  dataMapping: "og:title"
+  dataStrict: 1
+  dataReactionsEnabled: 1
+  dataEmitMetadata: 1
+  dataInputPosition: "top"
+
+#===================
+# FAVICONS SETTING
+#===================
+favicons:
+  - rel: icon
+    type: image/x-icon
+    href: favicons/favicon.ico
+  - rel: apple-touch-icon
+    type: image/png
+    size: 180x180
+    href: favicons/apple-touch-icon.png
+  - rel: icon
+    type: image/png
+    size: 32x32
+    href: favicons/favicon-32x32.png
+  - rel: icon
+    type: image/png
+    size: 16x16
+    href: favicons/favicon-16x16.png
+  - rel: icon
+    type: image/png
+    size: 192x192
+    href: favicons/android-chrome-192x192.png
+  - rel: icon
+    type: image/png
+    size: 512x512
+    href: favicons/android-chrome-512x512.png

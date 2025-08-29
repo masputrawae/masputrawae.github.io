@@ -1,0 +1,68 @@
+#===================
+# MAIN MENU
+#===================
+main:
+  - name: Home
+    pageRef: /
+    weight: 10
+  - name: Recent Change
+    pageRef: /recent-change/
+    weight: 20
+  - name: Random Page
+    url: random-page.html
+    weight: 30
+  - name: Tags
+    pageRef: /tags/
+    weight: 40
+
+#===================
+# SOCIAL MEDIA
+#===================
+social:
+  - name: Twitter X
+    url: https://x.com/Masputrawae
+    params: {icon: "twitter-x"}
+    weight: 10
+  - name: Instagram
+    url: https://www.instagram.com/masputrawae/
+    params: {icon: "instagram"}
+    weight: 20
+  - name: Facebook
+    url: https://www.facebook.com/profile.php?id=61566134978045
+    params: {icon: "facebook"}
+    weight: 30
+  - name: Discord
+    url: https://discord.gg/nM4EP8DJFZ
+    params: {icon: "discord"}
+    weight: 40
+  - name: Github
+    url: https://github.com/masputrawae
+    params: {icon: "github"}
+    weight: 50
+  - name: Rss Feed
+    url: index.xml
+    params: {icon: "rss"}
+    weight: 50
+
+#===================
+# FOOTER DOCUMENTS MENUS
+#===================
+documents:
+  - name: About Putra
+    url: /about
+    weight: 10
+  - name: Disclaimer
+    url: /disclaimer
+    weight: 20
+  - name: License
+    url: /license
+    weight: 30
+  - name: Privacy Policy
+    url: /privacy-policy
+    weight: 40
+  - name: Credits
+    url: /credits
+    weight: 50
+  - name: Email
+    url: mailto:masputrawae.official@gmail.com
+    weight: 60
