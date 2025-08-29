@@ -1,3 +1,3 @@
-{{% card float="right" %}}
+{{< infobox float=right >}}
 
-{{% /card %}}
+{{< /infobox >}}

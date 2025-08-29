@@ -1,8 +1,14 @@
-{{< col-begin cols="2" >}}
-{{< col-item >}}
+{{< col cols="col-2" >}}
+
+## Title
+
+Content....
+
+<--->
+
+## Title 2
+
+Content 2....
+
 
 {{< /col >}}
-{{< col-item item="card" >}}
-
-{{< /col >}}
-{{< /cols >}}

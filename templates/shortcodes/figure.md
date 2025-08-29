@@ -1,11 +1,1 @@
-{{< figure
-  src="<% tp.system.prompt("src") %>"
-  alt="<% tp.system.prompt("alt") %>"
-  link="<% tp.system.prompt("link") %>"
-  float="<% tp.system.prompt("float") %>"
-  width="<% tp.system.prompt("width") %>"
-  height="<% tp.system.prompt("height") %>"
-  loading="<% tp.system.prompt("loading") %>"
->}}
-Caption here...
-{{< /figure >}}
+![<% tp.system.prompt("Title Image") %>](<% tp.system.prompt("Image Path") %> "<% tp.system.prompt("Image Caption") %>|width=<% tp.system.prompt("Width") %>|height=<% tp.system.prompt("Height") %>|link=<% tp.system.prompt("Link") %>|float=<% tp.system.prompt("Float: left or light") %>")
