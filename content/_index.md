@@ -8,7 +8,7 @@ id: "20250712214503"
 title: Beranda
 description: Catatan perjalanan belajarku, penuh spontanitas, ide liar, dan potongan referensi untuk masa depan.
 images:
-  - assets/images/default-image.webp
+  - images/default-image.webp
 created: 2025-07-12T21:45:03+07:00
 updated: 2025-07-22T21:45:03+07:00
 editPage: false

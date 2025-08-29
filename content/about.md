@@ -3,7 +3,7 @@ id: "20250712215407"
 title: Tentang Saya
 description: Profil singkat saya, kenapa saya belajar secara otodidak, dan prinsip yang saya pegang dalam perjalanan ini.
 images:
-  - assets/images/default-image.webp
+  - images/default-image.webp
 created: 2025-07-12T21:54:07+07:00
 updated: 2025-07-12T21:54:07+07:00
 editPage: false
