@@ -1,0 +1,3 @@
+[submodule "themes/my_theme"]
+	path = themes/my_theme
+	url = git@github.com:masputrawae/refactored-potato.git
