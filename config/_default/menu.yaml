@@ -6,7 +6,7 @@ main:
     pageRef: /
     weight: 10
   - name: Recent Change
-    pageRef: /recent-change/
+    pageRef: /recent_change/
     weight: 20
   - name: Random Page
     url: random-page.html
@@ -58,7 +58,7 @@ documents:
     url: /license
     weight: 30
   - name: Privacy Policy
-    url: /privacy-policy
+    url: /privacy_policy
     weight: 40
   - name: Credits
     url: /credits

@@ -19,7 +19,7 @@ privacy:
 #===================
 cascade:
   - _target:
-      path: '{/quickly,/cheat_sheet,/copas,/references}'
+      path: '{/quickly/**,/cheat_sheet/**,/copas/**,/references/**}'
     repoBasePath: notes
 
 #===================
