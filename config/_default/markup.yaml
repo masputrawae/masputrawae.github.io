@@ -39,7 +39,7 @@ goldmark:
       enable: true
 
   parser:
-    wrapStandAloneImageWithinParagraph: true
+    wrapStandAloneImageWithinParagraph: false
     attribute:
       block: true
       title: true
