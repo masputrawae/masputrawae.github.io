@@ -1,0 +1,9 @@
+{{ define "main" }}
+  <article class="markdown view-content view-content--is-active" id="viewPage">
+    <script>
+      const urls = [{{- $pages := site.RegularPages -}}{{- range $index, $page := $pages -}}"{{ $page.RelPermalink }}"{{ if lt (add $index 1) (len $pages) }},{{ end }}{{- end -}}]
+      const randomIndex = Math.floor(Math.random() * urls.length); 
+      window.location.href = urls[randomIndex]
+    </script>
+  </article>
+{{ end }}

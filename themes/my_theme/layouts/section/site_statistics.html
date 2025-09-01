@@ -1,0 +1,100 @@
+{{- define "main" -}}
+  {{- /* GET RESOURCES */ -}}
+  {{- $imagesAll := resources.Match "**.{jpg,jpeg,png,webp,gif,svg,ico}" -}}
+  {{- $images := slice -}}
+  {{- range $imagesAll -}}
+    {{- if not (hasPrefix .RelPermalink "/icons/") -}}
+      {{- $images = $images | append . -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $stats := slice
+    (dict "label" "Images" "icon" "images" "count" (len $images))
+    (dict "label" "PDFs" "icon" "file-earmark-pdf" "count" (len (resources.Match "**.pdf")))
+    (dict "label" "Audio" "icon" "volume-up" "count" (len (resources.Match "**.{mp3,wav,ogg}")))
+    (dict "label" "Videos" "icon" "film" "count" (len (resources.Match "**.{mp4,webm,mov}")))
+    (dict "label" "Other" "icon" "files" "count" (len (resources.Match "**.{css,scss,js,json,yaml,toml,html,xml}")))
+    (dict "label" "Pages" "icon" "filetype-html" "count" (len site.Pages))
+    (dict "label" "Content" "icon" "markdown" "count" (len site.RegularPages))
+    (dict "label" "Taxonomies" "icon" "collection" "count" (len site.Taxonomies))
+  -}}
+
+
+  <article class="markdown view-content view-content--is-active" id="viewPage">
+    <h1>{{- .Title -}}</h1>
+    <div class="grid grid--fluid-lg">
+      <div class="grid__item card">
+        {{- range $stats -}}
+          <div class="len-stats">
+            {{- partial "components/icon.html" (dict "name" .icon "size" 32 "class" "len-stats__icon") -}}
+            <strong class="len-stats__header">
+              <span class="len-stats__label">{{- .label -}}</span>
+              <span class="len-stats__count">{{- .count -}}</span>
+            </strong>
+          </div>
+        {{- end -}}
+      </div>
+
+      <div class="grid__item card">
+        {{- /* Mapping taxonomy ke icon */ -}}
+        {{- $icons := dict
+          "tags" "tags"
+          "categories" "grid-fill"
+          "source" "link-45deg"
+          "stage" "kanban"
+          "series" "journals"
+        -}}
+
+        {{- range $taxName, $tax := .Site.Taxonomies -}}
+          {{- $icon := index $icons $taxName | default "collection" -}}
+          <div class="len-stats">
+            {{- partial "components/icon.html" (dict "name" $icon "size" 32 "class" "len-stats__icon") -}}
+            <strong class="len-stats__header">
+              <span class="len-stats__label">{{- title $taxName -}}</span>
+              <span class="len-stats__count">{{- len $tax -}}</span>
+            </strong>
+          </div>
+        {{- end -}}
+      </div>
+
+      {{- /*  OPSIONAL  */ -}}
+      {{- /*  <div class="grid__item card badge-github">
+        <img src="https://github.com/{{ site.Params.ghrepo }}/actions/workflows/deploy.yaml/badge.svg" class="badge-github__img" alt="CI Status">
+        <img src="https://img.shields.io/github/v/release/{{ site.Params.ghrepo }}" class="badge-github__img" alt="Release Version">
+        <img src="https://img.shields.io/badge/Hugo-Extended-blue" class="badge-github__img" alt="Hugo Version">
+        <img src="https://img.shields.io/github/last-commit/{{ site.Params.ghrepo }}" class="badge-github__img" alt="Last Commit">
+        <img src="https://img.shields.io/github/repo-size/{{ site.Params.ghrepo }}" class="badge-github__img" alt="Repo Size">
+        <img src="https://img.shields.io/github/languages/top/{{ site.Params.ghrepo }}" class="badge-github__img" alt="Languages">
+        <img src="https://img.shields.io/github/forks/{{ site.Params.ghrepo }}?style=social" class="badge-github__img" alt="Languages">
+        <img src="https://img.shields.io/github/stars/{{ site.Params.ghrepo }}?style=social" class="badge-github__img" alt="Languages">
+        <img src="https://img.shields.io/github/issues/{{ site.Params.ghrepo }}" class="badge-github__img" alt="Languages">
+        <img src="https://img.shields.io/github/issues-pr/{{ site.Params.ghrepo }}" class="badge-github__img" alt="Languages">
+      </div>  */ -}}
+
+      {{ $pages := .Site.RegularPages }}
+      {{ $recentPost := first 5 (sort $pages "Date" "desc") }}
+      {{ $recentMod := first 5 (sort $pages "Lastmod" "desc") }}
+      <div class="grid__item card">
+        <h2>Recent Posts</h2>
+        <ul>
+          {{ range $recentPost }}
+            <li>
+              <a href="{{ .RelPermalink }}">{{ .Title }} - {{ .Date.Format "02 Jan 2006" }}</a>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+
+      <div class="grid__item card">
+        <h2>Last Modified</h2>
+        <ul>
+          {{ range $recentMod }}
+            <li>
+              <a href="{{ .RelPermalink }}">{{ .Title }} - {{ .Lastmod.Format "02 Jan 2006" }}</a>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+  </article>
+{{- end -}}

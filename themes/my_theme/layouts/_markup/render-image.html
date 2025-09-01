@@ -1,0 +1,53 @@
+{{- $caption := "" -}}
+{{- $title := "" -}}
+{{- $width := "" -}}
+{{- $height := "" -}}
+{{- $float := "" -}}
+{{- $link := "" -}}
+
+{{- if ne .Title "" -}}
+  {{- $parts := split .Title "|" -}}
+  {{- $caption = index $parts 0 | $.Page.RenderString -}}
+  {{- $title = $caption | plainify -}}
+  {{- range $parts -}}
+    {{- if strings.HasPrefix . "width=" -}}
+      {{- $width = replace . "width=" "" -}}
+    {{- end -}}
+    {{- if strings.HasPrefix . "height=" -}}
+      {{- $height = replace . "height=" "" -}}
+    {{- end -}}
+    {{- if strings.HasPrefix . "float=" -}}
+      {{- $float = replace . "float=" "" -}}
+    {{- end -}}
+    {{- if strings.HasPrefix . "link=" -}}
+      {{- $link = replace . "link=" "" -}}
+    {{- end -}}
+    {{- if strings.HasPrefix . "title=" -}}
+      {{- $title = replace . "title=" "" -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $alt := .Text | plainify -}}
+
+{{- $imgClass := "figure__image" -}}
+{{- if not $caption }}
+  {{- $imgClass = printf "%s float float--%s" $imgClass $float -}}
+{{- end -}}
+
+{{- $src := cond (strings.HasPrefix .Destination "http") .Destination (.Destination | absURL) -}}
+{{- $w := cond (ne $width "") (printf "width=\"%s\"" $width) "" -}}
+{{- $h := cond (ne $height "") (printf "height=\"%s\"" $height) "" -}}
+
+{{- $imgTag := printf `<img src="%s" alt="%s" title="%s" %s %s loading="lazy" decoding="async" class="%s" />` $src $alt $title $w $h $imgClass | safeHTML -}}
+
+{{- $imgWrapped := cond (ne $link "") (printf `<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>` $link $imgTag) $imgTag | safeHTML -}}
+
+{{- if $caption }}
+  <figure class="figure float float--{{ $float }}" {{ with $width }}width="{{ . }};"{{ end }}>
+    {{ $imgWrapped }}
+    <figcaption class="figure__caption">{{ $caption }}</figcaption>
+  </figure>
+{{- else }}
+  {{ $imgWrapped }}
+{{- end }}

@@ -1,0 +1,127 @@
+baseURL: https://masputrawae.github.io/
+languageCode: id
+title: My Notes
+timeZone: Asia/Jakarta
+enableEmoji: true
+enableGitInfo: true
+theme: my_theme
+
+#===================
+# SERVICES
+#===================
+services:
+  googleAnalytics:
+    id: G-W9TMTZZYG5
+
+#===================
+# PRIVACY
+#===================
+privacy:
+  googleAnalytics:
+    disable: false
+    respectDoNotTrack: true
+
+#===================
+# TAXONOMIES
+#===================
+taxonomies:
+  tag: tags
+  category: categories
+  stage: stage
+  source: source
+
+#===================
+# CASCADE
+#===================
+cascade:
+  - _target:
+      path: '{/digital_garden/**,/cheat_sheet/**}'
+    repoBasePath: 998_outputs
+    
+  - _target:
+      path: '{/,/change_log/,/docs/**,/moc/**}'
+    repoBasePath: 000_dashboard
+
+#===================
+# CUSTOM OUTPUT
+#===================
+mediaType: 'application/json'
+outputFormats:
+  search:
+    mediaType: 'application/json'
+    baseName: 'search'
+    isPlainText: true
+    notAlternative: true
+
+  manifest:
+    mediaType            : 'application/json'
+    baseName             : 'manifest'
+    isPlainText          : true
+    notAlternative       : true
+
+outputs:
+  home:
+    - html
+    - rss
+    - sitemap
+    - search
+    - manifest
+
+#===================
+# MODULES
+#===================
+module:
+  hugoVersion:
+    extended: true
+    min: 0.149.0
+
+  #===================
+  # MOUNTS
+  #===================
+  mounts:
+    # ================  NODE_MODULES (Bootstrap Icons)
+    - source: node_modules/bootstrap-icons/icons
+      target: assets/icons
+
+    # ================  ASSETS
+    - source: 001_assets/images
+      target: assets
+    
+    - source: 001_assets/illustration
+      target: assets
+    
+    - source: 001_assets/pdfs
+      target: assets
+
+    - source: 001_assets/favicons
+      target: assets/favicons
+    
+    # ================  STATIC
+    - source: 001_assets/images
+      target: static
+    
+    - source: 001_assets/favicons
+      target: static/favicons
+
+    - source: 001_assets/illustration
+      target: static
+    
+    - source: 001_assets/pdfs
+      target: static
+
+    # ================  CONTENT
+    - source: 000_dashboard
+      target: content
+
+    - source: 998_outputs
+      target: content
+
+    # ================  BASE MOUNTS
+    - source: content
+      target: content
+
+    - source: assets
+      target: assets
+
+    - source: static
+      target: static
