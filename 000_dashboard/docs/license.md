@@ -4,6 +4,7 @@ images:
   - images/default-image.webp
 created: 2025-07-03T00:12:50+07:00
 edit_page: false
+discussion: false
 ---
 
 Copyright (c) 2025 Putra Jaya
