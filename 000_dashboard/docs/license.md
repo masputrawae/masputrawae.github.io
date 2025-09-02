@@ -1,5 +1,6 @@
 ---
-title: MIT License
+title: Creative Commons Non-Commercial (CC BY-NC)
+description: Lisensi untuk konten di situs ini, melindungi hak cipta sekaligus membolehkan penggunaan non-komersial dengan atribusi.
 images:
   - images/default-image.webp
 created: 2025-07-03T00:12:50+07:00
@@ -7,22 +8,16 @@ edit_page: false
 discussion: false
 ---
 
-Copyright (c) 2025 Putra Jaya
+**Lisensi Konten [My Notes](/)**
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Seluruh konten di situs ini (teks, gambar, dan ilustrasi) dilindungi oleh hak cipta milik **Putra**.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Konten ini tersedia di bawah **[Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/)**, yang berarti:  
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+- **Atribusi**: Anda boleh menyalin, membagikan, dan menampilkan konten, **asalkan menyebutkan sumber / penulis**.  
+- **Non-Komersial**: Konten **tidak boleh digunakan untuk tujuan komersial** tanpa izin tertulis dari pemilik.  
+- **Modifikasi / Adaptasi**: Anda boleh membuat turunan dari konten ini untuk penggunaan pribadi atau edukasi non-komersial, dengan tetap memberi atribusi.
+
+Untuk penggunaan komersial atau pertanyaan lainnya, silakan hubungi: [masputrawae.official@gmail.com](mailto:masputrawae.official@gmail.com).
+
+---
