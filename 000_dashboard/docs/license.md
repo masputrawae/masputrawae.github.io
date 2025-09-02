@@ -2,7 +2,7 @@
 title: Creative Commons Non-Commercial (CC BY-NC)
 description: Lisensi untuk konten di situs ini, melindungi hak cipta sekaligus membolehkan penggunaan non-komersial dengan atribusi.
 images:
-  - images/default-image.webp
+  - default-image.webp
 created: 2025-07-03T00:12:50+07:00
 edit_page: false
 discussion: false
