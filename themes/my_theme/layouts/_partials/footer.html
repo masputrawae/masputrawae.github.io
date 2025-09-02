@@ -1,5 +1,7 @@
 <footer class="site-footer">
   {{- partial "components/footer-link.html" . }}
-  <p class="site-footer__copyright">Copyright {{ now.Year }} - <a href="{{ site.BaseURL | relURL }}">{{ site.Title }}</a> | All rights reserved.</p>
+  <br>
+  <p class="site-footer__copyright">Copyright {{ now.Year }} - <a href="{{ site.BaseURL | relURL }}">{{ site.Title }}</a> | Content licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>
+  </p>
 </footer>
 {{- partial "components/footer-script.html" . }}
