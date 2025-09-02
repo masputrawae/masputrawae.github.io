@@ -23,10 +23,10 @@ social:
 #===================
 giscusConfig:
   dataRepo: "masputrawae/masputrawae.github.io"
-  dataRepoId: "R_kgDOPTix1Q"
+  dataRepoId: "R_kgDOPoBdJA"
   dataCategory: "General"
-  dataCategoryId: "DIC_kwDOPTix1c4Ctd3E"
-  dataMapping: "og:title"
+  dataCategoryId: "DIC_kwDOPoBdJM4Cu3eM"
+  dataMapping: "title"
   dataStrict: 1
   dataReactionsEnabled: 1
   dataEmitMetadata: 1
