@@ -18,8 +18,6 @@
     (dict "label" "Content" "icon" "markdown" "count" (len site.RegularPages))
     (dict "label" "Taxonomies" "icon" "collection" "count" (len site.Taxonomies))
   -}}
-
-
   <article class="markdown view-content view-content--is-active" id="viewPage">
     <h1>{{- .Title -}}</h1>
     <div class="grid grid--fluid-lg">
@@ -71,28 +69,28 @@
         <img src="https://img.shields.io/github/issues-pr/{{ site.Params.ghrepo }}" class="badge-github__img" alt="Languages">
       </div>  */ -}}
 
-      {{ $pages := .Site.RegularPages }}
-      {{ $recentPost := first 5 (sort $pages "Date" "desc") }}
-      {{ $recentMod := first 5 (sort $pages "Lastmod" "desc") }}
+      {{- $pages := .Site.RegularPages -}}
+      {{- $recentPost := first 5 (sort $pages "Date" "desc") -}}
+      {{- $recentMod := first 5 (sort $pages "Lastmod" "desc") -}}
       <div class="grid__item card">
         <h2>Recent Posts</h2>
         <ul>
-          {{ range $recentPost }}
+          {{- range $recentPost }}
             <li>
               <a href="{{ .RelPermalink }}">{{ .Title }} - {{ .Date.Format "02 Jan 2006" }}</a>
             </li>
-          {{ end }}
+          {{- end }}
         </ul>
       </div>
 
       <div class="grid__item card">
         <h2>Last Modified</h2>
         <ul>
-          {{ range $recentMod }}
+          {{- range $recentMod -}}
             <li>
               <a href="{{ .RelPermalink }}">{{ .Title }} - {{ .Lastmod.Format "02 Jan 2006" }}</a>
             </li>
-          {{ end }}
+          {{- end -}}
         </ul>
       </div>
     </div>
