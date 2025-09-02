@@ -31,23 +31,23 @@ main:
 
 footer:
   - name: About Putra
-    pageRef: /about
+    pageRef: /docs/about
     weight: 10
 
   - name: Disclaimer
-    pageRef: /disclaimer
+    pageRef: /docs/disclaimer
     weight: 20
 
   - name: License
-    pageRef: /license
+    pageRef: /docs/license
     weight: 30
 
   - name: Privacy Policy
-    pageRef: /privacy_policy
+    pageRef: /docs/privacy_policy
     weight: 40
     
   - name: Credits
-    pageRef: /credits
+    pageRef: /docs/credits
     weight: 50
 
   - name: masputrawae.official@gmail.com
