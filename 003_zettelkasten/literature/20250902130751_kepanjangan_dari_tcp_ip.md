@@ -18,9 +18,3 @@ author:
 - **IP**: Internet Protocol
 
 Jadi **TCP/IP** adalah singkatan dari: Transmission control protocol/Internet Protocol
-
-## Insight / Pemikiran Pribadi:
-
-- TCP/IP adalah dasar komunikasi komputer → bisa dihubungkan dengan konsep OSI model
-
-## Link ke catatan terkait

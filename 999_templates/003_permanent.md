@@ -14,5 +14,5 @@ created: {{date:YYYY-MM-DDTHH:mm:ssZ}}
 
 ## Referensi
 
-- [[...]] (Literature Note)
-- [[...]] (Fleeting Note)
+- [[...]] 
+- [[...]] 
