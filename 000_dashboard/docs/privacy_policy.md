@@ -1,6 +1,6 @@
 ---
 title: Privacy Policy for My Notes
-description: Profil singkat saya, kenapa saya belajar secara otodidak, dan prinsip yang saya pegang dalam perjalanan ini.
+description: Kebijakan privasi di situs My Notes
 images:
   - default-image.webp
 created: 2025-07-12T21:54:07+07:00
