@@ -1,4 +1,7 @@
-# 📅 {{date:dddd, MMMM Do YYYY, h:mm:ss a}}
+---
+id: "{{date:YYYYMMDDHHmmss}}"
+title: 📅 {{date:dddd, MMMM Do YYYY, h:mm:ss a}}
+---
 
 ## 🌅 Morning
 

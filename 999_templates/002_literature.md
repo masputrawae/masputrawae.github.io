@@ -1,26 +1,19 @@
 ---
 id: "{{date:YYYYMMDDHHmmss}}"
+title: {{title}}
+source: ["Example"]
+link: ["https://example.com", "opsional"]
+author: ["John Doe", "opsional"]
+tags: ["literature"]
 created: {{date:YYYY-MM-DDTHH:mm:ssZ}}
-source: 
-link: https://example.com
-author:
-year: 
-tags: 
-  - literature
-  - reference
 ---
 
-# Ringkasan: {{title}}
+- [Poin Penting 1]
+- [Poin Penting 2]
 
-## Kutipan Kunci
+## Insight / Pemikiran Pribadi:
+- 
 
-> Kutipan penting di sini. (Halaman: X)
+## Link ke catatan terkait
 
-## Analisis
-
-- Apa poin utama?
-- Bagaimana ini terkait dengan ide saya? [[Link ke Zettel terkait]].
-
-## Koneksi
-- [[Catatan 1]]
-- [[Catatan 2]]
+- [[...]]

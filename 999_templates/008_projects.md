@@ -1,29 +1,27 @@
 ---
 id: "{{date:YYYYMMDDHHmmss}}"
-created: {{date:YYYY-MM-DDTHH:mm:ssZ}}
-deadline: 
+title: {{title}}
 status: 
   - Planning
   - In process
   - Completed
   - Failure
-  - Development
+  - Maintenance
+created: {{date:YYYY-MM-DDTHH:mm:ssZ}}
+deadline: 
 ---
 
-# Project: {{title}}
-
-## Objective
-
+[Objective]
 
 ## 🛠️ Tasks
 
-- [ ] Task 1
-- [ ] Task 2
-- [ ] Task 3
+- [ ] [Task 1]
+- [ ] [Task 2]
+- [ ] [Task 3]
 
 ## 📅 Milestones
 
-- Milestone 1 - Target Date:
-- Milestone 2 - Target Date:
+- [Milestone 1] - Target Date:
+- [Milestone 2] - Target Date:
 
 ## 📝 Notes

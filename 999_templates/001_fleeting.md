@@ -1,13 +1,8 @@
 ---
 id: "{{date:YYYYMMDDHHmmss}}"
+title: "{{title}}"
+tags: ["fleeting"]
 created: {{date:YYYY-MM-DDTHH:mm:ssZ}}
-tags: 
-  - fleeting
-  - raw_idea
-continue: true
 ---
 
-# {{title}}
-
-- Catat ide mentah di sini.
-- Apa konteksnya? Siapa/sumber apa yang memicunya?
+[Catat ide mentah di sini. Apa konteksnya? Siapa/sumber apa yang memicunya?]
