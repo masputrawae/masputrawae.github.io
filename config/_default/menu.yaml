@@ -1,10 +1,10 @@
 main:
   - name: Main Page
-    pageRef: /main_page
+    pageRef: /000_Main_Page
     weight: 10
 
   - name: About
-    pageRef: /about
+    pageRef: /001_About_Me
     weight: 20
 
   - name: Recent Change
