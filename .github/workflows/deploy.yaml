@@ -69,7 +69,7 @@ jobs:
 
       - name: Copy Content only
         run: |
-          cp -r ./mpw_vault/997_My_Knowledge/ ./content/
+          cp -r ./mpw_vault/997_My_Knowledge/** ./content/
 
       - name: Delete Unused
         run: |
