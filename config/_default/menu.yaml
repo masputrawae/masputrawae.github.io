@@ -1,6 +1,6 @@
 main:
   - name: Main Page
-    pageRef: /digital_garden
+    pageRef: /main_page
     weight: 10
 
   - name: About
