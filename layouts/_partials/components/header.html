@@ -1,0 +1,13 @@
+<nav class="site-header__brand">
+  <a href="{{ relURL site.BaseURL }}" class="site-header__title">{{ site.Title | upper }}</a>
+  <em class="site-header__subtitle">{{ site.Params.subtitle | upper }}</em>
+</nav>
+
+<button id="menu-toggle" class="site-header__toggle-menu">
+  <span>MENU</span>
+  {{ partial "components/icon" (dict "name" "list" "size" 22 ) }}
+</button>
+
+<nav id="site-menu" class="site-header__menu">
+  {{ partial "components/menu.html" (dict "menuID" "main" "page" .) }}
+</nav>

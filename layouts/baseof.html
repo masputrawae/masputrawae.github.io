@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode -}}" dir="{{ or site.Language.LanguageDirection `ltr` }}" data-theme="light">
+<head>
+  {{- partial "headed/head.html" . -}}
+</head>
+<body class="site-body">
+  <header class="site-header">
+    {{- partial "components/header.html" . -}}
+  </header>
+  <main class="site-main">
+    <article class="site-main__page">
+      {{- block "main" . -}}{{- end -}}
+    </article>
+    <aside class="site-main__sidebar">
+      {{- partial "components/sidebar.html" . -}}
+    </aside>
+  </main>
+  <footer class="site-footer">
+    {{- partial "components/footer.html" . -}}
+  </footer>
+  <div id="linkpreview"></div>
+</body>
+</html>

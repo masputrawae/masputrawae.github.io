@@ -1,0 +1,60 @@
+baseURL: https://masputrawae.github.io/fictional-adventure/
+languageCode: id
+title: My Notes
+timeZone: Asia/Jakarta
+enableEmoji: true
+# enableGitInfo: true
+
+#===================
+# PAGINATION
+#===================
+pagination:
+  disableAliases: false
+  pagerSize: 5
+  path: page
+
+#===================
+# TAXONOMIES
+#===================
+taxonomies:
+  tag: tags
+  category: categories
+  stage: stage
+
+#===================
+# CUSTOM OUTPUT
+#===================
+mediaType: "application/json"
+outputFormats:
+  search:
+    mediaType: "application/json"
+    baseName: "search"
+    isPlainText: true
+    notAlternative: true
+
+  manifest:
+    mediaType: "application/json"
+    baseName: "manifest"
+    isPlainText: true
+    notAlternative: true
+
+outputs:
+  home:
+    - html
+    - rss
+    - sitemap
+    - search
+    - manifest
+
+#===================
+# MODULES
+#===================
+module:
+  hugoVersion:
+    extended: true
+    min: 0.149.0
+  mounts:
+    - source: node_modules/bootstrap-icons/icons
+      target: assets/icons
+    - source: assets
+      target: assets

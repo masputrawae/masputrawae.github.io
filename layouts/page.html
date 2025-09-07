@@ -1,0 +1,29 @@
+{{ define "main" }}
+  {{ $title := .Title }}
+  <section class="markdown">
+    {{- with index .Params.images 0 }}
+      <div class="featured__image" style="margin-block-start: 2em;">
+        <img src="{{ . | safeURL }}" alt="Image In {{ $title }}"/>
+      </div>
+      <h1 style="margin-block-start: 0em;">{{ $title }}</h1>
+    {{ else }}
+      <h1>{{ $title }}</h1>
+    {{- end }}
+    <small class="terms">
+      {{- partial "components/icon.html" (dict "name" "calendar" "size" 14) -}}
+      <time datetime="{{ .Date | time.Format "2006-01-02T15:04:05-07:00" }}">
+        {{- .Date | time.Format "2006 January 02" -}}
+      </time>
+    </small>
+    <small class="terms">
+      {{- partial "components/icon.html" (dict "name" "clock-history" "size" 14) -}}
+      <time datetime="{{ .Lastmod | time.Format "2006-01-02T15:04:05-07:00" }}">
+        {{- .Lastmod | time.Format "2006 January 02" -}}
+      </time>
+    </small>
+    {{ partial "components/terms.html" (dict "taxonomy" "tags" "page" .) }}
+    {{ partial "components/terms.html" (dict "taxonomy" "categories" "page" .) }}
+    {{ .Content }}
+  </section>
+  <hr>
+{{ end }}

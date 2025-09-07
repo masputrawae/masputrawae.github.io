@@ -1,0 +1,47 @@
+{{- define "main" -}}
+  {{- $pages := .Pages | shuffle -}}
+  {{- $paginator := .Paginate $pages -}}
+  <div class="markdown">
+
+    {{- if eq $paginator.PageNumber 1 }}
+      <div>
+        {{- $title := replaceRE "[-_]+" " " .Title | title }}
+        <h1>{{ $title }}</h1>
+        {{ .Content }}
+      </div>
+    {{- else }}
+      <h1 class="sr-only">Page Number: ({{ $paginator.PageNumber }})</h1>
+    {{- end }}
+    <br>
+
+    {{- range $paginator.Pages }}
+      {{ $title := .Title }}
+      <section class="featured">
+        {{- if .Params.images }}
+          {{- with index .Params.images 0 }}
+            <div class="featured__image">
+              <img src="{{ . | safeURL }}" alt="Image In {{ $title }}"/>
+            </div>
+          {{- end }}
+        {{- end }}
+        <div class="featured__body">
+          <h2 class="featured__title">{{- $title }}</h2>
+          <small class="terms">
+            {{- partial "components/icon.html" (dict "name" "calendar" "size" 14) -}}
+            <time datetime="{{ .Date | time.Format "2006-01-02T15:04:05-07:00" }}">
+              {{- .Date | time.Format "2006 January 02" -}}
+            </time>
+          </small>
+          {{ partial "components/terms.html" (dict "taxonomy" "tags" "page" .) }}
+          {{ partial "components/terms.html" (dict "taxonomy" "categories" "page" .) }}
+          <div class="featured__summary">
+            {{- .Summary }}
+          </div>
+          <a class="btn btn--primary" href="{{- .RelPermalink }}">READ MORE <span class="sr-only">For {{ $title }}</span></a>
+        </div>
+      </section>
+    {{- end }}
+
+  </div>
+  {{- partial "pagination.html" (dict "page" . "format" "default") }}
+{{- end -}}

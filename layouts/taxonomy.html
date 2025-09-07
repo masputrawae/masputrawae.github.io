@@ -1,0 +1,42 @@
+{{ define "main" }}
+<div class="markdown">
+  {{- $title := replaceRE "[-_]+" " " .Title | title }}
+  <h1>{{ $title }}</h1>
+  {{ .Content }}
+  <br>
+  <div class="multi-column">
+      {{ $current := "" }}
+      {{- /* === LOOP TERMS ALPHABETICAL === */}}
+      {{ range .Data.Terms.Alphabetical }}
+        {{ $first := upper (substr .Term 0 1) }}
+  
+        {{- /* --- Jika huruf baru --- */}}
+        {{ if ne $first $current }}
+          {{- /* Tutup blok sebelumnya jika ada --- */}}
+          {{ if ne $current "" }}
+              </nav>
+            </div>
+          {{ end }}
+  
+          {{- /* Buka blok baru --- */}}
+          <div class="multi-column__item">
+              <nav class="taxonomy">
+            <h2 class="taxonomy__label">{{ $first }}</h2>
+          {{ $current = $first }}
+        {{ end }}
+  
+        {{- /* --- Isi item --- */}}
+        <a href="{{ .Page.RelPermalink }}" class="taxonomy__link">
+          {{ $term := replaceRE "[-_]+" " " .Term | title }}
+          <span>{{ $term }}</span>
+          <span>[ {{ .Count }} ]</span>
+        </a>
+      {{ end }}
+      {{- /* === END LOOP === */}}
+  
+      {{- /* Tutup blok terakhir --- */}}
+      </nav>
+    </div>
+  </div>
+</div>
+{{ end }}

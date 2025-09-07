@@ -1,0 +1,420 @@
+@use "../abstracts/breakpoints" as b;
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+// ==================
+// SITE BODY
+// ==================
+
+// ------------------ HTML
+html {
+  @include m.custom-scrollbar(var(--bg-base), var(--accent-base));
+  font-size: v.$fs-default;
+  background-color: var(--bg-base);
+  color: var(--text-base);
+  font-family: v.$font-sans;
+}
+
+// ------------------ BODY
+
+// ==================
+// SITE HEADER
+// ==================
+
+.site-header {
+  position: relative;
+  width: 100%;
+  padding-block-start: 1.5em;
+
+  // ------------------ BRAND
+  &__brand {
+    @include m.flex-justify(center, center);
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: v.$fs-5xl;
+    font-weight: 600;
+  }
+
+  &__subtitle {
+    color: var(--accent-base);
+    font-style: normal;
+    font-size: v.$fs-sm;
+    border-block-start: 1px solid var(--border-base);
+    margin-block-end: 1.5em;
+    font-weight: 600;
+  }
+
+  // ------------------ BUTTON TOGGLE MENU
+  &__toggle-menu {
+    @include m.flex-justify(end, center);
+    width: 100%;
+    background-color: var(--bg-second);
+    color: var(--cl-fix-white);
+    padding: 0.75em 1.5em;
+    font-weight: 600;
+  }
+
+  // ------------------ MENU
+  &__menu {
+    @include m.transition(transform, visibility);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-second);
+
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+
+    visibility: hidden;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: top left;
+    transform-origin: top left;
+
+    &--is-active {
+      border-block: 1px solid var(--border-second);
+      -webkit-transform: scaleY(1);
+      transform: scaleY(1);
+      visibility: visible;
+    }
+  }
+
+  &__link {
+    @include m.flex-justify(start, center);
+    color: var(--cl-fix-white);
+    padding: 0.5em 1em;
+    font-weight: 600;
+
+    &--is-active,
+    &--is-ancestor,
+    &:hover {
+      background-color: var(--accent-second);
+    }
+  }
+}
+
+// ==================
+// SITE MAIN
+// ==================
+.site-main {
+  padding-inline: 1.5em;
+  &__sidebar {
+    font-size: 15px;
+  }
+}
+
+// ------------------ FEATURED
+.featured {
+  margin-block-end: 2em;
+
+  &__title {
+    margin-block: 0 0.5em;
+    font-size: v.$fs-4xl;
+  }
+
+  &__image {
+    aspect-ratio: 16/9;
+    border-radius: 0.25em;
+    overflow: hidden;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      transition: all 1s ease-in-out;
+    }
+
+    &:hover {
+      img {
+        scale: 1.1;
+      }
+    }
+  }
+}
+
+.terms {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35em;
+  margin-block-end: 0.25em;
+
+  &__link,
+  time {
+    color: var(--text-muted);
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.12em;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  padding: 0.5em 1.25em;
+  border: 1px solid var(--accent-second);
+  border-radius: 0.25em;
+  text-decoration: none;
+  color: var(--cl-fix-white);
+  background-color: var(--accent-second);
+  font-weight: 600;
+
+  &:hover {
+    color: var(--cl-fix-white);
+    background-color: var(--accent-third);
+  }
+}
+
+// ------------------ PAGINATION
+.pagination {
+  @include m.flex-justify(center, center);
+  border-block: 1px solid var(--border-base);
+  gap: 1em;
+  padding: 0.5em;
+  margin-block: 1.5em;
+
+  &__link {
+    @include m.transition(font-size);
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    font-size: v.$fs-xl;
+    padding: 0.25em;
+
+    &--is-active {
+      color: var(--text-title);
+      font-size: v.$fs-5xl;
+    }
+
+    &:hover {
+      color: var(--accent-base);
+      font-size: v.$fs-5xl;
+    }
+
+    &--is-disabled {
+      color: var(--text-muted);
+      cursor: not-allowed;
+      &:hover {
+        color: var(--text-muted);
+        font-size: v.$fs-xl;
+      }
+    }
+  }
+}
+
+// ------------------ SIDEBAR
+.search-bar {
+  @include m.flex-justify(space-between, center);
+  gap: 0.5em;
+  padding: 0.5em 0.75em;
+  margin-block: 1.5em 1em;
+  border: 1px solid var(--border-base);
+  background-color: var(--bg-third);
+  &__input {
+    width: 100%;
+    outline: none;
+  }
+}
+
+// ------------------ WIDGET
+.widget {
+  display: grid;
+  margin-block-end: 1.5em;
+
+  &__title {
+    font-size: v.$fs-xl;
+    color: var(--text-title);
+    display: block;
+    font-weight: 600;
+    border-block-end: 3px solid var(--accent-second);
+    margin-block: 0.75em;
+  }
+
+  &__link {
+    border-block-end: 1px solid var(--border-base);
+    color: var(--text-title);
+    font-size: v.$fs-sm;
+    padding: 0.5em 0em;
+
+    &:hover {
+      color: var(--accent-base);
+    }
+  }
+
+  &__tags-wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1em;
+  }
+}
+
+.badge {
+  @include m.flex-justify(center, center);
+  gap: 0.25em;
+  width: fit-content;
+  font-size: v.$fs-sm;
+  background-color: var(--bg-second);
+  color: var(--cl-fix-white);
+  padding: 0.5em 1em;
+  font-weight: 600;
+  border-radius: 0.15em;
+
+  &:hover {
+    background-color: var(--accent-second);
+  }
+}
+
+// ==================
+// SITE FOOTER
+// ==================
+.site-footer {
+  margin-block-start: 2em;
+  text-align: left;
+  padding: 0.5em 1em;
+  font-size: v.$fs-3xs;
+  background-color: var(--bg-second);
+  color: var(--cl-fix-white);
+  border-block-start: 1px solid var(--border-base);
+  border-end-end-radius: 0.5em;
+  border-end-start-radius: 0.5em;
+
+  a {
+    text-decoration: underline;
+    font-weight: 600;
+
+    &:hover {
+      color: var(--accent-base);
+    }
+  }
+}
+
+// ==================
+// TAXONOMY PAGE
+// =================
+.taxonomy {
+  display: grid;
+  gap: 0.5em;
+
+  &__label {
+    margin: 0;
+  }
+
+  &__link {
+    @include m.flex-justify(space-between, center);
+    text-decoration: none;
+    padding-inline-start: 1em;
+    margin-inline-start: 1em;
+    border-inline-start: 3px solid var(--border-base);
+  }
+}
+
+// ==================
+// BREAKPOINTS MD
+// ==================
+@include b.min(md) {
+  .site-header {
+    &__brand {
+      padding-inline-start: 1em;
+      align-items: start;
+    }
+
+    &__toggle-menu {
+      display: none;
+    }
+
+    &__menu {
+      flex-direction: row;
+      position: relative;
+      visibility: visible;
+      -webkit-transform: scaleY(1);
+      transform: scaleY(1);
+      visibility: visible;
+      border-block-end: 5px solid var(--accent-base);
+    }
+
+    &__link {
+      @include m.transition(color, background-color, border-color);
+      color: var(--cl-fix-white);
+      padding: 0.75em 1.25em;
+      border-inline-end: 1px solid var(--border-base);
+
+      &--is-active,
+      &--is-ancestor,
+      &:hover {
+        background-color: var(--accent-second);
+        border-color: var(--accent-second);
+      }
+    }
+  }
+  .site-footer a {
+    font-size: v.$fs-sm;
+  }
+}
+
+// ==================
+// BREAKPOINTS LG
+// ==================
+@include b.min(lg) {
+  html {
+    padding: 1.5em;
+    background-color: var(--bg-third);
+  }
+  .site-body {
+    background-color: var(--bg-base);
+    max-width: 62em;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border-radius: 0.25em;
+  }
+  .site-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 280px);
+    gap: 1em;
+  }
+
+  .pagination {
+    border: none;
+  }
+
+  #linkpreview {
+    @include m.custom-scrollbar(var(--border-base), var(--accent-base));
+    display: none;
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    width: 400px;
+    max-height: 400px;
+    overflow: auto;
+    z-index: 999999999;
+    border: 1px solid var(--border-base);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background-color: var(--bg-base);
+
+    .markdown {
+      padding: 0.25em;
+      margin: 0;
+
+      h1 {
+        margin: 0;
+      }
+    }
+  }
+}
+
+// ==================
+// BREAKPOINTS XL
+// ==================
+@include b.min(xl) {
+  .site-body {
+    max-width: 75em;
+  }
+  .site-main {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 300px);
+
+    &__page {
+      padding-inline: 1em;
+    }
+  }
+}
