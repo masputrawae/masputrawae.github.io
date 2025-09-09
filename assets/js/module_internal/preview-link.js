@@ -9,7 +9,7 @@ export function linkPreviewHandler() {
   const tooltip = $('#linkpreview')
   if (!tooltip) return console.warn('⚠️ Tooltip element #linkpreview not found.')
 
-  const elements = $$('.markdown a')
+  const elements = $$('#previewLinkWarpper .link')
   const origin = window.location.origin
 
   let currentHref = ''
@@ -44,7 +44,7 @@ export function linkPreviewHandler() {
   async function getPagePreviewContent(href) {
     const text = await fetch(href).then((x) => x.text())
     const doc = new DOMParser().parseFromString(text, 'text/html')
-    return doc.querySelector('.markdown')?.outerHTML || ''
+    return doc.querySelector('#previewLinkWarpper')?.outerHTML || ''
   }
 
   async function showLinkPreview(e) {

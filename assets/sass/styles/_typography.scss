@@ -2,83 +2,93 @@
 @use "../abstracts/mixins" as m;
 @use "../abstracts/variables" as v;
 
-:where(.markdown) {
-  display: block;
-  font-size: 14px;
-  line-height: 1.6;
-  max-width: 100%;
+// ================
+// HEADING
+// ================
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  display: flow-root;
+  margin-block: 1em 1.5em;
+  line-height: 1.75;
+  font-weight: 600;
   width: 100%;
-  overflow-x: hidden;
-  word-break: normal;
-  overflow-wrap: anywhere;
-  hyphens: auto;
+  color: var(--text-title);
+}
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    display: flow-root;
+h1,
+h2 {
+  border-block-end: 1px solid var(--border-base);
+}
+
+h1 {
+  font-size: v.$fs-10xl;
+  margin-block-end: 0.5em;
+}
+
+h2 {
+  font-size: v.$fs-8xl;
+}
+
+h3 {
+  font-size: v.$fs-4xl;
+}
+
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  font-size: v.$fs-lg;
+}
+
+// ================
+// PARAGRAPH
+// ================
+p {
+  display: flow-root;
+  margin-block: 1em;
+
+  + p {
     margin-block: 1em 1.5em;
-    line-height: 1.75;
-    font-weight: 600;
-    text-transform: capitalize;
-    width: 100%;
-    color: var(--text-title);
   }
+}
+b,
+strong {
+  color: var(--text-title);
+  font-weight: 700;
+}
 
-  h1,
-  h2 {
-    border-block-end: 1px solid var(--border-base);
+small {
+  font-size: 80%;
+}
+
+// ================
+// LINK
+// ================
+a {
+  color: var(--accent-base);
+
+  &:hover {
+    color: var(--accent-second);
   }
+}
 
-  h1 {
-    font-size: v.$fs-8xl;
-    margin-block-end: 0.5em;
-  }
+.link {
+  text-decoration: underline;
+}
 
-  h2 {
-    font-size: v.$fs-2xl;
-  }
+.broken-link,
+.link-broken {
+  color: red;
+}
 
-  h3 {
-    font-size: v.$fs-xl;
-  }
-
-  h4,
-  h5,
-  h6 {
-    font-weight: 700;
-    font-size: v.$fs-lg;
-  }
-
-  p {
-    margin-block: 1em;
-    + p {
-      margin-block: 1em 1.5em;
-    }
-  }
-
-  a {
-    text-decoration: underline;
-    color: var(--accent-base);
-
-    &:hover {
-      color: var(--accent-second);
-    }
-  }
-
-  .broken-link {
-    color: red;
-  }
-
-  b,
-  strong {
-    color: var(--text-title);
-    font-weight: 700;
-  }
-
+// ================
+// LIST
+// ================
+:where(.page) {
   ul,
   ol {
     padding-inline-start: 2em;
@@ -110,7 +120,7 @@
     padding-inline-start: 2em;
   }
 }
-// ------------------------------ DEFINITION LIST
+
 dl {
   margin-block: 1.75em;
 }
@@ -128,7 +138,10 @@ dd {
   color: var(--text-tertiary);
   border-inline-start: 3px solid var(--text-title);
 }
-// ------------------------------ HR
+
+// ================
+// HR
+// ================
 hr {
   margin-block: 3em;
   display: flow-root;
@@ -137,7 +150,9 @@ hr {
   background-color: var(--border-base);
 }
 
-// ------------------------------ BLOCKQUOTE
+// ================
+// BLOCKQUOTE
+// ================
 blockquote {
   letter-spacing: 0.025em;
   margin-block: 1.5em;
@@ -161,7 +176,10 @@ blockquote {
     font-size: v.$fs-2xl;
   }
 }
-// ------------------------------ TABLE
+
+// ================
+// TABLE
+// ================
 .table-container {
   display: flow-root;
   -webkit-overflow-scrolling: touch;
@@ -180,7 +198,7 @@ table {
 }
 
 thead {
-  background-color: var(--bg-third);
+  background-color: var(--bg-second);
 }
 
 th {
@@ -200,14 +218,14 @@ td {
 }
 
 tbody tr:hover {
-  background-color: var(--bg-third);
+  background-color: var(--bg-second);
 }
 
 tbody tr:nth-child(even) {
-  background-color: var(--bg-third);
+  background-color: var(--bg-second);
 }
 
-// ------------------------------ FOOTNOTE
+// // ------------------------------ FOOTNOTE
 .footnote-ref {
   margin-inline-start: 0.1em;
   text-decoration: underline dotted;
@@ -247,7 +265,7 @@ tbody tr:nth-child(even) {
   }
 }
 
-// ------------------------------ CALLOUT
+// // ------------------------------ CALLOUT
 .callout {
   border: 1px solid var(--callout-border);
   background-color: var(--callout-bg);
@@ -273,7 +291,7 @@ tbody tr:nth-child(even) {
   }
 }
 
-// ------------------------------ FIGURE
+// // ------------------------------ FIGURE
 .figure {
   display: block;
   margin: 1.25rem 0;
@@ -294,14 +312,6 @@ tbody tr:nth-child(even) {
     margin-top: 0.5rem;
     line-height: 1.4;
   }
-
-  &.float--center {
-    float: none !important;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
 }
 
 // ------------------------------ FLOATING
@@ -320,6 +330,14 @@ tbody tr:nth-child(even) {
     margin-left: 1.5rem;
     margin-right: 0;
     text-align: right;
+  }
+
+  &--center {
+    float: none !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
   }
 }
 

@@ -1,0 +1,33 @@
+@use "../abstracts/breakpoints" as b;
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+.footer {
+  padding: 1.5em;
+  background-color: var(--fix-bg-ui-base);
+  color: var(--fix-white);
+  margin-block-start: 3em;
+
+  p {
+    margin: 0;
+    display: block;
+    text-align: center;
+    font-size: v.$fs-sm;
+
+    a {
+      color: var(--fix-white);
+      text-decoration: underline;
+      font-weight: 600;
+
+      &:hover {
+        color: var(--accent-base);
+      }
+    }
+  }
+
+  @include b.min(md) {
+    p {
+      text-align: start;
+    }
+  }
+}

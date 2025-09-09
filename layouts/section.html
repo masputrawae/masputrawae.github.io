@@ -1,6 +1,6 @@
 {{ define "main" }}
-<section class="markdown">
-<h1>{{ .Title }}</h1>
-{{ .Content }}
-</section>
+  <article class="page" id="previewLinkWarpper">
+    <h1 class="page__title">{{ .Title }}</h1>
+    {{- .Content | safeHTML }}
+  </article>
 {{ end }}

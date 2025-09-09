@@ -69,7 +69,9 @@ jobs:
 
       - name: Copy Content only
         run: |
-          cp -r ./mpw_vault/997_My_Knowledge/** ./content/
+          cp -r ./mpw_vault/997_Outputs/masputrawae.github.io/* ./content/
+          cp -r ./mpw_vault/000_Attachments/excalidraw_svg/* ./static/
+          cp -r ./mpw_vault/000_Attachments/images/* ./static/
 
       - name: Delete Unused
         run: |

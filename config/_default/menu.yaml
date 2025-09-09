@@ -1,24 +1,16 @@
 main:
   - name: Main Page
-    pageRef: /000_Main_Page
+    pageRef: /posts
     weight: 10
-
   - name: About
-    pageRef: /001_About_Me
+    pageRef: /about
     weight: 20
-
-  - name: Recent Change
-    pageRef: /recent_change
-    weight: 30
-
   - name: Random Page
-    pageRef: /random_page/
-    weight: 40
-
+    pageRef: /random_page
+    weight: 30
   - name: Tags
     pageRef: /tags
-    weight: 50
-
+    weight: 40
   - name: Categories
-    pageRef: /categories
-    weight: 60
+    pageRef: /categories/
+    weight: 50

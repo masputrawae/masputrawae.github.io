@@ -18,7 +18,6 @@ $font-system: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Seg
 $font-mono-system: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace';
 
 $font-sans: "Inter", sans-serif;
-$font-serif: "Source Serif 4", sans-serif;
 $font-mono: "IBM Plex Mono", monospace;
 
 /* 
@@ -39,8 +38,8 @@ Some common ratios often used in design:
 ==========================================
 */
 
-$fs-default: 16px;
-$scale-ratio: 1.125;
+$fs-default: 14px;
+$scale-ratio: 1.067;
 
 @function scale($step) {
   @return math.div(

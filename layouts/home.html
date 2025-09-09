@@ -1,44 +1,21 @@
-{{- define "main" -}}
-  {{- $pages := site.RegularPages | shuffle -}}
-  {{- $paginator := .Paginate $pages -}}
-
-  {{- if eq $paginator.PageNumber 1 }}
-    <div class="markdown">
-      <h1>{{- .Title }}</h1>
-      {{- .Content }}
-    </div>
-  {{- else }}
-    <h1 class="sr-only">Page Number: ({{ $paginator.PageNumber }})</h1>
-    <br/>
-  {{- end }}
-
-  {{- range $paginator.Pages }}
-    {{ $title := .Title }}
-    <section class="markdown featured">
-      {{- if .Params.images }}
-        {{- with index .Params.images 0 }}
-          <div class="featured__image">
-            <img src="{{ . | safeURL }}" alt="Image In {{ $title }}"/>
-          </div>
-        {{- end }}
+{{ define "main" }}
+<article class="page" id="previewLinkWarpper">
+  {{- .Content | safeHTML }}
+  <br>
+  <h2 class="page__title page__title--primary-border">Most Recent Posts</h2>
+  {{- range site.RegularPages | first 3 }}
+    {{- $title := .Title }}
+    {{- $relPermalink := .RelPermalink }}
+    <section class="featured">
+      {{- with index .Params.images 0 }}
+        <figure class="thumbnail" onclick="window.location.href=`{{ $relPermalink }}`">
+          <img src="{{ . | safeURL }}" alt="Image In {{ $title }}" class="thumbnail__image"/>
+        </figure>
       {{- end }}
-      <div class="featured__body">
-        <h2 class="featured__title">{{- $title }}</h2>
-        <small class="terms">
-          {{- partial "components/icon.html" (dict "name" "calendar" "size" 14) -}}
-          <time datetime="{{ .Date | time.Format "2006-01-02T15:04:05-07:00" }}">
-            {{- .Date | time.Format "2006 January 02" -}}
-          </time>
-        </small>
-        {{ partial "components/terms.html" (dict "taxonomy" "tags" "page" .) }}
-        {{ partial "components/terms.html" (dict "taxonomy" "categories" "page" .) }}
-        <div class="featured__summary">
-          {{- .Summary }}
-        </div>
-        <a class="btn btn--primary" href="{{- .RelPermalink }}">READ MORE <span class="sr-only">For {{ $title }}</span></a>
-      </div>
+      <h2 class="featured__title">{{ $title }}</h2>
+      {{ .Summary }}
+      <a href="{{ $relPermalink }}" class="btn">READ MORE<span class="sr-only">For {{ $title }}</span></a>
     </section>
   {{- end }}
-
-  {{- partial "pagination.html" (dict "page" . "format" "default") }}
-{{- end -}}
+</article>
+{{ end }}

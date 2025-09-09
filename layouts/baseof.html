@@ -1,22 +1,18 @@
 <!DOCTYPE html>
-<html lang="{{ site.Language.LanguageCode -}}" dir="{{ or site.Language.LanguageDirection `ltr` }}" data-theme="light">
+<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
 <head>
-  {{- partial "headed/head.html" . -}}
+  {{- partial "headed/head.html" . }}
 </head>
-<body class="site-body">
-  <header class="site-header">
-    {{- partial "components/header.html" . -}}
+<body class="layout">
+  <header class="header">
+    {{- partial "layouts/header.html" . }}
   </header>
-  <main class="site-main">
-    <article class="site-main__page">
-      {{- block "main" . -}}{{- end -}}
-    </article>
-    <aside class="site-main__sidebar">
-      {{- partial "components/sidebar.html" . -}}
-    </aside>
+  <main class="main">
+    {{- block "main" . }}{{- end }}
+    {{- partial "layouts/sidebar.html" . }}
   </main>
-  <footer class="site-footer">
-    {{- partial "components/footer.html" . -}}
+  <footer class="footer">
+    {{- partial "layouts/footer.html" . }}
   </footer>
   <div id="linkpreview"></div>
 </body>

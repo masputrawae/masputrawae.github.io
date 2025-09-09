@@ -16,7 +16,7 @@ export const searchHandler = async () => {
   };
 
   try {
-    const searchUrl = searchInput.closest(".search")?.dataset.search;
+    const searchUrl = searchInput.closest(".search-bar")?.dataset.search;
     if (!searchUrl) throw new Error("Search URL not found");
 
     const response = await fetch(searchUrl);

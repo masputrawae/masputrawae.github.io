@@ -1,0 +1,115 @@
+@use "../abstracts/breakpoints" as b;
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+html {
+  @include m.custom-scrollbar(transparent, var(--accent-base));
+  font-family: v.$font-sans;
+  font-size: v.$fs-default;
+  background-color: var(--bg-base);
+  color: var(--text-base);
+}
+
+.sr-only {
+  @include m.visually-hidden();
+}
+
+.grid {
+  display: grid;
+  gap: 2.5em;
+  grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+
+  &--fluid-md {
+    grid-template-columns: repeat(auto-fit, minmax(24em, 1fr));
+  }
+
+  &--fluid-lg {
+    grid-template-columns: repeat(auto-fit, minmax(30em, 1fr));
+  }
+}
+
+.multi-column {
+  column-width: 20em;
+  column-gap: 1em;
+
+  &--fluid-lg {
+    column-width: 30em;
+  }
+
+  &__item {
+    display: inline-block;
+    width: 100%;
+    margin-block: 0em 2em;
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+.icon {
+  display: inline-block;
+}
+
+#linkpreview {
+  @include m.custom-scrollbar(var(--border-base), var(--accent-base));
+  display: none;
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  width: 400px;
+  max-height: 400px;
+  overflow: auto;
+  z-index: 999999999;
+  border: 1px solid var(--border-base);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background-color: var(--bg-base);
+
+  .page {
+    padding: 0.25em;
+    margin: 0;
+    font-size: 14px;
+
+    h1 {
+      margin: 0;
+    }
+  }
+}
+
+@include b.min(md) {
+  .main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 300px);
+  }
+}
+
+@include b.min(lg) {
+  html {
+    background-color: var(--html-bg);
+    padding: 2em 5em;
+    overflow: auto;
+  }
+
+  .layout {
+    max-width: 87.5em;
+    margin-inline: auto;
+    background-color: var(--bg-base);
+    box-shadow: var(--shadow-lg);
+    border-radius: 0.5em;
+    overflow: hidden;
+  }
+
+  .main {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
+  }
+}
+
+@include b.min(xl) {
+  .main {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 360px);
+  }
+}
