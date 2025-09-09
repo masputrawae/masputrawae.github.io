@@ -1,9 +1,9 @@
 main:
   - name: Main Page
-    pageRef: /posts
+    pageRef: /main_page/
     weight: 10
   - name: About
-    pageRef: /about
+    pageRef: /specials/about
     weight: 20
   - name: Random Page
     pageRef: /random_page

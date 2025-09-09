@@ -13,8 +13,12 @@
         </figure>
       {{- end }}
       <h2 class="featured__title">{{ $title }}</h2>
-      {{ .Summary }}
-      <a href="{{ $relPermalink }}" class="btn">READ MORE<span class="sr-only">For {{ $title }}</span></a>
+      <div class="featured__body">
+        {{ .Summary | safeHTML }}
+      </div>
+      {{ if .Truncated }}
+        <a href="{{ $relPermalink }}" class="btn">READ MORE<span class="sr-only">For {{ $title }}</span></a>
+      {{ end }}
     </section>
   {{- end }}
 </article>

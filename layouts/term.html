@@ -16,7 +16,9 @@
           </figure>
         {{- end }}
         <h2 class="featured__title">{{ $title }}</h2>
-        {{- .Summary | truncate 280 }}
+        <div class="featured__body">
+          {{ .Summary | safeHTML }}
+        </div>
         <a href="{{ $relPermalink }}" class="btn">READ MORE<span class="sr-only">For {{ $title }}</span></a>
       </section>
     {{- end }}
