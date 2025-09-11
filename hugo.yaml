@@ -31,12 +31,15 @@ privacy:
 
 frontmatter:
   date:
+    - created
     - date
     - :git
   lastmod:
+    - updated
     - lastmod
     - :git
   publishDate:
+    - created
     - publishDate
     - :git
 
