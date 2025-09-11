@@ -7,39 +7,39 @@
 {{- $dark := index $darkStyles .AlertType | default (index $default "dark") }}
 
 {{- if eq .Type "alert" }}
-<style>
-  [data-theme="light"] .callout--{{ .AlertType }} {
-    --callout-bg: {{ $light.bg }};
-    --callout-border: {{ $light.border }};
-    --callout-color: {{ $light.color }};
-  }
-  [data-theme="dark"] .callout--{{ .AlertType }} {
-    --callout-bg: {{ $dark.bg }};
-    --callout-border: {{ $dark.border }};
-    --callout-color: {{ $dark.color }};
-  }
-</style>
-<aside class="callout callout--{{ .AlertType }}">
-  <strong class="callout__header">
-    {{- with index $icons .AlertType }}
-      {{- partial "components/icon.html" (dict "name" . "size" 24) }}
-    {{- else }}
-      {{- partial "components/icon.html" (dict "name" "pen" "size" 24) }}
-    {{- end }}
-    <strong class="callout__title">
-      {{- with .AlertTitle }}
-        {{- . }}
+  <style>
+    [data-theme="light"] .callout--{{ .AlertType }} {
+      --callout-bg: {{ $light.bg }};
+      --callout-border: {{ $light.border }};
+      --callout-color: {{ $light.color }};
+    }
+    [data-theme="dark"] .callout--{{ .AlertType }} {
+      --callout-bg: {{ $dark.bg }};
+      --callout-border: {{ $dark.border }};
+      --callout-color: {{ $dark.color }};
+    }
+  </style>
+  <aside class="callout callout--{{ .AlertType }}">
+    <strong class="callout__header">
+      {{- with index $icons .AlertType }}
+        {{- partial "components/icon.html" (dict "name" . "size" 24) }}
       {{- else }}
-        {{- or (i18n .AlertType) (title .AlertType) }}
+        {{- partial "components/icon.html" (dict "name" "pen" "size" 24) }}
       {{- end }}
+      <strong class="callout__title">
+        {{- with .AlertTitle }}
+          {{- . }}
+        {{- else }}
+          {{- or (i18n .AlertType) (title .AlertType) }}
+        {{- end }}
+      </strong>
     </strong>
-  </strong>
-  <section class="callout__body">
+    <section class="callout__body">
+      {{- .Text }}
+    </section>
+  </aside>
+{{- else }}
+  <blockquote>
     {{- .Text }}
-  </section>
-</aside>
-{{ else }}
-<blockquote>
-  {{- .Text }}
-</blockquote>
-{{ end }}
+  </blockquote>
+{{- end }}

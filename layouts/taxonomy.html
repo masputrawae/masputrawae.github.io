@@ -1,41 +1,51 @@
 {{ define "main" }}
   {{- $title := replaceRE "[-_]+" " " .Title | title }}
-  <article class="page" id="previewLinkWarpper">
-    <h1 class="page__title">{{ $title }}</h1>
-    {{- .Content | safeHTML }}
-    <div class="multi-column">
+  <article>
+    <h1>{{ $title }}</h1>
+    {{ .Content }}
+
+    {{ if or (eq .Data.Plural "tags") (eq .Data.Plural "categories") }}
+      <div class="multi-column">
         {{- $current := "" }}
-        {{- /* === LOOP TERMS ALPHABETICAL === */}}
         {{- range .Data.Terms.Alphabetical }}
           {{- $first := upper (substr .Term 0 1) }}
     
-          {{- /* --- Jika huruf baru --- */}}
           {{- if ne $first $current }}
-            {{- /* Tutup blok sebelumnya jika ada --- */}}
             {{- if ne $current "" }}
-                </nav>
-              </div>
+              </ul>
+            </div>
             {{- end }}
     
-            {{- /* Buka blok baru --- */}}
-            <div class="multi-column__item">
-                <nav class="taxonomy">
-              <h2 class="taxonomy__label">{{ $first }}</h2>
+            <div class="multi-column__item taxonomy">
+              <h2 class="taxonomy__label" style="margin: 0;">{{ $first }}</h2>
+              <ul class="taxonomy__list">
             {{- $current = $first }}
           {{- end }}
     
-          {{- /* --- Isi item --- */}}
-          <a href="{{ .Page.RelPermalink }}" class="taxonomy__link">
-            {{- $term := replaceRE "[-_]+" " " .Term | title }}
-            <span>{{ $term }}</span>
-            <span>[ {{ .Count }} ]</span>
-          </a>
+          <li class="taxonomy__item">
+            <a href="{{ .Page.RelPermalink }}" class="taxonomy__link">
+              {{- $term := replaceRE "[-_]+" " " .Term | title }}
+              <span>{{ $term }}</span>
+              <span>{{ .Count }}</span>
+            </a>
+          </li>
         {{- end }}
-        {{- /* === END LOOP === */}}
-    
-        {{- /* Tutup blok terakhir --- */}}
-        </nav>
+        </ul>
       </div>
-    </div>
+    {{ else }}
+      <div class="taxonomy">
+        <ul class="taxonomy__list" style="padding: 0; list-style: none;">
+          {{ range .Data.Terms.ByCount }}
+            {{- $term := replaceRE "[-_]+" " " .Term | title }}
+            <li class="taxonomy__item">
+              <a href="{{ .Page.RelPermalink }}" class="taxonomy__link" style="border-block-end: 1px dotted var(--border-base);">
+                <span>{{ $term }}</span>
+                <span>{{ .Count }}</span>
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    {{ end }}
   </article>
 {{ end }}

@@ -1,0 +1,256 @@
+#=================== BASE SETTING
+baseURL: https://masputrawae.github.io/
+languageCode: id
+defaultContentLanguage: id
+title: Masputrawae
+timeZone: Asia/Jakarta
+enableEmoji: true
+
+#=================== PAGINATION
+pagination:
+  disableAliases: false
+  pagerSize: 20
+  path: page
+
+#=================== TAXONOMIES
+taxonomies:
+  tag: tags
+  category: categories
+  stage: stage
+
+# =================== SERVICES
+services:
+  googleAnalytics:
+    id: G-W9TMTZZYG5
+
+# =================== PRIVACY
+privacy:
+  googleAnalytics:
+    disable: false
+    respectDoNotTrack: true
+
+frontmatter:
+  date:
+    - date
+    - :git
+  lastmod:
+    - lastmod
+    - :git
+  publishDate:
+    - publishDate
+    - :git
+
+# =================== PARAMS
+params:
+  subtitle: Hanya Seorang Manusia Biasa
+  author: Putra Jaya
+  description: "Catatan perjalanan belajarku, penuh spontanitas, ide liar, dan potongan referensi untuk masa depan."
+  logo: images/logo.png
+  images:
+    - default-image.webp
+    - images/logo.png
+
+  social:
+    facebook_admin: "61566134978045"
+    facebook_app_id: "1112672776879424"
+    twitter: Masputrawae
+
+  #=================== PARAMS FAVICONS
+  favicons:
+    - rel: icon
+      type: image/x-icon
+      href: favicons/favicon.ico
+    - rel: apple-touch-icon
+      type: image/png
+      size: 180x180
+      href: favicons/apple-touch-icon.png
+    - rel: icon
+      type: image/png
+      size: 32x32
+      href: favicons/favicon-32x32.png
+    - rel: icon
+      type: image/png
+      size: 16x16
+      href: favicons/favicon-16x16.png
+    - rel: icon
+      type: image/png
+      size: 192x192
+      href: favicons/android-chrome-192x192.png
+    - rel: icon
+      type: image/png
+      size: 512x512
+      href: favicons/android-chrome-512x512.png
+
+#=================== MENUS
+menus:
+  # =================== MAIN
+  main:
+    - name: HOME
+      pageRef: /
+      weight: 10
+
+    - name: RANDOM PAGE
+      pageRef: /random_page
+      weight: 20
+      
+    - name: TAGS
+      pageRef: /tags
+      weight: 30
+    
+    - name: SEARCH
+      pageRef: /search
+      weight: 40
+  
+  # =================== SPECIAL
+  special:
+    - name: ABOUT ME
+      pageRef: /specials/about
+      weight: 10
+    
+    - name: DISCLAIMER
+      pageRef: /specials/disclaimer
+      weight: 20
+
+    - name: LICENSE
+      pageRef: /specials/license
+      weight: 40
+      
+    - name: CREDITS
+      pageRef: /specials/credit
+      weight: 50
+
+    - name: POLICY PRIVACY
+      pageRef: /specials/credit
+      weight: 60
+  
+  # =================== SOCIAL
+  social:
+    - name: TWITTER X
+      url: https://x.com/@Masputrawae
+      weight: 10
+    
+    - name: INSTAGRAM
+      url: https://www.example.com/
+      weight: 20
+
+    - name: FACEBOOK
+      url: https://www.example.com/
+      weight: 40
+      
+    - name: DISCORD
+      url: https://www.example.com/
+      weight: 50
+
+    - name: GITHUB
+      url: https://www.example.com/
+      weight: 60
+
+#=================== MARKUP
+markup:
+  goldmark:
+    renderHooks:
+      image:
+        enableDefault: true
+        useEmbedded: auto
+      link:
+        enableDefault: true
+        useEmbedded: auto
+
+    renderer:
+      unsafe: true
+
+    extensions:
+      definitionList: true
+      extras:
+        delete:
+          enable: true
+        insert:
+          enable: true
+        mark:
+          enable: true
+        subscript:
+          enable: true
+        superscript:
+          enable: true
+
+      footnote: true
+
+      passthrough:
+        delimiters:
+          block:
+            - - \[
+              - \]
+            - - $$
+              - $$
+          inline:
+            - - \(
+              - \)
+        enable: true
+
+    parser:
+      wrapStandAloneImageWithinParagraph: false
+      attribute:
+        block: true
+        title: true
+
+  tableOfContents:
+    endLevel: 6
+    ordered: false
+    startLevel: 2
+
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    style: "github-dark"
+    noClasses: false
+    lineNumbersInTable: false
+    lineNos: false
+    anchorLineNos: false
+    lineAnchors: ""
+    lineNoStart: 1
+    tabWidth: 4
+
+#=================== OUTPUTS
+mediaType: "application/json"
+outputFormats:
+  search:
+    mediaType: "application/json"
+    baseName: "search"
+    isPlainText: true
+    notAlternative: true
+
+  manifest:
+    mediaType: "application/json"
+    baseName: "manifest"
+    isPlainText: true
+    notAlternative: true
+
+outputs:
+  home:
+    - html
+    - rss
+    - sitemap
+    - search
+    - manifest
+
+#=================== MODULES
+module:
+  hugoVersion:
+    extended: true
+    min: 0.150.0
+
+  mounts:
+    - source: node_modules/bootstrap-icons/icons
+      target: assets/icons
+
+    - source: assets
+      target: assets
+
+    - source: assets/images
+      target: static
+
+    - source: images
+      target: static
+
+    - source: static
+      target: static

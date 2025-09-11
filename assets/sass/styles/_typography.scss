@@ -2,9 +2,28 @@
 @use "../abstracts/mixins" as m;
 @use "../abstracts/variables" as v;
 
-// ================
-// HEADING
-// ================
+html {
+  @include m.custom-scrollbar(var(--bg-base), var(--text-title));
+  background-color: var(--bg-base);
+  color: var(--text-base);
+  font-size: v.$fs-default;
+  font-family: v.$font-main;
+  font-weight: 400;
+}
+
+.site {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  line-height: 1.65;
+  letter-spacing: 0.03em;
+  overflow-x: hidden;
+  word-break: normal;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
 h1,
 h2,
 h3,
@@ -12,49 +31,43 @@ h4,
 h5,
 h6 {
   display: flow-root;
-  margin-block: 1em 1.5em;
   line-height: 1.75;
   font-weight: 600;
-  width: 100%;
   color: var(--text-title);
+  text-shadow: var(--text-shadow-sm);
+  margin-block: 1em 0.25em;
 }
 
 h1,
 h2 {
-  border-block-end: 1px solid var(--border-base);
+  border-block-end: 1px dotted var(--border-base);
 }
 
 h1 {
-  font-size: v.$fs-10xl;
-  margin-block-end: 0.5em;
+  font-size: v.$fs-5xl;
+  margin-block-start: 0;
 }
 
 h2 {
-  font-size: v.$fs-8xl;
-}
-
-h3 {
   font-size: v.$fs-4xl;
 }
 
+h3,
 h4,
 h5,
 h6 {
-  font-weight: 700;
   font-size: v.$fs-lg;
 }
 
-// ================
-// PARAGRAPH
-// ================
 p {
-  display: flow-root;
-  margin-block: 1em;
+  margin-block-end: 1em;
 
   + p {
-    margin-block: 1em 1.5em;
+    margin-block-start: 1.5em;
+    margin-block-end: 1em;
   }
 }
+
 b,
 strong {
   color: var(--text-title);
@@ -65,19 +78,25 @@ small {
   font-size: 80%;
 }
 
-// ================
-// LINK
-// ================
+mark {
+  padding-inline: 0.5em;
+  border: 1px solid var(--border-base);
+  box-shadow: var(--shadow-sm);
+}
+
 a {
-  color: var(--accent-base);
+  color: var(--link);
 
   &:hover {
-    color: var(--accent-second);
+    color: var(--link-hover);
   }
 }
 
 .link {
   text-decoration: underline;
+  &:visited {
+    color: var(--link-visited);
+  }
 }
 
 .broken-link,
@@ -85,101 +104,74 @@ a {
   color: red;
 }
 
-// ================
-// LIST
-// ================
-:where(.page) {
-  ul,
-  ol {
-    padding-inline-start: 2em;
-    margin: 1.5em 0;
-  }
-
-  ul {
-    list-style-type: disc;
-  }
-
-  ol {
-    list-style-type: decimal;
-  }
-
-  li::marker {
-    font-size: v.$fs-lg;
-  }
-
-  ul li,
-  ol li {
-    margin: 0.5em 0;
-  }
-
-  ul ul,
-  ol ol,
-  ul ol,
-  ol ul {
-    margin: 0.5em 0;
-    padding-inline-start: 2em;
-  }
+hr {
+  display: flow-root;
+  margin-block: 2em;
+  border: none;
+  height: 2px;
+  background-color: var(--border-second);
 }
 
+ul,
+ol {
+  padding-inline-start: 2.5em;
+  margin-block: 1em;
+  display: flow-root;
+}
+
+li {
+  margin-block: 0.5em;
+}
+
+ul ul,
+ol ol {
+  padding-inline-start: 1.75em;
+}
+
+/* ===== Unordered List (ul) ===== */
+ul:where(:not(:where(ul, ol) ul)) {
+  list-style-type: disc;
+}
+ul ul {
+  list-style-type: circle;
+}
+ul ul ul {
+  list-style-type: square;
+}
+ul ul ul ul {
+  list-style-type: disc;
+}
+
+/* ===== Ordered List (ol) ===== */
+ol:where(:not(:where(ul, ol) ol)) {
+  list-style-type: decimal;
+}
+ol ol {
+  list-style-type: lower-alpha;
+}
+ol ol ol {
+  list-style-type: lower-roman;
+}
+ol ol ol ol {
+  list-style-type: decimal;
+}
+
+// DEFINITION LIST
 dl {
-  margin-block: 1.75em;
+  margin-block: 1em;
 }
 
 dt {
-  padding-block-end: 0.25em;
-  color: var(--text-title);
-  border-block-end: 1px solid var(--border-base);
   font-weight: 600;
+  margin-top: 0.5em;
 }
 
 dd {
-  margin: 0.5em;
-  padding-inline-start: 1em;
-  color: var(--text-tertiary);
-  border-inline-start: 3px solid var(--text-title);
+  margin-inline-start: 1.5em;
+  margin-block: 0.25em 0.5em;
 }
 
-// ================
-// HR
-// ================
-hr {
-  margin-block: 3em;
-  display: flow-root;
-  border: none;
-  height: 3px;
-  background-color: var(--border-base);
-}
-
-// ================
-// BLOCKQUOTE
-// ================
-blockquote {
-  letter-spacing: 0.025em;
-  margin-block: 1.5em;
-  padding-inline-start: 1em;
-  color: var(--text-muted);
-  border-inline-start-width: 0.25em;
-  border-inline-start-color: var(--accent-base);
-  quotes: "“" "”" "‘" "’";
-  font-style: italic;
-
-  p:first-of-type::before {
-    content: open-quote;
-  }
-
-  p:last-of-type::after {
-    content: close-quote;
-  }
-
-  p:first-of-type::before,
-  p:last-of-type::after {
-    font-size: v.$fs-2xl;
-  }
-}
-
-// ================
 // TABLE
-// ================
 .table-container {
   display: flow-root;
   -webkit-overflow-scrolling: touch;
@@ -188,6 +180,7 @@ blockquote {
   border-radius: 0.25em;
   border: 1px solid var(--border-base);
   border-block-end: none;
+  box-shadow: var(--shadow-sm);
 }
 
 table {
@@ -225,7 +218,7 @@ tbody tr:nth-child(even) {
   background-color: var(--bg-second);
 }
 
-// // ------------------------------ FOOTNOTE
+// FOOTNOTE
 .footnote-ref {
   margin-inline-start: 0.1em;
   text-decoration: underline dotted;
@@ -265,88 +258,119 @@ tbody tr:nth-child(even) {
   }
 }
 
-// // ------------------------------ CALLOUT
+// ABBR
+abbr[title] {
+  position: relative;
+  text-decoration: underline dotted;
+  cursor: help;
+
+  &:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-second);
+    color: var(--text-base);
+    padding: 0.25em 0.6em;
+    margin-inline: 1.5em;
+    border-radius: 0.25em;
+    font-size: 0.875em;
+    white-space: nowrap;
+    box-shadow: var(--shadow-md);
+    z-index: 10;
+  }
+}
+
+// BLOCKQUOTE
+blockquote {
+  display: flow-root;
+  border-inline-start: 4px solid var(--link);
+  padding-inline-start: 1em;
+  margin-inline-start: 1em;
+  font-style: italic;
+  position: relative;
+  color: var(--text-muted);
+  font-style: italic;
+  quotes: "“" "”" "‘" "’";
+}
+
+// CALLOUT
 .callout {
+  display: flow-root;
+  margin-block: 2em;
   border: 1px solid var(--callout-border);
   background-color: var(--callout-bg);
-  display: flow-root;
-  box-shadow: var(--base-shadow);
+  box-shadow: var(--shadow-sm);
+  border-radius: 0.75em;
+  overflow: hidden;
 
   &__header {
-    @include m.flex-justify(start, center);
-    gap: 0.5em;
-    padding: 0.5em 0.75em;
+    padding: 1em 2em;
     border-block-end: 1px solid var(--callout-border);
-    margin-block-end: -1px;
-    color: var(--callout-color);
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+    background-color: var(--callout-bg);
   }
 
   &__title {
-    color: var(--callout-color);
     font-size: v.$fs-xl;
+    color: var(--callout-color);
   }
 
   &__body {
     padding: 1em;
   }
+
+  .icon {
+    color: var(--callout-color);
+  }
 }
 
-// // ------------------------------ FIGURE
+// IMAGE
 .figure {
   display: block;
-  margin: 1.25rem 0;
+  margin: 1em 0;
   text-align: center;
   max-width: 100%;
 
   &__image {
     display: block;
+    margin: 0 auto;
     max-width: 100%;
     height: auto;
-    margin: 0 auto;
-    border-radius: 0.5rem;
+    border-radius: 0.5em;
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 1));
   }
 
   &__caption {
-    font-size: 0.875rem;
-    color: #6b7280;
-    margin-top: 0.5rem;
+    font-size: v.$fs-sm;
+    color: var(--text-muted);
+    margin-top: 0.5em;
     line-height: 1.4;
   }
 }
 
-// ------------------------------ FLOATING
 .float {
-  margin: 1rem;
-
-  &--left {
-    float: left;
-    margin-right: 1.5rem;
-    margin-left: 0;
-    text-align: left;
-  }
-
-  &--right {
-    float: right;
-    margin-left: 1.5rem;
-    margin-right: 0;
-    text-align: right;
-  }
-
-  &--center {
-    float: none !important;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+  margin: 2em;
+  
+  @include b.min(md) {
+    &--left {
+      float: left;
+      margin-right: 2em;
+      text-align: left;
+    }
+    &--right {
+      float: right;
+      margin-left: 2em;
+      text-align: right;
+    }
   }
 }
 
-@include b.max(md) {
-  .float--left,
-  .float--right {
-    float: none;
-    margin: 1rem auto;
-    display: block;
-    text-align: center;
-  }
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
 }

@@ -1,27 +1,28 @@
 {{ define "main" }}
-  {{- $pages := .Pages -}}
-  {{- $paginator := .Paginate $pages -}}
   {{- $title := replaceRE "[-_]+" " " .Title | title }}
-
-  <article class="page" id="previewLinkWarpper">
-    <h1 class="page__title page__title--primary-border">{{ $title }}</h1>
-    <br>
-    {{- range $paginator.Pages }}
-      {{- $title := .Title }}
-      {{- $relPermalink := .RelPermalink }}
-      <section class="featured">
-        {{- with index .Params.images 0 }}
-          <figure class="thumbnail" onclick="window.location.href=`{{ $relPermalink }}`">
-            <img src="{{ . | safeURL }}" alt="Image In {{ $title }}" class="thumbnail__image"/>
-          </figure>
-        {{- end }}
-        <h2 class="featured__title">{{ $title }}</h2>
-        <div class="featured__body">
-          {{ .Summary | safeHTML }}
-        </div>
-        <a href="{{ $relPermalink }}" class="btn">READ MORE<span class="sr-only">For {{ $title }}</span></a>
-      </section>
-    {{- end }}
-    {{- partial "pagination.html" (dict "page" . "format" "default") }}
+  <article>
+    <h1>{{ $title }}</h1>
+    {{ .Content }}
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Created</th>
+            <th>Updated</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{ range .Pages }}
+            {{- $title := replaceRE "[-_]+" " " .Title | title }}
+            <tr>
+              <td><a href="{{ .RelPermalink }}" class="internal-link">{{ $title }}</a></td>
+              <td>{{ partial "components/date-time.html" (dict "date" .Date ) }}</td>
+              <td>{{ partial "components/date-time.html" (dict "date" .Lastmod ) }}</td>
+            </tr>
+          {{ end }}
+        </tbody>
+      </table>
+    </div>
   </article>
 {{ end }}

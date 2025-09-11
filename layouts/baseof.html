@@ -1,19 +1,29 @@
 <!DOCTYPE html>
-<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}" data-theme="light">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+  {{- partial "headed/init-theme" . }}
+  {{- partial "headed/random-page" . }}
+  {{- partial "headed/font.html" . }}
   {{- partial "headed/head.html" . }}
+  {{- partial "opengraph.html" . }}
+  {{- partial "schema.html" . }}
+  {{- partial "twitter_cards.html" . }}
+  {{- partial "google_analytics.html" . }}
+  {{- partialCached "headed/sass.html" . }}
 </head>
-<body class="layout">
-  <header class="header">
-    {{- partial "layouts/header.html" . }}
-  </header>
-  <main class="main">
-    {{- block "main" . }}{{- end }}
-    {{- partial "layouts/sidebar.html" . }}
-  </main>
-  <footer class="footer">
-    {{- partial "layouts/footer.html" . }}
-  </footer>
-  <div id="linkpreview"></div>
+<body class="site">
+  {{- partial "layouts/header.html" . }}
+  {{- partial "layouts/sidebar.html" . }}
+  <main class="main">{{ block "main" . }}{{ end }}</main>
+  {{- partial "layouts/footer.html" . }}
+  {{- /*  ========================================  */ -}}
+  {{- partial "components/link-preview.html" . }}
+  {{- partial "components/lightbox.html" . }}
+  {{- partial "headed/mermaid.html" . }}
+  {{- partial "headed/mathjax.html" . }}
+  {{- partial "headed/js.html" (dict "jsPath" "js/main.js" ) }}
 </body>
 </html>

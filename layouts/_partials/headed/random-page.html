@@ -1,7 +1,7 @@
-{{ define "main" }}
+{{- if eq .Section "random_page"}}
   <script>
     const urls = [{{- $pages := site.RegularPages -}}{{- range $index, $page := $pages -}}"{{ $page.RelPermalink }}"{{ if lt (add $index 1) (len $pages) }},{{ end }}{{- end -}}]
     const randomIndex = Math.floor(Math.random() * urls.length); 
     window.location.href = urls[randomIndex]
   </script>
-{{ end }}
+{{- end }}

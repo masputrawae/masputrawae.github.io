@@ -1,13 +1,12 @@
-import { $ } from "js/helper.js";
-import Fuse from "../module_external/fuse.js";
+import Fuse from "fuse.js";
 
-export const searchHandler = async () => {
-  const searchInput = $("#searchInput");
-  const resultsContainer = $("#results");
+const searchHandler = async () => {
+  const searchInput = document.querySelector("#searchInput");
+  const resultsContainer = document.querySelector("#results");
 
   if (!searchInput || !resultsContainer) return;
 
-  const resultsPanel = $("#searchContainerResults");
+  const resultsPanel = document.querySelector("#searchContainerResults");
 
   const clearSearch = () => {
     searchInput.value = "";
@@ -37,10 +36,10 @@ export const searchHandler = async () => {
         ? results
             .map((res) => {
               const item = res.item;
-              return `<a href="${item.url}" class="widget__link">${item.title.toUpperCase()}</a>`;
+              return `<li><a href="${item.url}">${item.title}</a></li>`;
             })
             .join("")
-        : `<p class="class="widget__link link-broken">No results found for: "${query}"</p>`;
+        : `<p class="class="link-broken">No results found for: "${query}"</p>`;
       resultsPanel.hidden = false;
     };
 
@@ -73,6 +72,8 @@ export const searchHandler = async () => {
     console.error("Search error:", err);
     resultsPanel.hidden = false;
     resultsContainer.innerHTML = `
-      <p class="class="widget__link link-broken">Search is currently unavailable</p>`;
+      <p class="class="link-broken">Search is currently unavailable</p>`;
   }
 };
+
+document.addEventListener("DOMContentLoaded", searchHandler)

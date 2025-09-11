@@ -1,28 +1,11 @@
-<a href="{{ site.BaseURL | relURL }}" class="header__brand">
-  <strong class="header__title">{{ site.Title | upper }}</strong>
-  <em class="header__subtitle">{{ site.Params.subtitle | default "Tempat Berbagi Keluh Kesah" | upper }}</em>
-</a>
+<header class="header">
+  <a href="{{ site.BaseURL | relLangURL }}" class="header__brand">
+    <h1 class="header__title">{{ site.Title }}</h1>
+    <em class="header__subtitle">{{ site.Params.subtitle }}</em>
+  </a>
 
-<button class="header__btn" id="menu-toggle">
-  MENU {{ partial "components/icon.html" (dict "name" "list" "size" 24 ) }}
-</button>
-
-<nav id="menu" class="header__menu">
-  {{- partial "components/menu.html" (dict "menuID" "main" "page" .) }}
-</nav>
-
-{{- if not .IsHome }}
-<nav aria-label="breadcrumb" class="header__breadcrumb">
-  <ol class="breadcrumb">
-    {{- range .Ancestors.Reverse }}
-      <li class="breadcrumb__item">
-        <a href="{{ .RelPermalink }}" class="breadcrumb__link">{{ .LinkTitle }}</a>
-        {{- partial "components/icon.html" (dict "name" "chevron-double-right") }}
-      </li>
-    {{- end }}
-    <li class="breadcrumb__item">
-      <a aria-current="page" href="{{ .RelPermalink }}" class="breadcrumb__link breadcrumb__link--is-active">{{- .LinkTitle }}</a>
-    </li>
-  </ol>
-</nav>
-{{- end }}
+  <button class="header__toggle-menu" id="toggle-menu">
+    <span class="sr-only">Toggle Menu</span>
+    {{ partial "components/icon" (dict "name" "list" "size" 28) }}
+  </button>
+</header>

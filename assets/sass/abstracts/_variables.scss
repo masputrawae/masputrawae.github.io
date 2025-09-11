@@ -14,11 +14,11 @@ $breakpoints: (
 // =====================
 // FONTS FAMILY
 // =====================
-$font-system: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"';
-$font-mono-system: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace';
+$font-system: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-mono-system: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
-$font-sans: "Inter", sans-serif;
-$font-mono: "IBM Plex Mono", monospace;
+$font-main: 'Inter', sans-serif;
+$font-mono: 'Fira Code', monospace;
 
 /* 
 ==========================================

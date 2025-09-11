@@ -1,8 +1,9 @@
-{{- with resources.Get "js/main.js" }}
+{{ $jsPath := .jsPath }}
+{{- with resources.Get $jsPath }}
   {{- $opts := dict
     "minify" (not hugo.IsDevelopment)
     "sourceMap" (cond hugo.IsDevelopment "external" "")
-    "targetPath" "assets/js/main.js"
+    "targetPath" $jsPath
   }}
   {{- with . | js.Build $opts }}
     {{- if hugo.IsDevelopment }}

@@ -4,7 +4,6 @@
     "id": "{{ .Params.id | default .Permalink }}",
     "title": "{{ .Title }}",
     "description": {{ .Summary | truncate 160 | plainify | jsonify }},
-    "image": "{{ with index .Params.images 0 }}{{ . | safeURL }}{{ else }}https://placehold.co/50{{ end }}",
     "url": "{{ .RelPermalink }}",
     "tags": [{{ range $index, $tag := .Params.Tags }}{{ if $index }}, {{ end }}"{{ $tag }}"{{ end }}],
     "date": "{{ .Date.Format "2006-01-02" }}"

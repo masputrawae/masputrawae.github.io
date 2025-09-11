@@ -1,5 +1,5 @@
 {
-  "name": "fantastic-octo-parakeet",
+  "name": "gas-poll",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,18 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/masputrawae/fantastic-octo-parakeet.git"
+    "url": "git+https://github.com/masputrawae/gas-poll.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/masputrawae/fantastic-octo-parakeet/issues"
+    "url": "https://github.com/masputrawae/gas-poll/issues"
   },
-  "homepage": "https://github.com/masputrawae/fantastic-octo-parakeet#readme",
+  "homepage": "https://github.com/masputrawae/gas-poll#readme",
   "dependencies": {
-    "@floating-ui/dom": "^1.7.2",
     "bootstrap-icons": "^1.13.1",
     "fuse.js": "^7.1.0"
   },

@@ -2,7 +2,7 @@
   {{- $opts := dict
     "enableSourceMap" (not hugo.IsProduction)
     "outputStyle" (cond hugo.IsProduction "compressed" "expanded")
-    "targetPath" "assets/css/main.css"
+    "targetPath" "main.css"
     "transpiler" "dartsass"
     "vars" site.Params.styles
   }}

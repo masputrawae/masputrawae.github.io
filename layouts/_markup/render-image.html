@@ -39,7 +39,7 @@
 {{- $w := cond (ne $width "") (printf "width=\"%s\"" $width) "" -}}
 {{- $h := cond (ne $height "") (printf "height=\"%s\"" $height) "" -}}
 
-{{- $imgTag := printf `<img src="%s" alt="%s" title="%s" %s %s loading="lazy" decoding="async" class="%s" />` $src $alt $title $w $h $imgClass | safeHTML -}}
+{{- $imgTag := printf `<img src="%s" alt="%s" title="%s" %s %s loading="lazy" decoding="async" class="%s" onclick="openImage(this)" />` $src $alt $title $w $h $imgClass | safeHTML -}}
 
 {{- $imgWrapped := cond (ne $link "") (printf `<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>` $link $imgTag) $imgTag | safeHTML -}}
 
@@ -51,3 +51,5 @@
 {{- else }}
   {{ $imgWrapped }}
 {{- end }}
+
+{{- .Page.Store.Set "hasImages" true -}}
