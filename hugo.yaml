@@ -116,33 +116,33 @@ menus:
       weight: 40
       
     - name: CREDITS
-      pageRef: /specials/credit
+      pageRef: /specials/credits
       weight: 50
 
     - name: POLICY PRIVACY
-      pageRef: /specials/credit
+      pageRef: /specials/privacy_policy
       weight: 60
   
   # =================== SOCIAL
   social:
     - name: TWITTER X
-      url: https://x.com/@Masputrawae
+      url: https://x.com/Masputrawae
       weight: 10
     
     - name: INSTAGRAM
-      url: https://www.example.com/
+      url: https://www.instagram.com/masputrawae/
       weight: 20
 
     - name: FACEBOOK
-      url: https://www.example.com/
+      url: https://www.facebook.com/profile.php?id=61566134978045
       weight: 40
       
     - name: DISCORD
-      url: https://www.example.com/
+      url: https://discord.gg/nM4EP8DJFZ
       weight: 50
 
     - name: GITHUB
-      url: https://www.example.com/
+      url: https://github.com/masputrawae
       weight: 60
 
 #=================== MARKUP
