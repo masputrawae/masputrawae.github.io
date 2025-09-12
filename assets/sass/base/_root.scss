@@ -1,33 +1,32 @@
 :root {
-  --cl-fix-white: #fff;
-  --cl-fix-black: #000;
+  --fix-white: #fff;
+  --fix-black: #000;
 
   --shadow-sm: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   --shadow-md: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  --shadow-lg: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-
-  --text-shadow-sm: 0 1px 1px rgba(0, 0, 0, 0.08);
-  --text-shadow-md: 0 2px 3px rgba(0, 0, 0, 0.12);
 }
 
 :root[data-theme="light"] {
-  --bg-base: #fafafa;
-  --bg-second: #f4f4f5;
-  --bg-third: #e4e4e7;
+  --bg-html: #fff;
 
-  --text-title: #09090b;
-  --text-base: #18181b;
-  --text-muted: #52525b;
-  --text-inverse: #fafafa;
+  --bg-base: #fafafa; // ZINC 50
+  --bg-second: #e4e4e7; // ZINC 200
+  --bg-third: #d4d4d8; // ZINC 300
 
-  --link: #1d4ed8;
-  --link-hover: #2563eb;
-  --link-visited: #7e22ce;
-  --link-broken: #991b1b;
+  --text-title: #09090b; // ZINC 950
+  --text-base: #27272a; // ZINC 800
+  --text-muted: #3f3f46; // ZINC 700
 
-  --border-base: #d4d4d8;
-  --border-second: #a1a1aa;
-  --border-strong: #52525b;
+  --text-link: #6d28d9;
+  --text-link-hover: #5b21b6;
+
+  --border-base: #a1a1aa; // ZINC 400
+  --border-second: #71717a; // ZINC 500
+
+  --shadow-lg:
+    rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
+  --text-shadow-title: 2px 2px 2px rgb(197, 197, 197);
 
   /* SYNTAX HIGHLIGHT TOKEN LIGHT */
   --bg: var(--bg-second);
@@ -64,23 +63,25 @@
 }
 
 :root[data-theme="dark"] {
-  --bg-base: #0d0d0f;
-  --bg-second: #18181b;
-  --bg-third: #27272a;
+  --bg-html: #09090b;
 
-  --text-title: #fafafa;
-  --text-base: #f4f4f5;
-  --text-muted: #a1a1aa;
-  --text-inverse: #09090b;
+  --bg-base: #18181b; // ZINC 900
+  --bg-second: #27272a; // ZINC 800
+  --bg-third: #3f3f46; // ZINC 700
 
-  --link: #93c5fd;
-  --link-hover: #60a5fa;
-  --link-visited: #d8b4fe;
-  --link-broken: #f87171;
+  --text-title: #fafafa; // ZINC 50
+  --text-base: #e4e4e7; // ZINC 200
+  --text-muted: #d4d4d8; // ZINC 300
 
-  --border-base: #3f3f46;
-  --border-second: #52525b;
-  --border-strong: #a1a1aa;
+  --text-link: #c084fc;
+  --text-link-hover: #d8b4fe;
+
+  --border-base: #52525b; // ZINC 600
+  --border-second: #71717a; // ZINC 500
+
+  --shadow-lg: rgba(0, 0, 0, 1) 0px 10px 20px, rgba(0, 0, 0, 1) 0px 6px 6px;
+
+  --text-shadow-title: 2px 3px 1px rgba(1, 1, 1);
 
   /* SYNTAX HIGHLIGHT TOKEN DARK */
   --bg: var(--bg-second);

@@ -1,6 +1,6 @@
 import Fuse from "fuse.js";
 
-const searchHandler = async () => {
+export const searchHandler = async () => {
   const searchInput = document.querySelector("#searchInput");
   const resultsContainer = document.querySelector("#results");
 
@@ -36,7 +36,7 @@ const searchHandler = async () => {
         ? results
             .map((res) => {
               const item = res.item;
-              return `<li><a href="${item.url}">${item.title}</a></li>`;
+              return `<li><a href="${item.url}" class="internal-link">${item.title}</a></li>`;
             })
             .join("")
         : `<p class="class="link-broken">No results found for: "${query}"</p>`;
@@ -75,5 +75,3 @@ const searchHandler = async () => {
       <p class="class="link-broken">Search is currently unavailable</p>`;
   }
 };
-
-document.addEventListener("DOMContentLoaded", searchHandler)

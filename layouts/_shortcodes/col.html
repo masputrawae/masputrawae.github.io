@@ -1,7 +1,0 @@
-<div class="grid">
-{{- range split .Inner "<--->" }}
-{{- printf "<div class=\"grid__item\">" | htmlUnescape | safeHTML }}
-{{- . | markdownify | safeHTML }}
-{{- printf "</div>" | htmlUnescape | safeHTML }}
-{{- end }}
-</div>

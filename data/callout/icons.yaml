@@ -9,7 +9,7 @@ note: pen
 abstract: clipboard-data
 todo: check2-circle
 question: question-circle
-failure: x
+failure: x-circle
 example: list-ul
 quote: quote
 important: exclamation-triangle-fill
@@ -59,7 +59,7 @@ threads-fill: threads-fill
 tiktok: tiktok
 twitch: twitch
 twitter: twitter
-twitter-x: twitter-x
+x: twitter-x
 vimeo: vimeo
 wechat: wechat
 whatsapp: whatsapp

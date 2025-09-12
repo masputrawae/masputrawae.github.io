@@ -1,6 +1,5 @@
-@use "styles/root";
-@use "styles/reset";
-@use "styles/global";
-@use "styles/typography";
-@use "styles/syntax";
-@use "styles/layouts";
+@use "base/root";
+@use "base/reset";
+@use "base/typography";
+@use "base/syntax";
+@use "base/layouts";

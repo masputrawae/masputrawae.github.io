@@ -5,7 +5,6 @@
   {{- $description = .Summary | plainify | truncate 160 | htmlEscape -}}
 {{- end -}}
 
-
 <meta name="robots" content="index, follow" />
 <meta name="description" content="{{- $description -}}" />
 <meta name="author" content="{{- .Params.author | default site.Params.author -}}" />
@@ -15,24 +14,13 @@
 <link rel="manifest" href="{{- "manifest.json" | absURL -}}" />
 <link rel="sitemap" type="application/xml" href="{{- "sitemap.xml" | absURL -}}" />
 
-{{- with .OutputFormats.Get "rss" }}
-  {{- printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
-{{- end }}
+{{ with .OutputFormats.Get "rss" }}
+  {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+{{ end }}
 
-{{- if .Params.tags -}}
-  <meta
-    name="keywords"
-    content="{{- with .Params.tags -}}
-      {{- delimit . ", " -}}
-    {{- else -}}
-      {{- $.Site.Params.keywords -}}
-    {{- end -}}" />
-{{- end -}}
-
-{{- range site.Params.favicons -}}
-  <link
-    rel="{{ .rel }}"
-    {{ with .type }}type="{{ . }}"{{ end }}
-    {{ with .size }}sizes="{{ . }}"{{ end }}
-    href="{{ .href | absURL }}" />
-{{- end -}}
+{{ if .Params.tags -}}
+  <meta name="keywords" content="{{ with .Params.tags -}}{{ delimit . ", " }}{{ else }}{{ $.Site.Params.keywords }}{{ end -}}" />
+{{ end -}}
+{{ range site.Params.favicons -}}
+  <link rel="{{ .rel }}" {{ with .type }}type="{{ . }}"{{ end }} {{ with .size }}sizes="{{ . }}"{{ end }} href="{{ .href | absURL }}" />
+{{ end -}}

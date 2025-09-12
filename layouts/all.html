@@ -1,27 +1,68 @@
 {{- define "main" }}
-  <article class="clearfix">
-    {{- if not .IsHome }}
-      <h1>{{ .Title }}</h1>
-    {{- end }}
-    {{- .Content }}
+  {{- $title := replaceRE "[-_]+" " " .Title | title }}
+  
+  {{- if .IsHome }}
+    {{ .Content }}
+  {{- else }}
+    <h1 class="heading heading--1">{{ $title }}</h1>
+    {{ .Content }}
+    {{- if in "taxonomy" .Kind }}
+      <div class="taxonomy">
+        {{ range .Data.Terms.Alphabetical }}
+          {{- $title := replaceRE "[-_]+" " " .Page.Title | title }}
+          <a href="{{ .Page.RelPermalink }}" class="internal-link taxonomy__link">
+            {{ partial "icon.html" (dict "name" "tag-fill" ) }}
+            <span>{{ $title }}</span>
+            <span>({{ .Count }})</span>
+          </a>
+        {{ end }}
+      </div>
+      <style>
+        .taxonomy {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 0.5em;
+          flex-wrap: wrap;
+          margin-block-start: 1.5em;
+        }
 
-    {{- if eq .Section "search" }}
-      <label class="search-bar" data-search="{{ "search.json" | relURL }}">
-        {{ partial "components/icon.html" (dict "name" "search" "class" "search__icon" "size" 18) }}
-        <input
-          type="search"
-          name="searchInput"
-          id="searchInput"
-          class="search-bar__input"
-          placeholder="Search Content..."
-          autocomplete="off" />
-      </label>
-
-      <nav class="results" id="searchContainerResults" hidden>
-        <h2>RESULTS SEARCH</h2>
-        <ul id="results" aria-live="polite"></ul>
-      </nav>
-      {{- partialCached "headed/js.html" (dict "jsPath" "js/search.js" ) }}
+        .taxonomy__link {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5em;
+          width: fit-content;
+          padding: 0.25em 0.75em;
+          border-radius: 9999em;
+          box-shadow: var(--shadow-md);
+          border: 1px solid var(--border-base);
+          text-decoration: none;
+        }
+      </style>
     {{- end }}
-  </article>
+    {{ if in "term" .Kind }}
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Created</th>
+              <th>Updated</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{ range .Pages }}
+              {{- $title := replaceRE "[-_]+" " " .Title | title }}
+              <tr>
+                <td><a href="{{ .RelPermalink }}" class="internal-link">{{ $title }}</a></td>
+                <td>{{ partial "date-time.html" (dict "date" .Date ) }}</td>
+                <td>{{ partial "date-time.html" (dict "date" .Lastmod ) }}</td>
+              </tr>
+            {{ end }}
+          </tbody>
+        </table>
+      </div>
+    {{ end }}
+  {{- end }}
 {{- end }}

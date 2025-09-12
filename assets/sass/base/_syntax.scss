@@ -25,9 +25,9 @@ code:not(pre code) {
     padding: 0.75em;
     margin-block: 1em;
     background-color: var(--bg);
-    border: 1px solid var(--border-base);
     overflow-x: auto;
-    border-radius: 0.5em;
+    border-radius: 0.25em;
+    box-shadow: var(--shadow-md);
   }
 }
 

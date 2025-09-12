@@ -1,109 +1,335 @@
+tip:
+  bg: "#e8f5cc"
+  border: "#bef264"
+  color: "#365314"
+
 info:
-  bg: "#dbeafe90"  # blue-100 + 10
-  border: "#60a5fa" # blue-400
-  color: "#1e40af"  # blue-700
+  bg: "#ccf5fd"
+  border: "#67e8f9" 
+  color: "#164e63"
 
 success:
-  bg: "#dcfce790"  # green-100 + 10
-  border: "#4ade80" # green-400
-  color: "#166534"  # green-700
+  bg: "#dcfce7"
+  border: "#86efac"
+  color: "#14532d"
 
 warning:
-  bg: "#fef9c390"  # yellow-100 + 10
-  border: "#fbbf24" # yellow-400
-  color: "#92400e"  # yellow-700
+  bg: "#fef3cd"
+  border: "#fcd34d"
+  color: "#713f12"
 
 danger:
-  bg: "#fee2e290"  # red-100 + 10
-  border: "#f87171" # red-400
-  color: "#991b1b"  # red-700
+  bg: "#fee2e2"
+  border: "#fca5a5"
+  color: "#7f1d1d"
 
 error:
-  bg: "#fee2e290"  # red-100 + 10
-  border: "#fca5a5" # red-300
-  color: "#b91c1c"  # red-700
+  bg: "#ffedd5"
+  border: "#fdba74"
+  color: "#7c2d12"
 
 bug:
-  bg: "#f3e8ff90"  # purple-100 + 10
-  border: "#c084fc" # purple-300
-  color: "#6b21a8"  # purple-700
+  bg: "#f3e8ff"
+  border: "#d8b4fe"
+  color: "#581c87"
 
 note:
-  bg: "#ecfeff90"  # cyan-100 + 10
-  border: "#22d3ee" # cyan-400
-  color: "#0e7490"  # cyan-700
+  bg: "#e0e7ff"
+  border: "#a5b4fc"
+  color: "#312e81"
 
 abstract:
-  bg: "#fce7f390"  # pink-100 + 10
-  border: "#f472b6" # pink-400
-  color: "#9d174d"  # pink-700
+  bg: "#fae8ff"
+  border: "#f0abfc"
+  color: "#701a75"
 
 todo:
-  bg: "#ecfdf590"  # teal-100 + 10
-  border: "#2dd4bf" # teal-400
-  color: "#0f766e"  # teal-700
+  bg: "#ccfbf1"
+  border: "#5eead4"
+  color: "#134e4a"
 
 question:
-  bg: "#f0f9ff90"  # sky-100 + 10
-  border: "#38bdf8" # sky-400
-  color: "#0369a1"  # sky-700
+  bg: "#e0f2fe"
+  border: "#7dd3fc"
+  color: "#0c4a6e"
 
 failure:
-  bg: "#f1f5f990"  # slate-100 + 10
-  border: "#94a3b8" # slate-400
-  color: "#475569"  # slate-700
+  bg: "#f5f5f4"
+  border: "#d6d3d1"
+  color: "#1c1917"
 
 example:
-  bg: "#fae8ff90"  # fuchsia-100 + 10
-  border: "#e879f9" # fuchsia-400
-  color: "#86198f"  # fuchsia-700
+  bg: "#fce7f3"
+  border: "#f9a8d4"
+  color: "#831843"
 
 quote:
-  bg: "#f5f5f490"  # stone-100 + 10
-  border: "#a8a29e" # stone-400
-  color: "#44403c"  # stone-700
+  bg: "#dbeafe"
+  border: "#93c5fd"
+  color: "#1e3a8a"
 
 important:
-  bg: "#fef9c390"  # yellow-100 + 10
-  border: "#facc15" # yellow-400
-  color: "#854d0e"  # yellow-700
+  bg: "#fef3c7"
+  border: "#fcd34d"
+  color: "#78350f"
 
 history:
-  bg: "#ffedd590"  # orange-100 + 10
-  border: "#fb923c" # orange-400
-  color: "#9a3412"  # orange-700
+  bg: "#e0e7ff"
+  border: "#a5b4fc"
+  color: "#312e81"
 
 journal:
-  bg: "#ecfccb90"  # lime-100 + 10
-  border: "#a3e635" # lime-400
-  color: "#3f6212"  # lime-700
+  bg: "#ffe4e6"
+  border: "#fda4af"
+  color: "#881337"
 
 date:
-  bg: "#d1fae590"  # emerald-100 + 10
-  border: "#34d399" # emerald-400
-  color: "#047857"  # emerald-700
+  bg: "#e8f5cc"
+  border: "#bef264"
+  color: "#365314"
 
 book:
-  bg: "#ede9fe90"  # violet-100 + 10
-  border: "#a78bfa" # violet-400
-  color: "#5b21b6"  # violet-700
+  bg: "#ede9fe"
+  border: "#c4b5fd"
+  color: "#4c1d95"
 
 search:
-  bg: "#e0e7ff90"  # indigo-100 + 10
-  border: "#818cf8" # indigo-400
-  color: "#3730a3"  # indigo-700
+  bg: "#ffe4e6"
+  border: "#fda4af"
+  color: "#881337"
 
 person:
-  bg: "#ffe4e690"  # rose-100 + 10
-  border: "#fb7185" # rose-400
-  color: "#9f1239"  # rose-700
+  bg: "#ffe4e6"
+  border: "#fda4af"
+  color: "#881337"
 
 code:
-  bg: "#f1f5f990"  # slate-100 + 10
-  border: "#7dd3fc" # sky-300
-  color: "#1e293b"  # slate-700
+  bg: "#f1f5f9"
+  border: "#e2e8f0"
+  color: "#111827"
 
-tip:
-  bg: "#dcfce790"  # green-100 + 10
-  border: "#86efac" # green-300
-  color: "#166534"  # green-700
+# SOCIAL
+alexa:
+  bg: "#ccf2ff"
+  border: "#00CAFF"
+  color: "#006b8f"
+
+behance:
+  bg: "#d9e7ff"
+  border: "#1769FF"
+  color: "#0e3d99"
+
+bluesky:
+  bg: "#cce6ff"
+  border: "#0085FF"
+  color: "#0059b3"
+
+discord:
+  bg: "#e8eaff"
+  border: "#5865F2"
+  color: "#343ac9"
+
+dribbble:
+  bg: "#fce8ef"
+  border: "#EA4C89"
+  color: "#b21c54"
+
+facebook:
+  bg: "#d9ebfe"
+  border: "#1877F2"
+  color: "#0e4e9e"
+
+github:
+  bg: "#f0f0f0"
+  border: "#181717"
+  color: "#000000"
+
+gitlab:
+  bg: "#feece3"
+  border: "#FC6D26"
+  color: "#c44a0e"
+
+google:
+  bg: "#e0ebfe"
+  border: "#4285F4"
+  color: "#1a56b3"
+
+instagram:
+  bg: "#fce8eb"
+  border: "#E4405F"
+  color: "#b21c3b"
+
+line:
+  bg: "#ccf2cc"
+  border: "#00C300"
+  color: "#008000"
+
+linkedin:
+  bg: "#d9e8f9"
+  border: "#0A66C2"
+  color: "#06427d"
+
+mastodon:
+  bg: "#e8e8ff"
+  border: "#6364FF"
+  color: "#3d3dc9"
+
+medium:
+  bg: "#f0f0f0"
+  border: "#000000"
+  color: "#000000"
+
+messenger:
+  bg: "#ccf2ff"
+  border: "#00B2FF"
+  color: "#0077b3"
+
+microsoft-teams:
+  bg: "#e8e8f2"
+  border: "#6264A7"
+  color: "#3d3e75"
+
+opencollective:
+  bg: "#e0edfd"
+  border: "#7FADF2"
+  color: "#4a7dc9"
+
+paypal:
+  bg: "#cce0ee"
+  border: "#00457C"
+  color: "#00294a"
+
+pinterest:
+  bg: "#f9e0e3"
+  border: "#BD081C"
+  color: "#8a0614"
+
+quora:
+  bg: "#f9e0e0"
+  border: "#B92B27"
+  color: "#8a1f1c"
+
+reddit:
+  bg: "#ffe6e0"
+  border: "#FF4500"
+  color: "#cc3700"
+
+signal:
+  bg: "#e0ebfd"
+  border: "#3A76F0"
+  color: "#1e4c9e"
+
+sina-weibo:
+  bg: "#fce8ea"
+  border: "#E6162D"
+  color: "#b20f21"
+
+skype:
+  bg: "#ccf2ff"
+  border: "#00AFF0"
+  color: "#0084b8"
+
+slack:
+  bg: "#f0e8f2"
+  border: "#4A154B"
+  color: "#2d0c2d"
+
+snapchat:
+  bg: "#fffce6"
+  border: "#FFFC00"
+  color: "#b3b300"
+
+sourceforge:
+  bg: "#ffe6cc"
+  border: "#FF6600"
+  color: "#cc5200"
+
+spotify:
+  bg: "#e0f9e8"
+  border: "#1DB954"
+  color: "#128a3a"
+
+stack-overflow:
+  bg: "#ffe9d9"
+  border: "#F58025"
+  color: "#c46614"
+
+strava:
+  bg: "#ffe6d9"
+  border: "#FC4C02"
+  color: "#c93c01"
+
+substack:
+  bg: "#ffe6d9"
+  border: "#FF6719"
+  color: "#cc4f0e"
+
+telegram:
+  bg: "#d9f2fd"
+  border: "#26A5E4"
+  color: "#1a7ba3"
+
+tencent-qq:
+  bg: "#d9f2fd"
+  border: "#12B7F5"
+  color: "#0c86b3"
+
+threads:
+  bg: "#f0f0f0"
+  border: "#000000"
+  color: "#000000"
+
+threads-fill:
+  bg: "#f0f0f0"
+  border: "#000000"
+  color: "#000000"
+
+tiktok:
+  bg: "#f0f0f0"
+  border: "#000000"
+  color: "#000000"
+
+twitch:
+  bg: "#f2e8ff"
+  border: "#9146FF"
+  color: "#6a30c9"
+
+twitter:
+  bg: "#d9f0fd"
+  border: "#1DA1F2"
+  color: "#0e78a9"
+
+x:
+  bg: "#f0f0f0"
+  border: "#000000"
+  color: "#000000"
+
+vimeo:
+  bg: "#d9f2fd"
+  border: "#1AB7EA"
+  color: "#1184a9"
+
+wechat:
+  bg: "#d9f9e8"
+  border: "#07C160"
+  color: "#058a44"
+
+whatsapp:
+  bg: "#d9f9e8"
+  border: "#25D366"
+  color: "#189e48"
+
+wordpress:
+  bg: "#d9e8f2"
+  border: "#21759B"
+  color: "#16526f"
+
+yelp:
+  bg: "#f9e0e0"
+  border: "#D32323"
+  color: "#a01a1a"
+
+youtube:
+  bg: "#ffe6e6"
+  border: "#FF0000"
+  color: "#cc0000"

@@ -1,35 +1,21 @@
 #=================== BASE SETTING
 baseURL: https://masputrawae.github.io/
 languageCode: id
-defaultContentLanguage: id
 title: Masputrawae
 timeZone: Asia/Jakarta
 enableEmoji: true
+pluralizeListTitles: false
 
-#=================== PAGINATION
-pagination:
-  disableAliases: false
-  pagerSize: 20
-  path: page
-
-#=================== TAXONOMIES
-taxonomies:
-  tag: tags
-  category: categories
-  stage: stage
-
-# =================== SERVICES
-services:
+services: # =================== SERVICES
   googleAnalytics:
     id: G-W9TMTZZYG5
 
-# =================== PRIVACY
-privacy:
+privacy: # =================== PRIVACY
   googleAnalytics:
     disable: false
     respectDoNotTrack: true
 
-frontmatter:
+frontmatter: # =================== FRONTMATTER
   date:
     - created
     - date
@@ -43,126 +29,65 @@ frontmatter:
     - publishDate
     - :git
 
-# =================== PARAMS
-params:
+params: # =================== PARAMS
   subtitle: Hanya Seorang Manusia Biasa
   author: Putra Jaya
   description: "Catatan perjalanan belajarku, penuh spontanitas, ide liar, dan potongan referensi untuk masa depan."
-  logo: images/logo.png
-  images:
-    - default-image.webp
-    - images/logo.png
+  logo: logo.png
 
-  social:
+  images: # =================== IMAGES
+    - default-image.webp
+    - logo.png
+
+  social: # =================== SOCIAL
     facebook_admin: "61566134978045"
     facebook_app_id: "1112672776879424"
     twitter: Masputrawae
 
-  #=================== PARAMS FAVICONS
-  favicons:
+  favicons: #=================== FAVICONS
     - rel: icon
       type: image/x-icon
       href: favicons/favicon.ico
+
     - rel: apple-touch-icon
       type: image/png
       size: 180x180
       href: favicons/apple-touch-icon.png
+
     - rel: icon
       type: image/png
       size: 32x32
       href: favicons/favicon-32x32.png
+
     - rel: icon
       type: image/png
       size: 16x16
       href: favicons/favicon-16x16.png
+
     - rel: icon
       type: image/png
       size: 192x192
       href: favicons/android-chrome-192x192.png
+
     - rel: icon
       type: image/png
       size: 512x512
       href: favicons/android-chrome-512x512.png
 
-#=================== MENUS
-menus:
-  # =================== MAIN
-  main:
-    - name: HOME
-      pageRef: /
-      weight: 10
-
-    - name: RANDOM PAGE
-      pageRef: /random_page
-      weight: 20
-      
-    - name: TAGS
-      pageRef: /tags
-      weight: 30
-    
-    - name: SEARCH
-      pageRef: /search
-      weight: 40
-  
-  # =================== SPECIAL
-  special:
-    - name: ABOUT ME
-      pageRef: /specials/about
-      weight: 10
-    
-    - name: DISCLAIMER
-      pageRef: /specials/disclaimer
-      weight: 20
-
-    - name: LICENSE
-      pageRef: /specials/license
-      weight: 40
-      
-    - name: CREDITS
-      pageRef: /specials/credits
-      weight: 50
-
-    - name: POLICY PRIVACY
-      pageRef: /specials/privacy_policy
-      weight: 60
-  
-  # =================== SOCIAL
-  social:
-    - name: TWITTER X
-      url: https://x.com/Masputrawae
-      weight: 10
-    
-    - name: INSTAGRAM
-      url: https://www.instagram.com/masputrawae/
-      weight: 20
-
-    - name: FACEBOOK
-      url: https://www.facebook.com/profile.php?id=61566134978045
-      weight: 40
-      
-    - name: DISCORD
-      url: https://discord.gg/nM4EP8DJFZ
-      weight: 50
-
-    - name: GITHUB
-      url: https://github.com/masputrawae
-      weight: 60
-
-#=================== MARKUP
-markup:
-  goldmark:
-    renderHooks:
-      image:
+markup: #=================== MARKUP
+  goldmark: #=================== GOLDENMARK
+    renderHooks: #=================== RENDER HOOKS
+      image: #=================== IMAGE
         enableDefault: true
         useEmbedded: auto
-      link:
+      link: #=================== LINK
         enableDefault: true
         useEmbedded: auto
 
-    renderer:
+    renderer: #=================== RENDERER
       unsafe: true
 
-    extensions:
+    extensions: #=================== EXTENSIONS
       definitionList: true
       extras:
         delete:
@@ -178,7 +103,7 @@ markup:
 
       footnote: true
 
-      passthrough:
+      passthrough: #=================== PASSTHROUGHT
         delimiters:
           block:
             - - \[
@@ -190,18 +115,13 @@ markup:
               - \)
         enable: true
 
-    parser:
+    parser: #=================== PARSER
       wrapStandAloneImageWithinParagraph: false
       attribute:
         block: true
         title: true
 
-  tableOfContents:
-    endLevel: 6
-    ordered: false
-    startLevel: 2
-
-  highlight:
+  highlight: #=================== HIGHLIGHT
     codeFences: true
     guessSyntax: true
     style: "github-dark"
@@ -236,24 +156,20 @@ outputs:
     - search
     - manifest
 
-#=================== MODULES
-module:
+module: #=================== MODULES
   hugoVersion:
     extended: true
     min: 0.150.0
 
-  mounts:
+  mounts: #=================== MOUNTS
     - source: node_modules/bootstrap-icons/icons
       target: assets/icons
+    
+    - source: node_modules/fuse.js/dist/fuse.js
+      target: assets/js
 
     - source: assets
       target: assets
-
-    - source: assets/images
-      target: static
-
-    - source: images
-      target: static
 
     - source: static
       target: static
