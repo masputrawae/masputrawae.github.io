@@ -13,7 +13,9 @@
     {{- partial "head/font.html" . }}
     {{- partial "head/init-theme.html" . }}
     {{- partial "head/meta.html" . }}
-    {{- partial "head/sass.html" . }}
+
+    {{- /*  {{- partial "head/sass.html" . }}  */}}
+    {{- partial "head/css.html" . }}
 
     {{- partial "opengraph.html" . }}
     {{- partial "schema.html" . }}
@@ -25,17 +27,23 @@
       <header class="header">
         <h1 class="header__title"><a href="{{ relURL site.BaseURL }}" style="text-decoration: none;">{{ site.Title }}</a></h1>
         <em class="header__subtitle">{{ site.Params.subtitle }}</em>
-        {{ partial "search.html" . }}
       </header>
       <main class="main">
+        {{ partial "search.html" . }}
         <article class="main__content markdown">
           {{ block "main" . }}{{ end }}
         </article>
       </main>
       <footer class="footer">
-        <p class="footer__copyright">
-          Copyright {{ now.Year }} - {{ site.Title }}. All rights reserved.
-        </p>
+        <p>
+          <span>Made with ❤️ using</span>
+          <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" class="link">Hugo</a>.
+          <br>
+          <span>Copyright {{ now.Year }}</span> 
+          <a href="{{ site.BaseURL | relURL }}" class="link">{{ site.Title }}</a>.
+          <br>
+          <span>Content licensed under</span>
+          <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener noreferrer" class="link">CC BY-NC 4.0</a>.</p>
       </footer>
     </div>
     <div id="linkpreview"></div>

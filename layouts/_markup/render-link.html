@@ -27,5 +27,6 @@
    {{- with .Title }} title="{{ . }}"{{- end }}
    {{- if $isExternal }} target="_blank" rel="noopener noreferrer"{{- end }}
    class="link {{ if not $isExternal }}internal-link{{- end }}">
-   {{ .Text }}
+   {{- $text := replaceRE "[-_]+" " " .Text }}
+   {{ $text }}
 </a>
