@@ -32,5 +32,6 @@ def submit_to_indexnow(urls):
 if __name__ == "__main__":
     urls = get_urls_from_sitemap(SITEMAP_URL)
     print(f"Found {len(urls)} URLs in sitemap")
+    print(f"- {urls}")
     submit_to_indexnow(urls)
 
