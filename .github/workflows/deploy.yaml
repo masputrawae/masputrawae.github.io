@@ -121,6 +121,10 @@ jobs:
         with:
           path: ./public
 
+      - name: Submit indexnow
+        run: |
+          python3 ./submit_indexnow.py
+
   # Deployment job
   deploy:
     environment:

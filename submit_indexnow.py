@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 HOST = "masputrawae.github.io"
 KEY = "581096ab3ead4573ac6aec8ded77936f"
 KEY_LOCATION = f"https://{HOST}/{KEY}.txt"
-SITEMAP_URL = "https://masputrawae.github.io/sitemap.xml"
+SITEMAP_URL = "./public/sitemap.xml"
 
 def get_urls_from_sitemap(sitemap_url):
     resp = requests.get(sitemap_url)

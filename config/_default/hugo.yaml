@@ -38,42 +38,6 @@ outputFormats:
     isPlainText: true
     notAlternative: true
 
-  sitemaptxt:
-    mediaType: "text/plain"
-    baseName: "sitemaptxt"
-    isPlainText: true
-    notAlternative: true
-
-  sitemap:
-    baseName: sitemap
-    isHTML: false
-    isPlainText: false
-    mediaType: application/xml
-    noUgly: false
-    notAlternative: false
-    path: ""
-    permalinkable: false
-    protocol: ""
-    rel: sitemap
-    root: false
-    ugly: true
-    weight: 0
-
-  sitemapindex:
-    baseName: sitemap
-    isHTML: false
-    isPlainText: false
-    mediaType: application/xml
-    noUgly: false
-    notAlternative: false
-    path: ""
-    permalinkable: false
-    protocol: ""
-    rel: sitemap
-    root: true
-    ugly: true
-    weight: 0
-
 outputs:
   home:
     - html
@@ -81,7 +45,6 @@ outputs:
     - sitemap
     - search
     - manifest
-    - sitemaptxt
     
 module: # ===== MODULES =====
   hugoVersion:

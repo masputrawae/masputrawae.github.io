@@ -1,3 +1,0 @@
-{{- range site.Pages -}}
-{{ .Permalink }}
-{{ end }}
