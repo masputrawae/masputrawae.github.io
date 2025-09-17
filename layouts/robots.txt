@@ -1,5 +1,5 @@
 User-agent: *
-Allow: {{ relURL "sitemap.xml" }}
+Allow: {{ absURL "sitemap.xml" }}
 {{- range site.Pages }}
 Allow: {{ .RelPermalink }}
 {{- end }}
