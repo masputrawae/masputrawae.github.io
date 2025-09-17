@@ -1,0 +1,18 @@
+<div class="container search">
+  <label
+    class="search-bar"
+    data-search="{{ "search.json" | relURL }}">
+    {{ partial "components/icon.html" (dict "name" "search" "class" "search-bar__icon" "size" 24) }}
+    <input
+      type="search"
+      name="searchInput"
+      id="searchInput"
+      class="search-bar__input"
+      placeholder="Search Content..."
+      autocomplete="off" />
+  </label>
+  <nav class="results" id="searchContainerResults" hidden>
+    <h2 class="h h--2">RESULTS SEARCH</h2>
+    <ul id="results" aria-live="polite"></ul>
+  </nav>
+</div>

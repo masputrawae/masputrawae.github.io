@@ -1,0 +1,12 @@
+{{ define "main" }}
+  {{ if not .IsHome }}
+    <h1 class="h h--1">{{ .Title }}</h1>
+  {{ end }}
+  {{ $content := .Content }}
+  {{ $content = $content | replaceRE `(?s)<!--hugo:start:grid-->` `<div class="grid">` }}
+  {{ $content = $content | replaceRE `(?s)<!--hugo:end:grid-->` `</div>` }}
+  {{ $content = $content | replaceRE `(?s)<!--hugo:start:grid__item-->` `<div class="container grid__item">` }}
+  {{ $content = $content | replaceRE `(?s)<!--hugo:end:grid__item-->` `</div>` }}
+  {{ $content = $content | replaceRE `(?s)<!--hugo:start:ignore-->.*?<!--hugo:end:ignore-->` "" | safeHTML }}
+  {{ $content | safeHTML }}
+{{ end }}

@@ -1,0 +1,56 @@
+{{ define "main" }}
+  <h1 class="h h--1" style="text-align: center; margin-top: 0; font-size: 2.5em;">{{ .Title }}</h1>
+  <div class="taxonomy">
+    {{- $minSize := 0.9 }}   <!-- ukuran font terkecil -->
+    {{- $maxSize := 2 }}   <!-- ukuran font terbesar -->
+    {{- $minCount := (index (first 1 .Data.Terms.ByCount.Reverse) 0).Count }}
+    {{- $maxCount := (index (first 1 .Data.Terms.ByCount) 0).Count }}
+
+    {{- range .Data.Terms.Alphabetical }}
+      {{- $title := replaceRE "[-_]+" " " .Page.Title | title | upper }}
+      {{- $count := .Count }}
+      {{- $size := add $minSize (mul (div (sub $count $minCount) (cond (eq $maxCount $minCount) 1 (sub $maxCount $minCount))) (sub $maxSize $minSize)) }}
+
+      <a href="{{ .Page.RelPermalink }}"
+        class="taxonomy__link"
+        style="font-size: {{ printf "%.2f" $size }}em;">
+        {{ partial "components/icon.html" (dict "name" "tag-fill" "size" "1em") }}
+        <span>{{ $title }}</span>
+        <span>({{ .Count }})</span>
+      </a>
+    {{- end }}
+  </div>
+
+  <style>
+    .taxonomy {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1em;
+      flex-wrap: wrap;
+      margin-block-start: 1.5em;
+    }
+
+    .taxonomy__link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5em;
+      width: fit-content;
+      padding: 0.25em 0.75em;
+      border-radius: 9999em;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-base);
+      text-decoration: none;
+      background-color: var(--bg-second);
+      font-weight: 600;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .taxonomy__link:hover {
+      background-color: var(--text-link);
+      color: var(--fix-white);
+      transform: translateY(-2px);
+    }
+  </style>
+{{ end }}

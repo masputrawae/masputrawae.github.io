@@ -1,0 +1,47 @@
+<!doctype html>
+<html
+  lang="{{ site.Language.LanguageCode }}"
+  dir="{{ or site.Language.LanguageDirection `ltr` }}"
+  data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{- partial "headed/theme.html" . }}
+    {{- partial "headed/font.html" . }}
+    {{- partial "headed/sass.html" . }}
+    {{- partial "headed/meta.html" . }}
+    {{- partial "headed/opengraph.html" . }}
+    {{- partial "headed/twitter-card.html" . }}
+    {{- partial "headed/json-ld.html" . }}
+  </head>
+  <body class="body">
+    <header class="header" onclick="window.location.href=`{{ site.BaseURL | relURL }}`">
+      <h1 class="h h--1 header__title">
+        <a href="{{ site.BaseURL | absURL }}">{{ site.Title | upper }}</a>
+      </h1>
+      <em class="header__tagline">{{ site.Params.tagline | upper }}</em>
+    </header>
+
+    {{ partial "components/search.html" . }}
+    
+    <main class="main">
+      <article class="container markdown">
+        {{ block "main" . }}{{ end }}
+      </article>
+    </main>
+
+    <footer class="footer">
+      {{ site.Params.footer.custom | safeHTML }}
+      <p>&copy; {{ now.Year }} • <a href="{{ site.BaseURL | absURL }}" class="link link--external">{{ site.Title }}</a></p>
+      {{ site.Params.footer.license | safeHTML }}
+    </footer>
+
+    <div id="linkpreview"></div>
+    {{- partial "headed/google-analytics.html" . }}
+    {{- partial "components/lightbox.html" . }}
+    {{- partial "components/mermaid.html" . }}
+    {{- partial "headed/mathjax.html" . }}
+    {{- partial "headed/js.html" . }}
+  </body>
+</html>

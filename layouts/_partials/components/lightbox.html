@@ -1,0 +1,37 @@
+{{ if .Store.Get "hasImages" }}
+  <dialog id="lightbox">
+    <img id="lightbox-img" src="" alt="" />
+  </dialog>
+  <style>
+    #lightbox {
+      border: none;
+      padding: 0;
+      margin: auto;
+      outline: none;
+      max-width: 100vw;
+      max-height: 100vh;
+      background: transparent;
+    }
+
+    #lightbox::backdrop {
+      background: rgba(0, 0, 0, 0.95);
+    }
+
+    #lightbox img {
+      display: block;
+      max-width: 90vw;
+      max-height: 90vh;
+      margin: auto;
+    }
+  </style>
+  <script>
+    function openImage(el) {
+      const dialog = document.getElementById("lightbox");
+      const img = document.getElementById("lightbox-img");
+      img.src = el.src;
+      img.alt = el.alt;
+      dialog.showModal();
+      dialog.onclick = () => dialog.close();
+    }
+  </script>
+{{ end }}

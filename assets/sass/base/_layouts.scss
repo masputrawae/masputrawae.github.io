@@ -1,0 +1,100 @@
+@use "../abstracts/breakpoints" as b;
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+html {
+  @include m.custom-scrollbar(var(--bg-html), var(--text-link));
+  color: var(--text-base);
+  font-family: v.$font-body;
+  font-size: v.$fs-default;
+  background-color: var(--bg-html);
+  background-image:
+    radial-gradient(var(--text-link) 0.75px, transparent 0.75px),
+    radial-gradient(var(--text-link) 0.75px, var(--bg-html) 0.75px);
+  background-size: 30px 30px;
+  background-position:
+    0 0,
+    15px 15px;
+}
+
+.header {
+  text-align: center;
+  padding-block: 0.25em;
+  background-color: var(--bg-second);
+  border-bottom: 3px solid var(--border-base);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+
+  &__title {
+    margin: 0 auto;
+    width: fit-content;
+    font-size: v.$fs-10xl;
+  }
+
+  &__tagline {
+    font-style: normal;
+    font-size: v.$fs-3xs;
+    color: var(--text-muted);
+  }
+}
+
+.search {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background-color: var(--bg-base);
+  border-bottom: 3px solid var(--border-base);
+  box-shadow: var(--shadow-md);
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  padding: 0.5em 1.5em;
+
+  &__input {
+    width: 100%;
+    outline: none;
+  }
+}
+
+.markdown {
+  padding-block: 0.01em;
+  background-color: var(--bg-base);
+  box-shadow: var(--shadow-lg);
+  min-height: 100dvh;
+
+  margin: 0 auto;
+  line-height: 1.65;
+  overflow-x: hidden;
+  word-break: normal;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.footer {
+  text-align: center;
+  background-color: var(--bg-second);
+  border-top: 3px solid var(--border-base);
+  padding-block: 2em;
+  p {
+    margin: 0;
+  }
+}
+
+// BRAKPOINTS
+@include b.min(sm) {
+  .search {
+    border-inline: 3px solid var(--border-base);
+  }
+  .markdown {
+    border-inline: 3px solid var(--border-base);
+  }
+}
+
+@include b.min(xl) {
+  .markdown {
+    padding-inline: 2em;
+  }
+}

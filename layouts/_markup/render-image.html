@@ -1,0 +1,54 @@
+{{- $caption := "" -}}
+{{- $title := "" -}}
+{{- $width := "" -}}
+{{- $float := "" -}}
+
+{{- if ne .Title "" -}}
+  {{- $parts := split .Title "|" -}}
+  {{- range $parts -}}
+    {{- if not (or (strings.HasPrefix . "width=") (strings.HasPrefix . "title=") (strings.HasPrefix . "float=")) -}}
+      {{- $caption = . | $.Page.RenderString -}}
+    {{- end -}}
+    {{- if strings.HasPrefix . "width=" -}}
+      {{- $width = replace . "width=" "" -}}
+    {{- end -}}
+    {{- if strings.HasPrefix . "title=" -}}
+      {{- $title = replace . "title=" "" -}}
+    {{- end -}}
+    {{- if strings.HasPrefix . "float=" -}}
+      {{- $float = replace . "float=" "" -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $alt := .Text | plainify -}}
+{{- $src := cond (strings.HasPrefix .Destination "http") .Destination (.Destination | absURL) -}}
+
+{{- if $caption }}
+  <figure
+    class="figure{{ with $float }} float float--{{ . }}{{ end }}"
+    {{ with $width }}style="width:{{ . }}px;"{{ end }}>
+    <img
+      src="{{ $src }}"
+      class="figure__image"
+      alt="{{ $alt }}"
+      decoding="async"
+      loading="lazy"
+      {{ with $title }}title="{{ . }}"{{ end }}
+      {{ with $width }}width="{{ . }}"{{ end }}
+      onclick="openImage(this)" />
+    <figcaption class="figure__caption">{{ $caption }}</figcaption>
+  </figure>
+{{- else }}
+  <img
+    src="{{ $src }}"
+    class="image{{ with $float }} float float--{{ . }}{{ end }}"
+    alt="{{ $alt }}"
+    decoding="async"
+    loading="lazy"
+    {{ with $title }}title="{{ . }}"{{ end }}
+    {{ with $width }}width="{{ . }}"{{ end }}
+    onclick="openImage(this)" />
+{{- end }}
+
+{{- .Page.Store.Set "hasImages" true -}}

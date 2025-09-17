@@ -1,0 +1,68 @@
+# ===== BASE SETTING
+baseURL: https://masputrawae.github.io/
+languageCode: id
+title: Masputrawae
+timeZone: Asia/Jakarta
+enableEmoji: true
+pluralizeListTitles: false
+buildDrafts: false
+enableRobotsTXT: true
+
+services: # ===== SERVICES
+  googleAnalytics:
+    id: G-W9TMTZZYG5
+
+privacy: # ===== PRIVACY
+  googleAnalytics:
+    disable: false
+    respectDoNotTrack: true
+
+sitemap:
+  changeFreq: monthly
+  priority: 0.5
+
+taxonomies:
+  tag: tags
+  
+mediaType: "application/json"
+outputFormats:
+  search:
+    mediaType: "application/json"
+    baseName: "search"
+    isPlainText: true
+    notAlternative: true
+
+  manifest:
+    mediaType: "application/json"
+    baseName: "manifest"
+    isPlainText: true
+    notAlternative: true
+
+outputs:
+  home:
+    - html
+    - rss
+    - sitemap
+    - search
+    - manifest
+    
+module: # ===== MODULES =====
+  hugoVersion:
+    extended: true
+    min: 0.150.0
+
+  mounts: # ===== MOUNTS =====
+    - source: node_modules/bootstrap-icons/icons
+      target: assets/icons
+
+    - source: node_modules/fuse.js/dist/fuse.js
+      target: assets/js
+
+    - source: assets
+      target: assets
+
+    - source: static/images
+      target: static
+
+    - source: static
+      target: static
