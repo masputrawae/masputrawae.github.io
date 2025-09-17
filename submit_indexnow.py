@@ -7,10 +7,10 @@ KEY = "581096ab3ead4573ac6aec8ded77936f"
 KEY_LOCATION = f"https://{HOST}/{KEY}.txt"
 SITEMAP_URL = "./public/sitemap.xml"
 
-def get_urls_from_sitemap(sitemap_url):
-    resp = requests.get(sitemap_url)
-    resp.raise_for_status()  # biar error kalau gagal fetch
-    root = ET.fromstring(resp.content)
+def get_urls_from_sitemap(file_path):
+    # Baca file XML lokal
+    tree = ET.parse(file_path)
+    root = tree.getroot()
     ns = {"ns": "http://www.sitemaps.org/schemas/sitemap/0.9"}
     return [loc.text for loc in root.findall(".//ns:loc", ns)]
 
