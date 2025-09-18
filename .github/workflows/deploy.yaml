@@ -1,9 +1,9 @@
 # Sample workflow for building and deploying a Hugo site to GitHub Pages
 name: Deploy Hugo site to Pages
 on:
-  push:
-    branches:
-      - main
+  #push:
+  #  branches:
+  #    - main
   repository_dispatch:
     types: [build_hugo]
 
