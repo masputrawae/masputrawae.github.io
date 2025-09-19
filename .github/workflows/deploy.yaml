@@ -1,9 +1,9 @@
 # Sample workflow for building and deploying a Hugo site to GitHub Pages
 name: Deploy Hugo site to Pages
 on:
-  #push:
-  #  branches:
-  #    - main
+  push:
+   branches:
+     - main
   repository_dispatch:
     types: [build_hugo]
 
@@ -71,11 +71,8 @@ jobs:
       - name: Copy Content only
         run: |
           mkdir ./content
-          cp -r ./mpw_vault/0Y_Notes/_index.md ./content/
-          cp -r ./mpw_vault/0Y_Notes/1A_Media/. ./static/
-          cp -r ./mpw_vault/0Y_Notes/1B_Maps/. ./content/maps/
-          cp -r ./mpw_vault/0Y_Notes/1D_Knowledge/. ./content/posts/
-          cp -r ./mpw_vault/0Y_Notes/1Z_Docs/. ./content/docs/
+          cp -r ./mpw_vault/notes/. ./content/
+          cp -r ./mpw_vault/images/. ./static/
 
       - name: Delete Unused
         run: |

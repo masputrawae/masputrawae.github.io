@@ -3,100 +3,67 @@
 @use "../abstracts/variables" as v;
 
 html {
-  @include m.custom-scrollbar(var(--bg-html), var(--text-link));
+  @include m.custom-scrollbar(var(--bg-base), var(--text-link));
   color: var(--text-base);
   font-family: v.$font-body;
   font-size: v.$fs-default;
-  background-color: var(--bg-html);
-  background-image:
-    radial-gradient(var(--text-link) 0.75px, transparent 0.75px),
-    radial-gradient(var(--text-link) 0.75px, var(--bg-html) 0.75px);
-  background-size: 30px 30px;
-  background-position:
-    0 0,
-    15px 15px;
+  background-color: var(--bg-base);
 }
 
 .header {
   text-align: center;
-  padding-block: 0.25em;
-  background-color: var(--bg-second);
-  border-bottom: 3px solid var(--border-base);
-  box-shadow: var(--shadow-md);
+  margin-bottom: 1em;
   cursor: pointer;
 
   &__title {
-    margin: 0 auto;
-    width: fit-content;
-    font-size: v.$fs-10xl;
+    margin: 0;
   }
 
   &__tagline {
-    font-style: normal;
     font-size: v.$fs-3xs;
-    color: var(--text-muted);
+    font-style: normal;
   }
 }
 
-.search {
-  position: sticky;
-  top: 0;
-  z-index: 200;
-  background-color: var(--bg-base);
-  border-bottom: 3px solid var(--border-base);
-  box-shadow: var(--shadow-md);
-}
-
 .search-bar {
-  display: flex;
-  align-items: center;
-  gap: 1em;
-  padding: 0.5em 1.5em;
+  @include m.flex-justify(center, center);
+  gap: 0.5em;
+  padding: 0.25em 1em;
+  background-color: var(--bg-second);
+  border: 1px solid var(--border-base);
+  border-radius: 0.25em;
+  width: fit-content;
+  margin: 0 auto;
 
   &__input {
-    width: 100%;
     outline: none;
   }
 }
 
-.markdown {
-  padding-block: 0.01em;
-  background-color: var(--bg-base);
-  box-shadow: var(--shadow-lg);
-  min-height: 100dvh;
-
-  margin: 0 auto;
-  line-height: 1.65;
-  overflow-x: hidden;
-  word-break: normal;
-  overflow-wrap: anywhere;
-  hyphens: auto;
-
+.markdown, .results {
   font-size: 14px;
+
+  @include b.min(lg) {
+    font-size: 15px;
+  }
+
+  @include b.min(xl) {
+    max-width: 70ch;
+    margin: 0 auto;
+  }
+
+  @include b.min(2xl) {
+    font-size: 16px;
+  }
 }
 
 .footer {
   text-align: center;
-  background-color: var(--bg-second);
-  border-top: 3px solid var(--border-base);
-  padding-block: 2em;
+  font-size: 14px;
+  border-top: 1px solid var(--border-base);
+  padding-block: 1em;
+  margin-top: 6em;
   p {
     margin: 0;
-  }
-}
-
-// BRAKPOINTS
-@include b.min(sm) {
-  .search {
-    border-inline: 3px solid var(--border-base);
-  }
-  .markdown {
-    border-inline: 3px solid var(--border-base);
-  }
-}
-
-@include b.min(xl) {
-  .markdown {
-    padding-inline: 2em;
   }
 }

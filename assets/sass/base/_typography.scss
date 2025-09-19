@@ -9,7 +9,11 @@
   color: var(--text-title);
   margin-block: 1em 0.5em;
   text-shadow: var(--text-shadow-title);
-  border-block-end: 1px solid var(--border-base);
+
+  &--1,
+  &--2 {
+    border-block-end: 1px solid var(--border-base);
+  }
 
   &--1 {
     font-size: v.$fs-6xl;
@@ -172,7 +176,7 @@ td {
   white-space: nowrap;
 }
 
-thead, 
+thead,
 tbody tr:nth-child(even) {
   background-color: var(--bg-second);
 }
@@ -240,7 +244,7 @@ img {
   border: 2px solid var(--callout-border);
   background-color: var(--callout-bg);
   box-shadow: var(--shadow-md);
-  border-radius: 0.75em;
+  border-radius: 0.25em;
   overflow: hidden;
 
   &__header {

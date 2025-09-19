@@ -17,16 +17,14 @@
   </head>
   <body class="body">
     <header class="header" onclick="window.location.href=`{{ site.BaseURL | relURL }}`">
-      <h1 class="h h--1 header__title">
-        <a href="{{ site.BaseURL | absURL }}">{{ site.Title | upper }}</a>
-      </h1>
+      <h1 class="h h--1 header__title">{{ site.Title | upper }}</h1>
       <em class="header__tagline">{{ site.Params.tagline | upper }}</em>
     </header>
 
     {{ partial "components/search.html" . }}
     
-    <main class="main">
-      <article class="container markdown">
+    <main class="container main">
+      <article class="markdown">
         {{ block "main" . }}{{ end }}
       </article>
     </main>
