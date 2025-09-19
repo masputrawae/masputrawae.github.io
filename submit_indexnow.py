@@ -3,7 +3,7 @@ import xml.etree.ElementTree as ET
 
 # Konfigurasi
 HOST = "masputrawae.github.io"
-KEY = "14ff4b961255444683d977b6ee6edb8a"
+KEY = "82f4f7334de4465ab39f5a076f226919"
 KEY_LOCATION = f"https://{HOST}/{KEY}.txt"
 SITEMAP_URL = "./public/sitemap.xml"
 
