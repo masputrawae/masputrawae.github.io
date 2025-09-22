@@ -1,0 +1,94 @@
+@use '../abstracts/variables' as v;
+
+*,
+:after,
+:before,
+::backdrop {
+  box-sizing: border-box;
+}
+
+html,
+:host {
+  -webkit-text-size-adjust: 100%;
+  tab-size: 4;
+  line-height: 1.5;
+  font-family: v.$font-system;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  -webkit-text-decoration: inherit;
+  text-decoration: inherit;
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: v.$font-mono-system;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  font-size: 1em;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  vertical-align: baseline;
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+table {
+  text-indent: 0;
+  border-color: inherit;
+  border-collapse: collapse;
+}
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  vertical-align: middle;
+  max-width: 100%;
+  height: auto;
+}
+
+[hidden]:where(:not([hidden='until-found'])) {
+  display: none !important;
+}

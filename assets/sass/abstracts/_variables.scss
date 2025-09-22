@@ -26,8 +26,8 @@ $containers: (
 $font-system: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 $font-mono-system: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
-$font-body: 'Inter', sans-serif;
-$font-mono: 'Roboto Mono', monospace;
+$font-body: sans-serif;
+$font-mono: monospace;
 
 /* 
 ==========================================
@@ -47,30 +47,30 @@ Some common ratios often used in design:
 ==========================================
 */
 
-$fs-default: 16px;
+$text-default: 16px;
 $scale-ratio: 1.067;
 
 @function scale($step) {
   @return math.div(
-      math.div(math.round($fs-default * pow($scale-ratio, $step) * 100), 100),
-      $fs-default
+      math.div(math.round($text-default * pow($scale-ratio, $step) * 100), 100),
+      $text-default
     ) *
     1em;
 }
 
-$fs-xs: scale(-4);
-$fs-2xs: scale(-3);
-$fs-3xs: scale(-2);
-$fs-sm: scale(-1);
-$fs-base: scale(0);
-$fs-lg: scale(1);
-$fs-xl: scale(2);
-$fs-2xl: scale(3);
-$fs-3xl: scale(4);
-$fs-4xl: scale(5);
-$fs-5xl: scale(6);
-$fs-6xl: scale(7);
-$fs-7xl: scale(8);
-$fs-8xl: scale(9);
-$fs-9xl: scale(10);
-$fs-10xl: scale(11);
+$text-xs: scale(-4);
+$text-2xs: scale(-3);
+$text-3xs: scale(-2);
+$text-sm: scale(-1);
+$text-base: scale(0);
+$text-lg: scale(1);
+$text-xl: scale(2);
+$text-2xl: scale(3);
+$text-3xl: scale(4);
+$text-4xl: scale(5);
+$text-5xl: scale(6);
+$text-6xl: scale(7);
+$text-7xl: scale(8);
+$text-8xl: scale(9);
+$text-9xl: scale(10);
+$text-10xl: scale(11);

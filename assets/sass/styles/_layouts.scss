@@ -1,0 +1,74 @@
+@use "../abstracts/breakpoints" as b;
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+html {
+  @include m.custom-scrollbar(#fff, #000);
+  background-color: #fff;
+  color: #1a1a1a;
+  font-size: v.$text-base;
+}
+
+body {
+  @include b.container(fluid);
+  margin-inline: auto;
+  padding-inline: 1rem;
+  width: 100%;
+
+  @include b.min(sm) {
+    @include b.container(fluid);
+  }
+  @include b.min(md) {
+    @include b.container(md);
+  }
+  @include b.min(lg) {
+    @include b.container(lg);
+  }
+  @include b.min(xl) {
+    @include b.container(xl);
+  }
+  @include b.min(2xl) {
+    @include b.container(2xl);
+  }
+}
+
+header {
+  @include m.flex-justify(space-between, center);
+  flex-wrap: wrap;
+
+  h1 {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size: v.$text-10xl;
+    
+    a {
+      color: green;
+    }
+  }
+}
+
+nav {
+  @include m.flex-justify(center, center);
+  gap: 1em;
+
+  a {
+    color: green;
+    text-decoration: none;
+  }
+}
+
+main {
+  overflow-x: hidden;
+}
+
+footer {
+  text-align: center;
+  padding-block: 2em;
+  border-top: 1px solid black;
+  margin-top: 1em;
+  p {
+    padding: 0;
+    margin: 0;
+  }
+}

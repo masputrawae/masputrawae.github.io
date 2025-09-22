@@ -1,9 +1,0 @@
-light:
-  bg: "#e4e4e7"
-  border: "#27272a"
-  color: "#09090b"
-
-dark:
-  bg: "#27272a"
-  border: "#52525b"
-  color: "#fafafa"

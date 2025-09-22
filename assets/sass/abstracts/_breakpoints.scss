@@ -58,9 +58,6 @@
 @mixin container($breakpoint) {
   @if map.has-key(v.$containers, $breakpoint) {
     max-width: map.get(v.$containers, $breakpoint);
-    margin-inline: auto; // biar center
-    padding-inline: 1rem; // biar ada space kiri kanan
-    width: 100%;
   } @else {
     @warn "Container size '#{$breakpoint}' not found. Available: #{map-keys(v.$containers)}";
   }

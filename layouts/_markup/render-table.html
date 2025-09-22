@@ -5,8 +5,10 @@
         {{- printf " %s=%q" $k ($v | transform.HTMLEscape) | safeHTMLAttr }}
       {{- end }}
     {{- end }}
+    border="1"
+    style="border-color: black;"
   >
-    <thead>
+    <thead >
       {{- range .THead }}
         <tr>
           {{- range . }}

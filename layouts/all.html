@@ -1,12 +1,41 @@
-{{ define "main" }}
-  {{ if not .IsHome }}
-    <h1 class="h h--1">{{ .Title }}</h1>
-  {{ end }}
-  {{ $content := .Content }}
-  {{ $content = $content | replaceRE `(?s)<!--hugo:start:grid-->` `<div class="grid">` }}
-  {{ $content = $content | replaceRE `(?s)<!--hugo:end:grid-->` `</div>` }}
-  {{ $content = $content | replaceRE `(?s)<!--hugo:start:grid__item-->` `<div class="container grid__item">` }}
-  {{ $content = $content | replaceRE `(?s)<!--hugo:end:grid__item-->` `</div>` }}
-  {{ $content = $content | replaceRE `(?s)<!--hugo:start:ignore-->.*?<!--hugo:end:ignore-->` "" | safeHTML }}
-  {{ $content | safeHTML }}
-{{ end }}
+<!doctype html>
+<html
+  lang="{{ site.Language.LanguageCode }}"
+  dir="{{ or site.Language.LanguageDirection `ltr` }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{ partial "headed/meta.html" . }}
+    {{ partial "headed/og.html" . }}
+    {{ partial "headed/twitter-card.html" . }}
+    {{ partial "headed/json-ld.html" . }}
+    {{ partial "headed/sass.html" . }}
+  </head>
+  <body>
+    <header>
+      <h1><a href="{{ absURL site.BaseURL }}">{{ site.Title }}</a></h1>
+      <nav>{{- range site.Menus.main }}<a href="{{ .URL }}">{{ .Name }}</a>{{- end }}</nav>
+    </header>
+    
+    <main>
+      <article>
+        {{ if not .IsHome }}
+          <h1>{{ .Title }}</h1>
+        {{ end }}
+        {{ block "main" . }}
+          {{ .Content }}
+        {{ end }}
+      </article>
+    </main>
+    
+    <footer>
+      {{ site.Params.footer.custom | safeHTML }}
+      <p>&copy; {{ now.Year }} • <a href="{{ site.BaseURL | absURL }}" class="link link--external">{{ site.Title }}</a></p>
+      {{ site.Params.footer.license | safeHTML }}
+    </footer>
+
+    {{ partial "components/lightbox.html" . }}
+    {{ partial "components/mermaid.html" . }}
+    {{ partial "components/mathjax.html" . }}
+  </body>
+</html>

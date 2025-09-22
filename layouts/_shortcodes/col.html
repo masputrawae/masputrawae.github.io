@@ -1,7 +1,0 @@
-<div class="grid">
-{{- range split .Inner "<!--col-item-->" }}
-{{- printf "<div class=\"container grid__item\">" | htmlUnescape | safeHTML }}
-{{- . | safeHTML }}
-{{- printf "</div>" | htmlUnescape | safeHTML }}
-{{- end }}
-</div>

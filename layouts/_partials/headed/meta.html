@@ -77,6 +77,5 @@ Keywords precedence:
 {{- end }}
 
 <link rel="sitemap" type="application/xml" href="{{ "sitemap.xml" | absURL }}" />
-<link rel="manifest" href="{{ "manifest.json" | absURL }}" />
 <link rel="canonical" href="{{ .Permalink }}" />
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
