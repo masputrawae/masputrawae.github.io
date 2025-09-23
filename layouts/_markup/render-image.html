@@ -1,14 +1,16 @@
 {{- if .IsBlock -}}
   <figure>
     <img src="{{ .Destination | safeURL | absURL }}"
-      {{- with .PlainText }} alt="{{ . }}"{{ end -}}
+      {{- with .PlainText }} alt="{{ . }}"{{ end }}
+      onclick="openImage(this)"
     >
     {{- with .Title }}<figcaption>{{ . }}</figcaption>{{ end -}}
   </figure>
 {{- else -}}
   <img src="{{ .Destination | safeURL | absURL }}"
     {{- with .PlainText }} alt="{{ . }}"{{ end -}}
-    {{- with .Title }} title="{{ . }}"{{ end -}}
+    {{- with .Title }} title="{{ . }}"{{ end }}
+    onclick="openImage(this)"
   >
 {{- end -}}
 {{ .Page.Store.Set "hasImage" true }}
