@@ -1,0 +1,11 @@
+<h1 class="brand">
+  <a href="{{ site.BaseURL | absURL }}" class="brand__title">{{ site.Title | upper }}</a>
+  <strong class="brand__tagline">{{ site.Params.tagline }}</strong>
+</h1>
+
+<button class="c-btn c-btn--menu" id="toggle-menu">
+  {{ partial "components/icon.html" (dict "name" "list" "class" "c-btn__icon") }}
+  <span class="u-sr-only">Toggle Menu</span>
+</button>
+
+{{ partial "components/menu.html" (dict "menuID" "main" "page" .) }}

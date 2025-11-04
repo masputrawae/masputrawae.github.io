@@ -1,0 +1,12 @@
+{{ with site.Params.cta }}
+  <nav class="home__cta">
+    {{ range . }}
+      <a href="{{ .url | relURL }}" class="c-btn {{ if .primary }}c-btn--primary{{ end }}">
+        {{ with .icon }}
+          {{ partial "components/icon.html" (dict "name" . "class" "u-btn__icon") }}
+        {{ end }}
+        {{ .name }}
+      </a>
+    {{ end }}
+  </nav>
+{{ end }}

@@ -1,0 +1,8 @@
+{{- range site.Params.favicons -}}
+  <link
+    rel="{{- .rel -}}"
+    {{- with .type -}}type="{{- . -}}"{{- end -}}
+    {{- with .size -}}sizes="{{- . -}}"{{- end -}}
+    href="{{- .href | absURL -}}"
+  />
+{{- end -}}

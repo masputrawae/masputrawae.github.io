@@ -1,0 +1,21 @@
+<link rel="manifest" href="{{- "manifest.json" | absURL -}}" />
+<link rel="sitemap" type="application/xml" href="{{- "sitemap.xml" | absURL -}}"/>
+<link rel="sitemap" type="application/xml" href="{{- "sitemapindex.xml" | absURL -}}"/>
+{{ with .OutputFormats.Get "rss" }}
+  {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+{{ end }}
+
+<link rel="canonical" href="{{- .Permalink -}}" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="{{- .Params.author.name | default site.Params.author.name -}}"/>
+
+{{- if .Params.tags -}}
+  <meta 
+    name="keywords" 
+    content="{{- with .Params.tags -}}
+      {{- delimit . ", " -}}
+    {{- else -}}
+      {{- $.Site.Params.keywords -}}
+    {{- end -}}"
+  />
+{{- end -}}

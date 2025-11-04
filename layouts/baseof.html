@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html 
+  lang="{{ site.Language.LanguageCode }}" 
+  dir="{{ or site.Language.LanguageDirection `ltr` }}"
+  data-theme="dark"
+  >
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+  
+  {{ partial "head/meta.html" . }}
+  {{ partial "head/og.html" . }}
+  {{ partial "head/schema.html" . }}
+  {{ partial "head/twitter_cards.html" . }}
+  {{ partial "head/google_analytics.html" . }}
+
+  {{ partialCached "head/favicons.html" . }}
+  {{ partialCached "head/fonts.html" . }}
+  {{ partialCached "head/css.html" . }}
+  {{ partialCached "head/js.html" . }}
+</head>
+<body>
+  <div class="layout">
+
+    {{/*  ===== START: HEADER =====  */}}
+    <header class="site-header">
+      <div class="u-container site-header__wrapper">
+        {{ partial "components/header.html" . }}
+      </div>
+    </header>
+    {{/*  ===== END: HEADER =====  */}}
+    
+    {{/*  ===== START: MAIN PAGE =====  */}}
+    <main class="site-main">
+      <div class="u-container site-main__wrapper">
+          {{ if not .IsHome }}
+            {{ partial "components/breadcrumb.html" . }}
+          {{ end }}
+          {{ block "main" . }}{{ end }}
+      </div>
+    </main>
+    {{/*  ===== END: MAIN PAGE =====  */}}
+
+    {{/*  ===== START: FOOTER =====  */}}
+    <footer class="site-footer">
+      <div class="u-container site-footer__wrapper">
+        <p>{{ .Site.Copyright }}</p>
+      </div>
+    </footer>
+    {{/*  ===== END: FOOTER =====  */}}
+
+  </div>
+</body>
+</html>

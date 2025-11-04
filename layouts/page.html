@@ -1,0 +1,7 @@
+{{ define "main" }}
+  <article class="markdown">
+    <h1>{{ .Title }}</h1>
+    {{ partial "components/wikilink.html" . }}
+    {{ partial "components/pager.html" . }}
+  </article>
+{{ end }}

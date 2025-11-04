@@ -1,0 +1,15 @@
+{{ define "main" }}
+  <article class="markdown">
+    <h1>{{ .Title }}</h1>
+    {{ partial "components/wikilink.html" . }}
+    <nav>
+      <ul>
+        {{ range .Pages.ByTitle }}
+          <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </li>
+        {{ end }}
+      </ul>
+    </nav>
+  </article>
+{{ end }}

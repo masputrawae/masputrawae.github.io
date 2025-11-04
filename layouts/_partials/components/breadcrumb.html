@@ -1,0 +1,14 @@
+<div class="markdown">
+  <nav aria-label="breadcrumb" class="c-breadcrumb">
+    <ol class="c-breadcrumb__list">
+      {{ range .Ancestors.Reverse }}
+        <li class="c-breadcrumb__item">
+          <a href="{{ .RelPermalink }}" class="c-breadcrumb__link">{{ .LinkTitle }}</a>
+        </li>
+      {{ end }}
+      <li class="c-breadcrumb__item">
+        <a aria-current="page" href="{{ .RelPermalink }}" class="c-breadcrumb__link c-breadcrumb__link--active">{{ .LinkTitle }}</a>
+      </li>
+    </ol>
+  </nav>
+</div>

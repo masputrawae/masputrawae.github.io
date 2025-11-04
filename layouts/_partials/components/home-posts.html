@@ -1,0 +1,22 @@
+<article class="markdown">
+  <h2>Recent Posts</h2>
+  {{ $posts := where site.RegularPages "Section" "posts" }}
+  <ul>
+    {{ range $posts.ByDate.Reverse | first 10 }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </li>
+    {{ end }}
+    <li><a href="{{ "posts" | relURL }}">More... <span class="u-sr-only">To All Posts</span></a></li>
+  </ul>
+  <h2>Series</h2>
+  {{ $series := site.GetPage "section" "series" }}
+  <ul>
+    {{ range $series.Sections | first 10 }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <small>=> {{ .Pages | len }} posts dalam series ini</small>
+      </li>
+    {{ end }}
+  </ul>
+</article>

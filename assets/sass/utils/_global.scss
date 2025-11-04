@@ -1,0 +1,28 @@
+@use "../abstracts/breakpoints" as b;
+@use "../abstracts/mixins" as m;
+
+.u-container {
+  display: block;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  @include b.min(sm) {
+    max-width: 33.75rem;
+  }
+  @include b.min(md) {
+    max-width: 45rem;
+  }
+  @include b.min(lg) {
+    max-width: 60rem;
+  }
+  @include b.min(xl) {
+    max-width: 71.25rem;
+  }
+  @include b.min(2xl) {
+    max-width: 82.5rem;
+  }
+}
+
+.u-sr-only {
+  @include m.sr-only();
+}

@@ -1,0 +1,36 @@
+@use "../abstracts/breakpoints" as b;
+@use "../abstracts/mixins" as m;
+
+.c-btn {
+  @include m.transition(scale, box-shadow);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  width: fit-content;
+  background-color: var(--cl-secondary);
+  color: var(--text-bold);
+  border-radius: 0.25rem;
+  box-shadow: var(--shadow-soft);
+  font-weight: 700;
+
+  &__icon {
+    @include m.size(1.5rem);
+  }
+
+  &--primary {
+    background-color: var(--cl-primary);
+    color: var(--cl-white);
+  }
+
+  @include m.hover-focus{
+    scale: 1.05;
+    box-shadow: var(--shadow-strong);
+  }
+
+  @include b.min(lg){
+    &--menu {
+      display: none;
+    }
+  }
+}

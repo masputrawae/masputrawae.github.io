@@ -1,0 +1,10 @@
+<figure class="home__hero">
+  <img src="{{ site.Params.logo | relURL }}" alt="Logo {{ site.Title }}" class="home__logo"/>
+  <figcaption class="home__info">
+    <h1 class="home__title">{{ site.Title }}</h1>
+    <em class="home__tagline">{{ site.Params.tagline }}</em>
+    <div class="markdown home__content">
+      {{ partial "components/wikilink.html" . }}
+    </div>
+  </figcaption>
+</figure>

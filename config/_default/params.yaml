@@ -1,0 +1,93 @@
+author:
+  name: "Putra Jaya"
+  email: masputrawae@proton.me
+
+social:
+  twitter: Masputrawae
+
+description: "Tempat meluangkan waktu untuk bercerita, dan berbagi ilmu."
+tagline: Hanya Seorang Manusia Biasa
+logo: logo.png
+images: 
+  - https://picsum.photos/720/1080
+
+defaultMath: false
+defaultGiscus: false
+
+cta:
+  - name: Tentang Saya
+    url: /about
+    primary: true
+    icon: person
+
+  - name: Semua Postingan
+    url: /posts
+    primary: false
+    icon: globe
+
+favicons:
+  - rel: icon
+    type: image/x-icon
+    href: favicons/favicon.ico
+
+  - rel: apple-touch-icon
+    type: image/png
+    size: 180x180
+    href: favicons/apple-touch-icon.png
+
+  - rel: icon
+    type: image/png
+    size: 32x32
+    href: favicons/favicon-32x32.png
+
+  - rel: icon
+    type: image/png
+    size: 16x16
+    href: favicons/favicon-16x16.png
+
+  - rel: icon
+    type: image/png
+    size: 192x192
+    href: favicons/android-chrome-192x192.png
+
+  - rel: icon
+    type: image/png
+    size: 512x512
+    href: favicons/android-chrome-512x512.png
+
+fonts:
+  - family: Inter
+    style: normal
+    weight: 400
+    file: fonts/inter-v20-latin-regular.woff2
+    preload: true
+  - family: Inter
+    style: normal
+    weight: 500
+    file: fonts/inter-v20-latin-500.woff2
+    preload: false
+  - family: Inter
+    style: normal
+    weight: 600
+    file: fonts/inter-v20-latin-600.woff2
+    preload: false
+  - family: Inter
+    style: normal
+    weight: 700
+    file: fonts/inter-v20-latin-700.woff2
+    preload: true
+  - family: Inter
+    style: normal
+    weight: 800
+    file: fonts/inter-v20-latin-800.woff2
+    preload: false
+  - family: Roboto Mono
+    style: normal
+    weight: 400
+    file: fonts/roboto-mono-v31-latin-regular.woff2
+    preload: false
+  - family: Roboto Mono
+    style: normal
+    weight: 700
+    file: fonts/roboto-mono-v31-latin-700.woff2
+    preload: false

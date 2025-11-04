@@ -1,0 +1,161 @@
+@use "../abstracts/breakpoints" as b;
+@use "../abstracts/mixins" as m;
+
+:where(.markdown) {
+  line-height: 1.7;
+  max-width: 80ch;
+  margin-inline: auto;
+
+  :is(h1, h2, h3, h4, h5, h6) {
+    font-weight: 600;
+    color: var(--text-title);
+    margin-block: 1.5rem 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--cl-border);
+  }
+
+  h1 {
+    font-size: var(--fs-6xl);
+    margin-top: 4rem;
+  }
+
+  h2 {
+    font-size: var(--fs-5xl);
+  }
+
+  h3 {
+    font-size: var(--fs-4xl);
+  }
+
+  h4 {
+    font-size: var(--fs-3xl);
+  }
+
+  h5 {
+    font-size: var(--fs-2xl);
+  }
+
+  h6 {
+    font-size: var(--fs-xl);
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+
+    + p {
+      margin-top: 1rem;
+    }
+  }
+  strong,
+  b {
+    color: var(--text-bold);
+    font-weight: bold;
+  }
+
+  a {
+    color: var(--text-info);
+  }
+
+  :is(ul, ol) {
+    padding-inline-start: 1.75rem;
+    margin: 1rem 0;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  :is(ul li, ol li) {
+    margin: 0.5em 0;
+  }
+
+  :is(ul ul, ol ol, ul ol, ol ul) {
+    margin: 0.3rem 0;
+    padding-inline-start: 1.75rem;
+  }
+
+  dl {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px 0;
+    padding: 15px 20px;
+    background-color: var(--bg-alt);
+    border: 1px solid var(--cl-border);
+    border-radius: 4px;
+    font-size: 16px;
+    box-shadow: var(--shadow-soft);
+  }
+  dt {
+    font-weight: 600;
+    margin-top: 10px;
+    color: var(--text-title);
+  }
+
+  dd {
+    margin-left: 20px;
+    margin-bottom: 10px;
+    color: var(--text-muted);
+  }
+
+  blockquote {
+    margin-block: 3rem;
+    margin-inline-start: 1rem;
+    padding-inline-start: 1rem;
+    color: var(--text-muted);
+    border-inline-start-width: 0.25rem;
+    border-inline-start-color: var(--text-info);
+  }
+
+  hr {
+    display: block;
+    border: none;
+    height: 3px;
+    margin-block: 3rem;
+    background-color: var(--cl-border);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse; /* Hilangkan jarak antar border */
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+    box-shadow: var(--shadow-soft);
+  }
+
+  th,
+  td {
+    border: 1px solid var(--bg-alt);
+    padding: 10px 15px;
+    color: var(--text-bold);
+  }
+
+  th {
+    background-color: var(--bg-alt);
+    font-weight: 600;
+  }
+
+  caption {
+    caption-side: top;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+  .footnote-ref,
+  .footnote-backref {
+    text-decoration: none;
+    color: var(--text-info);
+    &::before {
+      content: "[";
+    }
+
+    &::after {
+      content: "]";
+    }
+  }
+}

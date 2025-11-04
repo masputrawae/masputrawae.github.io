@@ -1,0 +1,17 @@
+<nav class="pager">
+  {{ $pages := .CurrentSection.Pages.ByTitle.Reverse }}
+
+  {{ with $pages.Prev . }}
+    <a href="{{ .RelPermalink }}" class="c-btn pager__btn pager__btn--prev">
+      <strong class="pager__label">Sebelumnya</strong>
+      <small class="pager__title">{{ .Title }}</small>
+    </a>
+  {{ end }}
+
+  {{ with $pages.Next . }}
+    <a href="{{ .RelPermalink }}" class="c-btn pager__btn pager__btn--next">
+      <strong class="pager__label">Berikutnya</strong>
+      <small class="pager__title">{{ .Title }}</small>
+    </a>
+  {{ end }}
+</nav>

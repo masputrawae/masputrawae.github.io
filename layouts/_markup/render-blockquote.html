@@ -1,0 +1,30 @@
+{{ $icons := dict
+  "info" "info-circle"
+  "tip" "marker-tip"
+  "success" "check-circle"
+  "note" "pin-fill"
+  "warning" "exclamation-octagon"
+  "danger" "radioactive"
+  "error" "x-circle"
+}}
+
+{{ if eq .Type "alert" }}
+  <div class="c-alert c-alert--{{ .AlertType }}">
+    <strong class="c-alert__title">
+      {{ $icon := index $icons .AlertType }}
+      {{ partial "components/icon.html" (dict "name" $icon "class" "c-alert__icon") }}
+      {{ with .AlertTitle }}
+        {{ . }}
+      {{ else }}
+        {{ or (i18n .AlertType) (title .AlertType) }}
+      {{ end }}
+    </strong>
+    <div class="c-alert__body">
+      {{ .Text }}
+    </div>
+  </div>
+{{ else }}
+  <blockquote>
+    {{ .Text }}
+  </blockquote>
+{{ end }}

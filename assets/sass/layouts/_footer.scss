@@ -1,0 +1,11 @@
+@use "../abstracts/breakpoints" as b;
+@use "../abstracts/mixins" as m;
+
+.site-footer {
+  text-align: center;
+  padding-block: 5rem;
+  margin-top: 5rem;
+  background-color: var(--bg-alt);
+  border-top: 3px solid var(--cl-border);
+  box-shadow: var(--shadow-soft);
+}

@@ -1,0 +1,23 @@
+@use "../abstracts/mixins" as m;
+
+.c-breadcrumb {
+  &__list {
+    padding-left: 0;
+  }
+
+  &__item {
+    display: inline;
+
+    &:not(:last-child)::after {
+      content: "»";
+    }
+  }
+
+  &__link {
+    font-size: var(--fs-sm);
+
+    &--active {
+      color: var(--text-title);
+    }
+  }
+}

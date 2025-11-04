@@ -1,0 +1,64 @@
+baseURL: "https://masputrawae.github.io"
+languageCode: id
+title: "MasPutraWae"
+enableEmoji: true
+enableRobotsTXT: true
+copyright: © 2025 Putra Jaya. Some rights reserved. Licensed under CC BY-SA 4.0.
+
+taxonomies:
+  tag: tags
+
+services:
+  googleAnalytics:
+    id: G-W9TMTZZYG5
+
+privacy:
+  googleAnalytics:
+    disable: false
+    respectDoNotTrack: true
+
+sitemap:
+  changefreq: 'monthly'
+  disable: false
+  filename: sitemap.xml
+  priority: 1
+
+mediaType: 'application/json'
+outputFormats:
+  manifest:
+    mediaType            : 'application/json'
+    baseName             : 'manifest'
+    isPlainText          : true
+    notAlternative       : true
+  sitemap:
+    mediaType: application/xml
+    baseName: sitemap
+    isPlainText: false
+    notAlternative: true
+  sitemapindex:
+    mediaType: application/xml
+    baseName: sitemapindex
+    isPlainText: false
+    notAlternative: true
+
+outputs:
+  home:
+    - manifest
+    - html
+    - sitemapindex
+    - rss
+  section:
+    - html
+    - sitemap
+    - rss
+
+module:
+  hugoVersion:
+    extended: true
+    min: "0.152.2"
+
+  mounts:
+    - source: assets
+      target: assets
+    - source: node_modules/bootstrap-icons/icons
+      target: assets/icons

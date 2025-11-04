@@ -1,0 +1,16 @@
+{{- range .Site.Params.fonts }}
+  {{- if .preload }}
+    <link rel="preload" href="{{- .file | absURL }}" as="font" type="font/woff2" crossorigin>
+  {{- end }}
+{{- end }}
+<style>
+{{- range .Site.Params.fonts }}
+@font-face {
+  font-display: swap;
+  font-family: "{{ .family }}";
+  font-style: {{ .style }};
+  font-weight: {{ .weight }};
+  src: url('{{ .file | absURL }}') format('woff2');
+}
+{{- end }}
+</style>

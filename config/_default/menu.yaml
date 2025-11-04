@@ -1,0 +1,30 @@
+main:
+  - name: Home
+    pageRef: /
+    weight: 10
+    params:
+      icon: house
+  
+  - name: About
+    pageRef: /about
+    weight: 20
+    params:
+      icon: person
+
+  - name: Posts
+    pageRef: /posts
+    weight: 30
+    params:
+      icon: globe
+
+  - name: Tags
+    pageRef: /tags
+    weight: 40
+    params:
+      icon: tags
+
+  - name: Series
+    pageRef: /series
+    weight: 50
+    params:
+      icon: list-task
