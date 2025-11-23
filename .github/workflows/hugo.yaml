@@ -62,7 +62,7 @@ jobs:
       - name: Clone private repo (notes)
         run: |
           git clone https://x-access-token:${{ secrets.PRIVATE_REPO }}@github.com/masputrawae/notes.git
-          cp -r @Website/* content/
+          cp -r Website/* content/
       
       - name: Wikilink Convert
         run: |
