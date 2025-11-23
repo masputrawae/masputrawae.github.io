@@ -1,0 +1,226 @@
+# ========== BASE SETTING ========== #
+baseURL                   : https://masputrawae.github.io
+title                     : MasPutraWae
+languageCode              : id
+defaultContentLanguage    : id
+copyright                 : Copyright © 2025 Putra Jaya. Berlisensi di bawah CC BY-SA 4.0.
+timeZone                  : Asia/Jakarta
+buildFuture               : true
+enableEmoji               : true
+enableRobotsTXT           : true
+
+# ========== PAGINATOR SETTING ========== #
+pagination:
+  disableAliases  : true
+  pagerSize       : 10
+  path            : halaman
+
+# ========== SERVICES ========== #
+services:
+  googleAnalytics:
+    id: G-W9TMTZZYG5
+
+# ========== PRIVACY ========== #
+privacy:
+  googleAnalytics:
+    disable           : false
+    respectDoNotTrack : true
+
+# ========== SITEMAP ========== #
+sitemap:
+  changefreq    : 'monthly'
+  disable       : false
+  filename      : sitemap.xml
+  priority      : 1
+
+# ========== PARAMS ========== #
+params:
+  logo          : logo.png
+  # ========== SITE DESCRIPTION ========== #
+  description   : |
+    Tempat meluangkan waktu untuk bercerita, dan berbagi ilmu. Dan yang pasti juga, untuk bersenang-senang.
+  heroTitle     : Hay!' Selamat Datang di Tempat Terindah Ini.
+  heroButtons:
+    - label     : Tentang Saya
+      href      : /about
+      icon      : person-circle
+      isPrimary : true
+
+    - label       : Discord
+      href        : https://discord.gg/nM4EP8DJFZ
+      icon        : discord
+      isExternal  : true
+
+  homePostsList:
+    - title       : Proyek Terbaru
+      subtitle    : 5 Proyek Terbaru, Mungkin?...
+      postType    : projects
+      seeMoreLink : /projects
+      seeMoreText : Lihat Semua Proyek
+      background  : bg-neutral-900
+      limit       : 5
+      weight      : 1
+      description : |
+        Beberapa proyek yang lagi saya kerjakan belakangan ini. Tidak semuanya selesai, tapi semuanya bagian dari perjalanan belajar saya.
+
+    - title       : Postingan Terbaru
+      subtitle    : 5 Postingan Terbaru
+      postType    : posts
+      seeMoreLink : /posts
+      seeMoreText : Lihat Semua Postingan
+      limit       : 5
+      weight      : 2
+      description : |
+        Beberapa pemikiran dan catatan terbaru yang saya tulis belakangan ini—sebagai cara merawat rasa ingin tahu dan mengingat proses belajar saya sendiri.
+
+  # ========== AUTHOR / SITE OWNER ========== #
+  author:
+    name      : Putra Jaya
+    email     : masputrawae.official@gmail.com
+
+  # ========== SOCIAL MEDIA ========== #
+  social:
+    twitter             : Masputrawae
+    facebook_admin      : 61583431824984
+    # facebook_app_id   : xxxx
+
+    links:
+      twitter-x   : https://x.com/masputrawae
+      instagram   : https://www.instagram.com/masputrawae/
+      github      : https://github.com/masputrawae
+      rss         : /index.xml
+# ========== MENUS ========== #
+menus:
+  main:
+    - name        : Beranda
+      pageRef     : /
+      weight      : 10
+
+    - name        : Tentang Saya
+      pageRef     : /about
+      weight      : 20
+
+    - name        : Proyek
+      pageRef     : /projects
+      weight      : 30
+
+    - name        : Postingan
+      pageRef     : /posts
+      weight      : 40
+
+    - name        : Arsip
+      pageRef     : /archives
+      weight      : 50
+
+# ========== OUTPUTS ========== #
+mediaType           : 'application/json'
+outputFormats       :
+  sitemap           :
+    mediaType       : application/xml
+    baseName        : sitemap
+    isPlainText     : false
+    notAlternative  : true
+  sitemapindex      :
+    mediaType       : application/xml
+    baseName        : sitemapindex
+    isPlainText     : false
+    notAlternative  : true
+
+outputs:
+  home:
+    - html
+    - sitemapindex
+    - rss
+  section:
+    - html
+    - sitemap
+    - rss
+
+# ========== BUILD ==========
+build:
+  buildStats:
+    enable              : true
+
+  cachebusters:
+  - source              : assets/notwatching/hugo_stats\.json
+    target              : css
+
+# ========== MODULES ========== #
+module:
+  hugoVersion:
+    extended              : true
+    min                   : "0.152.2"
+  
+  imports:
+    - path: "github.com/masputrawae/yolo-hugo-theme"
+      disable: false
+
+  mounts:
+    - source              : assets
+      target              : assets
+
+    - source              : static
+      target              : static
+
+    - disableWatch        : true
+      source              : hugo_stats.json
+      target              : assets/notwatching/hugo_stats.json
+
+    - source              : node_modules/bootstrap-icons/icons
+      target              : assets/icons
+
+# ========== MARKUP ==========
+markup:
+  goldmark:
+    renderHooks:
+      image:
+        useEmbedded: auto
+      link:
+        useEmbedded: auto
+    renderer:
+      unsafe: true
+    extensions:
+      definitionList: true
+      footnote: true
+      extras:
+        delete:
+          enable: true
+        insert:
+          enable: true
+        mark:
+          enable: true
+        subscript:
+          enable: true
+        superscript:
+          enable: true
+      passthrough:
+        enable: true
+        delimiters:
+          block:
+            - - \[
+              - \]
+            - - $$
+              - $$
+          inline:
+            - - \(
+              - \)
+    parser:
+      wrapStandAloneImageWithinParagraph: false
+      attribute:
+        block: true
+        title: true
+  tableOfContents:
+    endLevel: 6
+    ordered: false
+    startLevel: 2
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    style: github-dark
+    noClasses: true
+    lineNumbersInTable: false
+    lineNos: true
+    anchorLineNos: false
+    lineAnchors: ""
+    lineNoStart: 1
+    tabWidth: 4
