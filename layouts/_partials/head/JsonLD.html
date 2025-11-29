@@ -1,0 +1,75 @@
+{{ $pageType := "" }}
+{{ if .IsHome }}
+  {{ $pageType = "WebSite" }}
+{{ else if eq .Section "search" }}
+  {{ $pageType = "SearchAction" }}
+{{ else if .IsSection }}
+  {{ $pageType = "CollectionPage" }}
+{{ else }}
+  {{ $pageType = .Params.pageType | default site.Params.pageType | default "Article" }}
+{{ end }}
+
+{{/*  ===== KEYWORDS =====  */}}
+{{- $keywords := slice }}
+{{- range .GetTerms "keywords" }}
+  {{- $keywords = $keywords | append .Title }}
+{{- else }}
+  {{- with .Params.Keywords }}
+    {{- $keywords = . }}
+  {{- else }}
+    {{- range .GetTerms "tags" }}
+      {{- $keywords = $keywords | append .Title }}
+    {{- else }}
+      {{- range $taxonomy, $_ := site.Taxonomies }}
+        {{- range $.GetTerms $taxonomy }}
+          {{- $keywords = $keywords | append .Title }}
+        {{- end }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+{{- $images := partial "_funcs/get-page-images" . -}}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "{{ $pageType }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ .Permalink }}"
+  },
+  "headline": "{{ .Title | safeJS }}",
+  {{ with or .Description .Summary site.Params.description | plainify | htmlUnescape }}
+  "description": {{ trim . "\n\r\t " | jsonify }},
+  {{ end }}
+  {{ with index $images 0 }}
+  "image": "{{ .Permalink }}",
+  {{ end }}
+  {{ with $keywords }}
+  "keywords": {{ . | jsonify }},
+  {{ end }}
+  {{ with .Params.categories }}
+  "articleSection": {{ . | jsonify }},
+  {{ end }}
+  "wordCount": {{ .WordCount }},
+  "url": "{{ .Permalink }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ .Params.author.name | default site.Params.author.name | default "Author" | safeJS }}",
+    {{ with .Params.author.email | default site.Params.author.email }}
+    "email": "{{ . }}"
+    {{ end }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.Title | safeJS }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.Params.logo | absURL }}"
+    }
+  },
+  "datePublished": "{{ .PublishDate | default .Date | time.Format "2006-01-02T15:04:05-07:00" }}",
+  "dateModified": "{{ .Lastmod | time.Format "2006-01-02T15:04:05-07:00" }}"
+}
+</script>

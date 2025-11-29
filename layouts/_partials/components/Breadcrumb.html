@@ -1,0 +1,15 @@
+<style>
+  .breadcrumb li:not(:last-child)::after {
+    content: "»";
+    margin-inline: 4px;
+  }
+</style>
+<nav aria-label="breadcrumb" class="breadcrumb text-xs md:text-sm">
+  <ol>
+    {{ range .Ancestors.Reverse }}
+      <li class="inline text-neutral-400 hover:text-amber-500">
+        <a href="{{ .RelPermalink }}" aria-current="true">{{ .LinkTitle }}</a>
+      </li>
+    {{ end }}
+  </ol>
+</nav>

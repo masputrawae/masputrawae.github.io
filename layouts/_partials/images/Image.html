@@ -1,0 +1,137 @@
+{{/*  
+TODO: Buat Module Image Processing
+- Mungkin Proyek Mendatang Buat Modul Khusus Image Processing
+
+@params:
+- "src"     | [string]  -> @example: "images/item.png"
+- "alt"     | [string]  -> @example: "Image Product"
+- "class"   | [string]  -> @example: "border-2 mx-auto p-2"
+- "base"    | [int]     -> @example: 300
+- "sizes"   | [string]  -> @example: (slice "400x" "800x" "1200x")
+- "loading" | default lazy | eager
+- "mode"    | default none | square | portrait | landscape
+
+@example:
+Untuk Gambar Local taruh di assets & Untuk Remote Bebas Tapi Kemungkinan Error saat gambar gagal di ambil.
+
+1. Default
+  {{ partial "images/Image" (dict "src" "img/photo.jpg") }}
+
+2. Custom Resize
+  {{ partial "images/Image" (dict
+    "src" "img/banner.jpg"
+    "sizes" (slice "400x" "800x" "1200x")
+  ) }}
+
+3. Square (Auto Mode)
+  {{ partial "images/Image" (dict
+    "src" "img/avatar.jpg"
+    "mode" "square"
+    "base" 300
+  ) }}
+
+4. Portrait
+  {{ partial "images/Image" (dict
+    "src" "img/poster.jpg"
+    "mode" "portrait"
+    "base" 300
+  ) }}
+
+5. Landscape
+  {{ partial "images/Image" (dict
+    "src" "img/hero.jpg"
+    "mode" "landscape"
+    "base" 300
+  ) }}
+*/}}
+
+{{- $srcParam := .src }}
+{{- $alt := .alt | default "Image" }}
+{{- $title := .title }}
+{{- $loading := .loading | default "lazy" }}
+{{- $class := .class }}
+{{- $mode := .mode | default "" }}
+{{- $base := .base | default 300 }}
+{{- $sizesParam := .sizes }}
+
+{{/* Default sizes */}}
+{{- $defaultSizes := slice "320x" "768x" "1024x" "1280x" "1536x" }}
+
+{{/* Build sizes based on mode */}}
+{{- if $mode }}
+  {{- if eq $mode "square" }}
+    {{- $sizes := slice 
+        (printf "%dx%d" $base $base)
+        (printf "%dx%d" (mul $base 2) (mul $base 2))
+        (printf "%dx%d" (mul $base 3) (mul $base 3))
+    }}
+    {{- $sizesParam = $sizes }}
+  {{- else if eq $mode "portrait" }}
+    {{- $sizes := slice 
+        (printf "%dx%d" $base (mul $base 4))
+        (printf "%dx%d" (mul $base 2) (mul $base 8))
+    }}
+    {{- $sizesParam = $sizes }}
+  {{- else if eq $mode "landscape" }}
+    {{- $sizes := slice 
+        (printf "%dx%d" (mul $base 4) $base)
+        (printf "%dx%d" (mul $base 8) (mul $base 2))
+    }}
+    {{- $sizesParam = $sizes }}
+  {{- end }}
+{{- end }}
+
+{{/* Final sizes */}}
+{{- $sizes := cond $sizesParam $sizesParam $defaultSizes }}
+
+<!-- Ambil gambar -->
+{{- $image := "" }}
+{{- if strings.HasPrefix $srcParam "http" }}
+  {{- $image = resources.GetRemote $srcParam }}
+{{- else }}
+  {{- $image = resources.Get $srcParam }}
+{{- end }}
+
+<!-- Ambil rasio untuk width & height atribut -->
+{{- $large := $image.Resize (index $sizes (sub (len $sizes) 1)) }}
+
+{{- $intrinsicW := $large.Width }}
+{{- $intrinsicH := $large.Height }}
+
+<picture>
+
+  {{/* Loop responsive sizes */}}
+  {{- range $i, $size := $sizes }}
+
+    {{- $img := $image.Resize $size }}
+    {{- $webp := $img.Process "webp" }}
+
+    <!-- WebP -->
+    <source 
+      type="image/webp"
+      media="(max-width: {{ $img.Width }}px)"
+      srcset="{{ $webp.RelPermalink }}" />
+
+    <!-- Original -->
+    <source 
+      media="(max-width: {{ $img.Width }}px)"
+      srcset="{{ $img.RelPermalink }}" />
+
+  {{- end }}
+
+  <!-- Fallback terakhir -->
+  <img
+    src="{{ $large.RelPermalink }}"
+    alt="{{ $alt }}"
+    width="{{ $intrinsicW }}"
+    height="{{ $intrinsicH }}"
+    loading="{{ $loading }}"
+    decoding="async"
+    sizes="100vw"
+    {{ with $class }} class="{{ . }}" {{ end }}
+    {{ with $title }}
+      title="{{ . }}"
+    {{ end }}
+  />
+
+</picture>

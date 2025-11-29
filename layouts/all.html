@@ -1,0 +1,17 @@
+{{ define "main" }}
+  {{ if eq .Kind "home" }}
+    {{ partial "components/Hero" . }}
+  {{ else if eq .Kind "page" }}
+    {{ partial "components/Article" . }}
+  {{ else if eq .Kind "taxonomy" }}
+    {{/*  TODO: BUAT TAGS CLOUD NEXT TIME  */}}
+    <div class="prose prose-invert text-center prose-neutral mb-16 mx-auto">
+      <h1>{{ .Title }}</h1>
+    </div>
+  {{ else if in (slice "section" "term") .Kind }}
+    <div class="prose prose-invert text-center prose-neutral mb-16 mx-auto">
+      <h1>{{ .Title }}</h1>
+    </div>
+    {{ partial "components/PostList" . }}
+  {{ end }}
+{{ end }}

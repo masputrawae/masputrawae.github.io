@@ -1,0 +1,10 @@
+<figure>
+  {{ partial "images/image" (dict
+    "src" .src
+    "loading" .loading
+    "class" .class
+    "alt" .alt
+    )
+  }}
+  <figcaption>{{ .caption }}</figcaption>
+</figure>

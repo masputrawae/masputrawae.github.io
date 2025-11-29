@@ -1,0 +1,64 @@
+{{- $alt := .PlainText }}
+{{- $titleRaw := .Title | default "" }}
+
+{{- /* -------------------------
+     PARSE key=value PARAMETERS
+   ------------------------- */}}
+
+{{- $params := dict }}
+
+{{- range (split $titleRaw "|") }}
+  {{- if in . "=" }}
+    {{- $kv := split . "=" }}
+    {{- $key := lower (strings.TrimSpace (index $kv 0)) }}
+    {{- $val := strings.TrimSpace (index $kv 1) }}
+    {{- $params = merge $params (dict $key $val) }}
+  {{- end }}
+{{- end }}
+
+{{/* Extract final params */}}
+{{- $imgTitle := or ($params.title) "" }}
+{{- $sizesStr := or ($params.sizes) "" }}
+{{- $crop     := or ($params.crop) "" }}
+{{- $class    := or ($params.class) "rounded-sm drop-shadow-sm/100" }}
+
+{{/* Build resize string */}}
+{{- $sizes := slice }}
+
+{{- if $sizesStr }}
+  {{- $resize := $sizesStr }}
+
+  {{- if $crop }}
+    {{- $resize = printf "%s %s" $resize $crop }}
+  {{- end }}
+
+  {{- $sizes = slice $resize }}
+{{- end }}
+
+{{- /* -------------------------
+     RESOLVE IMAGE PATH
+   ------------------------- */}}
+
+{{- $u := urls.Parse .Destination }}
+{{- $src := $u.String }}
+
+{{- if not $u.IsAbs }}
+  {{- $path := strings.TrimPrefix "./" $u.Path }}
+  {{- with or (.PageInner.Resources.Get $path) (resources.Get $path) }}
+    {{- $src = .RelPermalink }}
+  {{- end }}
+{{- end }}
+
+{{- /* -------------------------
+     SEND TO PARTIAL
+   ------------------------- */}}
+
+{{ partial "images/Image" (dict
+  "src"   $src
+  "alt"   $alt
+  "title" $imgTitle
+  "sizes" $sizes
+  "class" $class
+) }}
+
+{{- /* chomp trailing newline */ -}}

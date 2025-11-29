@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html
+  lang="{{ site.Language.LanguageCode }}"
+  dir="{{ or site.Language.LanguageDirection `ltr` }}"
+  class="bg-neutral-800 text-neutral-300 scroll-smooth will-change-scroll"
+>
+  {{ partial "main/Head" . }}
+  <body>
+    {{ partial "main/Header.html" . }}
+    <main>
+      <div class="container px-4 mx-auto py-16">
+        {{ block "main" . }}{{ end }}
+      </div>
+    </main>
+    {{ partial "main/Footer.html" . }}
+    {{ partialCached "assets/jsBuild" (dict "file" "js/main.js") }}
+  </body>
+</html>

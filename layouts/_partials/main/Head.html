@@ -1,0 +1,27 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+
+  {{ with .OutputFormats.Get "sitemap" }}
+    {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+  {{ end }}
+  {{ with .OutputFormats.Get "sitemapindex" }}
+    {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+  {{ end }}
+  {{ with .OutputFormats.Get "rss" }}
+    {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+  {{ end }}
+
+  <link rel="canonical" href="{{- .Permalink -}}" />
+  <meta name="robots" content="index, follow" />
+
+  {{ partial "head/JsonLD" . }}
+  {{ partial "head/OpenGraph" . }}
+  {{ partial "head/Schema" . }}
+  {{ partial "head/TwitterCards" . }}
+  {{ partial "head/GoogleAnalytics" . }}
+
+  {{ partialCached "assets/CssBuild.html" . }}
+  {{ partialCached "assets/Fonts.html" . }}
+</head>

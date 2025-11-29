@@ -1,0 +1,33 @@
+{{ $data := site.Data.callout }}
+{{ $callout := index $data .AlertType }}
+
+{{/* Fallback jika AlertType tidak ditemukan */}}
+{{ if not $callout }}
+  {{ $callout = index $data "note" }}
+{{ end }}
+
+{{/* Fallback untuk icon */}}
+{{ $icon := $callout.icon }}
+{{ if not $icon }}
+  {{ $icon = "pen" }}
+{{ end }}
+
+<aside class="{{ $callout.bg }} {{ $callout.border }} border-2 my-8 rounded-sm px-4 shadow-sm/100">
+  <div class="not-prose flex items-center justify-start gap-4">
+    {{ partial "assets/Icon" (dict "name" $icon "class" "size-6") }}
+    <p class="{{ $callout.text }} my-4 text-xl font-semibold">
+      {{ with .AlertTitle }}
+        {{ . }}
+      {{ else }}
+        {{ or (i18n .AlertType) (title .AlertType) }}
+      {{ end }}
+    </p>
+  </div>
+  <div>
+    {{ if eq (printf "%T" .Text) "string" }}
+      {{ .Text | markdownify }}
+    {{ else }}
+      {{ .Text }}
+    {{ end }}
+  </div>
+</aside>
