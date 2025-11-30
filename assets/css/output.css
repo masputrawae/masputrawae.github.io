@@ -833,6 +833,9 @@
   .max-w-4xl {
     max-width: var(--container-4xl);
   }
+  .max-w-56 {
+    max-width: calc(var(--spacing) * 56);
+  }
   .max-w-full {
     max-width: 100%;
   }
@@ -862,9 +865,6 @@
   }
   .flex-col {
     flex-direction: column;
-  }
-  .flex-row {
-    flex-direction: row;
   }
   .flex-wrap {
     flex-wrap: wrap;

@@ -2,8 +2,9 @@
 {{- $titleRaw := .Title | default "" }}
 
 {{- /* -------------------------
-     PARSE key=value PARAMETERS
-   ------------------------- */}}
+  PARSE key=value PARAMETERS
+  -------------------------
+*/}}
 
 {{- $params := dict }}
 
@@ -19,7 +20,7 @@
 {{/* Extract final params */}}
 {{- $imgTitle := or ($params.title) "" }}
 {{- $sizesStr := or ($params.sizes) "" }}
-{{- $crop     := or ($params.crop) "" }}
+{{- $process  := or ($params.process) "" }}
 {{- $class    := or ($params.class) "rounded-sm drop-shadow-sm/100" }}
 
 {{/* Build resize string */}}
@@ -27,17 +28,13 @@
 
 {{- if $sizesStr }}
   {{- $resize := $sizesStr }}
-
-  {{- if $crop }}
-    {{- $resize = printf "%s %s" $resize $crop }}
-  {{- end }}
-
   {{- $sizes = slice $resize }}
 {{- end }}
 
 {{- /* -------------------------
-     RESOLVE IMAGE PATH
-   ------------------------- */}}
+  RESOLVE IMAGE PATH
+  -------------------------
+*/}}
 
 {{- $u := urls.Parse .Destination }}
 {{- $src := $u.String }}
@@ -50,8 +47,9 @@
 {{- end }}
 
 {{- /* -------------------------
-     SEND TO PARTIAL
-   ------------------------- */}}
+  SEND TO PARTIAL
+  -------------------------
+*/}}
 
 {{ partial "images/Image" (dict
   "src"   $src
@@ -59,6 +57,8 @@
   "title" $imgTitle
   "sizes" $sizes
   "class" $class
-) }}
+  "process" $process
+  )
+}}
 
 {{- /* chomp trailing newline */ -}}

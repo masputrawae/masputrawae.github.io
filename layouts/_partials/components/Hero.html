@@ -1,11 +1,13 @@
 <article class="mx-auto grid max-w-3xl gap-4">
-  <figure class="grid gap-4 md:grid-cols-[224px_minmax(0,1fr)] md:items-center md:gap-8">
+  <figure
+    class="grid gap-4 md:grid-cols-[224px_minmax(0,1fr)] md:items-center md:gap-8"
+  >
     {{ partial "images/Image" (dict
       "src" "images/logo.png"
       "loading" "eager"
       "alt" "Logo Image"
-      "sizes" (slice "244x244")
-      "class" "rounded-full border-8 shadow-md/100 border-transparent"
+      "sizes" (slice "326x326" "342x342" "489x489")
+      "class" "rounded-full border-8 shadow-md/100 border-transparent max-w-56"
       )
     }}
     <figcaption class="grid gap-4">
