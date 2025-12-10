@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read        # agar bisa clone repo lain
+  contents: read # agar bisa clone repo lain
   pages: write
   id-token: write
 
@@ -67,8 +67,7 @@ jobs:
           git clone https://x-access-token:${{ secrets.PRIVATE_REPO }}@github.com/masputrawae/notes.git
           mkdir content
           cp -r ./notes/published/* content
-          cp -r ./notes/__warehouse__/learning content/notes
-      
+
       - name: Wikilink Convert
         run: |
           chmod +x ./wikilink_converter

@@ -24,7 +24,7 @@
     <p class="text-sm">{{ .Param "description" }}</p>
     {{- with .Param "cover" -}}
       <figure class="mb-4 overflow-hidden rounded-xl shadow-sm/100">
-        {{- partial "assets/image" (dict "src" . ) -}}
+        {{- partial "assets/image" (dict "src" . "loading" "eager") -}}
       </figure>
     {{- end -}}
   </header>
