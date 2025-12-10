@@ -2,9 +2,9 @@
 name: Deploy Hugo site to Pages
 
 on:
-  # push:
-  #   branches:
-  #     - main
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -65,7 +65,7 @@ jobs:
       - name: Clone private repo (notes)
         run: |
           git clone https://x-access-token:${{ secrets.PRIVATE_REPO }}@github.com/masputrawae/notes.git
-          cp -r ./notes/published/ content
+          cp -r ./notes/published/* content
           cp -r ./notes/__warehouse__/learning content/notes
       
       - name: Wikilink Convert
