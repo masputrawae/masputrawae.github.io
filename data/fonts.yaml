@@ -1,0 +1,20 @@
+- family: "Open Sans"
+  style: "normal"
+  weight: 400
+  file: "fonts/open-sans-v44-latin-400.woff2"
+  preload: true
+
+- family: "Open Sans"
+  style: "normal"
+  weight: 500
+  file: "fonts/open-sans-v44-latin-500.woff2"
+
+- family: "Open Sans"
+  style: "normal"
+  weight: 600
+  file: "fonts/open-sans-v44-latin-600.woff2"
+
+- family: "Open Sans"
+  style: "normal"
+  weight: 700
+  file: "fonts/open-sans-v44-latin-700.woff2"

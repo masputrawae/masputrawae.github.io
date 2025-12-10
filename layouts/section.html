@@ -1,0 +1,33 @@
+{{ define "main" }}
+  {{ partial "main/content" . }}
+  <section class="not-prose">
+    <div>
+      {{ range .Paginator.Pages }}
+        <article
+          class="{{ with .Param "cover" }}
+            md:grid-cols-[280px_minmax(0,1fr)]
+          {{ end }} -mt-px grid gap-4 border-y border-neutral-700 py-8"
+        >
+          {{ with .Param "cover" }}
+            <header class="overflow-hidden rounded-md shadow-sm">
+              {{ partial "assets/image" (dict "src" . "sizes" (slice "320x" "640x" "750x" "828x")) }}
+            </header>
+          {{ end }}
+          <div>
+            <h2 class="line-clamp-1 text-lg font-semibold text-white">
+              {{ .Title }}
+            </h2>
+            <p class="my-2 line-clamp-4 text-sm text-neutral-400">
+              {{ .Summary | plainify | truncate 400 }}
+            </p>
+            <a href="{{ .Permalink }}" class="font-semibold text-amber-400">
+              Read More
+              <span class="sr-only">{{ .Title }}</span>
+            </a>
+          </div>
+        </article>
+      {{ end }}
+    </div>
+    {{ partial "components/pagination" . }}
+  </section>
+{{ end }}

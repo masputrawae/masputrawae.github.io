@@ -1,8 +1,7 @@
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
 @source "../../hugo_stats.json";
+@plugin "@tailwindcss/typography";
 
 @theme {
-  --font-sans: "Inter", sans-serif;
-  --font-serif: "Spectral", serif;
+  --font-sans: "Open Sans", sans-serif;
 }

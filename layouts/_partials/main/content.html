@@ -1,0 +1,36 @@
+{{- $isoFormat := "2006-01-02T15:04:05-07:00" }}
+
+{{- $date := .Date | time.Format ":date_medium" -}}
+{{- $iso := .Date | time.Format $isoFormat -}}
+
+{{- $lastmod := .Lastmod | time.Format ":date_medium" -}}
+{{- $isoLastmod := .Lastmod | time.Format $isoFormat -}}
+
+
+<article>
+  <header class="text-center">
+    {{ if .IsHome }}
+      <h1>{{ site.Params.homeTitle }}</h1>
+    {{ else }}
+      <h1>{{ .Title }}</h1>
+    {{ end }}
+    <div class="flex items-center justify-center gap-3 border-b border-neutral-700">
+      <time datetime="{{ $iso }}">Publish on: {{ $date }}</time>
+      |
+      <time datetime="{{ $isoLastmod }}">Upadte at: {{ $lastmod }}</time>
+      |
+      <span>{{ .ReadingTime }} Min read</span>
+    </div>
+    <p class="text-sm">{{ .Param "description" }}</p>
+    {{- with .Param "cover" -}}
+      <figure class="mb-4 overflow-hidden rounded-xl shadow-sm/100">
+        {{- partial "assets/image" (dict "src" . ) -}}
+      </figure>
+    {{- end -}}
+  </header>
+  {{- if eq hugo.Environment "dev" -}}
+    {{- partial "function/wikilink" . -}}
+  {{- else -}}
+    {{- .Content -}}
+  {{- end -}}
+</article>

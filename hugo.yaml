@@ -1,0 +1,161 @@
+baseURL: https://masputrawae.github.io
+title: Masputrawae
+languageCode: id
+timeZone: Asia/Jakarta
+copyright: Copyright © 2025 Putra Jaya. Licensed under CC BY-SA 4.0.
+
+buildFuture: true
+enableEmoji: true
+enableRobotsTXT: true
+
+# ========== SERVICES ========== #
+services:
+  googleAnalytics:
+    id: G-W9TMTZZYG5
+
+# ========== PRIVACY ========== #
+privacy:
+  googleAnalytics:
+    disable: false
+    respectDoNotTrack: false
+
+pagination:
+  disableAliases: false
+  pagerSize: 5
+  path: halaman
+
+frontmatter:
+  date:
+    - created
+    - date
+  lastmod:
+    - updated
+    - lastmod
+  publishDate:
+    - created
+    - pubdate
+
+imaging:
+  quality: 100
+
+menus:
+  main:
+    - name: Home
+      pageRef: /
+      weight: 10
+    - name: Posts
+      pageRef: /posts
+      weight: 20
+    - name: Categories
+      pageRef: /categories
+      weight: 30
+    - name: Tags
+      pageRef: /tags
+      weight: 40
+    - name: Github
+      pageRef: https://github.com/masputrawae
+      weight: 50
+
+params:
+  homeTitle: Hay!... Selamat Datang 👋
+  cover: https://res.cloudinary.com/mpw-img/image/upload/v1764929349/banner_hdswlq.jpg
+  description: Tempat meluangkan waktu untuk bercerita, dan berbagi ilmu. Dan yang pasti juga, untuk bersenang-senang.
+
+  author:
+    name: Putra Jaya
+    email: masputrawae.official@gmail.com
+
+  social:
+    twitter: masputrawae
+    facebook_admin: 61583431824984
+
+# ========== BUILD ========== #
+build:
+  buildStats:
+    enable: true
+  cachebusters:
+    - source: assets/notwatching/hugo_stats\.json
+      target: css
+    - source: 'assets/.*\.(js|ts|jsx|tsx)'
+      target: js
+    - source: 'assets/.*\.(.*)$'
+      target: $1
+
+# ========== MODULES ========== #
+module:
+  hugoVersion:
+    extended: true
+    min: "0.152.2"
+
+  mounts:
+    - source: assets
+      target: assets
+
+    - source: static
+      target: static
+
+    - disableWatch: true
+      source: hugo_stats.json
+      target: assets/notwatching/hugo_stats.json
+
+# ========== MARKUP ========== #
+markup:
+  highlight:
+    style: github-dark
+  goldmark:
+    renderHooks:
+      image:
+        useEmbedded: auto
+      link:
+        useEmbedded: auto
+    renderer:
+      unsafe: true
+    extensions:
+      definitionList: true
+      extras:
+        delete:
+          enable: true
+        insert:
+          enable: true
+        mark:
+          enable: true
+        subscript:
+          enable: true
+        superscript:
+          enable: true
+      passthrough:
+        enable: true
+        delimiters:
+          block:
+            - - \[
+              - \]
+            - - $$
+              - $$
+          inline:
+            - - \(
+              - \)
+    parser:
+      wrapStandAloneImageWithinParagraph: false
+      attribute:
+        block: true
+        title: true
+
+# ===== OUTPUT ======
+mediaType: "application/json"
+outputFormats:
+  sitemap:
+    mediaType: text/html
+    baseName: sitemap
+    isPlainText: false
+    notAlternative: true
+
+outputs:
+  home:
+    - html
+    - sitemap
+    - rss
+  section:
+    - html
+    - sitemap
+    - rss
+

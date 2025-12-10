@@ -22,11 +22,21 @@
 {{- end -}}
 
 {{ if $isExternal }}
-  <a href="{{ $href }}" {{- with .Title }}title="{{ . }}"{{- end }} class="text-amber-400">
+  <a
+    href="{{ $href }}"
+    {{- with .Title }}title="{{ . }}"{{- end }}
+    class="text-amber-400"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
     {{ .Text }}
   </a>
 {{ else }}
-  <a href="{{ $href }}" {{- with .Title }}title="{{ . }}"{{- end }} class="no-underline text-amber-400">
+  <a
+    href="{{ $href }}"
+    {{- with .Title }}title="{{ . }}"{{- end }}
+    class="text-amber-400 font-medium"
+  >
     {{ .Text }}
   </a>
 {{ end }}

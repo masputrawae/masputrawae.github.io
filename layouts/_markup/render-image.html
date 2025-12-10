@@ -21,7 +21,7 @@
 {{- $imgTitle := or ($params.title) "" }}
 {{- $sizesStr := or ($params.sizes) "" }}
 {{- $process  := or ($params.process) "" }}
-{{- $class    := or ($params.class) "rounded-sm drop-shadow-sm/100" }}
+{{- $class    := or ($params.class) "rounded-sm drop-shadow-sm/100 w-fit" }}
 
 {{/* Build resize string */}}
 {{- $sizes := slice }}
@@ -51,7 +51,7 @@
   -------------------------
 */}}
 
-{{ partial "images/Image" (dict
+{{ partial "assets/image" (dict
   "src"   $src
   "alt"   $alt
   "title" $imgTitle

@@ -1,18 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html
   lang="{{ site.Language.LanguageCode }}"
   dir="{{ or site.Language.LanguageDirection `ltr` }}"
-  class="bg-neutral-800 text-neutral-300 scroll-smooth will-change-scroll"
+  class="bg-neutral-800 font-sans text-neutral-300"
 >
-  {{ partial "main/Head" . }}
+  {{ partial "main/head" . }}
   <body>
-    {{ partial "main/Header.html" . }}
-    <main>
-      <div class="container px-4 mx-auto py-16">
+    {{ partial "main/header" . }}
+    <main class="w-full">
+      <div class="prose prose-invert mx-auto w-full px-4 py-8 max-w-[80ch]">
         {{ block "main" . }}{{ end }}
       </div>
     </main>
-    {{ partial "main/Footer.html" . }}
-    {{ partialCached "assets/jsBuild" (dict "file" "js/main.js") }}
+    {{ partial "main/footer" . }}
   </body>
 </html>

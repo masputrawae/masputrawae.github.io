@@ -1,0 +1,44 @@
+{{/* 
+  Wikilink Processor for Hugo
+  Supports [[Page]] and [[Page|Alias]]
+*/}}
+
+{{- $page := .Page -}}
+
+{{/* Regex to capture [[Target]] or [[Target|Alias]] */}}
+{{- $wikiregex := `\[\[([^|\]]+)(?:\|([^\]]+))?\]\]` -}}
+
+{{- $content := .RawContent | replaceRE `<!-- hg_s:hidden -->[\s\S]*?<!-- hg_e:hidden -->` "" -}}
+
+{{/* Find all matches WITH subgroups */}}
+{{- $wikilinks := findRESubmatch $wikiregex $content -}}
+
+{{- range $wikilinks }}
+  {{/* $match[0] = full match, $match[1] = target, $match[2] = alias (optional) */}}
+  {{- $full := index . 0 -}}
+  {{- $target := index . 1 -}}
+  {{- $alias := "" -}}
+  {{- if ge (len .) 3 }}
+    {{- $alias = index . 2 -}}
+  {{- end -}}
+  {{- if eq $alias "" }}
+    {{- $alias = $target -}}
+  {{- end -}}
+
+  {{- $anchor := anchorize $target -}}
+
+  {{/* Try to resolve relref */}}
+  {{- $rel := "" -}}
+  {{- with relref $page $anchor }}
+    {{- $rel = . -}}
+  {{- end -}}
+
+  {{- if $rel }}
+    {{- $link := printf `<a href="%s" class="text-amber-400">%s</a>` $rel $alias -}}
+    {{- $content = replace $content $full $link -}}
+  {{- else }}
+    {{- $link := printf `<a href="%s" class="link-broken">%s</a>` $rel $alias -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $content | markdownify -}}

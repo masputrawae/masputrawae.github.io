@@ -1,9 +1,9 @@
 export const content = [
-    "./layouts/**/*.html",
-    "./content/**/*.md",
-    "./assets/js/**/*.js",
+  "./layouts/**/*.html",
+  "./content/**/*.md",
+  "./assets/js/**/*.js",
 ];
 export const theme = {
-    extend: {},
+  extend: {},
 };
 export const plugins = [];

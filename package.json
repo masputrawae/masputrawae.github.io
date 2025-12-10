@@ -1,12 +1,13 @@
 {
-  "name": "my_website",
+  "name": "masputrawae.github.io",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "build:css": "postcss assets/css/main.css -o assets/css/output.css",
-    "watch:css": "postcss assets/css/main.css -o assets/css/output.css --watch"
+    "watch:css": "postcss assets/css/main.css -o assets/css/output.css --watch",
+    "prettier": "prettier . --write"
   },
   "keywords": [],
   "author": "",
@@ -17,11 +18,9 @@
     "autoprefixer": "^10.4.22",
     "postcss": "^8.5.6",
     "postcss-cli": "^11.0.1",
-    "prettier": "^3.7.0",
+    "prettier": "^3.7.3",
     "prettier-plugin-go-template": "^0.0.15",
     "prettier-plugin-tailwindcss": "^0.7.1",
-    "bootstrap-icons": "^1.13.1",
-    "fuse.js": "^7.1.0",
     "tailwindcss": "^4.1.17"
   }
 }

@@ -1,0 +1,85 @@
+{{- $msg1 := "When passing a map to the internal pagination template, one of the elements must be named 'page', and it must be set to the context of the current page." }}
+{{- $page := . }}
+
+{{- if reflect.IsMap . }}
+  {{- with .page }}
+    {{- $page = . }}
+  {{- else }}
+    {{- errorf $msg1 }}
+  {{- end }}
+{{- end }}
+
+{{ $baseClass := "inline-flex items-center justify-center h-9 px-3 text-sm font-semibold transition-all border" }}
+{{ $activeClass := "text-white border-transparent bg-amber-600" }}
+{{ $disabledClass := "opacity-50 cursor-not-allowed text-neutral-500 border-neutral-700" }}
+{{ $hoverClass := "hover:bg-neutral-700 hover:border-neutral-600" }}
+
+{{- with .Paginator }}
+  <nav aria-label="Pagination" class="flex items-center flex-wrap gap-1 mx-auto mt-6 p-3 rounded-xl w-fit">
+    {{- $currentPageNumber := .PageNumber }}
+
+    {{- with .First }}
+      {{- if ne $currentPageNumber .PageNumber }}
+        <a href="{{ .URL }}" aria-label="First" class="{{ $baseClass }} {{ $hoverClass }}">
+          &laquo;&laquo;
+        </a>
+      {{- else }}
+        <span aria-disabled="true" class="{{ $baseClass }} {{ $disabledClass }}">
+          &laquo;&laquo;
+        </span>
+      {{- end }}
+    {{- end }}
+
+    {{- with .Prev }}
+      <a href="{{ .URL }}" aria-label="Previous" class="{{ $baseClass }} {{ $hoverClass }}">
+        &laquo;
+      </a>
+    {{- else }}
+      <span aria-disabled="true" class="{{ $baseClass }} {{ $disabledClass }}">
+        &laquo;
+      </span>
+    {{- end }}
+
+    {{/* Numbered pages */}}
+    {{- $slots := 5 }}
+    {{- $start := math.Max 1 (sub .PageNumber (math.Floor (div $slots 2))) }}
+    {{- $end := math.Min .TotalPages (sub (add $start $slots) 1) }}
+    {{- if lt (add (sub $end $start) 1) $slots }}
+      {{- $start = math.Max 1 (add (sub $end $slots) 1) }}
+    {{- end }}
+
+    {{- range $k := seq $start $end }}
+      {{- if eq $.Paginator.PageNumber $k }}
+        <span aria-current="page" class="{{ $baseClass }} {{ $activeClass }}">
+          {{ $k }}
+        </span>
+      {{- else }}
+        <a href="{{ (index $.Paginator.Pagers (sub $k 1)).URL }}" class="{{ $baseClass }} {{ $hoverClass }}">
+          {{ $k }}
+        </a>
+      {{- end }}
+    {{- end }}
+
+    {{- with .Next }}
+      <a href="{{ .URL }}" aria-label="Next" class="{{ $baseClass }} {{ $hoverClass }}">
+        &raquo;
+      </a>
+    {{- else }}
+      <span aria-disabled="true" class="{{ $baseClass }} {{ $disabledClass }}">
+        &raquo;
+      </span>
+    {{- end }}
+
+    {{- with .Last }}
+      {{- if ne $currentPageNumber .PageNumber }}
+        <a href="{{ .URL }}" aria-label="Last" class="{{ $baseClass }} {{ $hoverClass }}">
+          &raquo;&raquo;
+        </a>
+      {{- else }}
+        <span aria-disabled="true" class="{{ $baseClass }} {{ $disabledClass }}">
+          &raquo;&raquo;
+        </span>
+      {{- end }}
+    {{- end }}
+  </nav>
+{{- end }}

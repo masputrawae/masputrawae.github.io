@@ -1,0 +1,210 @@
+{{- /* % DOCS %
+Responsive Image Partial
+========================
+
+Partial ini menghasilkan elemen <picture> dengan WebP + fallback, 
+responsive srcset, dan berbagai opsi pemrosesan Hugo Pipes.
+
+---------------------------------------
+PARAMETER
+---------------------------------------
+
+src (string) — *Wajib*
+  Path gambar (local) atau URL remote.
+  Contoh: "images/photo.jpg" atau "https://example.com/pic.png"
+
+alt (string) — Default: "Image"
+  Teks alternatif untuk <img>.
+
+title (string) — Optional
+  Title attribute pada <img>.
+
+loading (string) — Default: "lazy"
+  Nilai: "lazy" / "eager".
+
+class (string) — Optional
+  CSS class untuk <img>.
+
+mode (string) — Optional
+  Mode otomatis untuk menghasilkan ukuran standar.
+  Nilai:
+    - "square"     → ukuran persegi
+    - "portrait"   → tinggi lebih besar
+    - "landscape"  → lebar lebih besar
+
+base (number) — Default: 300
+  Ukuran dasar untuk mode:
+    square     → base, base*2, base*3
+    portrait   → base×4 tinggi, base×8 tinggi
+    landscape  → base×4 lebar, base×8 lebar
+
+sizes (slice) — Optional
+  Override ukuran khusus.
+  Contoh: (slice "400x" "800x" "1200x")
+
+process (string) — Default: "resize"
+  Jenis pemrosesan Hugo:
+    - "resize" (default)
+    - "crop"
+    - "fill"
+    - "fit"
+    - "smart" (smart crop)
+
+---------------------------------------
+DEFAULT RESPONSIVE SIZES
+---------------------------------------
+
+Jika "mode" dan "sizes" tidak diset:
+  "640x", "750x", "828x", "960x",
+  "1080x", "1280x", "1668x", 
+  "1920x", "2048x", "2560x"
+
+  atau bisa ubah seperti berikut ini jika ingin super, !namun hasil gambar banyak dan besar!
+  "240x" "350x"  "640x" "750x" "828x" "960x" "1080x" "1280x" "1668x" "1920x" "2048x" "2560x" "3200x" "3840x" "4480x" "5120x" "6016x"
+
+---------------------------------------
+CARA KERJA
+---------------------------------------
+
+1. Ambil gambar (local atau remote).
+2. Tentukan sizes (default / mode / custom).
+3. Buat varian untuk setiap ukuran.
+4. Buat versi WebP untuk setiap varian.
+5. Bangun <picture> dengan:
+     <source type="image/webp"> 
+     <source> fallback
+     <img> fallback terbesar
+
+---------------------------------------
+CONTOH PEMAKAIAN
+---------------------------------------
+
+Basic:
+  {{ partial "image.html" (dict
+    "src" "images/photo.jpg"
+    "alt" "Pemandangan"
+  ) }}
+
+Mode square:
+  {{ partial "image.html" (dict
+    "src" "images/avatar.jpg"
+    "mode" "square"
+    "base" 200
+  ) }}
+
+Custom sizes:
+  {{ partial "image.html" (dict
+    "src" "images/pic.jpg"
+    "sizes" (slice "400x" "800x" "1200x")
+  ) }}
+
+Remote image:
+  {{ partial "image.html" (dict
+    "src" "https://example.com/photo.png"
+    "alt" "Remote"
+  ) }}
+
+---------------------------------------
+
+%*/ -}}
+
+{{- $srcParam := .src -}}
+{{- $alt := .alt | default "Image" -}}
+{{- $title := .title -}}
+{{- $loading := .loading | default "lazy" -}}
+{{- $class := .class -}}
+{{- $mode := .mode | default "" -}}
+{{- $base := .base | default 300 -}}
+{{- $sizesParam := .sizes -}}
+{{- $process := .process | default "resize" -}}
+
+{{- /* Default responsive sizes */ -}}
+{{- $defaultSizes := slice "320x" "640x" "750x" "828x" "960x" "1080x" "1280x" "1668x" "1920x" "2048x" "2560x" -}}
+
+{{- /* Override sizes by mode */ -}}
+{{- if $mode -}}
+  {{- if eq $mode "square" -}}
+    {{- $sizesParam = slice
+      (printf "%dx%d" $base $base)
+      (printf "%dx%d" (mul $base 2) (mul $base 2))
+      (printf "%dx%d" (mul $base 3) (mul $base 3))
+    -}}
+  {{- else if eq $mode "portrait" -}}
+    {{- $sizesParam = slice
+      (printf "%dx%d" $base (mul $base 4))
+      (printf "%dx%d" (mul $base 2) (mul $base 8))
+    -}}
+  {{- else if eq $mode "landscape" -}}
+    {{- $sizesParam = slice
+      (printf "%dx%d" (mul $base 4) $base)
+      (printf "%dx%d" (mul $base 8) (mul $base 2))
+    -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $sizes := cond $sizesParam $sizesParam $defaultSizes -}}
+
+{{- /* Get image */ -}}
+{{- $image := "" -}}
+{{- if strings.HasPrefix $srcParam "http" -}}
+  {{- $image = resources.GetRemote $srcParam -}}
+{{- else -}}
+  {{- $image = resources.Get $srcParam -}}
+{{- end -}}
+
+{{- /* Generate variants */ -}}
+{{- $variants := slice -}}
+{{- range $sizes -}}
+  {{- $img := "" -}}
+
+  {{- if eq $process "crop" -}}
+    {{- $img = $image.Crop . -}}
+  {{- else if eq $process "fill" -}}
+    {{- $img = $image.Fill . -}}
+  {{- else if eq $process "fit" -}}
+    {{- $img = $image.Fit . -}}
+  {{- else if eq $process "smart" -}}
+    {{- $img = $image.Fill (printf "%s smart" .) -}}
+  {{- else -}}
+    {{- $img = $image.Resize . -}}
+    {{- /* default */ -}}
+  {{- end -}}
+
+  {{- $variants = $variants | append $img -}}
+{{- end -}}
+
+{{- /* Largest version for fallback */ -}}
+{{- $large := index $variants (sub (len $variants) 1) -}}
+
+{{/* Build srcset */}}
+{{- $srcset := slice -}}
+{{- range $variants -}}
+  {{- $srcset = $srcset | append (printf "%s %dw" .RelPermalink .Width) -}}
+{{- end -}}
+
+{{- /* Build srcset webp */ -}}
+{{- $srcsetWebp := slice -}}
+{{- range $variants -}}
+  {{- $webp := .Process "webp" -}}
+  {{- $srcsetWebp = $srcsetWebp | append (printf "%s %dw" $webp.RelPermalink .Width) -}}
+{{- end -}}
+
+<picture>
+  <source
+    type="image/webp"
+    srcset="{{ delimit $srcsetWebp ", " }}"
+    sizes="100vw"
+  />
+  <source srcset="{{ delimit $srcset ", " }}" sizes="100vw" />
+  <img
+    src="{{ $large.RelPermalink }}"
+    alt="{{ $alt }}"
+    width="{{ $large.Width }}"
+    height="{{ $large.Height }}"
+    loading="{{ $loading }}"
+    decoding="async"
+    {{ with $class }}class="{{ . }}"{{ end }}
+    {{ with $title }}title="{{ . }}"{{ end }}
+  />
+</picture>
+{{- /* ===== */ -}}

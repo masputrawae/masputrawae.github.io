@@ -1,0 +1,10 @@
+<header class="border-b border-b-neutral-700">
+  <div class="flex items-center justify-between flex-wrap max-w-[100ch] mx-auto min-h-16 py-6 px-4 gap-4">
+    <a href="{{ site.Home.Permalink }}" class="font-semibold text-white text-2xl">{{ site.Title }}</a>
+    <nav class="flex items-center gap-4 font-semibold">
+      {{ range site.Menus.main }}
+        <a href="{{ .URL | absURL }}" class="hover:text-amber-300">{{ .Name }}</a>
+      {{ end }}
+    </nav>
+  </div>
+</header>
