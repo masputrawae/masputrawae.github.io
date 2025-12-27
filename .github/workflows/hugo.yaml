@@ -49,7 +49,7 @@ jobs:
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
 
       - name: Tailwind Build
-        run: npm run build:css
+        run: pnpm run build:css
 
       - name: Cache Restore
         id: cache-restore
