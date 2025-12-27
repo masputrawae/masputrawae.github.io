@@ -1,34 +1,32 @@
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="IE=7" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>
-    {{- if .IsHome -}}
-      {{- site.Title -}}
-    {{- else -}}
-      {{- printf "%s | %s" .Title site.Title -}}
-    {{- end -}}
-  </title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>
+  {{- if .IsHome -}}
+    {{- site.Title -}}
+  {{- else -}}
+    {{- printf "%s | %s" .Title site.Title -}}
+  {{- end -}}
+</title>
 
-  {{- with .OutputFormats.Get "sitemap" }}
-    {{- printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
-  {{- end }}
-  {{- with .OutputFormats.Get "sitemapindex" }}
-    {{- printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
-  {{- end }}
-  {{- with .OutputFormats.Get "rss" }}
-    {{- printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
-  {{- end }}
+{{- with .OutputFormats.Get "sitemapindex" }}
+  {{- printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+{{- end }}
+{{- with .OutputFormats.Get "rss" }}
+  {{- printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+{{- end }}
 
-  <link rel="canonical" href="{{- .Permalink -}}" />
-  <meta name="robots" content="index, follow" />
 
-  {{ partial "meta/google-analytics" . }}
-  {{ partial "meta/json-ld" . }}
-  {{ partial "meta/open-graph" . }}
-  {{ partial "meta/schema" . }}
-  {{ partial "meta/twitter-cards" . }}
+<link rel="canonical" href="{{- .Permalink -}}" />
+<meta name="robots" content="index, follow" />
 
-  {{ partial "assets/css" . }}
-</head>
+{{ partial "meta/google-analytics" . }}
+{{ partial "meta/json-ld" . }}
+{{ partial "meta/open-graph" . }}
+{{ partial "meta/schema" . }}
+{{ partial "meta/twitter-cards" . }}
+
+{{ partial "assets/script" . }}
+{{ partial "assets/fonts" . }}
+{{ partial "assets/css" . }}

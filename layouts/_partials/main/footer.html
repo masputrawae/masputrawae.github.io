@@ -1,5 +1,10 @@
-<footer class="border-t border-neutral-700">
-  <aside class="text-center py-16 mx-auto ">
+<footer
+  class="mt-16 border-t border-zinc-300 py-8 text-center dark:border-zinc-700"
+>
+  <aside>
     <p>{{ site.Copyright }}</p>
   </aside>
+  {{- with .OutputFormats.Get "sitemap" }}
+    <a href="{{ .Permalink }}">Sitemap</a>
+  {{- end }}
 </footer>

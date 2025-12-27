@@ -1,0 +1,129 @@
+{{ define "main" }}
+  <header>
+    <article
+      class="prose prose-zinc dark:prose-invert prose-headings:font-normal prose-sm md:prose-base max-w-3xl"
+    >
+      <h1 class="space-y-2">
+        <span>Hay, Saya Putra.</span>
+        <br />
+        <span>Seorang Manusia Biasa.</span>
+      </h1>
+      <p>Ini cuma ruang kecil di internet.</p>
+      <p>
+        Aku mengisinya dengan hal-hal yang kepikiran di kepala—tentang hidup,
+        tentang belajar, tentang kebingungan yang kadang nggak selesai-selesai.
+        Tidak semua tulisan punya tujuan jelas, dan tidak semuanya penting.
+        Sebagian hanya ingin disimpan, supaya tidak hilang begitu saja.
+      </p>
+      <p>
+        Kalau kamu sedang membaca ini, semoga ada satu dua kalimat yang terasa
+        dekat. Kalau tidak, tidak apa-apa juga.
+      </p>
+    </article>
+    <nav class="flex flex-wrap items-center gap-4 py-8">
+      {{ range site.Params.homeCta }}
+        <a
+          href="{{ .url }}"
+          {{ if .isExternal }}
+            target="_blank"
+          {{ end }}
+          class="{{ if .isPrimary }}
+            bg-zinc-500/10 hover:bg-zinc-500/20
+          {{ end }} rounded-sm border border-zinc-300 px-6 py-3 font-medium text-black shadow-xs hover:bg-zinc-500/10 dark:border-zinc-700 dark:text-white dark:shadow-xs/100"
+        >
+          {{ .name }}
+        </a>
+      {{ end }}
+    </nav>
+  </header>
+
+  {{/* ===== LATEST PROJECTS ===== */}}
+  <hr class="my-8 border-zinc-300 dark:border-zinc-700" />
+  <section>
+    <header
+      class="prose prose-zinc dark:prose-invert prose-headings:font-normal prose-sm md:prose-base max-w-3xl"
+    >
+      <h2>Not Projects, Just Learning</h2>
+      <p>
+        Bagian ini bukan tentang karya terbaik atau hasil akhir. Isinya lebih
+        mirip catatan proses: hal-hal kecil yang kupelajari, kucoba, lalu sering
+        kali gagal.
+      </p>
+      <p>
+        Tidak semuanya rapi, tidak semuanya selesai. Tapi di situlah aku belajar
+        paling banyak—pelan-pelan, sambil jalan.
+      </p>
+      <br />
+      <br />
+    </header>
+
+    {{ range where site.RegularPages "Type" "projects" | first 3 }}
+      {{ partial "components/project-card" . }}
+    {{ end }}
+  </section>
+
+  {{/* ====== FEATURED POSTS ===== */}}
+  <section class="pt-16">
+    <header
+      class="prose prose-zinc dark:prose-invert prose-headings:font-normal prose-sm md:prose-base max-w-3xl"
+    >
+      <h2>Bukan menggurui, hanya sebatas pengetahuan pribadiku</h2>
+      <p>
+        Tulisan-tulisan di bawah ini lahir dari pemikiran dan pengalaman
+        pribadiku. Bukan panduan hidup, bukan juga nasihat.
+      </p>
+      <p>
+        Anggap saja sebagai catatan seseorang yang sedang mencoba memahami
+        banyak hal, sambil menerima bahwa tidak semua pertanyaan harus punya
+        jawaban sekarang.
+      </p>
+      <br />
+      <br />
+    </header>
+    {{ $posts := where site.RegularPages "Type" "posts" }}
+    {{ $featured := where $posts "Params.featured" true }}
+    {{ $pinned := where $posts "Params.pinned" true }}
+
+    {{ range first 1 $pinned.ByDate.Reverse }}
+      {{ partial "components/post-card" . }}
+    {{ end }}
+
+
+    <hr class="my-8 border-zinc-300 dark:border-zinc-700" />
+    <div class="grid gap-8 sm:grid-cols-2 lg:gap-12">
+      {{ range first 6 $featured.ByDate.Reverse }}
+        {{ partial "components/post-card" . }}
+      {{ end }}
+    </div>
+  </section>
+
+  <hr class="my-16 border-zinc-300 dark:border-zinc-700" />
+  <section>
+    <header
+      class="prose prose-zinc dark:prose-invert prose-headings:font-normal prose-sm md:prose-base mx-auto max-w-3xl rounded-lg border border-zinc-300 p-4 shadow-xs lg:p-8 dark:border-zinc-700 dark:shadow-xs/100"
+    >
+      <h2>Terima Kasih Sudah Mampir</h2>
+      <p>
+        Oh ya kalau mau kenalan lebih lanjut bisa kunjungi beberapa platfrom
+        media sosial yang sudah tertera ya 😄. Kalau mau lihat proyek iseng yang
+        sedang aku bangun bisa lihat juga di Github ku, atau kalau mau lihat
+        tulisan, ide-ide random lainnya bisa ke halaman posts
+      </p>
+      <nav class="not-prose flex flex-wrap items-center gap-4">
+        {{ range site.Params.footerCta }}
+          <a
+            href="{{ .url }}"
+            {{ if .isExternal }}
+              target="_blank"
+            {{ end }}
+            class="{{ if .isPrimary }}
+              bg-zinc-500/10 hover:bg-zinc-500/20
+            {{ end }} rounded-sm border border-zinc-300 px-6 py-3 font-medium text-black shadow-xs hover:bg-zinc-500/10 dark:border-zinc-700 dark:text-white dark:shadow-xs/100"
+          >
+            {{ .name }}
+          </a>
+        {{ end }}
+      </nav>
+    </header>
+  </section>
+{{ end }}

@@ -1,0 +1,38 @@
+{{ define "main" }}
+  {{ $pages := .Pages.ByDate.Reverse }}
+  {{ $paginator := .Paginate $pages }}
+
+
+  <header>
+    <article
+      class="prose prose-zinc dark:prose-invert prose-headings:font-normal prose-sm md:prose-base max-w-3xl"
+    >
+      {{ if not (ne $paginator.PageNumber 1) }}
+        <h1>Not Projects, Just Learning</h1>
+        <p>
+          Bagian ini bukan tentang karya terbaik atau hasil akhir. Isinya lebih
+          mirip catatan proses: hal-hal kecil yang kupelajari, kucoba, lalu
+          sering kali gagal.
+        </p>
+        <p>
+          Tidak semuanya rapi, tidak semuanya selesai. Tapi di situlah aku
+          belajar paling banyak—pelan-pelan, sambil jalan.
+        </p>
+      {{ else }}
+        <h1>Halaman ke-{{ $paginator.PageNumber }}</h1>
+      {{ end }}
+    </article>
+    <br />
+    <br />
+  </header>
+
+  <section>
+    {{ range $paginator.Pages }}
+      {{ partial "components/project-card" . }}
+    {{ end }}
+  </section>
+
+  <nav>
+    {{ partial "components/pagination" . }}
+  </nav>
+{{ end }}

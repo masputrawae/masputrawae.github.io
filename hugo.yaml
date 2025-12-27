@@ -1,10 +1,8 @@
 baseURL: https://masputrawae.github.io
-title: Masputrawae
 languageCode: id
+title: Masputrawae
 timeZone: Asia/Jakarta
 copyright: Copyright © 2025 Putra Jaya. Licensed under CC BY-SA 4.0.
-
-buildFuture: true
 enableEmoji: true
 enableRobotsTXT: true
 
@@ -19,55 +17,113 @@ privacy:
     disable: false
     respectDoNotTrack: false
 
+sitemap:
+  changefreq: always
+  disable: false
+  filename: sitemap.xml
+  priority: -1
+
+imaging:
+  quality: 100
+
 pagination:
   disableAliases: false
-  pagerSize: 5
+  pagerSize: 10
   path: halaman
 
 frontmatter:
   date:
     - created
-    - date
   lastmod:
     - updated
-    - lastmod
   publishDate:
     - created
-    - pubdate
 
-imaging:
-  quality: 100
+params:
+  description: |
+    Ini Ruangan Kecilku Di Internet. 
+    Aku mengisinya dengan hal-hal yang kepikiran di kepala—tentang hidup,
+    tentang belajar, tentang kebingungan yang kadang nggak selesai-selesai.
+    Tidak semua tulisan punya tujuan jelas, dan tidak semuanya penting.
+    Sebagian hanya ingin disimpan, supaya tidak hilang begitu saja.
+
+  heroImage: https://res.cloudinary.com/mpw-img/image/upload/v1764929349/banner_hdswlq.jpg
+  author:
+    name: Putra Jaya
+    email: masputrawae.official@gmail.com
+    tagline: Manusia Biasa
+    avatar: https://res.cloudinary.com/mpw-img/image/upload/v1751292526/logo_cudnki.jpg
+
+  social:
+    twitter: masputrawae
+    facebook_admin: 61583431824984
+
+  homeCta:
+    - name: About Me
+      url: /about/
+      isPrimary: true
+    - name: Github
+      url: https://github.com/masputrawae/
+      isExternal: true
+
+  footerCta:
+    - name: Postingan
+      url: /posts/
+      isPrimary: true
+    - name: Github
+      url: https://github.com/masputrawae/
+      isExternal: true
 
 menus:
   main:
     - name: Home
       pageRef: /
       weight: 10
-    - name: Posts
-      pageRef: /posts
+      params:
+        icon: house
+
+    - name: Projects
+      pageRef: /projects/
       weight: 20
-    - name: Categories
-      pageRef: /categories
+      params:
+        icon: kanban
+
+    - name: Posts
+      pageRef: /posts/
       weight: 30
+      params:
+        icon: globe
+
     - name: Tags
-      pageRef: /tags
+      pageRef: /tags/
       weight: 40
-    - name: Github
-      pageRef: https://github.com/masputrawae
+      params:
+        icon: tags
+
+    - name: About
+      pageRef: /about/
       weight: 50
-
-params:
-  homeTitle: Hay!... Selamat Datang 👋
-  cover: https://res.cloudinary.com/mpw-img/image/upload/v1764929349/banner_hdswlq.jpg
-  description: Tempat meluangkan waktu untuk bercerita, dan berbagi ilmu. Dan yang pasti juga, untuk bersenang-senang.
-
-  author:
-    name: Putra Jaya
-    email: masputrawae.official@gmail.com
+      params:
+        icon: person-circle
 
   social:
-    twitter: masputrawae
-    facebook_admin: 61583431824984
+    - name: X (twitter)
+      url: https://example.com
+      weight: 10
+      params:
+        icon: twitter-x
+
+    - name: Instagram
+      url: https://example.com
+      weight: 20
+      params:
+        icon: instagram
+
+    - name: Github
+      url: https://example.com
+      weight: 30
+      params:
+        icon: github
 
 # ========== BUILD ========== #
 build:
@@ -85,7 +141,7 @@ build:
 module:
   hugoVersion:
     extended: true
-    min: "0.152.2"
+    min: "0.153.1"
 
   mounts:
     - source: assets
@@ -143,19 +199,19 @@ markup:
 # ===== OUTPUT ======
 mediaType: "application/json"
 outputFormats:
-  sitemap:
+  sitemaphtml:
     mediaType: text/html
-    baseName: sitemap
+    baseName: sitemaphtml
     isPlainText: false
     notAlternative: true
 
 outputs:
   home:
     - html
+    - sitemaphtml
     - sitemap
     - rss
   section:
     - html
     - sitemap
     - rss
-

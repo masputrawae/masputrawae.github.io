@@ -1,0 +1,38 @@
+<script>
+  const initTheme = () => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    mediaQuery.addEventListener("change", () => {
+      document.documentElement.setAttribute(
+        "data-theme",
+        mediaQuery.matches ? "dark" : "light",
+      );
+    });
+  };
+
+  const sidebarHandler = () => {
+    let open = false;
+
+    const buttons = document.querySelectorAll("[data-toggle-sidebar]");
+    const sidebar = document.getElementById("sidebar");
+
+    const setClose = () => {
+      sidebar.classList.add("invisible", "-translate-x-full");
+      open = false;
+    };
+
+    const setOpen = () => {
+      sidebar.classList.remove("invisible", "-translate-x-full");
+      open = true;
+    };
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        open ? setClose() : setOpen();
+      });
+    });
+  };
+
+  initTheme();
+  document.addEventListener("DOMContentLoaded", sidebarHandler);
+</script>

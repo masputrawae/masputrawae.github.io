@@ -1,0 +1,23 @@
+<a href="{{ site.Home.Permalink }}">
+  <figure class="flex items-center gap-3">
+    {{ partial "assets/image"
+      (dict
+      "src" site.Params.author.avatar
+      "alt" site.Params.author.name
+      "sizes" (slice "80x80" "100x100")
+      "priority" "high"
+      "loading" "eager"
+      "decoding" "sync"
+      "class" "rounded-full size-12"
+      )
+    }}
+    <figcaption class="grid">
+      <strong class="text-lg font-medium text-black dark:text-white">
+        {{ site.Params.author.name }}
+      </strong>
+      <em class="text-xs not-italic">
+        {{ site.Params.author.tagline }}
+      </em>
+    </figcaption>
+  </figure>
+</a>

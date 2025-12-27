@@ -1,20 +1,64 @@
-- family: "Open Sans"
+- family: "Inter"
   style: "normal"
-  weight: 400
-  file: "fonts/open-sans-v44-latin-400.woff2"
+  weight: 300
+  file: "fonts/inter-v20-latin-300.woff2"
   preload: true
 
-- family: "Open Sans"
+- family: "Inter"
+  style: "normal"
+  weight: 400
+  file: "fonts/inter-v20-latin-400.woff2"
+  preload: true
+
+- family: "Inter"
   style: "normal"
   weight: 500
-  file: "fonts/open-sans-v44-latin-500.woff2"
+  file: "fonts/inter-v20-latin-500.woff2"
 
-- family: "Open Sans"
+- family: "Inter"
   style: "normal"
   weight: 600
-  file: "fonts/open-sans-v44-latin-600.woff2"
+  file: "fonts/inter-v20-latin-600.woff2"
 
-- family: "Open Sans"
+- family: "Inter"
   style: "normal"
   weight: 700
-  file: "fonts/open-sans-v44-latin-700.woff2"
+  file: "fonts/inter-v20-latin-700.woff2"
+
+# ----- ITALIC -----
+- family: "Inter"
+  style: "italic"
+  weight: 300
+  file: "fonts/inter-v20-latin-300italic.woff2"
+
+- family: "Inter"
+  style: "italic"
+  weight: 400
+  file: "fonts/inter-v20-latin-400italic.woff2"
+
+- family: "Inter"
+  style: "italic"
+  weight: 500
+  file: "fonts/inter-v20-latin-500italic.woff2"
+
+- family: "Inter"
+  style: "italic"
+  weight: 600
+  file: "fonts/inter-v20-latin-600italic.woff2"
+
+- family: "Inter"
+  style: "italic"
+  weight: 700
+  file: "fonts/inter-v20-latin-700italic.woff2"
+
+# ----- MONOSPACE
+- family: "IBM Plex Mono"
+  style: "normal"
+  weight: 400
+  file: "fonts/ibm-plex-mono-v20-latin-400.woff2"
+  preload: true
+
+- family: "IBM Plex Mono"
+  style: "normal"
+  weight: 700
+  file: "fonts/ibm-plex-mono-v20-latin-700.woff2"

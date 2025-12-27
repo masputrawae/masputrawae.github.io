@@ -1,0 +1,51 @@
+{{- /*
+  Renders a menu for the given menu ID.
+
+  @context {page} page The current page.
+  @context {string} menuID The menu ID.
+
+  @example: {{ partial "menu.html" (dict "menuID" "main" "page" .)
+}}
+*/}}
+{{- $page := .page }}
+{{- $menuID := .menuID }}
+
+{{- with index site.Menus $menuID }}
+  <nav class="space-y-2 font-normal">
+    {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+  </nav>
+{{- end }}
+
+{{- define "_partials/inline/menu/walk.html" }}
+  {{ $baseCls := "flex items-center gap-3 py-2 px-4 border rounded-sm hover:text-black dark:hover:text-white" }}
+  {{ $defaultCls := printf "border-transparent %s" $baseCls }}
+  {{ $activeCls := printf "bg-zinc-200/50 text-black border-zinc-200 dark:bg-zinc-700/50 dark:border-zinc-700 dark:text-white %s" $baseCls }}
+
+  {{- $page := .page }}
+  {{- range .menuEntries }}
+    {{- $attrs := dict "href" .URL "class" $defaultCls }}
+    {{- if $page.IsMenuCurrent .Menu . }}
+      {{- $attrs = merge $attrs (dict "class" $activeCls "aria-current" "page") }}
+    {{- else if $page.HasMenuCurrent .Menu . }}
+      {{- $attrs = merge $attrs (dict "class" $activeCls "aria-current" "true") }}
+    {{- end }}
+    {{- $name := .Name }}
+    {{- with .Identifier }}
+      {{- with T . }}
+        {{- $name = . }}
+      {{- end }}
+    {{- end }}
+    <a
+      {{- range $k, $v := $attrs }}
+        {{- with $v }}
+          {{- printf " %s=%q" $k $v | safeHTMLAttr }}
+        {{- end }}
+      {{- end -}}
+    >
+      {{ with .Params.icon }}
+        {{ partial "assets/icon" (dict "name" . "size" 18) }}
+      {{ end }}
+      <span>{{ $name }}</span>
+    </a>
+  {{- end }}
+{{- end }}

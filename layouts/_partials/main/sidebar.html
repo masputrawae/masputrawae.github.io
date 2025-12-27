@@ -1,0 +1,17 @@
+<aside
+  id="sidebar"
+  class="invisible fixed start-0 top-0 z-60 grid h-screen w-xs -translate-x-full grid-rows-[auto_1fr_auto] gap-4 overflow-y-auto border-e border-zinc-300 bg-zinc-50 px-4 py-2 transition-all duration-300 md:visible md:w-3xs md:translate-x-0 lg:w-2xs xl:w-xs dark:border-zinc-700 dark:bg-zinc-800"
+>
+  <header class="flex min-h-16 items-center justify-between">
+    {{ partial "components/brand" . }}
+    <button
+      data-toggle-sidebar="sidebar"
+      class="text-black md:hidden dark:text-white"
+    >
+      {{ partial "assets/icon" (dict "name" "x-lg" "size" 24 ) }}
+      <span class="sr-only">Close Menu</span>
+    </button>
+  </header>
+  {{ partial "components/menu" (dict "menuID" "main" "page" .) }}
+  {{ partial "components/menu" (dict "menuID" "social" "page" .) }}
+</aside>

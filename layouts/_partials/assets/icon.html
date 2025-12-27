@@ -1,0 +1,22 @@
+{{- $name := .name -}}
+{{- $size := .size | default 16 -}}
+{{- $class := .class | default "" -}}
+
+{{- $icons := resources.Get "iconify/bi.json" | transform.Unmarshal -}}
+{{- $icon := index $icons.icons $name -}}
+
+{{- if $icon }}
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="{{ $size }}"
+    height="{{ $size }}"
+    viewBox="0 0 16 16"
+    class="{{ $class }}"
+    fill="currentColor"
+    aria-hidden="true"
+  >
+    {{ $icon.body | safeHTML }}
+  </svg>
+{{- else }}
+  <!-- icon bi:{{ $name }} not found -->
+{{- end }}

@@ -3,5 +3,27 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-sans: "Open Sans", sans-serif;
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+@layer components {
+  .pagination {
+    @apply mt-16 flex flex-wrap justify-center gap-2 font-semibold;
+  }
+  .page-link {
+    @apply flex items-center border border-zinc-300 px-4 py-2 text-zinc-700 hover:bg-zinc-100 hover:text-zinc-900 focus:ring-2 focus:ring-amber-500 focus:outline-none;
+    @apply dark:border-zinc-600 dark:text-zinc-200 dark:hover:bg-zinc-700 dark:hover:text-white;
+  }
+  .page-item.active .page-link {
+    @apply cursor-default border-amber-500 bg-amber-500 text-white;
+    @apply dark:border-amber-600 dark:bg-amber-600 dark:text-white;
+  }
+  .page-item.disabled .page-link {
+    @apply cursor-not-allowed border-zinc-200 bg-zinc-100 text-zinc-400;
+    @apply dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-500;
+  }
+  .page-link span[aria-hidden="true"] {
+    @apply text-zinc-500 dark:text-zinc-400;
+  }
 }

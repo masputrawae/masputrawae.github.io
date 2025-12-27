@@ -1,0 +1,38 @@
+{{ $defaultImage := site.Params.heroImage }}
+<article
+  class="-mt-px grid gap-4 border-y border-zinc-300 py-16 sm:grid-cols-[300px_1fr] sm:items-center sm:gap-8 md:grid-cols-1 md:gap-4 lg:grid-cols-[360px_1fr] lg:gap-12 xl:grid-cols-[420px_1fr] dark:border-zinc-700"
+>
+  <div
+    class="aspect-video overflow-hidden rounded-xs border-8 border-zinc-700 shadow-sm dark:shadow-sm/100"
+  >
+    {{ partial "assets/image" (dict
+      "src" (.Params.heroImage | default $defaultImage)
+      "alt" .Title
+      "class" "size-full object-cover object-center"
+      )
+    }}
+  </div>
+  <div class="space-y-4">
+    <h3
+      class="line-clamp-1 text-2xl font-medium text-black xl:text-3xl dark:text-white"
+    >
+      {{ .Title }}
+    </h3>
+    <p class="line-clamp-4 text-sm xl:text-base">{{ .Description }}</p>
+    <nav class="flex items-center gap-4">
+      <a
+        href="{{ .Params.repo }}"
+        class="rounded-sm border border-zinc-300 px-6 py-3 font-medium text-black shadow-xs hover:bg-zinc-500/10 dark:border-zinc-700 dark:text-white dark:shadow-xs/100"
+      >
+        Github
+      </a>
+      <a
+        href="{{ .Permalink }}"
+        class="rounded-sm border border-zinc-300 px-6 py-3 font-medium text-black shadow-xs hover:bg-zinc-500/10 dark:border-zinc-700 dark:text-white dark:shadow-xs/100"
+      >
+        <span>Learn More</span>
+        <span class="sr-only">{{ .Title }}</span>
+      </a>
+    </nav>
+  </div>
+</article>

@@ -1,10 +1,10 @@
 {{- $imgs := slice }}
 {{- $imgParams := .Params.images }}
 
-{{- if and (not $imgParams) .Params.cover }}
-  {{- $imgParams = slice .Params.cover }}
+{{- if and (not $imgParams) .Params.heroImage }}
+  {{- $imgParams = slice .Params.heroImage }}
 {{- else }}
-  {{- $imgParams = slice site.Params.cover }}
+  {{- $imgParams = slice site.Params.heroImage }}
 {{- end }}
 
 {{- $resources := .Resources.ByType "image" -}}

@@ -1,4 +1,53 @@
 {{ define "main" }}
-  {{ partial "main/content" . }}
-  {{ partial "components/pager" . }}
+  {{ $defaultImage := site.Params.heroImage }}
+
+  {{- $isoFormat := "2006-01-02T15:04:05-07:00" }}
+
+  {{- $date := .Date | time.Format ":date_medium" -}}
+  {{- $iso := .Date | time.Format $isoFormat -}}
+
+  {{- $lastmod := .Lastmod | time.Format ":date_medium" -}}
+  {{- $isoLastmod := .Lastmod | time.Format $isoFormat -}}
+
+
+  <article
+    class="prose prose-zinc dark:prose-invert prose-h1:font-normal prose-sm md:prose-base max-w-full font-normal"
+  >
+    <header>
+      <h1>{{ .Title }}</h1>
+      <div class="not-prose mb-4 space-y-2 text-sm md:text-base">
+        <div
+          class="flex items-center gap-3 border-b border-zinc-200 pb-2 dark:border-zinc-700"
+        >
+          <time datetime="{{ $iso }}">Publish: {{ $date }}</time>
+          <span class="max-sm:hidden">|</span>
+          <time class="max-sm:hidden" datetime="{{ $isoLastmod }}">
+            Update: {{ $lastmod }}
+          </time>
+          <span>|</span>
+          <span>{{ .ReadingTime }} Min read</span>
+        </div>
+        {{ with .Description }}
+          <p>{{ . }}</p>
+        {{ end }}
+      </div>
+      <div
+        class="not-prose aspect-video overflow-hidden rounded-md shadow-sm dark:shadow-sm/100"
+      >
+        {{ partial "assets/image" (dict
+          "src" (.Params.heroImage | default $defaultImage)
+          "alt" .Title
+          "class" "size-full object-cover object-center"
+          )
+        }}
+      </div>
+    </header>
+    <div class="max-w-4xl">
+      {{- if eq hugo.Environment "dev" -}}
+        {{ partial "main/content" . }}
+      {{- else -}}
+        {{- .Content -}}
+      {{- end -}}
+    </div>
+  </article>
 {{ end }}

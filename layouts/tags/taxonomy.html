@@ -1,0 +1,19 @@
+{{ define "main" }}
+  <header>
+    <div
+      class="prose prose-zinc dark:prose-invert prose-headings:font-normal prose-sm md:prose-base max-w-3xl"
+    >
+      <h1>Tags</h1>
+    </div>
+    <nav class="my-8 flex flex-wrap items-center gap-4">
+      {{ range .Pages }}
+        <a
+          href="{{ .Permalink }}"
+          class="rounded-full bg-zinc-200 px-6 py-3 font-semibold shadow-xs/40 transition-colors duration-300 hover:bg-zinc-300 hover:text-black dark:bg-zinc-700 dark:shadow-sm/100 dark:hover:bg-zinc-600 dark:hover:text-white"
+        >
+          {{ .Title }}
+        </a>
+      {{ end }}
+    </nav>
+  </header>
+{{ end }}
