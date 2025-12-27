@@ -108,13 +108,13 @@ menus:
 
   social:
     - name: X (twitter)
-      url: https://example.com
+      url: https://x.com/masputrawae
       weight: 10
       params:
         icon: twitter-x
 
     - name: Instagram
-      url: https://example.com
+      url: https://www.instagram.com/masputrawae/
       weight: 20
       params:
         icon: instagram
@@ -215,3 +215,4 @@ outputs:
     - html
     - sitemap
     - rss
+
