@@ -5,6 +5,6 @@
     <p>{{ site.Copyright }}</p>
   </aside>
   {{- with .OutputFormats.Get "sitemap" }}
-    <a href="{{ .Permalink }}">Sitemap</a>
+    <a class="sr-only" href="{{ .Permalink }}">Sitemap</a>
   {{- end }}
 </footer>
