@@ -73,6 +73,18 @@ params:
     - name: Github
       url: https://github.com/masputrawae/
       isExternal: true
+  
+  shareButtons:
+    facebook: true
+    twitter: true
+    linkedin: true
+    whatsapp: true
+    telegram: true
+    reddit: true
+    pinterest: true
+    line: true
+    mastodon: true
+    mail: true
 
 menus:
   main:
