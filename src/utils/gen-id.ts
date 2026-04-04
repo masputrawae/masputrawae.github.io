@@ -1,7 +1,7 @@
-import GithubSlugger from "github-slugger";
+import GithubSlugger from 'github-slugger'
 
 export function genID(raw: string): string {
-  if (!raw || !raw.trim()) return ""
+  if (!raw || !raw.trim()) return ''
 
   const slugger = new GithubSlugger()
 

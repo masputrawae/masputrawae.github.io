@@ -4,8 +4,8 @@
  *  site: "...",
  *  base: "..."
  * }
- * 
-*/
+ *
+ */
 const { BASE_URL, SITE } = import.meta.env
 
 /**

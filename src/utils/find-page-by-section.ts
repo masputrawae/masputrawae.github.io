@@ -1,6 +1,9 @@
-import { type CollectionEntry } from "astro:content"
+import { type CollectionEntry } from 'astro:content'
 
-export function findPageBySection(id: string, entries: CollectionEntry<'page'>[]): CollectionEntry<'page'>[] {
+export function findPageBySection(
+  id: string,
+  entries: CollectionEntry<'page'>[]
+): CollectionEntry<'page'>[] {
   const segments = (id || '').split('/').filter(Boolean)
   const currentPath = segments.join('/')
 
