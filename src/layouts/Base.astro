@@ -1,0 +1,101 @@
+---
+// ./src/layouts/Base.astro
+
+import '../styles/global.css'
+import type { HTMLAttributes } from 'astro/types'
+import { ClientRouter } from 'astro:transitions'
+import { Font } from 'astro:assets'
+
+import { SITE } from '../consts'
+import { absURL } from '../utils/url'
+
+export type Props = {
+  title: string
+  description: string
+  pageType?: 'website' | 'article' | 'product' | 'profile'
+  image?: string
+  keywords?: string[]
+  extend?: {
+    meta?: HTMLAttributes<'meta'>[]
+    link?: HTMLAttributes<'link'>[]
+  }
+}
+
+const { title, description, image, keywords, extend, pageType = 'website' } = Astro.props
+const extendLink = extend?.link
+const extendMeta = extend?.meta
+
+const { pathname } = Astro.url
+const canonicalURL = absURL(pathname)
+---
+
+<!doctype html>
+<html
+  lang={SITE.languageCode}
+  data-theme="dark"
+  class:list={[
+    'font-serif scroll-smooth',
+    'bg-white text-neutral-800',
+    'dark:bg-neutral-900 dark:text-neutral-200'
+  ]}
+>
+  <head>
+    <!-- Global Tag -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content={SITE.author.name} />
+
+    <!-- (optional keywords) -->
+    {keywords && <meta name="keywords" content={keywords.join(', ')} />}
+
+    <!-- Canocical -->
+    <link rel="canonical" href="https://example.com" />
+
+    <!-- Page Title -->
+    <title>{title}</title>
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content={SITE.title} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={pageType} />
+    <meta property="og:url" content={canonicalURL} />
+    {
+      pageType == 'article' &&
+        keywords &&
+        keywords.map((i) => <meta property="article:tag" content={i} />)
+    }
+
+    <!-- (optional image) -->
+    {image && <meta property="og:image" content={image} />}
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:site" content={SITE.author.twitterX} />
+    <meta name="twitter:creator" content={SITE.author.twitterX} />
+
+    <!-- (optional image) -->
+    {image && <meta name="twitter:image" content={image} />}
+
+    <!-- (optional extend meta tag) -->
+    {extendMeta && extendMeta.map((i) => <meta {...i} />)}
+    {extendLink && extendLink.map((i) => <link {...i} />)}
+
+    <!-- Favicons -->
+    {SITE.favicons.map((i) => <link {...i} />)}
+
+    <!-- Fonts -->
+    <Font cssVariable="--font-sans" preload />
+    <Font cssVariable="--font-sans" />
+    <Font cssVariable="--font-mono" />
+
+    <!-- ClientRouter -->
+    <ClientRouter />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
