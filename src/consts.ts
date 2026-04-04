@@ -10,6 +10,7 @@ export interface SiteType {
     name: string
     bio: string
     location: string
+    twitterX: string
   }
   menus: HTMLAttributes<'a'>[]
   socials: HTMLAttributes<'a'>[]
@@ -27,6 +28,7 @@ export const SITE: SiteType = {
     name: 'Putra Jaya',
     bio: 'Apa aja yang penting senang',
     location: 'Jawa Timur | Indonesia',
+    twitterX: "@masputrawae",
   },
 
   menus: [
