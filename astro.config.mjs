@@ -8,9 +8,11 @@ import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
+  site: "http://localhost:4321",
+  base: "/",
+
   vite: {
     plugins: [tailwindcss()]
   },
-
-  integrations: [mdx(), sitemap(), icon()]
+  integrations: [mdx(), sitemap(), icon()],
 });
