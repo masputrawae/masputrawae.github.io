@@ -13,7 +13,7 @@ Bermula dari banyaknya **pembelajar bahasa pemrograman** termasuk aku sendiri, t
 
 ## Kenapa Ini Terjadi
 
-Tidak salah lagi, semua kode yang aku tulis pure hasil **Copy Paste** dari **AI**, nah dari situlah awal mulanya. Mungkin banyak dari teman-teman mengalami hal serupa. Dan aku suka banget kata ini, *"Ingin Jadi Programmer, Tapi Enggan Ngoding"* 😅.
+Tidak salah lagi, semua kode yang aku tulis pure hasil **Copy Paste** dari **AI**, nah dari situlah awal mulanya. Mungkin banyak dari teman-teman mengalami hal serupa. Dan aku suka banget kata ini, _"Ingin Jadi Programmer, Tapi Enggan Ngoding"_ 😅.
 
 Terus bagaimana cara mengatasinya?
 
@@ -35,19 +35,19 @@ Maka yang terjadi **AI** akan membantu menjelaskan setiap bagian, dan langkah ya
 
 ### Tapi Gimana dengan Seseorang Yang Sangat Baru Belajar Pemrograman?
 
-Nah ini poin penting-nya, saat benar-benar baru banget, disarankan untuk belajar **Fundamental** dulu, dan banyak sekali sumber tutorial di **internet**, atau di **YouTube**, yang bisa kalian ikuti series nya. Dalam kasus ini kita sebaiknya menanyakan ke **AI** suatu topik yang beneran sulit kita pahami, soalnya biasanya jawaban **AI** bisa sedikit lebih mudah dimengerti, misalnya 
+Nah ini poin penting-nya, saat benar-benar baru banget, disarankan untuk belajar **Fundamental** dulu, dan banyak sekali sumber tutorial di **internet**, atau di **YouTube**, yang bisa kalian ikuti series nya. Dalam kasus ini kita sebaiknya menanyakan ke **AI** suatu topik yang beneran sulit kita pahami, soalnya biasanya jawaban **AI** bisa sedikit lebih mudah dimengerti, misalnya
 
-> Tolong jelaskan tentang *Hosting* di **JavaScript** dengan penjelasan yang mudah dipahami untuk pemula.
+> Tolong jelaskan tentang _Hosting_ di **JavaScript** dengan penjelasan yang mudah dipahami untuk pemula.
 
 ## Kesimpulan
 
 Sebenarnya jika kita bisa memanfaatkan AI sebagai mentor belajar, (bukan hanya disuruh buat nulis full kode😁), maka belajar akan jauh lebih efektif dan efisien.
 
-> Kita tidak harus menghindari **AI**, tapi yang lebih baik adalah bagaimana cara kita memanfaatkan **AI** untuk belajar — *Kecuali yang udah jago 😅 bebas aja mereka mah, kode error dari AI biasanya udah ngerti cara perbaikannya*
+> Kita tidak harus menghindari **AI**, tapi yang lebih baik adalah bagaimana cara kita memanfaatkan **AI** untuk belajar — _Kecuali yang udah jago 😅 bebas aja mereka mah, kode error dari AI biasanya udah ngerti cara perbaikannya_
 
 ---
 
-## Postingan Menarik Lainnya 
+## Postingan Menarik Lainnya
 
 - [[Membebaskan Diri Dari Tutorial Hell]]
 - [[Motivasi Belajar]]

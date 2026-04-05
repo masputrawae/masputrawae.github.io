@@ -11,7 +11,7 @@ pubDate: 2025-12-15T15:56:19+07:00
 updatedDate: 2026-03-27
 ---
 
-Hampir satu minggu terakhir aku mencoba **Astro.js**, dan jujur, pengalaman pribadi: aku cukup kagum. Yang paling bikin suka tentu karena dia *javascript first* 😅 — di Astro beneran bisa pakai JavaScript murni (walaupun TypeScript tetap direkomendasikan).
+Hampir satu minggu terakhir aku mencoba **Astro.js**, dan jujur, pengalaman pribadi: aku cukup kagum. Yang paling bikin suka tentu karena dia _javascript first_ 😅 — di Astro beneran bisa pakai JavaScript murni (walaupun TypeScript tetap direkomendasikan).
 
 Berikut beberapa hal yang paling aku suka:
 
@@ -42,6 +42,7 @@ Untuk logika yang agak rumit, pendekatan Astro terasa jauh lebih nyaman.
 Ini salah satu fitur yang benar-benar gila menurutku. Astro bukan cuma SSG, tapi bisa juga SSR, bahkan **hybrid**.
 
 Misal:
+
 - Konten markdown dibuild secara statis
 - Tapi fitur seperti form, search, dan interaksi yang harus diproses di server bisa tetap dikerjakan secara server-side
 
@@ -54,7 +55,8 @@ Meskipun aku cukup kagum dengan Astro dan fitur-fitur canggihnya (terutama kemam
 Kenapa? Karena Hugo itu super ringan. Nggak bawa “alat berat”. Tinggal install binary, langsung jalan.
 
 Yang bikin aku betah:
-- Build time super cepat, bahkan untuk banyak halaman — cuma kedipan mata 😅  
+
+- Build time super cepat, bahkan untuk banyak halaman — cuma kedipan mata 😅
 - Sangat efisien dan stabil
 
 Sesuai dengan cerita di [[Kebutuhan vs Keinginan]], ini sangat related.

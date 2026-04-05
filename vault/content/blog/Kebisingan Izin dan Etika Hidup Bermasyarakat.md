@@ -20,7 +20,7 @@ Karena faktanya, kebisingan itu nyata. Setiap ada hajatan, suara bass masih tera
 
 Soal durasi juga sama. Apakah ada aturan jelas yang ditegakkan? Sepertinya tidak. Seperti yang sudah aku ceritakan sebelumnya[^1], hajatan di sini biasanya berlangsung **tiga hari tiga malam**. Istirahat hanya sebentar saat adzan atau waktu salat, lalu lanjut lagi. Bahkan malam hari pun sering lewat dari jam 10.
 
-Pertanyaannya sederhana:  
+Pertanyaannya sederhana:
 
 > Apakah kondisi seperti ini masih bisa dianggap wajar?
 

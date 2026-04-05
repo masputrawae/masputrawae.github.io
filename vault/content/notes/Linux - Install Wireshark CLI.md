@@ -20,9 +20,9 @@ sudo pacman -S wireshark-cli
 
 Ini akan meng install:
 
-* `tshark` (packet capture CLI)
-* `dumpcap`
-* beberapa tool analisis jaringan lainnya.
+- `tshark` (packet capture CLI)
+- `dumpcap`
+- beberapa tool analisis jaringan lainnya.
 
 ## 2. Tambahkan user ke grup wireshark (opsional tapi direkomendasikan)
 

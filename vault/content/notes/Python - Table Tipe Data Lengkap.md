@@ -62,4 +62,3 @@ Jika ingin menentukan tipe data, kita dapat menggunakan fungsi berikut:
 | `x = bytes(5)`                                 | bytes      |
 | `x = bytearray(5)`                             | bytearray  |
 | `x = memoryview(bytes(5))`                     | memoryview |
-

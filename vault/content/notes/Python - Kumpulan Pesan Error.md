@@ -8,10 +8,11 @@ pubDate: 2026-03-28
 updatedDate: 2026-03-28
 ---
 
-**Setiap entri berisi**:  
-- Nama error 
-- Contoh pesan asli yang sering keluar  
-- Penjelasan singkat  
+**Setiap entri berisi**:
+
+- Nama error
+- Contoh pesan asli yang sering keluar
+- Penjelasan singkat
 - Contoh kode penyebabnya
 
 ---
@@ -28,66 +29,66 @@ updatedDate: 2026-03-28
 
 ## 2. Error Variabel & Nama
 
-|Error|Pesan|Arti|Contoh|
-|---|---|---|---|
-|**NameError**|`NameError: name 'x' is not defined`|Variabel belum dibuat|`print(x)`|
-|**UnboundLocalError**|`UnboundLocalError: local variable 'x' referenced before assignment`|Variabel dipakai duluan di fungsi||
-|**AttributeError**|`'str' object has no attribute 'append'`|Salah panggil metode/atribut|`"abc".append('x')`|
+| Error                 | Pesan                                                                | Arti                              | Contoh              |
+| --------------------- | -------------------------------------------------------------------- | --------------------------------- | ------------------- |
+| **NameError**         | `NameError: name 'x' is not defined`                                 | Variabel belum dibuat             | `print(x)`          |
+| **UnboundLocalError** | `UnboundLocalError: local variable 'x' referenced before assignment` | Variabel dipakai duluan di fungsi |                     |
+| **AttributeError**    | `'str' object has no attribute 'append'`                             | Salah panggil metode/atribut      | `"abc".append('x')` |
 
 ---
 
 ## 3. Error Tipe & Nilai
 
-|Error|Pesan|Arti|Contoh|
-|---|---|---|---|
-|**TypeError**|`can only concatenate str (not "int") to str`|Gabung string & int|`"a" + 1`|
-||`'int' object is not subscriptable`|Coba akses indeks dari angka|`5[0]`|
-||`'NoneType' object is not iterable`|`for i in None:`||
-|**ValueError**|`invalid literal for int() with base 10: 'abc'`|Konversi nilai tak valid|`int('abc')`|
-||`too many values to unpack (expected 2)`|Destruktur salah|`a,b = [1,2,3]`|
+| Error          | Pesan                                           | Arti                         | Contoh          |
+| -------------- | ----------------------------------------------- | ---------------------------- | --------------- |
+| **TypeError**  | `can only concatenate str (not "int") to str`   | Gabung string & int          | `"a" + 1`       |
+|                | `'int' object is not subscriptable`             | Coba akses indeks dari angka | `5[0]`          |
+|                | `'NoneType' object is not iterable`             | `for i in None:`             |                 |
+| **ValueError** | `invalid literal for int() with base 10: 'abc'` | Konversi nilai tak valid     | `int('abc')`    |
+|                | `too many values to unpack (expected 2)`        | Destruktur salah             | `a,b = [1,2,3]` |
 
 ---
 
 ## 4. Error Koleksi Data (List, Dict, Set)
 
-|Error|Pesan|Arti|Contoh|
-|---|---|---|---|
-|**IndexError**|`list index out of range`|Akses list di luar panjangnya|`[1,2,3][5]`|
-|**KeyError**|`KeyError: 'username'`|Key tak ada di dict|`d = {}; print(d['x'])`|
-|**StopIteration**|`StopIteration`|Iterator sudah habis|`next(iter([]))`|
+| Error             | Pesan                     | Arti                          | Contoh                  |
+| ----------------- | ------------------------- | ----------------------------- | ----------------------- |
+| **IndexError**    | `list index out of range` | Akses list di luar panjangnya | `[1,2,3][5]`            |
+| **KeyError**      | `KeyError: 'username'`    | Key tak ada di dict           | `d = {}; print(d['x'])` |
+| **StopIteration** | `StopIteration`           | Iterator sudah habis          | `next(iter([]))`        |
 
 ---
 
 ## 5. Error Aritmatika
 
-|Error|Pesan|Arti|Contoh|
-|---|---|---|---|
-|**ZeroDivisionError**|`division by zero`|Bagi dengan nol|`1/0`|
-|**OverflowError**|`OverflowError: (34, 'Result too large')`|Hasil operasi terlalu besar|`math.exp(1000)`|
-|**FloatingPointError**|`FloatingPointError: division by zero`|Kesalahan numerik (jarang)|Set `np.seterr(all='raise')` di NumPy|
+| Error                  | Pesan                                     | Arti                        | Contoh                                |
+| ---------------------- | ----------------------------------------- | --------------------------- | ------------------------------------- |
+| **ZeroDivisionError**  | `division by zero`                        | Bagi dengan nol             | `1/0`                                 |
+| **OverflowError**      | `OverflowError: (34, 'Result too large')` | Hasil operasi terlalu besar | `math.exp(1000)`                      |
+| **FloatingPointError** | `FloatingPointError: division by zero`    | Kesalahan numerik (jarang)  | Set `np.seterr(all='raise')` di NumPy |
 
 ---
 
 ## 6. Error File & Sistem
 
-|Error|Pesan|Arti|Contoh|
-|---|---|---|---|
-|**FileNotFoundError**|`[Errno 2] No such file or directory: 'file.txt'`|File tidak ada|`open('tidakada.txt')`|
-|**PermissionError**|`[Errno 13] Permission denied`|Tidak punya izin|`open('/root/secret.txt')`|
-|**IsADirectoryError**|`[Errno 21] Is a directory`|File ternyata direktori|`open('/')`|
-|**NotADirectoryError**|`[Errno 20] Not a directory`|Jalur bukan direktori|`open('file.txt/test')`|
-|**OSError**|`[Errno 28] No space left on device`|Masalah OS umum|Disk penuh, file rusak, dsb|
+| Error                  | Pesan                                             | Arti                    | Contoh                      |
+| ---------------------- | ------------------------------------------------- | ----------------------- | --------------------------- |
+| **FileNotFoundError**  | `[Errno 2] No such file or directory: 'file.txt'` | File tidak ada          | `open('tidakada.txt')`      |
+| **PermissionError**    | `[Errno 13] Permission denied`                    | Tidak punya izin        | `open('/root/secret.txt')`  |
+| **IsADirectoryError**  | `[Errno 21] Is a directory`                       | File ternyata direktori | `open('/')`                 |
+| **NotADirectoryError** | `[Errno 20] Not a directory`                      | Jalur bukan direktori   | `open('file.txt/test')`     |
+| **OSError**            | `[Errno 28] No space left on device`              | Masalah OS umum         | Disk penuh, file rusak, dsb |
 
 ---
 
 ## 7. Error Jaringan & Proses
 
-|Error|Pesan|Arti|Contoh|
-|---|---|---|---|
-|**ConnectionError**|`Failed to establish a new connection`|Tidak bisa konek ke server|requests|
-|**TimeoutError**|`[Errno 110] Connection timed out`|Waktu tunggu habis|socket timeout|
-|**BrokenPipeError**|`[Errno 32] Broken pipe`|Koneksi terputus|kirim data ke socket tertutup|
-|**ChildProcessError**|`ChildProcessError: [Errno 10] No child processes`|Subproses gagal dikelola|multiprocessing error|
+| Error                 | Pesan                                              | Arti                       | Contoh                        |
+| --------------------- | -------------------------------------------------- | -------------------------- | ----------------------------- |
+| **ConnectionError**   | `Failed to establish a new connection`             | Tidak bisa konek ke server | requests                      |
+| **TimeoutError**      | `[Errno 110] Connection timed out`                 | Waktu tunggu habis         | socket timeout                |
+| **BrokenPipeError**   | `[Errno 32] Broken pipe`                           | Koneksi terputus           | kirim data ke socket tertutup |
+| **ChildProcessError** | `ChildProcessError: [Errno 10] No child processes` | Subproses gagal dikelola   | multiprocessing error         |
 
 ---
 
@@ -118,31 +119,30 @@ updatedDate: 2026-03-28
 
 ## 10. Error Khusus (Jarang Tapi Muncul di Proyek Nyata)
 
-|Error|Pesan|Kapan Muncul|
-|---|---|---|
-|**NotImplementedError**|`Subclass must implement abstract method`|Di class abstract|
-|**DeprecationWarning** _(bukan error)_|`DeprecationWarning: function xyz() is deprecated`|Fitur lama|
-|**MemoryError**|`MemoryError`|RAM habis (loop/data besar)|
-|**ArithmeticError**|(induk dari ZeroDivision, Overflow)|Operasi matematik gagal|
-|**LookupError**|(induk dari IndexError, KeyError)|Pencarian gagal|
-|**ReferenceError**|`weakly-referenced object no longer exists`|WeakRef sudah dihapus|
+| Error                                  | Pesan                                              | Kapan Muncul                |
+| -------------------------------------- | -------------------------------------------------- | --------------------------- |
+| **NotImplementedError**                | `Subclass must implement abstract method`          | Di class abstract           |
+| **DeprecationWarning** _(bukan error)_ | `DeprecationWarning: function xyz() is deprecated` | Fitur lama                  |
+| **MemoryError**                        | `MemoryError`                                      | RAM habis (loop/data besar) |
+| **ArithmeticError**                    | (induk dari ZeroDivision, Overflow)                | Operasi matematik gagal     |
+| **LookupError**                        | (induk dari IndexError, KeyError)                  | Pencarian gagal             |
+| **ReferenceError**                     | `weakly-referenced object no longer exists`        | WeakRef sudah dihapus       |
 
 ---
 
 ## Tips Debug Cepat
 
 1. Tambahkan:
-    
-    ```python
-    import traceback
-    traceback.print_exc()
-    ```
-    
-    → buat nampilin baris error lengkap.
-    
-2. Kalau kamu mau tahu semua error bawaan Python:
-    
-    ```python
-    print([x for x in dir(__builtins__) if x.endswith("Error")])
-    ```
 
+   ```python
+   import traceback
+   traceback.print_exc()
+   ```
+
+   → buat nampilin baris error lengkap.
+
+2. Kalau kamu mau tahu semua error bawaan Python:
+
+   ```python
+   print([x for x in dir(__builtins__) if x.endswith("Error")])
+   ```

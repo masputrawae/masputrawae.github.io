@@ -33,7 +33,7 @@ Kalau ingat tulisanku sebelumnya soal [[Kebutuhan vs Keinginan]], sebenarnya ala
 Aku sendiri tidak terlalu banyak melakukan kustomisasi. Hampir semuanya masih default.
 
 Tapi yang menarik, kebebasan untuk menyesuaikan itu benar-benar luas—tinggal mau dipakai atau nggak saja.  
-Aku pribadi memilih prinsip: ***yang penting bisa dipakai***.
+Aku pribadi memilih prinsip: **_yang penting bisa dipakai_**.
 
 Bahkan Waybar—yang biasanya jadi kombinasi bagus—aku tidak install. Otakku langsung mikir:  
 **“Buat apa install kalau nggak dipakai?”**
@@ -45,9 +45,9 @@ Begitu masuk Hyprland, naik sedikit jadi sekitar 900 MB–1 GB—dan itu masih t
 
 Nggak banyak, cuma yang benar-benar dipakai:
 
-- Neovim  — teks editor utama (untuk koding)
-- Obsidian  — second brain, untuk catat mencatat
-- Firefox  — browser favorit 😅
+- Neovim — teks editor utama (untuk koding)
+- Obsidian — second brain, untuk catat mencatat
+- Firefox — browser favorit 😅
 
 Alasannya sama seperti sebelumnya: percuma install banyak aplikasi kalau akhirnya nggak dipakai 😅  
 Dan tiga itu saja sudah cukup untuk kebutuhan harianku.

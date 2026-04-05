@@ -1,124 +1,124 @@
-import fs from "fs/promises";
-import type { APIRoute } from "astro";
-import { ImageResponse } from "@vercel/og";
-import { SITE } from "../../consts";
-import { getCollection } from "astro:content";
+import fs from 'fs/promises'
+import type { APIRoute } from 'astro'
+import { ImageResponse } from '@vercel/og'
+import { SITE } from '../../consts'
+import { getCollection } from 'astro:content'
 
-export const prerender = true;
+export const prerender = true
 
 // Load font & logo
-const interRegular = await fs.readFile("./src/assets/fonts/Inter-Regular.ttf");
-const interBold = await fs.readFile("./src/assets/fonts/Inter-Bold.ttf");
-const logoBuffer = await fs.readFile("./src/assets/images/logo.png");
-const logoBase64 = `data:image/png;base64,${logoBuffer.toString("base64")}`;
+const interRegular = await fs.readFile('./src/assets/fonts/Inter-Regular.ttf')
+const interBold = await fs.readFile('./src/assets/fonts/Inter-Bold.ttf')
+const logoBuffer = await fs.readFile('./src/assets/images/logo.png')
+const logoBase64 = `data:image/png;base64,${logoBuffer.toString('base64')}`
 
 export async function getStaticPaths() {
-  const pages = await getCollection("page");
-  const sections = await getCollection("section");
-  const entries = [...pages, ...sections];
+  const pages = await getCollection('page')
+  const sections = await getCollection('section')
+  const entries = [...pages, ...sections]
   return entries.map((p) => ({
-    params: { path: p.id === "/" ? "default" : p.id },
+    params: { path: p.id === '/' ? 'default' : p.id },
     props: {
       title: p.data.title,
       description: p.data.description,
-      pubDate: p.data.pubDate,
-    },
-  }));
+      pubDate: p.data.pubDate
+    }
+  }))
 }
 
 export const GET: APIRoute = async ({ props }) => {
-  const title = props.title;
-  const description = props.description;
-  const pubDate = props.pubDate.toDateString() ?? new Date().toDateString();
+  const title = props.title
+  const description = props.description
+  const pubDate = props.pubDate.toDateString() ?? new Date().toDateString()
 
   const html = {
-    type: "div",
+    type: 'div',
     props: {
       style: {
-        width: "1200px",
-        height: "630px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        background: "radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000000 100%)",
-        fontFamily: "Inter",
-        padding: 60,
+        width: '1200px',
+        height: '630px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        background: 'radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000000 100%)',
+        fontFamily: 'Inter',
+        padding: 60
       },
       children: [
         // Header: logo + site title
         {
-          type: "div",
+          type: 'div',
           props: {
             style: {
-              display: "flex",
-              alignItems: "center",
-              gap: "16px",
+              display: 'flex',
+              alignItems: 'center',
+              gap: '16px'
             },
             children: [
               {
-                type: "img",
+                type: 'img',
                 props: {
                   src: logoBase64,
                   style: {
                     width: 55,
                     height: 55,
-                    borderRadius: 20,
-                  },
-                },
+                    borderRadius: 20
+                  }
+                }
               },
               {
-                type: "div",
+                type: 'div',
                 props: {
-                  style: { display: "flex", flexDirection: "column" },
+                  style: { display: 'flex', flexDirection: 'column' },
                   children: [
                     {
-                      type: "span",
+                      type: 'span',
                       props: {
-                        style: { fontSize: 24, fontWeight: 700, color: "#ffffff" },
-                        children: SITE.title,
-                      },
+                        style: { fontSize: 24, fontWeight: 700, color: '#ffffff' },
+                        children: SITE.title
+                      }
                     },
                     {
-                      type: "span",
+                      type: 'span',
                       props: {
-                        style: { fontSize: 16, color: "#cccccc" },
-                        children: new URL(import.meta.env.SITE).hostname,
-                      },
-                    },
-                  ],
-                },
-              },
-            ],
-          },
+                        style: { fontSize: 16, color: '#cccccc' },
+                        children: new URL(import.meta.env.SITE).hostname
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
         },
 
         // Body: title + description + date
         {
-          type: "div",
+          type: 'div',
           props: {
             style: {
-              display: "flex",
-              flexDirection: "column",
-              gap: "24px",
-              color: "#ffffff",
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '24px',
+              color: '#ffffff'
             },
             children: [
               // Title
               {
-                type: "div",
+                type: 'div',
                 props: {
                   style: {
                     fontSize: 60,
                     fontWeight: 700,
                     lineHeight: 1.2,
-                    filter: "drop-shadow(4px 4px 4px rgba(0,0,0,0.5))",
+                    filter: 'drop-shadow(4px 4px 4px rgba(0,0,0,0.5))'
                   },
-                  children: title,
-                },
+                  children: title
+                }
               },
               // Description
               {
-                type: "div",
+                type: 'div',
                 props: {
                   style: {
                     fontSize: 26,
@@ -127,37 +127,35 @@ export const GET: APIRoute = async ({ props }) => {
                     lineHeight: 1.4,
                     maxWidth: 720
                   },
-                  children: description,
-                },
+                  children: description
+                }
               },
               // Date
               {
-                type: "div",
+                type: 'div',
                 props: {
                   style: { fontSize: 20, opacity: 0.7 },
-                  children: pubDate,
-                },
-              },
-            ],
-          },
-        },
-      ],
-    },
-  };
+                  children: pubDate
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
 
   try {
     return new ImageResponse(html, {
       width: 1200,
       height: 630,
       fonts: [
-        { name: "Inter", data: interRegular, weight: 400, style: "normal" },
-        { name: "Inter", data: interBold, weight: 700, style: "normal" },
-      ],
-    });
+        { name: 'Inter', data: interRegular, weight: 400, style: 'normal' },
+        { name: 'Inter', data: interBold, weight: 700, style: 'normal' }
+      ]
+    })
   } catch (e) {
-    console.error("OG Render Error:", e);
-    throw e;
+    console.error('OG Render Error:', e)
+    throw e
   }
-};
-
-
+}

@@ -75,13 +75,13 @@ nmcli connection modify "NamaSSID" connection.autoconnect yes
 ## Tips tambahan
 
 - Kalau mau putus koneksi:
-    ```bash
-    nmcli connection down "NamaSSID"
-    ```
+  ```bash
+  nmcli connection down "NamaSSID"
+  ```
 - Kalau mau lihat semua koneksi yang tersimpan:
-    ```bash
-    nmcli connection show
-    ```
+  ```bash
+  nmcli connection show
+  ```
 
 ---
 

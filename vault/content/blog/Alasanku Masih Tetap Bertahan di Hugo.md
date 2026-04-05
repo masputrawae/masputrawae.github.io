@@ -27,21 +27,22 @@ Memang terdengar agak overthinking, karena saat ini blog ini bahkan belum memaka
 
 ## Masalah Sections & Wiki Link Style
 
-Mungkin ini murni *skill issue* 😅, tapi bagian ini benar-benar bikin aku pusing.
+Mungkin ini murni _skill issue_ 😅, tapi bagian ini benar-benar bikin aku pusing.
 
-Alasan aku membahas *sections* dan *wikilink* adalah karena aku beberapa kali mencoba menggunakan `remark` (dan sejenisnya) di Astro. Masalah utamanya ada pada *path* antar *content collection* yang sering tidak sesuai.
+Alasan aku membahas _sections_ dan _wikilink_ adalah karena aku beberapa kali mencoba menggunakan `remark` (dan sejenisnya) di Astro. Masalah utamanya ada pada _path_ antar _content collection_ yang sering tidak sesuai.
 
 Contohnya:
+
 - Konten di-generate lewat dynamic routing di  
   `src/pages/posts/[...slug].astro`
 - Dan juga di  
   `src/pages/notes/[...slug].astro`
 
-Dari sudut pandangku, ini berarti ada lebih dari satu *section*. Namun plugin `remark-wikilink` yang aku temui seolah hanya bisa bekerja dengan satu collection saja.
+Dari sudut pandangku, ini berarti ada lebih dari satu _section_. Namun plugin `remark-wikilink` yang aku temui seolah hanya bisa bekerja dengan satu collection saja.
 
-Akhirnya, ketika aku mencoba membuat link dari *notes* ke *posts*, path-nya salah dan berujung ke halaman 404 😵‍💫.
+Akhirnya, ketika aku mencoba membuat link dari _notes_ ke _posts_, path-nya salah dan berujung ke halaman 404 😵‍💫.
 
-Aku sendiri belum yakin apakah ini keterbatasan tooling, kurangnya pemahamanku, atau memang salah implementasi. Jadi ya… anggap saja ini *skill issue*.
+Aku sendiri belum yakin apakah ini keterbatasan tooling, kurangnya pemahamanku, atau memang salah implementasi. Jadi ya… anggap saja ini _skill issue_.
 
 ## Performa dan Build Time
 
@@ -49,6 +50,7 @@ Bagian ini cukup menyakitkan 🙄
 PC-ku termasuk kentang 😅, dan ketika ngoding Astro—bahkan sebelum proses build—CPU usage sudah tinggi banget.
 
 Asumsiku, kemungkinan penyebabnya:
+
 - IntelliSense
 - LSP
 - Node.js itu sendiri
@@ -68,7 +70,7 @@ Di titik ini, harapanku agak pupus. Ke depannya, aku berharap ada dukungan pengg
 
 ## Pagination
 
-Balik lagi ke *skill issue* 😅.
+Balik lagi ke _skill issue_ 😅.
 
 Astro memang menyediakan fitur pagination, tapi implementasinya menurutku cukup ribet dan harus banyak manual. Aku sudah coba cari referensi ke sana-sini, tapi jarang yang benar-benar sesuai dengan kebutuhanku.
 
@@ -107,4 +109,5 @@ Terima kasih sudah membaca 😊
 - [[Jatuh Cinta Pada TailwindCSS]]
 
 [^1]: [[Pengalaman 1 Bulan Ngulik AstroJS]]
+
 [^2]: [[Satu SSG Yang Keren]]

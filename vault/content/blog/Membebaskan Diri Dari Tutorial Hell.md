@@ -42,7 +42,7 @@ Dan nantinya jangan berhenti untuk update kode nya, misal tambah pelan-pelan fit
 
 ## Bukan Menghafal Syntax tapi Memahami Alurnya
 
-Satu hal yang jarang pemula sadari seperti aku😁 soal koding itu yang utama bukan menghafal semua syntax, tapi mengerti tentang alur atau logikanya, contoh sederhananya 
+Satu hal yang jarang pemula sadari seperti aku😁 soal koding itu yang utama bukan menghafal semua syntax, tapi mengerti tentang alur atau logikanya, contoh sederhananya
 
 Aku perlu mendapat hasil dari penjumlahan 2 angka. Langkah yang harus dilakukan harusnya begini
 
@@ -51,7 +51,7 @@ Aku perlu mendapat hasil dari penjumlahan 2 angka. Langkah yang harus dilakukan 
 - Setelah dijumlah => Cetak hasil ke layar
 
 > [!info]
-> Kalau masih pusing aku ngak bertanggung jawab 😅, paling tidak kita tahu dulu apa inputnya, apa proses yang harus dilakukan, dan apa yang harus kita kembalikan. Tips nya coba gunakan *pseudocode* dulu atau diagram sederhana, untuk membuat alur kerjanya
+> Kalau masih pusing aku ngak bertanggung jawab 😅, paling tidak kita tahu dulu apa inputnya, apa proses yang harus dilakukan, dan apa yang harus kita kembalikan. Tips nya coba gunakan _pseudocode_ dulu atau diagram sederhana, untuk membuat alur kerjanya
 
 Kalau lupa syntax, jangan ragu untuk browsing atau baca dokumentasi atau paling mudah tanya ke **AI**, ==Tapi bukan berarti minta full code nya😅==. Dan itu wajar, bahkan programming profesional pun masih sering lupa syntax 🫢, jadi jangan berusaha menghafal semua syntax, tapi pahami logika atau alurnya.
 

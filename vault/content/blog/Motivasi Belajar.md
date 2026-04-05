@@ -8,7 +8,7 @@ pubDate: 2025-12-15T15:56:19+07:00
 updatedDate: 2025-12-28T14:33:22+07:00
 ---
 
-Semua hal tidak ada yang instan, kuncinya adalah sabar, konsisten, dan terus berusaha. 
+Semua hal tidak ada yang instan, kuncinya adalah sabar, konsisten, dan terus berusaha.
 
 Kalau muncul kondisi dimana kita sedang merasa stuck atau tidak melihat perkembangan saat belajar, atau mulai kehilangan semangat untuk belajar, coba beberapa hal berikut.
 
@@ -16,11 +16,11 @@ Kalau muncul kondisi dimana kita sedang merasa stuck atau tidak melihat perkemba
 - Selalu catat setiap kemajuan kecil.
 - Tetapkan target kecil setiap hari atau mingguan.
 - Jika mulai kehilangan semangat atau motivasi, coba hal berikut.
-	- Sudah berapa lama waktu yang kamu habiskan untuk belajar sampai detik ini?.
-	- Kalau aku berhenti sekarang, aku sudah membuang banyak waktu selama ini.
-	- Coba bandingkan pengetahuan mu ketika belum memulai belajar dulu dengan saat ini.
-	- Jangan memaksa kalau lagi capek, kadang kamu cuma butuh istirahat.
-	- Ingat kembali tujuan awal mu, kenapa kamu mempelajari hal ini.
+  - Sudah berapa lama waktu yang kamu habiskan untuk belajar sampai detik ini?.
+  - Kalau aku berhenti sekarang, aku sudah membuang banyak waktu selama ini.
+  - Coba bandingkan pengetahuan mu ketika belum memulai belajar dulu dengan saat ini.
+  - Jangan memaksa kalau lagi capek, kadang kamu cuma butuh istirahat.
+  - Ingat kembali tujuan awal mu, kenapa kamu mempelajari hal ini.
 
 ## Satu hal yang penting untuk diingat
 

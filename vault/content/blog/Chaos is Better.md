@@ -39,9 +39,8 @@ Kalau jawabannya adalah yang terakhir, maka metode chaos ini sangat masuk akal.
 Kasus ini nyata bagiku. Aku pernah menyetujui konsep _Murphy’s Law_ dan menulis catatan seperti ini:
 
 ```markdown
-
-Ya menurutku hukum Murphy itu masuk akal. 
-Aku menyukainya karena penjelasan di Wikipedia 
+Ya menurutku hukum Murphy itu masuk akal.
+Aku menyukainya karena penjelasan di Wikipedia
 cukup sejalan dengan prinsip yang aku pegang.
 
 ## Related
@@ -51,24 +50,21 @@ cukup sejalan dengan prinsip yang aku pegang.
 ## Source
 
 - https://id.wikipedia.org/wiki/Hukum_Murphy?wprov=sfla1
-
 ```
 
 Namun, di catatan `251230180551_kebenaran_berawal_dari_kesalahan`, aku justru menulis hal yang bertentangan:
 
 ```markdown
-
 Aku kepikiran: kesalahan itu membuat kita sadar akan kebenaran
-sesungguhnya. Artinya, kemarin aku sempat sejalan dengan konsep 
-hukum Murphy. 
+sesungguhnya. Artinya, kemarin aku sempat sejalan dengan konsep
+hukum Murphy.
 
-Tapi di sini justru terasa bertolak belakang: sesuatu yang salah tidak selalu berakhir salah. 
+Tapi di sini justru terasa bertolak belakang: sesuatu yang salah tidak selalu berakhir salah.
 Kesalahan malah bisa menjadi pemicu kebenaran 🤔
 
 ## Related
 
 - [251225181140_hukum_murphy]
-
 ```
 
 Dari sini terlihat bahwa catatan bukan soal konsistensi, tapi proses berpikir.

@@ -12,7 +12,7 @@ pubDate: 2026-04-05
 updatedDate: 2026-04-05
 ---
 
-Nggak tahu?...., aku nggak terlalu bisa mendeskripsikan [[about|tentang diriku]] sendiri 😁. 
+Nggak tahu?...., aku nggak terlalu bisa mendeskripsikan [[about|tentang diriku]] sendiri 😁.
 Atau mungkin beberapa hal berikut bisa membantu mencerminkan siapa diriku 😃👇
 
 - 🎓 Self-taught
@@ -23,14 +23,14 @@ Atau mungkin beberapa hal berikut bisa membantu mencerminkan siapa diriku 😃�
 
 ## Kegiatan
 
-Sedikit-sedikit aku sedang mempelajari beberapa bahasa pemrograman, 
-seperti **Go-lang** & **Python**. Atau kadang juga cuma tiduran seharian 😅, 
-dan *Seni tidak melakukan apa-apa*.
+Sedikit-sedikit aku sedang mempelajari beberapa bahasa pemrograman,
+seperti **Go-lang** & **Python**. Atau kadang juga cuma tiduran seharian 😅,
+dan _Seni tidak melakukan apa-apa_.
 
 ## Beberapa Konten Menarik
 
-Hanya sekedar curahan hati aja, soalnya kalau mencurahkan isi hati langsung ke 
-orang (*alias Curhat*), kadang malah jadi adu nasib 🫢. Jadi aku tulis aja di sini 😁.
+Hanya sekedar curahan hati aja, soalnya kalau mencurahkan isi hati langsung ke
+orang (_alias Curhat_), kadang malah jadi adu nasib 🫢. Jadi aku tulis aja di sini 😁.
 
 - [[Nilai Hanyalah Angka]]
 - [[Motivasi Belajar]]
@@ -41,7 +41,7 @@ orang (*alias Curhat*), kadang malah jadi adu nasib 🫢. Jadi aku tulis aja di 
 
 ## Catatan dan Contekan
 
-Sering lupa syntax, command, ataupun beberapa materi yang baru aku pelajari 😁. 
+Sering lupa syntax, command, ataupun beberapa materi yang baru aku pelajari 😁.
 Maklum kebanyakan mikir hutang 😅.
 
 - [[Linux - MTP Android]]

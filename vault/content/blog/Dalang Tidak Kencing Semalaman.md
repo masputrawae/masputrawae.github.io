@@ -10,7 +10,7 @@ updatedDate: 2025-12-30T00:37:06+07:00
 
 Aku tidak tahu pasti sih, namun aku menulis ini karena kemarin di rumah terjadi perdebatan kecil. Katanya, dalang itu bisa semalaman tidak kencing karena punya mantra khusus. Aku cuma bisa mikir: lah kok bisa?
 
-Nah ini yang bikin janggal — kok bisa? Mantra seperti apa itu?. Namun disini aku tidak percaya begitu aja, pasalnya aneh aja gitu🤔, dan mungkin ada penjelasan yang lebih logis dan realistis. Walaupun sebenarnya aku juga tidak begitu perduli dengan pernyataan orang tersebut, tapi otakku berkata lain. Semakin di abaikan semakin sering muncul pertanyaan. *"Apa yang sebenarnya terjadi?"*.
+Nah ini yang bikin janggal — kok bisa? Mantra seperti apa itu?. Namun disini aku tidak percaya begitu aja, pasalnya aneh aja gitu🤔, dan mungkin ada penjelasan yang lebih logis dan realistis. Walaupun sebenarnya aku juga tidak begitu perduli dengan pernyataan orang tersebut, tapi otakku berkata lain. Semakin di abaikan semakin sering muncul pertanyaan. _"Apa yang sebenarnya terjadi?"_.
 
 ## Disclaimer
 
@@ -20,7 +20,7 @@ Disini aku tidak bermaksud untuk menjelekkan siapapun, termasuk budaya itu sendi
 
 ## Back to Topic
 
-Setelah itu disini aku tidak menunggu lama, aku langsung aja tanya ke ChatGPT 😅 (*maklum, butuh jawaban cepat*). Dan jawabannya aku rangkuman sedikit seperti berikut.
+Setelah itu disini aku tidak menunggu lama, aku langsung aja tanya ke ChatGPT 😅 (_maklum, butuh jawaban cepat_). Dan jawabannya aku rangkuman sedikit seperti berikut.
 
 ### 1. Latihan & Kebiasaan Fisik
 
@@ -42,7 +42,7 @@ Ini mirip seperti
 Nah ini menariknya, dalam perdebatan kemarin itu, orang ini berkata "banyak minum seperti jahe, jamu jamuan, teh, dsb...". Ini termasuk minuman yang sebenarnya tidak semua air murni. Dan penjelasan dari ChatGpt seperti ini
 
 > Minuman seperti teh, jamu-jamuan, dan minuman manis, itu mengandung gula, yang sebenarnya tidak langsung membuat kandung kemih penuh. Penjelasan singkatnya
-> 
+>
 > - Gula langsung di tarik ke dalam usus.
 > - Panas meningkatkan keringat.
 > - Sebagai cairan dipakai tubuh sebelum masuk ke kandung kemih.
@@ -52,11 +52,11 @@ Nah ini menariknya, dalam perdebatan kemarin itu, orang ini berkata "banyak minu
 Nah, sebenarnya bagian ini aku tidak tahu pasti, soalnya lawan bicara kemarin mengatakan tidak berkeringat 🤔 tapi kayaknya ngak mungkin juga deh, itu pasti berkeringat juga, cuma mungkin ngak kelihatan. Kalau penjelasan menurut ChatGPT 😁 lagi seperti ini
 
 > Dalang itu walaupun duduk, dia tetap aktif
-> 
+>
 > - Tangan dipaksa gerak terus.
 > - Suara juga dipaksa berbicara terus.
 > - Energi yang keluar banyak.
-> 
+>
 > Tubuh menggunakan banyak energi, yang biasanya mengeluarkan cairan melalui keringat atau napas, sehingga urin menjadi sedikit.
 
 ### 4. Efek Psikologis dan Fokus Tinggi
@@ -78,6 +78,6 @@ Dalang → level fokusnya jauh lebih intens.
 
 > mantra hanyalah bagian dari mitos budaya, sementara penjelasan tubuh manusia tetap logis.
 
-Tulisan ini muncul setelah perdebatan kecil di rumah tentang mitos bahwa dalang bisa kuat semalaman tanpa kencing. Dan ya sumber jawaban sih dari ChatGpt aja, Mungkin akan lebih akurat jika tanya ke dokter atau dalang itu sendiri, atau mungkin ke ahlinya sekalian 😁. 
+Tulisan ini muncul setelah perdebatan kecil di rumah tentang mitos bahwa dalang bisa kuat semalaman tanpa kencing. Dan ya sumber jawaban sih dari ChatGpt aja, Mungkin akan lebih akurat jika tanya ke dokter atau dalang itu sendiri, atau mungkin ke ahlinya sekalian 😁.
 
 Terimakasih sudah membaca.

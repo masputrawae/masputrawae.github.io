@@ -16,7 +16,7 @@ Ketertarikan saya pada dunia komputer bermula sejak pertama kali menggunakan kom
 
 ## Keterbatasan Bukan Halangan
 
-Meski begitu, saya tidak berhenti di situ. Dari keterbatasan tersebut, saya menemukan banyak alternatif, salah satunya adalah Linux—sebuah kernel dengan berbagai pilihan distro yang beragam, bersifat open source, fleksibel, ringan, dan tetap kompatibel dengan perangkat lama. (😅 *I'm using Arch btw*)
+Meski begitu, saya tidak berhenti di situ. Dari keterbatasan tersebut, saya menemukan banyak alternatif, salah satunya adalah Linux—sebuah kernel dengan berbagai pilihan distro yang beragam, bersifat open source, fleksibel, ringan, dan tetap kompatibel dengan perangkat lama. (😅 _I'm using Arch btw_)
 
 ## Penutup
 

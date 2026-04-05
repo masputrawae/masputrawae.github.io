@@ -10,11 +10,11 @@ pubDate: 2025-12-15T15:56:19+07:00
 updatedDate: 2026-04-03
 ---
 
-Mungkin tulisan ini lebih ke analisis dan pemikiran pribadi dari seorang anak desa yang lahir dan besar di lingkungan semacam ini. Ada satu hal yang sampai sekarang masih bikin aku heran: *hajatan*, terutama pernikahan. Bukan karena aku benci atau tidak suka, bukan. Tapi ada beberapa hal yang menurutku perlu dibahas.
+Mungkin tulisan ini lebih ke analisis dan pemikiran pribadi dari seorang anak desa yang lahir dan besar di lingkungan semacam ini. Ada satu hal yang sampai sekarang masih bikin aku heran: _hajatan_, terutama pernikahan. Bukan karena aku benci atau tidak suka, bukan. Tapi ada beberapa hal yang menurutku perlu dibahas.
 
 ## 1. Aturan dan Gangguan
 
-Hal pertama yang bikin aku sedih adalah soal **aturan**, terutama soal **sound system**. Jujur, suara musiknya itu benar-benar mengganggu. Yang jadi masalah, banyak orang tidak tahu — atau mungkin tidak peduli — batas kebisingan yang sebenarnya diatur sama *perda* atau aturan pemerintah. Akhirnya suara bass dari subwoofer bisa bikin kaca dan plafon rumah bergetar semua.
+Hal pertama yang bikin aku sedih adalah soal **aturan**, terutama soal **sound system**. Jujur, suara musiknya itu benar-benar mengganggu. Yang jadi masalah, banyak orang tidak tahu — atau mungkin tidak peduli — batas kebisingan yang sebenarnya diatur sama _perda_ atau aturan pemerintah. Akhirnya suara bass dari subwoofer bisa bikin kaca dan plafon rumah bergetar semua.
 
 Yang bikin tambah stres, hajatan di desaku itu jarang cuma sehari. Rata-rata **tiga hari**. Dari jam 8 pagi sampai siang, istirahat sebentar banget habis adzan, lanjut lagi sampai sore, dan malam bisa sampai jam 10.
 
@@ -32,7 +32,7 @@ Mungkin kalau belum tahu, aku ada beberapa sumber yang membahas soal aturan ini
 
 Di catatan sebelumnya soal [[Kebutuhan vs Keinginan]], aku sudah bahas gimana pentingnya tahu mana yang benar-benar perlu dan mana yang cuma keinginan semata. Menurutku pribadi, daripada uang habis untuk hajatan besar, kenapa nggak dipakai untuk hal yang lebih bermanfaat? Misalnya modal usaha, investasi, atau keperluan jangka panjang lain yang bisa bikin hidup lebih stabil ke depannya.
 
-Pernikahan itu tujuannya *membangun rumah tangga*, bukan pestanya. Di KUA, biaya nikah di daerahku murah banget — paling mahal nggak sampai 200 ribu. Yang mahal itu justru hajatannya.
+Pernikahan itu tujuannya _membangun rumah tangga_, bukan pestanya. Di KUA, biaya nikah di daerahku murah banget — paling mahal nggak sampai 200 ribu. Yang mahal itu justru hajatannya.
 
 Kalau seseorang benar-benar mempertimbangkan **[[Kebutuhan vs Keinginan]]**, sebenarnya menikah di KUA saja sudah cukup. Surat nikah dapat, sah di mata negara, dan nggak perlu buang uang untuk kesenangan sesaat. Boleh pesta kalau mampu, tapi jangan sampai maksa diri.
 
@@ -42,7 +42,7 @@ Ini sebenarnya nggak wajib sama sekali. Tapi di masyarakat sini, kalau tidak men
 
 Nggak masalah kalau finansial stabil. Yang jadi masalah, aku lihat sendiri ada orang yang sampai pinjam uang hanya untuk “menjalankan kewajiban sosial” ini. Ini kan jadi beban buat dirinya sendiri.
 
-Sumbangan itu *boleh*. Bagus malah kalau ikhlas. Tapi jangan sampai memaksakan diri hanya karena takut stigma masyarakat. Semua orang punya kondisi berbeda, dan budaya timbal balik seperti ini tidak selalu bisa dilakukan oleh semua orang tanpa pengorbanan.
+Sumbangan itu _boleh_. Bagus malah kalau ikhlas. Tapi jangan sampai memaksakan diri hanya karena takut stigma masyarakat. Semua orang punya kondisi berbeda, dan budaya timbal balik seperti ini tidak selalu bisa dilakukan oleh semua orang tanpa pengorbanan.
 
 ## 4. Gotong Royong
 

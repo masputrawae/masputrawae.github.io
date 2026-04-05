@@ -34,20 +34,20 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.google(),
-      name: "Inter",
-      cssVariable: "--font-sans",
+      name: 'Inter',
+      cssVariable: '--font-sans',
       weights: [400, 600, 700]
     },
     {
       provider: fontProviders.google(),
-      name: "Noto Serif",
-      cssVariable: "--font-serif",
+      name: 'Noto Serif',
+      cssVariable: '--font-serif',
       weights: [400, 700]
     },
     {
       provider: fontProviders.google(),
-      name: "JetBrains Mono",
-      cssVariable: "--font-mono",
+      name: 'JetBrains Mono',
+      cssVariable: '--font-mono',
       weights: [400, 700]
     }
   ]

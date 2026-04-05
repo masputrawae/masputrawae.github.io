@@ -8,7 +8,7 @@ pubDate: 2026-03-18
 updatedDate: 2026-03-18
 ---
 
-Kemarin sempat bersih-bersih repository Github, namun ada sedikit kekonyolan yang telah ku buat, yaitu **Tidak sengaja menghapus repo blog ku** alhasil postingan ku hilang. Namun kabar baiknya masih ada salinan konten di obsidian. Akan tetapi tema yang aku buat dengan Hugo hilang, soalnya nggak ada backup 🥲, bahkan di komputer local ku juga udah aku hapus semua, karena habis install ulang 🥲. 
+Kemarin sempat bersih-bersih repository Github, namun ada sedikit kekonyolan yang telah ku buat, yaitu **Tidak sengaja menghapus repo blog ku** alhasil postingan ku hilang. Namun kabar baiknya masih ada salinan konten di obsidian. Akan tetapi tema yang aku buat dengan Hugo hilang, soalnya nggak ada backup 🥲, bahkan di komputer local ku juga udah aku hapus semua, karena habis install ulang 🥲.
 
 Dan dari sinilah aku mulai membangun lagi website ini, tapi dengan nuansa berbeda. Aku tidak menggunakan Hugo lagi, karena udah capek lihat templating yang menyebalkan 😅, namun bukan berarti Hugo jelek, karena sebelum aku juga udah cerita soal banyak hal tentang Hugo.
 

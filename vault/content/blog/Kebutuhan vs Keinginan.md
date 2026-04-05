@@ -8,7 +8,7 @@ pubDate: 2025-12-15T15:56:19+07:00
 updatedDate: 2025-12-28T14:32:40+07:00
 ---
 
-Fenomena yang sering aku temui di sekitar, yaitu seseorang yang membeli barang yang sebenarnya tidak diperlukan. Mungkin nggak masalah sih jika itu memang uang sendiri atau hasil menabung dsb..., masalahnya beberapa orang membeli barang tersebut dengan cara **berhutang** atau **mencicil**. Dan seandainya barang tersebut bisa menghasilkan **profit**, mungkin jauh lebih masuk akal dan nggak ada masalah berhutang di awal. Cuma disini kasusnya hanya untuk memenuhi keinginannya saja, yang mungkin karena ingin **diakui**, **terlihat keren**, atau **takut tertinggal (*social pressure*)**.
+Fenomena yang sering aku temui di sekitar, yaitu seseorang yang membeli barang yang sebenarnya tidak diperlukan. Mungkin nggak masalah sih jika itu memang uang sendiri atau hasil menabung dsb..., masalahnya beberapa orang membeli barang tersebut dengan cara **berhutang** atau **mencicil**. Dan seandainya barang tersebut bisa menghasilkan **profit**, mungkin jauh lebih masuk akal dan nggak ada masalah berhutang di awal. Cuma disini kasusnya hanya untuk memenuhi keinginannya saja, yang mungkin karena ingin **diakui**, **terlihat keren**, atau **takut tertinggal (_social pressure_)**.
 
 ## Kebutuhan atau Keinginan
 
@@ -19,14 +19,14 @@ Banyak orang tidak sadar apa yang mereka butuhkan dan apa yang mereka inginkan. 
 - Alat Kerja
 - Makanan
 - Tempat Tinggal
-- Kendaraan 
+- Kendaraan
 - dsb...
 
 **Keinginan** sering kali muncul karena dorongan eksternal: ingin diakui, terlihat keren, atau takut tertinggal (social pressure). Contoh kasus yang sering terjadi di lingkungan ku sendiri seperti berikut.
 
 Seseorang membeli iPhone, bukan untuk memenuhi kebutuhan (semisal alat kerja), melainkan karena agar terlihat keren, tapi melihat pola kehidupan yang biasa aja atau malah bisa dibilang keterbatasan finansial, seseorang ini malah memaksakan membeli, dengan cara berhutang atau mencicil.
 
-Masalahnya disini sekarang adalah faktor *Sosial Media* dan *Budaya Konsumtif* membuat **keinginan** disamakan dengan **kebutuhan**. Yang membuat seseorang berfikir *"Kalau tidak punya iPhone, aku ketinggalan"*, padahal kalau cuma kebutuhan untuk komunikasi ponsel apapun bisa digunakan, dan banyak alternatif ponsel pintar yang lebih murah, tapi juga memiliki banyak fitur yang kadang juga ngak pernah dipakai.
+Masalahnya disini sekarang adalah faktor _Sosial Media_ dan _Budaya Konsumtif_ membuat **keinginan** disamakan dengan **kebutuhan**. Yang membuat seseorang berfikir _"Kalau tidak punya iPhone, aku ketinggalan"_, padahal kalau cuma kebutuhan untuk komunikasi ponsel apapun bisa digunakan, dan banyak alternatif ponsel pintar yang lebih murah, tapi juga memiliki banyak fitur yang kadang juga ngak pernah dipakai.
 
 ## Pendekatan Fungsional dan Efisien (pengalaman pribadi)
 
@@ -38,7 +38,7 @@ Jujur aku sendiri memilih **Pendekatan Fungsional dan Efisien**. Sedikit cerita 
 
 Dan bagusnya disini, aku menggunakannya selama sekitar 2 tahun, aku beneran bisa beradaptasi dengan itu, malah kadang terasa lebih produktif dengan alat yang benar-benar sesuai.
 
-## Kesimpulan 
+## Kesimpulan
 
 Sebenarnya ini manusiawi sih, cuma satu hal yang perlu kita ingat: Memenuhi keinginan itu tidak salah, selama tidak memberatkan diri sendiri.
 

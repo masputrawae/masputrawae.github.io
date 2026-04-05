@@ -37,13 +37,13 @@ Contohnya:
 ```html
 {{ $primary := true }}
 
-<a 
+<a
   href="{{ .Site.Home.Permalink }}"
   class="{{ if $primary }}bg-blue-600 text-white{{ else }}text-black bg-neutral-200 dark:text-white dark:bg-neutral-700{{ end }} inline-flex items-center rounded-md text-lg px-6 py-3"
 >
   Home
 </a>
-````
+```
 
 Jujur, ini agak melelahkan untuk dibaca. Class menumpuk, banyak kurung, dan ini baru kasus sederhana. Kalau sudah lebih kompleks, bisa makin sulit dipahami.
 

@@ -14,7 +14,7 @@ Kenapa aku selalu kesulitan merencanakan sesuatu? Setiap kali mencoba rapi dan t
 Apa ini ada hubungannya dengan [[Chaos is Better]]? 😅  
 Entahlah, aku juga tidak tahu.
 
-Sebenarnya postingan ini bukan lanjutan langsung dari [[Kekonyolan Yang Sering Aku Alami Part 1]]. Tapi biar lebih asik (dan konsisten setidaknya di judul 😁), aku bikin saja *Part 2*.
+Sebenarnya postingan ini bukan lanjutan langsung dari [[Kekonyolan Yang Sering Aku Alami Part 1]]. Tapi biar lebih asik (dan konsisten setidaknya di judul 😁), aku bikin saja _Part 2_.
 
 ## Mencoba Terstruktur, Tapi Selalu Chaos
 
@@ -35,7 +35,7 @@ Hasilnya? Empat jam belajar Python, kadang sampai sore. Artinya, rencana sebelum
 Hari berikutnya kejadian serupa terulang.  
 Malamnya aku kepikiran:
 
-> *“Eh, bukannya tadi aku rencananya belajar JavaScript ya? Kok malah Python?”*
+> _“Eh, bukannya tadi aku rencananya belajar JavaScript ya? Kok malah Python?”_
 
 Oke, aku anggap saja saat itu memang lagi mood Python 😁. Aku tidak memaksa diri, lalu di Catatan Harian aku tulis:
 
@@ -48,13 +48,13 @@ Setelah `cd Learning`, aku tidak langsung buka file Python. Iseng buka browser, 
 
 Di kepalaku langsung muncul pikiran:
 
-> *“Kayaknya seru bikin todo list pakai Astro.”*
+> _“Kayaknya seru bikin todo list pakai Astro.”_
 
 Tanpa pikir panjang, balik ke terminal:
 
 ```bash
 npm create astro@latest ./todo-list
-````
+```
 
 Dan ya… keasyikan lagi sampai sore 😅.
 
