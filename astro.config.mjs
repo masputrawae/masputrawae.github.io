@@ -14,6 +14,7 @@ import { relURL } from './src/utils/url.ts'
 
 import FastGlob from 'fast-glob'
 import wlPlugin from '@flowershow/remark-wiki-link'
+import metaTags from 'astro-meta-tags';
 const files = FastGlob.sync('**/*', { cwd: SITE.contentDir })
 const permalinks = Object.fromEntries(files.map((f) => [f, relURL(genID(f))]))
 
@@ -25,7 +26,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  integrations: [mdx(), sitemap(), icon()],
+  integrations: [mdx(), sitemap(), icon(), metaTags()],
 
   markdown: {
     remarkPlugins: [[wlPlugin, { files, permalinks }]]
