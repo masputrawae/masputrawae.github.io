@@ -27,6 +27,8 @@
     "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
+    "@iconify-json/bi": "^1.2.7",
+    "@tailwindcss/typography": "^0.5.19",
     "prettier": "^3.8.1",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.7.2"
