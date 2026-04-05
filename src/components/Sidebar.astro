@@ -1,0 +1,27 @@
+---
+import { Icon } from 'astro-icon/components'
+import Container from './Container.astro'
+import Menu from './Menu.astro'
+import Profile from './Profile.astro'
+import Social from './Social.astro'
+---
+
+<aside
+  id="sidebar"
+  class:list={['max-w-2xs hidden md:block w-2xs fixed top-0 left-0', 'dark:bg-neutral-800']}
+>
+  <Container>
+    <div
+      class="min-h-dvh grid gap-4 px-4 py-8 overflow-x-auto h-screen grid-rows-[auto_minmax(0,1fr)]"
+    >
+      <Profile />
+      <nav class="flex flex-col justify-between p-2">
+        <Menu />
+        <Social />
+      </nav>
+    </div>
+    <button class="dark:text-white absolute top-4 right-4" data-sidebar="sidebar">
+      <Icon name="bi:x" size={28} />
+    </button>
+  </Container>
+</aside>
