@@ -1,7 +1,5 @@
 function main() {
-  document.addEventListener("astro:page-load", () => {
-
-  })
+  document.addEventListener('astro:page-load', () => {})
 }
 
 main()

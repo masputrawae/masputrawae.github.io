@@ -1,5 +1,5 @@
 ---
-title: "Tanpa judul"
+title: 'Tanpa judul'
 description:
 heroImage:
 tags:
@@ -22,7 +22,7 @@ Kasus-kasus seperti itu sering kali aku temui pada pasangan yang baru memiliki a
 
 ## Tidak Sesuai Dengan Keadaan
 
-Mungkin kalau si ibu benar-benar seorang ibu tunggal, atau mungkin kondisi finansial yang mengharuskan seorang ibu untuk bekerja, mungkin tidak masalah. Akan tetapi yang sering aku jumpai malah seringkali sebaliknya. 
+Mungkin kalau si ibu benar-benar seorang ibu tunggal, atau mungkin kondisi finansial yang mengharuskan seorang ibu untuk bekerja, mungkin tidak masalah. Akan tetapi yang sering aku jumpai malah seringkali sebaliknya.
 
 Masalahnya gini, kalau seorang ibu yang memang sebenarnya memiliki waktu untuk mengurus anak, dan malah mengandalkan ART/Baby sitter atau bahkan orang tua dari si ibu, maka yang pertama kali, ia akan kehilangan kesempatan untuk belajar memahami anak, yang seringkali memang tidak disadari.
 

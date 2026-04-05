@@ -53,7 +53,7 @@ Aku perlu mendapat hasil dari penjumlahan 2 angka. Langkah yang harus dilakukan 
 > [!info]
 > Kalau masih pusing aku ngak bertanggung jawab 😅, paling tidak kita tahu dulu apa inputnya, apa proses yang harus dilakukan, dan apa yang harus kita kembalikan. Tips nya coba gunakan _pseudocode_ dulu atau diagram sederhana, untuk membuat alur kerjanya
 
-Kalau lupa syntax, jangan ragu untuk browsing atau baca dokumentasi atau paling mudah tanya ke **AI**, *Namun bukan berarti minta full code nya😅*. Dan itu wajar, bahkan programming profesional pun masih sering lupa syntax 🫢, jadi jangan berusaha menghafal semua syntax, tapi pahami logika atau alurnya.
+Kalau lupa syntax, jangan ragu untuk browsing atau baca dokumentasi atau paling mudah tanya ke **AI**, _Namun bukan berarti minta full code nya😅_. Dan itu wajar, bahkan programming profesional pun masih sering lupa syntax 🫢, jadi jangan berusaha menghafal semua syntax, tapi pahami logika atau alurnya.
 
 ## Git Itu Alat Yang Keren
 

@@ -14,7 +14,7 @@ import { relURL } from './src/utils/url.ts'
 
 import FastGlob from 'fast-glob'
 import wlPlugin from '@flowershow/remark-wiki-link'
-import metaTags from 'astro-meta-tags';
+import metaTags from 'astro-meta-tags'
 const files = FastGlob.sync('**/*', { cwd: SITE.contentDir })
 const permalinks = Object.fromEntries(files.map((f) => [f, relURL(genID(f))]))
 

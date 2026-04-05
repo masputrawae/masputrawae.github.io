@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'astro/types'
 
-import Logo from "./src/assets/images/logo.png"
+import Logo from './src/assets/images/logo.png'
 
 export interface SiteType {
   title: string
@@ -36,14 +36,14 @@ export const SITE: SiteType = {
   contentDir: './vault/content',
 
   logo: {
-    source: "./src/assets/images/logo.png",
+    source: './src/assets/images/logo.png',
     image: Logo
   },
 
   author: {
     name: 'Putra Jaya',
     bio: 'Apa aja yang penting senang',
-    twitterX: '@masputrawae',
+    twitterX: '@masputrawae'
   },
 
   menus: {
@@ -55,12 +55,12 @@ export const SITE: SiteType = {
       { name: '[bi:search] Search', href: '/search' }
     ],
     social: [
-      { name: '[bi:twitter-x] Twitter (X)', href: 'https://x.com', target: "_blank" },
-      { name: '[bi:instagram] Instagram', href: 'https://instagram.com', target: "_blank" },
-      { name: '[bi:facebook] Facebook', href: 'https://facebook.com', target: "_blank" },
-      { name: '[bi:discord] Discord', href: 'https://discord.com', target: "_blank" },
-      { name: '[bi:github] Github', href: 'https://github.com', target: "_blank" }
-    ],
+      { name: '[bi:twitter-x] Twitter (X)', href: 'https://x.com', target: '_blank' },
+      { name: '[bi:instagram] Instagram', href: 'https://instagram.com', target: '_blank' },
+      { name: '[bi:facebook] Facebook', href: 'https://facebook.com', target: '_blank' },
+      { name: '[bi:discord] Discord', href: 'https://discord.com', target: '_blank' },
+      { name: '[bi:github] Github', href: 'https://github.com', target: '_blank' }
+    ]
   },
 
   favicons: [

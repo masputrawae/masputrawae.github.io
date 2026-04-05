@@ -8,7 +8,7 @@ pubDate: 2025-12-15T15:56:19+07:00
 updatedDate: 2026-04-05
 ---
 
-Fenomena yang sering aku temui di sekitar, yaitu seseorang yang membeli barang yang sebenarnya tidak diperlukan. Mungkin nggak masalah sih jika itu memang uang sendiri atau hasil menabung dsb..., masalahnya beberapa orang membeli barang tersebut dengan cara **berhutang** atau **mencicil**. 
+Fenomena yang sering aku temui di sekitar, yaitu seseorang yang membeli barang yang sebenarnya tidak diperlukan. Mungkin nggak masalah sih jika itu memang uang sendiri atau hasil menabung dsb..., masalahnya beberapa orang membeli barang tersebut dengan cara **berhutang** atau **mencicil**.
 
 Dan seandainya barang tersebut bisa menghasilkan **profit**, mungkin jauh lebih masuk akal dan nggak ada masalah berhutang di awal. Cuma disini kasusnya hanya untuk memenuhi keinginannya saja, yang mungkin karena ingin **diakui**, **terlihat keren**, atau **takut tertinggal (_social pressure_)**.
 
