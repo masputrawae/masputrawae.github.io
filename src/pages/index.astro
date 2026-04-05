@@ -1,0 +1,11 @@
+---
+import { Picture } from 'astro:assets'
+import { SITE } from '../consts'
+import Layout from '../layouts/Layout.astro'
+
+const { title, description } = SITE
+---
+
+<Layout title={title} description={description}>
+  <h1>Home</h1>
+</Layout>
