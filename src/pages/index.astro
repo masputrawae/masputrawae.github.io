@@ -1,4 +1,5 @@
 ---
+import Prose from '../components/Prose.astro'
 import { SITE } from '../consts'
 import Layout from '../layouts/Layout.astro'
 import { absURL } from '../utils/url'
@@ -12,8 +13,8 @@ const { Content } = await render(home)
 ---
 
 <Layout title={SITE.title} description={data.description} image={absURL('og-image/default.png')}>
-  <article class="prose">
+  <Prose class="px-4">
     <h1>{data.title}</h1>
     <Content />
-  </article>
+  </Prose>
 </Layout>
