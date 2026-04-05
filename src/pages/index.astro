@@ -1,11 +1,19 @@
 ---
-import { Picture } from 'astro:assets'
 import { SITE } from '../consts'
 import Layout from '../layouts/Layout.astro'
+import { absURL } from '../utils/url'
+import type { CollectionEntry } from 'astro:content'
+import { getEntry } from 'astro:content'
+import { render } from 'astro:content'
 
-const { title, description } = SITE
+const home = (await getEntry('section', '/')) as CollectionEntry<'section'>
+const { data } = home
+const { Content } = await render(home)
 ---
 
-<Layout title={title} description={description}>
-  <h1>Home</h1>
+<Layout title={SITE.title} description={data.description} image={absURL('og-image/default.png')}>
+  <article class="prose">
+    <h1>{data.title}</h1>
+    <Content />
+  </article>
 </Layout>
