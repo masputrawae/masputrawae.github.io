@@ -13,7 +13,7 @@ const { Content } = await render(home)
 ---
 
 <Layout title={SITE.title} description={data.description} image={absURL('og-image/default.png')}>
-  <Prose class="px-4">
+  <Prose>
     <h1>{data.title}</h1>
     <Content />
   </Prose>

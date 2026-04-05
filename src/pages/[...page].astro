@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '../layouts/Layout.astro'
+import { render } from 'astro:content'
+import Prose from '../components/Prose.astro'
+import { absURL } from '../utils/url'
+
+export async function getStaticPaths() {
+  const pages = await getCollection('page')
+
+  return pages
+    .filter((p) => p.id != '/')
+    .map((p) => ({
+      params: { page: p.id },
+      props: p
+    }))
+}
+
+const pages = Astro.props
+const { data } = pages
+const { Content } = await render(pages)
+---
+
+<Layout
+  title={data.title}
+  description={data.description}
+  image={absURL(`og-image/${pages.id}.png`)}
+  keywords={data.tags}
+  pageType="article"
+>
+  <Prose>
+    <h1>{data.title}</h1>
+    <Content />
+  </Prose>
+</Layout>

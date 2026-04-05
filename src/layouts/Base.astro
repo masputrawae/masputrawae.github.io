@@ -1,7 +1,7 @@
 ---
 // ./src/layouts/Base.astro
 
-import '../styles/global.css'
+import '../assets/css/global.css'
 import type { HTMLAttributes } from 'astro/types'
 import { ClientRouter } from 'astro:transitions'
 import { Font } from 'astro:assets'
@@ -15,13 +15,23 @@ export type Props = {
   pageType?: 'website' | 'article' | 'product' | 'profile'
   image?: string
   keywords?: string[]
+  locale?: string
   extend?: {
     meta?: HTMLAttributes<'meta'>[]
     link?: HTMLAttributes<'link'>[]
   }
 }
 
-const { title, description, image, keywords, extend, pageType = 'website' } = Astro.props
+const {
+  title,
+  description,
+  image,
+  keywords,
+  extend,
+  pageType = 'website',
+  locale = SITE.languageCode
+} = Astro.props
+
 const extendLink = extend?.link
 const extendMeta = extend?.meta
 
@@ -61,6 +71,7 @@ const canonicalURL = absURL(pathname)
     <meta property="og:description" content={description} />
     <meta property="og:type" content={pageType} />
     <meta property="og:url" content={canonicalURL} />
+    <meta property="og:locale" content={locale.replace('-', '_')} />
     {
       pageType == 'article' &&
         keywords &&
@@ -97,5 +108,6 @@ const canonicalURL = absURL(pathname)
   </head>
   <body>
     <slot />
+    <script src="../assets/ts/main.ts"></script>
   </body>
 </html>

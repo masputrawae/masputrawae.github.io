@@ -1,9 +1,11 @@
 ---
 import { getCollection } from 'astro:content'
-import Layout from '../layouts/Layout.astro'
 import { render } from 'astro:content'
+import { absURL, relURL } from '../utils/url'
+import { findPageBySection } from '../utils/find-page-by-section'
+
+import Layout from '../layouts/Layout.astro'
 import Prose from '../components/Prose.astro'
-import { absURL } from '../utils/url'
 
 export async function getStaticPaths() {
   const sections = await getCollection('section')
@@ -19,6 +21,8 @@ export async function getStaticPaths() {
 const section = Astro.props
 const { data } = section
 const { Content } = await render(section)
+
+const posts = findPageBySection(section.id, await getCollection('page'))
 ---
 
 <Layout
@@ -28,7 +32,23 @@ const { Content } = await render(section)
   keywords={data.tags}
 >
   <Prose>
-    <h1>{data.title}</h1>
-    <Content />
+    <section>
+      <article>
+        <h1>{data.title}</h1>
+        <Content />
+      </article>
+    </section>
+
+    <section>
+      <div>
+        {
+          posts.map((p) => (
+            <div>
+              <a href={relURL(p.id)}>{p.data.title}</a>
+            </div>
+          ))
+        }
+      </div>
+    </section>
   </Prose>
 </Layout>

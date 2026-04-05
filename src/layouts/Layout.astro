@@ -1,8 +1,19 @@
 ---
+import Container from '../components/Container.astro'
+import Header from '../components/Header.astro'
+import Sidebar from '../components/Sidebar.astro'
 import Base, { type Props as BaseProps } from './Base.astro'
 type Props = BaseProps
 ---
 
 <Base {...Astro.props}>
-  <slot />
+  <div class="md:grid md:grid-cols-[288px_minmax(0,1fr)]">
+    <Sidebar />
+    <div class="md:col-start-2">
+      <Header />
+      <Container class="py-8">
+        <slot />
+      </Container>
+    </div>
+  </div>
 </Base>
