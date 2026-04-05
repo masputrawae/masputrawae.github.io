@@ -7,7 +7,7 @@ tags:
   - tradition
   - fomo
 pubDate: 2025-12-15T15:56:19+07:00
-updatedDate: 2026-04-03
+updatedDate: 2026-04-05
 ---
 
 Mungkin tulisan ini lebih ke analisis dan pemikiran pribadi dari seorang anak desa yang lahir dan besar di lingkungan semacam ini. Ada satu hal yang sampai sekarang masih bikin aku heran: _hajatan_, terutama pernikahan. Bukan karena aku benci atau tidak suka, bukan. Tapi ada beberapa hal yang menurutku perlu dibahas.
@@ -32,7 +32,7 @@ Mungkin kalau belum tahu, aku ada beberapa sumber yang membahas soal aturan ini
 
 Di catatan sebelumnya soal [[Kebutuhan vs Keinginan]], aku sudah bahas gimana pentingnya tahu mana yang benar-benar perlu dan mana yang cuma keinginan semata. Menurutku pribadi, daripada uang habis untuk hajatan besar, kenapa nggak dipakai untuk hal yang lebih bermanfaat? Misalnya modal usaha, investasi, atau keperluan jangka panjang lain yang bisa bikin hidup lebih stabil ke depannya.
 
-Pernikahan itu tujuannya _membangun rumah tangga_, bukan pestanya. Di KUA, biaya nikah di daerahku murah banget — paling mahal nggak sampai 200 ribu. Yang mahal itu justru hajatannya.
+Pernikahan itu tujuannya _membangun rumah tangga_, bukan pestanya. Di KUA, biaya nikah di daerahku murah banget — paling mahal nggak sampai 200 ribu atau ada yang bilang juga gratis. Yang mahal itu justru hajatannya.
 
 Kalau seseorang benar-benar mempertimbangkan **[[Kebutuhan vs Keinginan]]**, sebenarnya menikah di KUA saja sudah cukup. Surat nikah dapat, sah di mata negara, dan nggak perlu buang uang untuk kesenangan sesaat. Boleh pesta kalau mampu, tapi jangan sampai maksa diri.
 

@@ -4,6 +4,7 @@ description: Hallo! Saya Putra, seseorang yang suka mengeksplorasi hal-hal baru,
 tags:
   - introduction
   - profile
+  - interest
 pubDate: 2026-04-05
 updatedDate: 2026-04-05
 ---
