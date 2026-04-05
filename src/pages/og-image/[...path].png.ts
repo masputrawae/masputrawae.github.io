@@ -9,7 +9,8 @@ export const prerender = true
 // Load font & logo
 const interRegular = await fs.readFile('./src/assets/fonts/Inter-Regular.ttf')
 const interBold = await fs.readFile('./src/assets/fonts/Inter-Bold.ttf')
-const logoBuffer = await fs.readFile('./src/assets/images/logo.png')
+
+const logoBuffer = await fs.readFile(SITE.logo.source)
 const logoBase64 = `data:image/png;base64,${logoBuffer.toString('base64')}`
 
 export async function getStaticPaths() {
