@@ -4,15 +4,15 @@ interface ThemeSwitchType {
 }
 
 function themeSwitch({ html, mq }: ThemeSwitchType) {
-  const theme = mq.matches ? "dark" : "light"
-  html.setAttribute("data-theme", theme)
+  const theme = mq.matches ? 'dark' : 'light'
+  html.setAttribute('data-theme', theme)
 }
 
 export function themeHandler() {
   const html = document.documentElement
   const mq = window.matchMedia('(prefers-color-scheme: dark)')
 
-  mq.addEventListener("change", () => {
+  mq.addEventListener('change', () => {
     themeSwitch({ html, mq })
   })
 
