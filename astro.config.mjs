@@ -23,7 +23,7 @@ const permalinks = Object.fromEntries(files.map((f) => [f, relURL(genID(f))]))
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'http://localhost:4321',
+  site: 'http://masputrawae.github.io',
   base: '/',
 
   image: {
