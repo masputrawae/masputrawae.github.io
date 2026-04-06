@@ -1,4 +1,4 @@
-import { menuHandler } from "./menu"
+import { menuHandler } from './menu'
 
 function main() {
   document.addEventListener('astro:page-load', () => {

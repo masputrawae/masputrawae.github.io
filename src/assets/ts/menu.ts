@@ -29,7 +29,7 @@ export function menuHandler() {
     menuToggle({ open, menu, iOpen, iClose })
   })
 
-  document.addEventListener("click", () => {
+  document.addEventListener('click', () => {
     open = false
     menuToggle({ open, menu, iOpen, iClose })
   })
