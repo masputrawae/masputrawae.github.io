@@ -55,11 +55,31 @@ export const SITE: SiteType = {
       { name: '[bi:search] Search', href: '/search' }
     ],
     social: [
-      { name: '[bi:twitter-x] Twitter (X)', href: 'https://x.com', target: '_blank' },
-      { name: '[bi:instagram] Instagram', href: 'https://instagram.com', target: '_blank' },
-      { name: '[bi:facebook] Facebook', href: 'https://facebook.com', target: '_blank' },
-      { name: '[bi:discord] Discord', href: 'https://discord.com', target: '_blank' },
-      { name: '[bi:github] Github', href: 'https://github.com', target: '_blank' }
+      { 
+        name: '[bi:twitter-x] Twitter (X)', 
+        href: 'https://x.com/masputrawae', 
+        target: '_blank' 
+      },
+      { 
+        name: '[bi:instagram] Instagram', 
+        href: 'https://www.instagram.com/masputrawae?igsh=NWQ5YW5vNHRhM3hu', 
+        target: '_blank' 
+      },
+      { 
+        name: '[bi:discord] Discord', 
+        href: 'https://discord.gg/nM4EP8DJFZ', 
+        target: '_blank' 
+      },
+      {
+        name: '[bi:envelope-at] Email',
+        href: 'mailto:masputrawae.official@gmail.com',
+        target: '_blank'
+      },
+      { 
+        name: '[bi:github] Github', 
+        href: 'https://github.com/masputrawae', 
+        target: '_blank' 
+      }
     ]
   },
 
