@@ -1,25 +1,79 @@
 ---
 import { getCollection } from 'astro:content'
 import { SITE } from '../consts'
-import Layout from '../layouts/Layout.astro'
 import { findPageBySection } from '../utils/find-page-by-section'
-import { absURL } from '../utils/url'
+import { absURL, relURL } from '../utils/url'
 import type { CollectionEntry } from 'astro:content'
 import { getEntry } from 'astro:content'
 import { render } from 'astro:content'
+
+import Layout from '../layouts/Layout.astro'
 
 const home = (await getEntry('section', '/')) as CollectionEntry<'section'>
 const { data } = home
 const { Content } = await render(home)
 
 const entries = await getCollection('page')
-
 const blog = findPageBySection('blog', entries)
+  .filter((p) => p.data.pubDate && p.data.pubDate <= new Date())
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => {
+    const aDate = a.data.pubDate?.getTime() || new Date(0).getTime()
+    const bDate = b.data.pubDate?.getTime() || new Date(0).getTime()
+    return bDate - aDate
+  })
+  .slice(0, 6)
+
 const notes = findPageBySection('notes', entries)
-const posts = [...blog, ...notes]
+  .filter((p) => p.data.pubDate && p.data.pubDate <= new Date())
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => {
+    const aDate = a.data.pubDate?.getTime() || new Date(0).getTime()
+    const bDate = b.data.pubDate?.getTime() || new Date(0).getTime()
+    return bDate - aDate
+  })
+  .slice(0, 6)
+
+import { Picture } from 'astro:assets'
+import PostCard from '../components/PostCard.astro'
+import PostGrid from '../components/PostGrid.astro'
 ---
 
 <Layout title={SITE.title} description={data.description} image={absURL('og-image/default.png')}>
-  <h1>{data.title}</h1>
-  <Content />
+  <article>
+    <header>
+      <h1>{data.title}</h1>
+      {
+        data.heroImage && (
+          <Picture
+            src={data.heroImage}
+            alt={data.title}
+            layout="constrained"
+            priority={true}
+            class:list={['rounded-sm']}
+          />
+        )
+      }
+    </header>
+    <section>
+      <Content />
+    </section>
+  </article>
+  <section>
+    <h2>Konten Terbaru</h2>
+    <PostGrid>
+      {blog.map((p) => <PostCard item={p} />)}
+    </PostGrid>
+    <br />
+    <a href={relURL('blog')} class="text-amber-600 dark:text-amber-400">👉 Lihat Lebih Banyak</a>
+  </section>
+
+  <section>
+    <h2>Catatan Terbaru</h2>
+    <PostGrid>
+      {notes.map((p) => <PostCard item={p} />)}
+    </PostGrid>
+    <br />
+    <a href={relURL('notes')} class="text-amber-600 dark:text-amber-400">👉 Lihat Lebih Banyak</a>
+  </section>
 </Layout>

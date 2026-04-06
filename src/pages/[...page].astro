@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content'
 import Layout from '../layouts/Layout.astro'
 import { render } from 'astro:content'
 import { absURL } from '../utils/url'
+import { Picture } from 'astro:assets'
 
 export async function getStaticPaths() {
   const pages = await getCollection('page')
@@ -27,6 +28,21 @@ const { Content } = await render(pages)
   keywords={data.tags}
   pageType="article"
 >
-  <h1>{data.title}</h1>
-  <Content />
+  <article>
+    <header>
+      <h1>{data.title}</h1>
+      {
+        data.heroImage && (
+          <Picture
+            src={data.heroImage}
+            alt={data.title}
+            layout="constrained"
+            priority={true}
+            class:list={['rounded-sm']}
+          />
+        )
+      }
+    </header>
+    <Content />
+  </article>
 </Layout>
