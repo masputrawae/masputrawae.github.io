@@ -1,0 +1,47 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { relURL } from '../utils/url'
+import FormattedDate from './FormattedDate.astro'
+
+type Props = {
+  item: CollectionEntry<'page'>
+}
+
+const { item: p } = Astro.props
+const { data: d } = p
+---
+
+<a href={relURL(p.id)} class="block cursor-default">
+  <article
+    class:list={[
+      'p-4 border rounded-sm flex flex-col justify-between gap-4',
+      'border-neutral-300 shadow-xs/30',
+      'dark:border-neutral-700 dark:shadow-xs/100 dark:bg-neutral-800'
+    ]}
+  >
+    <header>
+      <h3
+        class:list={[
+          'text-lg line-clamp-1 font-semibold cursor-pointer',
+          'text-black hover:text-amber-500',
+          'dark:text-white'
+        ]}
+      >
+        {d.title}
+      </h3>
+    </header>
+    <p class="line-clamp-2 text-xs">{d.description}</p>
+    <footer class="flex items-center justify-between text-xs">
+      <button
+        class:list={[
+          'cursor-pointer',
+          'text-amber-600 hover:text-amber-500',
+          'dark:text-amber-400'
+        ]}
+      >
+        Read More
+      </button>
+      {d.pubDate && <FormattedDate date={d.pubDate} />}
+    </footer>
+  </article>
+</a>
