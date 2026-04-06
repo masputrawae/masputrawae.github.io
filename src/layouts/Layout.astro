@@ -1,19 +1,29 @@
 ---
-import Container from '../components/Container.astro'
-import Header from '../components/Header.astro'
-import Sidebar from '../components/Sidebar.astro'
 import Base, { type Props as BaseProps } from './Base.astro'
+
+import HeaderWrapper from '../components/header/HeaderWrapper.astro'
+import HeaderBrand from '../components/header/HeaderBrand.astro'
+import HeaderButton from '../components/header/HeaderButton.astro'
+import HeaderMenu from '../components/header/HeaderMenu.astro'
+import MainWrapper from '../components/main/MainWrapper.astro'
+import FooterWrapper from '../components/footer/FooterWrapper.astro'
+import FooterSocial from '../components/footer/FooterSocial.astro'
+import FooterCopyright from '../components/footer/FooterCopyright.astro'
+
 type Props = BaseProps
 ---
 
 <Base {...Astro.props}>
-  <div class="md:grid md:grid-cols-[288px_minmax(0,1fr)]">
-    <Sidebar />
-    <div class="md:col-start-2">
-      <Header />
-      <Container class="py-8">
-        <slot />
-      </Container>
-    </div>
-  </div>
+  <HeaderWrapper>
+    <HeaderBrand />
+    <HeaderButton />
+    <HeaderMenu />
+  </HeaderWrapper>
+  <MainWrapper>
+    <slot />
+  </MainWrapper>
+  <FooterWrapper>
+    <FooterSocial />
+    <FooterCopyright />
+  </FooterWrapper>
 </Base>

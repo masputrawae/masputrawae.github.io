@@ -1,0 +1,47 @@
+---
+import { Icon } from 'astro-icon/components'
+import { SITE } from '../../consts'
+import { getMenuIcon } from '../../utils/get-menu-icon'
+import { relURL } from '../../utils/url'
+const { BASE_URL } = import.meta.env
+
+const { main } = SITE.menus
+const { pathname } = Astro.url
+---
+
+<nav
+  id="menu"
+  class:list={[
+    'w-full absolute top-full left-0',
+    'origin-top invisible scale-y-0 transition-all ease-linear',
+    'bg-white',
+    'dark:bg-neutral-900'
+  ]}
+>
+  <ul class:list={['border-y p-4 space-y-2', 'border-neutral-300', 'dark:border-neutral-700']}>
+    {
+      main.map((m) => {
+        const { href, name, class: cls, ...attr } = m
+        const url = relURL(href?.toString()) || ''
+        const { name: n, icon: i } = getMenuIcon(name)
+        const active = url === pathname || (pathname.startsWith(url) && url !== BASE_URL)
+        return (
+          <li
+            class:list={[
+              'font-medium',
+              active ? 'text-amber-600' : 'text-neutral-700',
+              active ? 'dark:text-amber-500' : 'dark:text-neutral-400',
+              'hover:text-amber-500',
+              'dark:hover:text-amber-600'
+            ]}
+          >
+            <a href={url} {...attr} class="flex items-center gap-2">
+              <Icon name={i} size={18} />
+              <span>{n}</span>
+            </a>
+          </li>
+        )
+      })
+    }
+  </ul>
+</nav>

@@ -44,9 +44,9 @@ const canonicalURL = absURL(pathname)
   lang={SITE.languageCode}
   data-theme="dark"
   class:list={[
-    'font-serif scroll-smooth',
+    'font-sans scroll-smooth',
     'bg-white text-neutral-800',
-    'dark:bg-neutral-900 dark:text-neutral-200'
+    'dark:bg-neutral-900 dark:text-neutral-300'
   ]}
 >
   <head>
@@ -105,9 +105,11 @@ const canonicalURL = absURL(pathname)
 
     <!-- ClientRouter -->
     <ClientRouter />
+
+    <!-- Script -->
+    <script src="../assets/ts/main.ts"></script>
   </head>
   <body>
     <slot />
-    <script src="../assets/ts/main.ts"></script>
   </body>
 </html>

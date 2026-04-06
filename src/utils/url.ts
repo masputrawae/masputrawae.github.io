@@ -11,7 +11,7 @@ const { BASE_URL, SITE } = import.meta.env
 /**
  * Convert relative path to site-relative URL
  */
-export function relURL(raw: string): string {
+export function relURL(raw: string | null | undefined): string {
   if (!raw) return BASE_URL
   const base = BASE_URL.endsWith('/') ? BASE_URL : BASE_URL + '/'
   const normalized = raw.replace(/^\/+/, '')
@@ -21,7 +21,7 @@ export function relURL(raw: string): string {
 /**
  * Convert relative path to absolute URL
  */
-export function absURL(raw?: string): string {
+export function absURL(raw?: string | null | undefined): string {
   if (!raw) return SITE
   try {
     return new URL(raw, SITE).toString()

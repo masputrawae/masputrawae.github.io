@@ -1,7 +1,8 @@
 ---
-import Prose from '../components/Prose.astro'
+import { getCollection } from 'astro:content'
 import { SITE } from '../consts'
 import Layout from '../layouts/Layout.astro'
+import { findPageBySection } from '../utils/find-page-by-section'
 import { absURL } from '../utils/url'
 import type { CollectionEntry } from 'astro:content'
 import { getEntry } from 'astro:content'
@@ -10,11 +11,15 @@ import { render } from 'astro:content'
 const home = (await getEntry('section', '/')) as CollectionEntry<'section'>
 const { data } = home
 const { Content } = await render(home)
+
+const entries = await getCollection('page')
+
+const blog = findPageBySection('blog', entries)
+const notes = findPageBySection('notes', entries)
+const posts = [...blog, ...notes]
 ---
 
 <Layout title={SITE.title} description={data.description} image={absURL('og-image/default.png')}>
-  <Prose>
-    <h1>{data.title}</h1>
-    <Content />
-  </Prose>
+  <h1>{data.title}</h1>
+  <Content />
 </Layout>

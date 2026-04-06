@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content'
 import Layout from '../layouts/Layout.astro'
 import { render } from 'astro:content'
-import Prose from '../components/Prose.astro'
 import { absURL } from '../utils/url'
 
 export async function getStaticPaths() {
@@ -28,8 +27,6 @@ const { Content } = await render(pages)
   keywords={data.tags}
   pageType="article"
 >
-  <Prose>
-    <h1>{data.title}</h1>
-    <Content />
-  </Prose>
+  <h1>{data.title}</h1>
+  <Content />
 </Layout>

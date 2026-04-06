@@ -1,0 +1,38 @@
+---
+import { Image } from 'astro:assets'
+import { SITE } from '../../consts'
+import { absURL, relURL } from '../../utils/url'
+
+const { image: img } = SITE.logo
+---
+
+<figure onclick={`window.location.href="${relURL('/')}"`} class:list={['flex items-center gap-2']}>
+  <Image
+    src={img}
+    alt={SITE.title}
+    width={50}
+    height={50}
+    priority={true}
+    quality={'max'}
+    class:list={[
+      'rounded-2xl aspect-square border',
+      'shadow-xs/30 border-neutral-300',
+      'dark:shadow-xs/100 dark:border-neutral-700'
+    ]}
+  />
+  <figcaption class="grid">
+    <a
+      href={absURL('/')}
+      class:list={[
+        'text-xl font-semibold',
+        'text-black hover:text-amber-600',
+        'dark:text-white dark:hover:text-amber-500 leading-5'
+      ]}
+    >
+      {SITE.title}
+    </a>
+    <em class:list={['not-italic text-xs leading-5', 'text-neutral-700', 'dark:text-neutral-400']}>
+      Seorang Manusia Biasa
+    </em>
+  </figcaption>
+</figure>
