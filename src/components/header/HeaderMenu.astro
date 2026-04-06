@@ -14,11 +14,19 @@ const { pathname } = Astro.url
   class:list={[
     'w-full absolute top-full left-0',
     'origin-top invisible scale-y-0 transition-all ease-linear',
+    'md:relative md:scale-none md:visible md:w-auto',
     'bg-white',
     'dark:bg-neutral-900'
   ]}
 >
-  <ul class:list={['border-y p-4 space-y-2', 'border-neutral-300', 'dark:border-neutral-700']}>
+  <ul
+    class:list={[
+      'border-y p-4 space-y-2',
+      'border-neutral-300',
+      'dark:border-neutral-700',
+      'md:flex md:items-center md:gap-6 md:p-0 md:space-y-0 md:border-none'
+    ]}
+  >
     {
       main.map((m) => {
         const { href, name, class: cls, ...attr } = m
