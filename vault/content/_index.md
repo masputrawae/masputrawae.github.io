@@ -1,6 +1,7 @@
 ---
 title: Hallo Semua!... Selamat Datang 🤗
 description: Tempat yang sempurna bagi ku untuk mencurahkan isi hati dan pemikiran 😅. Atau mungkin cuma sebatas halaman kosong?, siapa yang tahu 🫢.
+heroImage: https://res.cloudinary.com/mpw-img/image/upload/v1764929349/banner_1_kmkjvv.jpg
 tags:
   - blog
   - insight

@@ -1,6 +1,7 @@
 ---
 title: Membuat USB bootable Menggunakan dd
 description: Cara Membuat USB bootable Menggunakan dd di Linux
+heroImage: https://res.cloudinary.com/mpw-img/image/upload/v1773824931/image-2_bzssne.jpg
 tags:
   - linux
   - usb
