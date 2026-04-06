@@ -51,7 +51,7 @@ export const SITE: SiteType = {
       { name: '[bi:house] Home', href: '/' },
       { name: '[bi:pencil-square] Blog', href: '/blog' },
       { name: '[bi:journal-text] Notes', href: '/notes' },
-      { name: '[bi:tags] Tags', href: '/tags' },
+      { name: '[bi:person-circle] About', href: '/about' },
       { name: '[bi:search] Search', href: '/search' }
     ],
     social: [
