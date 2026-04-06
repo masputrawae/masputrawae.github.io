@@ -50,7 +50,8 @@ import PostGrid from '../components/PostGrid.astro'
             alt={data.title}
             layout="constrained"
             priority={true}
-            class:list={['rounded-sm']}
+            inferSize={true}
+            class:list={['rounded-sm shadow-sm/100']}
           />
         )
       }

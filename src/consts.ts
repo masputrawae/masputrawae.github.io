@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'astro/types'
 
-import Logo from './src/assets/images/logo.png'
+import Logo from '/src/assets/images/logo.png'
 
 export interface SiteType {
   title: string

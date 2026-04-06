@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content'
+import { absURL } from '../utils/url'
+import Layout from '../layouts/Layout.astro'
+import PostGrid from '../components/PostGrid.astro'
+import PostCard from '../components/PostCard.astro'
+
+export async function getStaticPaths() {
+  const posts = await getCollection('page')
+  const tags = [
+    ...new Set(
+      posts
+        .filter((p) => p.data.tags)
+        .map((p) => p.data.tags)
+        .flat()
+    )
+  ]
+  return tags.map((tag) => {
+    const filteredPosts = posts.filter((p) => p.data.tags?.includes(tag || ''))
+    return {
+      params: { tag: `tag/${tag}` },
+      props: { title: tag, posts: filteredPosts }
+    }
+  })
+}
+
+const { tag } = Astro.params
+const { posts, title } = Astro.props
+---
+
+<Layout
+  title={`Tag: ${title}`}
+  description={`Daftar postingan dengan tag: ${title}`}
+  image={absURL(`og-image/default.png`)}
+>
+  <h1>{title}</h1>
+  <p>Daftar postingan dengan tag: {title}</p>
+  <section>
+    <h2>Daftar Postingan</h2>
+    <PostGrid>
+      {posts.map((p) => <PostCard item={p} />)}
+    </PostGrid>
+  </section>
+</Layout>
