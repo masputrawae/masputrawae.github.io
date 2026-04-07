@@ -2,13 +2,12 @@
 title: Anak Tidak Butuh Sempurna, Tapi Butuh Kehadiran
 description: Sebuah refleksi tentang peran ibu, waktu, dan bagaimana kehadiran sederhana bisa membentuk masa depan seorang anak.
 tags:
-  - affection
-  - mother
-  - child
-  - growth_period
   - opinion
+  - ibu
+  - anak
+  - tumbuh_kembang
 pubDate: 2026-04-06
-updatedDate: 2026-04-06
+updatedDate: 2026-04-07
 ---
 
 Merawat dan mendidik anak adalah sebuah kewajiban. Tidak ada batasan umur untuk tetap memperhatikan seorang anak. Namun, kali ini aku tidak akan membahas yang sudah dewasa, melainkan anak dari usia 0 hingga sebelum remaja—yang benar-benar masih membutuhkan kasih sayang dan didikan orang tua.
@@ -63,3 +62,7 @@ Hingga suatu hari mereka bisa berkata:
 > Aku bisa berdiri seperti ini karena kasih sayang, perhatian, dan didikan dari seorang ibu.
 
 Mungkin tulisan ini tidak sepenuhnya bermanfaat, karena aku sendiri belum memiliki pengalaman langsung di bidang ini. Namun, ini adalah hasil pengamatan dan pemikiranku terhadap fenomena yang sering aku lihat.
+
+## Konten Menarik Lainnya
+
+- [[Sepotong Kata Yang Membuat Ku Sedih]]

@@ -2,8 +2,8 @@
 title: Motivasi Belajar
 description: Motivasi Belajar agar aku bisa semangat kembali jika mulai kehilangan arah dan semangat
 tags:
-  - motivation
-  - learning
+  - motivasi
+  - belajar
 pubDate: 2025-12-15T15:56:19+07:00
 updatedDate: 2025-12-28T14:33:22+07:00
 ---

@@ -4,6 +4,7 @@ description: Pengalaman pertama mencoba Arch Linux dari nol tanpa tutorial.
 tags:
   - arch
   - linux
+  - pengalaman
 pubDate: 2026-03-18
 updatedDate: 2026-03-28
 ---

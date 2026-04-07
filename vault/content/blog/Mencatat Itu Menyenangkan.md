@@ -2,8 +2,10 @@
 title: Mencatat Itu Menyenangkan
 description: Tips dan trik, mencatat atau membiasakan diri membangun kebiasaan mencatat dan menulis
 tags:
-  - notes
-  - writing
+  - catatan
+  - menulis
+  - pengalaman
+  - belajar
   - tips
 pubDate: 2025-12-15T15:56:19+07:00
 updatedDate: 2025-12-28T14:33:08+07:00

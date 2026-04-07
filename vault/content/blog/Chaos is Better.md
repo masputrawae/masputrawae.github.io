@@ -4,8 +4,9 @@ description: Pendekatan mencatat pengetahuan dengan gaya chaos yang lebih jujur 
 tags:
   - zettelkasten
   - obsidian
-  - notes
-  - writing
+  - catatan
+  - menulis
+  - pengalaman
 pubDate: 2025-12-30T17:41:14+07:00
 updatedDate: 2026-01-01T02:06:50+07:00
 ---

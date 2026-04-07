@@ -3,7 +3,7 @@ title: Kebutuhan vs Keinginan
 description: Membedakan antara kebutuhan dan keinginan, agar hidup tidak selalu menuruti nafsu dan kemauan, serta meningkatkan efisiensi hidup.
 tags:
   - social
-  - reflection
+  - refleksi
 pubDate: 2025-12-15T15:56:19+07:00
 updatedDate: 2026-04-05
 ---

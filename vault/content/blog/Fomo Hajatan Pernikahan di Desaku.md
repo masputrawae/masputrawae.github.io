@@ -2,10 +2,10 @@
 title: Fomo Hajatan Pernikahan di Desaku
 description: Sudut pandang, dan tanggapan ku terkait acara hajatan di pernikahan, khususnya di desa ku sendiri.
 tags:
-  - wedding
-  - public
-  - tradition
   - fomo
+  - pernikahan
+  - hajatan
+  - sosial
 pubDate: 2025-12-15T15:56:19+07:00
 updatedDate: 2026-04-05
 ---
@@ -69,3 +69,4 @@ Terima kasih sudah membaca.
 
 - [[Kebutuhan vs Keinginan]]
 - [[Kebisingan Izin dan Etika Hidup Bermasyarakat]]
+- [[Tentang Memahami Orang Lain (dan Batasannya)]]

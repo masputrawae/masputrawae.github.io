@@ -2,10 +2,10 @@
 title: Jatuh Cinta Pada TailwindCSS
 description: Pengalaman pribadiku pertama kali menggunakan TailwindCSS, yang awalnya benci jadi cinta 😁
 tags:
-  - story
   - css
   - scss
   - tailwind
+  - pengalaman
 pubDate: 2025-12-15T15:56:19+07:00
 updatedDate: 2025-12-30T00:36:54+07:00
 ---
