@@ -21,23 +21,23 @@ Tenang, caranya tidak serumit yang dibayangkan. Berikut contohnya:
 
 ```javascript
 // Ambil media query untuk mencocokkan tema sistem
-const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
 
 // Ambil elemen <html> untuk menerapkan atribut tema
-const htmlElement = document.documentElement;
+const htmlElement = document.documentElement
 
 // Fungsi untuk mengubah tema
 function change() {
-	const theme = mediaQuery.matches ? 'dark' : 'light';
-	htmlElement.setAttribute('data-theme', theme);
+  const theme = mediaQuery.matches ? 'dark' : 'light'
+  htmlElement.setAttribute('data-theme', theme)
 }
 
 // Inisialisasi saat pertama kali halaman dimuat
-change();
+change()
 
 // Pantau perubahan tema sistem
-mediaQuery.addEventListener("change", change);
-````
+mediaQuery.addEventListener('change', change)
+```
 
 Cukup sederhana, dan mudah dipahami.
 
@@ -48,30 +48,30 @@ Masalah berikutnya: ketika pengguna menutup browser lalu membukanya kembali, tem
 Kita modifikasi sedikit script sebelumnya[^1]:
 
 ```javascript
-const KEY_THEME = "theme";
+const KEY_THEME = 'theme'
 
-const btn = document.getElementById("toggle-theme");
-const htmlElement = document.documentElement;
+const btn = document.getElementById('toggle-theme')
+const htmlElement = document.documentElement
 
 // Inisialisasi tema dari localStorage
 function init() {
-	const saved = localStorage.getItem(KEY_THEME);
-	const theme = saved || "light";
-	htmlElement.setAttribute("data-theme", theme);
+  const saved = localStorage.getItem(KEY_THEME)
+  const theme = saved || 'light'
+  htmlElement.setAttribute('data-theme', theme)
 }
 
 function change() {
-	const current = htmlElement.getAttribute('data-theme');
-	const theme = current === "dark" ? "light" : "dark";
-	htmlElement.setAttribute("data-theme", theme);
+  const current = htmlElement.getAttribute('data-theme')
+  const theme = current === 'dark' ? 'light' : 'dark'
+  htmlElement.setAttribute('data-theme', theme)
 
-	// Simpan preferensi
-	localStorage.setItem(KEY_THEME, theme);
+  // Simpan preferensi
+  localStorage.setItem(KEY_THEME, theme)
 }
 
-btn.addEventListener("click", change);
+btn.addEventListener('click', change)
 
-init();
+init()
 ```
 
 Sekarang, meskipun pengguna membuka dan menutup browser berkali-kali, tema akan tetap sesuai dengan pilihan terakhir.
@@ -83,65 +83,63 @@ Kalau kamu tipe yang perfeksionis 😅 atau cuma ingin langsung pakai, berikut c
 ```html
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-<head>
-	<meta charset="UTF-8">
-	<title>Belajar Mengubah Tema</title>
-	<style>
-		:root {
-			--background-color: #fff;
-			--text-color: #000;
-		}
+  <head>
+    <meta charset="UTF-8" />
+    <title>Belajar Mengubah Tema</title>
+    <style>
+      :root {
+        --background-color: #fff;
+        --text-color: #000;
+      }
 
-		/* Dark mode berdasarkan data-theme */
-		:root[data-theme="dark"] {
-			--background-color: #000;
-			--text-color: #fff;
-		}
+      /* Dark mode berdasarkan data-theme */
+      :root[data-theme='dark'] {
+        --background-color: #000;
+        --text-color: #fff;
+      }
 
-		/* Fallback jika browser mendukung prefers-color-scheme */
-		@media (prefers-color-scheme: dark) {
-			:root:not([data-theme="light"]) {
-				--background-color: #000;
-				--text-color: #fff;
-			}
-		}
+      /* Fallback jika browser mendukung prefers-color-scheme */
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme='light']) {
+          --background-color: #000;
+          --text-color: #fff;
+        }
+      }
 
-		html {
-			background-color: var(--background-color);
-			color: var(--text-color);
-		}
-	</style>
-</head>
-<body>
-	<h1>Belajar Mengubah Tema</h1>
-	<button id="toggle-theme">
-		Klik untuk mengubah tema
-	</button>
-	
-	<script>
-		const KEY_THEME = "theme";
-		
-		const btn = document.getElementById("toggle-theme");
-		const htmlElement = document.documentElement;
-		
-		function init() {
-			const saved = localStorage.getItem(KEY_THEME);
-			const theme = saved || "light";
-			htmlElement.setAttribute("data-theme", theme);
-		}
-		
-		function change() {
-			const current = htmlElement.getAttribute('data-theme');
-			const theme = current === "dark" ? "light" : "dark";
-			htmlElement.setAttribute("data-theme", theme);
-			localStorage.setItem(KEY_THEME, theme);
-		}
-		
-		btn.addEventListener("click", change);
-		
-		init();
-	</script>
-</body>
+      html {
+        background-color: var(--background-color);
+        color: var(--text-color);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Belajar Mengubah Tema</h1>
+    <button id="toggle-theme">Klik untuk mengubah tema</button>
+
+    <script>
+      const KEY_THEME = 'theme'
+
+      const btn = document.getElementById('toggle-theme')
+      const htmlElement = document.documentElement
+
+      function init() {
+        const saved = localStorage.getItem(KEY_THEME)
+        const theme = saved || 'light'
+        htmlElement.setAttribute('data-theme', theme)
+      }
+
+      function change() {
+        const current = htmlElement.getAttribute('data-theme')
+        const theme = current === 'dark' ? 'light' : 'dark'
+        htmlElement.setAttribute('data-theme', theme)
+        localStorage.setItem(KEY_THEME, theme)
+      }
+
+      btn.addEventListener('click', change)
+
+      init()
+    </script>
+  </body>
 </html>
 ```
 
@@ -154,18 +152,18 @@ Cara mengatasinya cukup sederhana: jalankan script secepat mungkin di dalam `<he
 ```html
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<script>
-			const theme = localStorage.getItem("theme") || "light";
-			document.documentElement.dataset.theme = theme;
-		</script>
-		
-		<meta charset="UTF-8">
-		<title>Judul halaman</title>
-	</head>
-	<body>
-		<!-- konten halaman -->
-	</body>
+  <head>
+    <script>
+      const theme = localStorage.getItem('theme') || 'light'
+      document.documentElement.dataset.theme = theme
+    </script>
+
+    <meta charset="UTF-8" />
+    <title>Judul halaman</title>
+  </head>
+  <body>
+    <!-- konten halaman -->
+  </body>
 </html>
 ```
 

@@ -19,23 +19,23 @@ Cara paling sederhana untuk membuat dua tema (dark & light) pada website adalah 
 ```css
 /* ☀️ Default color, light mode */
 :root {
-	--background-color: #fff;
-	--text-color: #000;
+  --background-color: #fff;
+  --text-color: #000;
 }
 
 /* 🌑 Varian dark mode */
 @media (prefers-color-scheme: dark) {
-	:root {
-		--background-color: #000;
-		--text-color: #fff;
-	}
+  :root {
+    --background-color: #000;
+    --text-color: #fff;
+  }
 }
 
 html {
-	background-color: var(--background-color);
-	color: var(--text-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
-````
+```
 
 Prinsip kerjanya adalah browser otomatis mendeteksi tema pada sistem (OS) yang digunakan, kemudian menerapkannya ke `@media (prefers-color-scheme: dark)` jika tema sistem adalah `dark`. Jadi, di balik layar, browser yang mengatur penggunaan aturan CSS yang sesuai.
 
@@ -55,19 +55,17 @@ Jika kamu ingin menggunakan toggle, memiliki lebih dari dua tema, atau menyimpan
 ```html
 <!DOCTYPE html>
 <html lang="en" data-theme="">
-<head>
-	<meta charset="UTF-8">
-	<title>Belajar Mengubah Tema</title>
-</head>
-<body>
-	<h1>Belajar Mengubah Tema</h1>
-	
-	<button id="toggle-theme">
-		Klik untuk mengubah tema
-	</button>
-	
-	<script src="main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Belajar Mengubah Tema</title>
+  </head>
+  <body>
+    <h1>Belajar Mengubah Tema</h1>
+
+    <button id="toggle-theme">Klik untuk mengubah tema</button>
+
+    <script src="main.js"></script>
+  </body>
 </html>
 ```
 
@@ -75,34 +73,34 @@ Jika kamu ingin menggunakan toggle, memiliki lebih dari dua tema, atau menyimpan
 
 ```css
 :root {
-	--background-color: #fff;
-	--text-color: #000;
+  --background-color: #fff;
+  --text-color: #000;
 }
 
-:root[data-theme="dark"] {
-	--background-color: #000;
-	--text-color: #fff;
+:root[data-theme='dark'] {
+  --background-color: #000;
+  --text-color: #fff;
 }
 
 html {
-	background-color: var(--background-color);
-	color: var(--text-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 ```
 
 ### JavaScript
 
 ```javascript
-const btn = document.getElementById("toggle-theme");
-const htmlElement = document.documentElement;
+const btn = document.getElementById('toggle-theme')
+const htmlElement = document.documentElement
 
 function change() {
-	const current = htmlElement.getAttribute('data-theme');
-	const theme = current === "dark" ? "light" : "dark";
-	htmlElement.setAttribute("data-theme", theme);
+  const current = htmlElement.getAttribute('data-theme')
+  const theme = current === 'dark' ? 'light' : 'dark'
+  htmlElement.setAttribute('data-theme', theme)
 }
 
-btn.addEventListener("click", change);
+btn.addEventListener('click', change)
 ```
 
 ### Bonus (untuk uji coba cepat, copy-paste saja)
@@ -110,42 +108,40 @@ btn.addEventListener("click", change);
 ```html
 <!DOCTYPE html>
 <html lang="en" data-theme="">
-<head>
-	<meta charset="UTF-8">
-	<title>Belajar Mengubah Tema</title>
-	<style>
-		:root {
-			--background-color: #fff;
-			--text-color: #000;
-		}
-		:root[data-theme="dark"] {
-			--background-color: #000;
-			--text-color: #fff;
-		}
-		html {
-			background-color: var(--background-color);
-			color: var(--text-color);
-		}
-	</style>
-</head>
-<body>
-	<h1>Belajar Mengubah Tema</h1>
-	<button id="toggle-theme">
-		Klik untuk mengubah tema
-	</button>
-	<script>
-		const btn = document.getElementById("toggle-theme");
-		const htmlElement = document.documentElement;
-		
-		function change() {
-			const current = htmlElement.getAttribute('data-theme');
-			const theme = current === "dark" ? "light" : "dark";
-			htmlElement.setAttribute("data-theme", theme);
-		}
-		
-		btn.addEventListener("click", change);
-	</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Belajar Mengubah Tema</title>
+    <style>
+      :root {
+        --background-color: #fff;
+        --text-color: #000;
+      }
+      :root[data-theme='dark'] {
+        --background-color: #000;
+        --text-color: #fff;
+      }
+      html {
+        background-color: var(--background-color);
+        color: var(--text-color);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Belajar Mengubah Tema</h1>
+    <button id="toggle-theme">Klik untuk mengubah tema</button>
+    <script>
+      const btn = document.getElementById('toggle-theme')
+      const htmlElement = document.documentElement
+
+      function change() {
+        const current = htmlElement.getAttribute('data-theme')
+        const theme = current === 'dark' ? 'light' : 'dark'
+        htmlElement.setAttribute('data-theme', theme)
+      }
+
+      btn.addEventListener('click', change)
+    </script>
+  </body>
 </html>
 ```
 
