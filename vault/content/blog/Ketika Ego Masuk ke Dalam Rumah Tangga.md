@@ -6,9 +6,8 @@ tags:
   - komunikasi
   - hubungan
   - opini
-pubDate: 2026-04-09
-updatedDate: 2026-04-09
-draft: true
+pubDate: 2026-04-08
+updatedDate: 2026-04-08
 ---
 
 Sering kali seseorang lupa makna dan tujuan menikah, seakan-akan tujuannya hanya menyatukan dua insan yang saling mencintai 🤔. Sebenarnya pembahasan kali ini cukup kompleks untuk aku jelaskan, karena yang pertama, aku belum memiliki pengalaman menikah. Kedua, ini hanya berdasarkan pengamatan dan asumsi di lingkungan sekitar—dengan banyaknya variabel seperti perasaan, finansial, anak, hingga keberlanjutan, dan masih banyak lagi.
