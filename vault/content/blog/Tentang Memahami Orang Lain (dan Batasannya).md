@@ -29,7 +29,7 @@ Dalam interaksi sosial, kita dituntut untuk menjaga nada, emosi, dan gaya bicara
 
 Kehidupan sosial bukan hanya soal **benar** dan **salah**, tetapi juga soal **kenyamanan**.
 
-Seseorang bisa saja berkata, *“Kenapa? Aku benar kok!”*, atau *”Gitu aja kok baper?...”*, tapi jika disampaikan dengan nada yang tidak enak, kebenaran itu bisa terasa salah di mata orang lain.
+Seseorang bisa saja berkata, _“Kenapa? Aku benar kok!”_, atau _”Gitu aja kok baper?...”_, tapi jika disampaikan dengan nada yang tidak enak, kebenaran itu bisa terasa salah di mata orang lain.
 
 Bahkan saat melihat perdebatan di YouTube atau televisi, banyak pihak saling mempertahankan kebenaran masing-masing. Namun yang menarik adalah bagaimana mereka mengontrol cara berbicara—kapan harus tegas, kapan menahan diri, dan kapan mengalah. Walaupun tentu tidak semua seperti itu.
 

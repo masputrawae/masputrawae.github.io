@@ -59,10 +59,10 @@ Langkah yang lebih realistis adalah berdiskusi secara sehat, terbuka, dan saling
 
 Faktanya, ketika seseorang menghadapi masalah dengan emosi, otak akan masuk ke mode **fight or flight**, yang berdampak pada:
 
-- Keputusan impulsif yang cenderung buruk  
-- Persepsi masalah menjadi terdistorsi  
-- Solusi yang muncul bersifat reaktif, bukan strategis  
-- Masalah kecil bisa membesar akibat reaksi kita sendiri  
+- Keputusan impulsif yang cenderung buruk
+- Persepsi masalah menjadi terdistorsi
+- Solusi yang muncul bersifat reaktif, bukan strategis
+- Masalah kecil bisa membesar akibat reaksi kita sendiri
 
 Karena itu, ketenangan dan kesabaran menjadi kunci. Dengan menahan emosi, kita memberi ruang bagi otak untuk berpikir lebih jernih.
 
@@ -83,4 +83,3 @@ Sebenarnya aku merasa belum cukup layak membahas topik ini, karena belum memilik
 Aku juga sadar, apa yang aku sampaikan mungkin terdengar ideal. Pada praktiknya, realitas tentu jauh lebih kompleks dari sekadar teori dan asumsi.
 
 Sekian, dan terima kasih.
-
