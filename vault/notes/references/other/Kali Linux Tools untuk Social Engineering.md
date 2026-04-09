@@ -1,0 +1,10 @@
+
+| **Tool**                  | **Deskripsi**                                                                                   |
+|---------------------------|-------------------------------------------------------------------------------------------------|
+| **Social-Engineer Toolkit (SET)** | Sebuah tool yang dirancang khusus untuk social engineering dengan fitur phishing, pembuatan dan pengiriman email berbahaya, serta penipuan melalui situs web. |
+| **Metasploit Framework**  | Meskipun dikenal sebagai tool eksploitasi, Metasploit juga memiliki modul untuk social engineering, termasuk phishing dan payload.  |
+| **King Phisher**          | Tool yang memungkinkan pengguna membuat dan mengelola kampanye phishing yang menyerupai email yang sah.  |
+| **Gophish**               | Platform phishing yang sederhana tetapi kuat yang memungkinkan pengguna untuk membuat dan mengelola kampanye phishing. |
+| **BeEF (Browser Exploitation Framework)** | Fokus pada eksploitasi browser, alat ini memungkinkan pengguna untuk mengontrol browser target dan meluncurkan serangan social engineering. |
+| **Dracnmap**              | Tool yang tidak langsung berkaitan dengan social engineering, tetapi dapat digunakan untuk mengumpulkan informasi untuk mengidentifikasi target potensial. |
+| **Evilginx2**            | Sebuah tool man-in-the-middle yang memungkinkan pembobolan sesi dengan menggunakan pembodohan sesi dan teknik phishing. |

@@ -1,9 +1,12 @@
 ---
-title: '{{title}}'
+title: "{{title}}"
 description:
-heroImage:
-tags:
+cover:
 categories:
+tags:
 pubDate:
 updatedDate:
+draft: false
 ---
+
+...

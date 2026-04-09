@@ -1,0 +1,7 @@
+
+- [Text to ascii Art Generator](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type+Something+&x=none&v=4&h=4&w=80&we=false)
+- [Integrate Prettier with Astro and Tailwind CSS](https://straffesites.com/en/blog/integrate-prettier-astro-tailwindcss)
+- [Typing Practice for Programmer](https://typing.io/)
+- [Deepl Translator](https://www.deepl.com/en/translator)
+- [Golang Project Ideas](https://bestprojectideas.com/wp-content/uploads/2025/04/Golang-Project-Ideas.pdf)
+- [roadmap.sh | Golang Projects](https://roadmap.sh/golang/projects)
