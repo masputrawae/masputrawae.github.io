@@ -9,6 +9,7 @@ tags:
   - golang
 pubDate: 2025-12-15T15:56:19+07:00
 updatedDate: 2026-03-27
+cover: https://res.cloudinary.com/mpw-img/image/upload/v1776002659/rocket_launch_mjqb3r.jpg
 ---
 
 Hampir satu minggu terakhir aku mencoba **Astro.js**, dan jujur, pengalaman pribadi: aku cukup kagum. Yang paling bikin suka tentu karena dia _javascript first_ 😅 — di Astro beneran bisa pakai JavaScript murni (walaupun TypeScript tetap direkomendasikan).

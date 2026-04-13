@@ -1,10 +1,12 @@
 ---
 title: Bikin Dark Mode Website Tanpa Ribet Part 2
 description: Pengembangan dark mode dengan JavaScript, deteksi tema sistem, dan penyimpanan preferensi pengguna.
+categories:
+  - Pengembangan Web
 tags:
-  - javascript
-  - css
-  - web_development
+  - mode_gelap
+  - skema_warna
+  - penyimpanan_lokal
 pubDate: 2026-04-07
 updatedDate: 2026-04-07
 ---

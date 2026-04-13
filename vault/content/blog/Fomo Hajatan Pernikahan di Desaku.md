@@ -8,6 +8,7 @@ tags:
   - sosial
 pubDate: 2025-12-15T15:56:19+07:00
 updatedDate: 2026-04-05
+cover: https://res.cloudinary.com/mpw-img/image/upload/v1776002663/wedding_photo_illustration_le9krp.jpg
 ---
 
 Mungkin tulisan ini lebih ke analisis dan pemikiran pribadi dari seorang anak desa yang lahir dan besar di lingkungan semacam ini. Ada satu hal yang sampai sekarang masih bikin aku heran: _hajatan_, terutama pernikahan. Bukan karena aku benci atau tidak suka, bukan. Tapi ada beberapa hal yang menurutku perlu dibahas.

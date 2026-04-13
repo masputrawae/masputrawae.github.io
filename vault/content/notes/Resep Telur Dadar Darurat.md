@@ -2,10 +2,10 @@
 title: Resep Telur Dadar Darurat
 description: Sebuah resep sederhana yang aku temukan secara tidak sengaja, saat tidak ada lauk apapun di rumah 😅.
 tags:
-  - recipe
-  - egg
-  - rice
-  - cooking
+  - resep
+  - telur
+  - nasi
+  - sederhana
 pubDate: 2025-12-15T15:56:19+07:00
 updatedDate: 2026-04-03
 ---

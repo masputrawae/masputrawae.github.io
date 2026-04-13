@@ -1,11 +1,12 @@
 ---
 title: Bikin Dark Mode Website Tanpa Ribet
 description: Mau bikin dark mode di website? Di sini aku bahas cara paling simpel pakai CSS, sampai yang lebih fleksibel pakai JavaScript.
+categories:
+  - Pengembangan Web
 tags:
-  - css
-  - javascript
-  - html
-  - web_development
+  - mode_gelap
+  - tema
+  - skema_warna
 pubDate: 2026-04-07
 updatedDate: 2026-04-08
 ---

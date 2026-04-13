@@ -1,0 +1,14 @@
+views:
+  - type: cards
+    name: Content
+    filters:
+      and:
+        - file.inFolder("content")
+    order:
+      - title
+      - pubDate
+      - description
+      - tags
+    imageAspectRatio: 0.6
+    image: note.cover
+    cardSize: 370

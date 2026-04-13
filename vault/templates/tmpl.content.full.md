@@ -6,6 +6,7 @@ categories:
 tags:
 pubDate:
 updatedDate:
+pinned: false
 draft: false
 ---
 

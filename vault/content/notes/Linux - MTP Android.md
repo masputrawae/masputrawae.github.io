@@ -1,10 +1,12 @@
 ---
 title: Linux - MTP Android
 description: Cara Koneksikan android ke Linux untuk sharing file menggunakan MTP
+categories:
+  - Contekan
 tags:
-  - linux
   - android
   - mtp
+  - berbagi_file
 pubDate: 2026-03-28
 updatedDate: 2026-03-28
 ---

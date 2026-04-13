@@ -1,11 +1,13 @@
 ---
 title: Python - Kumpulan Pesan Error
 description: Daftar lengkap pesan kesalahan (error) di bahas pemrograman Python, beserta penjelasannya
+categories:
+  - Contekan
 tags:
-  - python
-  - programming
+  - pesan_kesalahan
+  - daftar
 pubDate: 2026-03-28
-updatedDate: 2026-03-28
+updatedDate: 2026-04-10
 ---
 
 **Setiap entri berisi**:
@@ -15,8 +17,6 @@ updatedDate: 2026-03-28
 - Penjelasan singkat
 - Contoh kode penyebabnya
 
----
-
 ## 1. Error Sintaks & Struktur Dasar
 
 | Error                | Pesan Umum                                                     | Arti                    | Contoh                          |
@@ -25,8 +25,6 @@ updatedDate: 2026-03-28
 | **IndentationError** | `IndentationError: expected an indented block`                 | Salah spasi/tab         | `if True:\nprint("ok")`         |
 | **TabError**         | `TabError: inconsistent use of tabs and spaces in indentation` | Campur tab & spasi      | Kombinasi `\t` dan di satu blok |
 
----
-
 ## 2. Error Variabel & Nama
 
 | Error                 | Pesan                                                                | Arti                              | Contoh              |
@@ -34,8 +32,6 @@ updatedDate: 2026-03-28
 | **NameError**         | `NameError: name 'x' is not defined`                                 | Variabel belum dibuat             | `print(x)`          |
 | **UnboundLocalError** | `UnboundLocalError: local variable 'x' referenced before assignment` | Variabel dipakai duluan di fungsi |                     |
 | **AttributeError**    | `'str' object has no attribute 'append'`                             | Salah panggil metode/atribut      | `"abc".append('x')` |
-
----
 
 ## 3. Error Tipe & Nilai
 
@@ -47,8 +43,6 @@ updatedDate: 2026-03-28
 | **ValueError** | `invalid literal for int() with base 10: 'abc'` | Konversi nilai tak valid     | `int('abc')`    |
 |                | `too many values to unpack (expected 2)`        | Destruktur salah             | `a,b = [1,2,3]` |
 
----
-
 ## 4. Error Koleksi Data (List, Dict, Set)
 
 | Error             | Pesan                     | Arti                          | Contoh                  |
@@ -57,8 +51,6 @@ updatedDate: 2026-03-28
 | **KeyError**      | `KeyError: 'username'`    | Key tak ada di dict           | `d = {}; print(d['x'])` |
 | **StopIteration** | `StopIteration`           | Iterator sudah habis          | `next(iter([]))`        |
 
----
-
 ## 5. Error Aritmatika
 
 | Error                  | Pesan                                     | Arti                        | Contoh                                |
@@ -66,8 +58,6 @@ updatedDate: 2026-03-28
 | **ZeroDivisionError**  | `division by zero`                        | Bagi dengan nol             | `1/0`                                 |
 | **OverflowError**      | `OverflowError: (34, 'Result too large')` | Hasil operasi terlalu besar | `math.exp(1000)`                      |
 | **FloatingPointError** | `FloatingPointError: division by zero`    | Kesalahan numerik (jarang)  | Set `np.seterr(all='raise')` di NumPy |
-
----
 
 ## 6. Error File & Sistem
 
@@ -79,8 +69,6 @@ updatedDate: 2026-03-28
 | **NotADirectoryError** | `[Errno 20] Not a directory`                      | Jalur bukan direktori   | `open('file.txt/test')`     |
 | **OSError**            | `[Errno 28] No space left on device`              | Masalah OS umum         | Disk penuh, file rusak, dsb |
 
----
-
 ## 7. Error Jaringan & Proses
 
 | Error                 | Pesan                                              | Arti                       | Contoh                        |
@@ -90,8 +78,6 @@ updatedDate: 2026-03-28
 | **BrokenPipeError**   | `[Errno 32] Broken pipe`                           | Koneksi terputus           | kirim data ke socket tertutup |
 | **ChildProcessError** | `ChildProcessError: [Errno 10] No child processes` | Subproses gagal dikelola   | multiprocessing error         |
 
----
-
 ## 8. Error Data & Parsing
 
 | Error                  | Pesan                                       | Arti                                         | Contoh           |
@@ -100,8 +86,6 @@ updatedDate: 2026-03-28
 | **UnicodeEncodeError** | `'ascii' codec can't encode character`      | Encoding tidak mendukung karakter            |                  |
 | **UnicodeDecodeError** | `'utf-8' codec can't decode byte 0xff`      | Baca file encoding beda                      |                  |
 | **EOFError**           | `EOF when reading a line`                   | `input()` tanpa input di mode non-interaktif |                  |
-
----
 
 ## 9. Error Eksekusi & Internal
 
@@ -115,8 +99,6 @@ updatedDate: 2026-03-28
 | **SystemExit**          | `SystemExit`                                     | Program keluar via `sys.exit()` |                 |
 | **KeyboardInterrupt**   | `KeyboardInterrupt`                              | Ditekan Ctrl+C di terminal      |                 |
 
----
-
 ## 10. Error Khusus (Jarang Tapi Muncul di Proyek Nyata)
 
 | Error                                  | Pesan                                              | Kapan Muncul                |
@@ -127,8 +109,6 @@ updatedDate: 2026-03-28
 | **ArithmeticError**                    | (induk dari ZeroDivision, Overflow)                | Operasi matematik gagal     |
 | **LookupError**                        | (induk dari IndexError, KeyError)                  | Pencarian gagal             |
 | **ReferenceError**                     | `weakly-referenced object no longer exists`        | WeakRef sudah dihapus       |
-
----
 
 ## Tips Debug Cepat
 

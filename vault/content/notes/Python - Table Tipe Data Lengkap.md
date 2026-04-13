@@ -1,10 +1,12 @@
 ---
 title: Python - Table Tipe Data Lengkap
 description: Daftar lengkap jenis jenis tipe data di bahasa pemrograman Python
+categories:
+  - Contekan
 tags:
-  - python
-  - programming
-  - data_type
+  - tepe_data
+  - variabel
+  - daftar
 pubDate: 2026-03-28
 updatedDate: 2026-03-28
 ---
