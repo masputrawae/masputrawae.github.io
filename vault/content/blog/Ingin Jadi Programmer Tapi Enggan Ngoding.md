@@ -1,6 +1,7 @@
 ---
 title: Ingin Jadi Programmer Tapi Enggan Ngoding
 description: Cara bijak menggunakan AI sebagai mentor belajar, dan menghindari kemalasan belajar
+cover: https://res.cloudinary.com/mpw-img/image/upload/v1776002659/tired_in_front_of_the_computer_po53v0.jpg
 tags:
   - tips
   - belajar

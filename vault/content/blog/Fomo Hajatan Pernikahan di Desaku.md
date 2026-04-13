@@ -64,10 +64,10 @@ Tulisan ini aku buat berdasarkan pengalaman dan pengamatan di lingkungan tempatk
 
 Terima kasih sudah membaca.
 
----
-
 ## Postingan Menarik Lainnya
 
 - [[Kebutuhan vs Keinginan]]
 - [[Kebisingan Izin dan Etika Hidup Bermasyarakat]]
 - [[Tentang Memahami Orang Lain (dan Batasannya)]]
+- [[Antara Gengsi dan Kenyamanan dalam Hajatan]]
+

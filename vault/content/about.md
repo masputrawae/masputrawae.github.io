@@ -1,6 +1,7 @@
 ---
 title: Tentang Saya
 description: Hallo! Saya Putra, seseorang yang suka mengeksplorasi hal-hal baru, dan seorang pria pemalas (mungkin 🫢)
+cover: https://res.cloudinary.com/mpw-img/image/upload/v1776002674/mountain_view_and_a_man_yopkle.jpg
 tags:
   - introduction
   - profile

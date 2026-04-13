@@ -1,6 +1,7 @@
 ---
 title: Kebisingan, Izin, dan Etika Hidup Bermasyarakat
 description: Lanjutan refleksi tentang hajatan, kebisingan, dan batas kenyamanan bersama.
+cover: https://res.cloudinary.com/mpw-img/image/upload/v1776002662/weighing_the_legal_weight_rjw0pa.jpg
 tags:
   - hukum
   - sosial
@@ -40,5 +41,6 @@ bahwa kebebasan kita berhenti ketika mulai mengganggu orang lain.
 - [[Fomo Hajatan Pernikahan di Desaku]]
 - [[Kebutuhan vs Keinginan]]
 - [[Tentang Memahami Orang Lain (dan Batasannya)]]
+- [[Antara Gengsi dan Kenyamanan dalam Hajatan]]
 
 [^1]: [[Fomo Hajatan Pernikahan di Desaku]]

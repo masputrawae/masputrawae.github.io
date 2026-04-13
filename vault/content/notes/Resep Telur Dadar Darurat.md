@@ -1,6 +1,7 @@
 ---
 title: Resep Telur Dadar Darurat
 description: Sebuah resep sederhana yang aku temukan secara tidak sengaja, saat tidak ada lauk apapun di rumah 😅.
+cover: https://res.cloudinary.com/mpw-img/image/upload/v1776002660/omelet_xevsxo.jpg
 tags:
   - resep
   - telur

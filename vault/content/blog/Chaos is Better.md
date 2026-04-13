@@ -1,6 +1,7 @@
 ---
 title: Chaos is Better
 description: Pendekatan mencatat pengetahuan dengan gaya chaos yang lebih jujur pada cara berpikir manusia.
+cover: https://res.cloudinary.com/mpw-img/image/upload/v1776002672/flying_notes_kmaw7u.jpg
 tags:
   - zettelkasten
   - obsidian

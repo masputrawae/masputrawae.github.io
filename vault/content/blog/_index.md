@@ -1,6 +1,7 @@
 ---
 title: Blog
 description: Tempat berbagi keluh kesah tentang kehidupan yang sangat membosankan ini. Atau mungkin, sebenarnya aku yang tidak sesuai dengan planet ini 🫢
+cover: https://res.cloudinary.com/mpw-img/image/upload/v1776002666/man_taking_notes_aoifoz.jpg
 pubDate: 2026-03-31
 updatedDate: 2026-04-03
 ---

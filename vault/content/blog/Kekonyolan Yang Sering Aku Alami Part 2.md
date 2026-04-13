@@ -1,6 +1,7 @@
 ---
 title: Kekonyolan yang Sering Aku Alami (Part 2)
 description: Kedisiplinan yang sulit untuk aku terapkan. Mungkin seperti itu 😅
+cover: https://res.cloudinary.com/mpw-img/image/upload/v1776002673/confused_man_rir09k.jpg
 tags:
   - moment
   - funny

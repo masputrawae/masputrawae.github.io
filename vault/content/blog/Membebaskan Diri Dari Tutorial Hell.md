@@ -1,6 +1,7 @@
 ---
 title: Membebaskan Diri Dari Tutorial Hell
 description: Terjebak dalam neraka tutorial, dan cara ku pribadi melewati masa kritis tersebut.
+cover: https://res.cloudinary.com/mpw-img/image/upload/v1776002665/confused_man_4_qipldr.jpg
 tags:
   - tips
   - tutorial

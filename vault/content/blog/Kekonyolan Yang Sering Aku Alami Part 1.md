@@ -1,6 +1,7 @@
 ---
 title: Kekonyolan Yang Sering Aku Alami (Part 1)
 description: Hal yang membingungkan aku saat ini.
+cover: https://res.cloudinary.com/mpw-img/image/upload/v1776002673/confused_man_rir09k.jpg
 tags:
   - funny
   - moment

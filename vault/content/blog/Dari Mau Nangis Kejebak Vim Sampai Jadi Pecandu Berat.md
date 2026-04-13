@@ -1,6 +1,7 @@
 ---
 title: Dari Mau Nangis Kejebak Vim Sampai Jadi Pecandu Berat
 description: Cerita pengalaman pribadi soal alasanku menyukai vim, keluh kesah, dan kenapa tidak menggunakan vim lagi
+cover: https://res.cloudinary.com/mpw-img/image/upload/v1776002659/undescribed_3_ewtmad.jpg
 tags:
   - vim
   - text_editor

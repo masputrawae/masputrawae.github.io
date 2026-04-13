@@ -1,12 +1,12 @@
 ---
 title: Kebutuhan vs Keinginan
 description: Membedakan antara kebutuhan dan keinginan, agar hidup tidak selalu menuruti nafsu dan kemauan, serta meningkatkan efisiensi hidup.
+cover: https://res.cloudinary.com/mpw-img/image/upload/v1776002658/women_who_waste_money_o6lbwj.jpg
 tags:
   - social
   - refleksi
 pubDate: 2025-12-15T15:56:19+07:00
 updatedDate: 2026-04-05
-cover: https://res.cloudinary.com/mpw-img/image/upload/v1776002658/women_who_waste_money_o6lbwj.jpg
 ---
 
 Fenomena yang sering aku temui di sekitar, yaitu seseorang yang membeli barang yang sebenarnya tidak diperlukan. Mungkin nggak masalah sih jika itu memang uang sendiri atau hasil menabung dsb..., masalahnya beberapa orang membeli barang tersebut dengan cara **berhutang** atau **mencicil**.
@@ -63,3 +63,4 @@ Dan itu adalah bentuk **kesadaran diri** yang banyaknya orang kehilangan hal ter
 - [[Kebisingan Izin dan Etika Hidup Bermasyarakat]]
 - [[Dari Mau Nangis Kejebak Vim Sampai Jadi Pecandu Berat]]
 - [[Cobain Arch Linux]]
+- [[Antara Gengsi dan Kenyamanan dalam Hajatan]]

@@ -1,6 +1,7 @@
 ---
 title: Jatuh Cinta Pada TailwindCSS
 description: Pengalaman pribadiku pertama kali menggunakan TailwindCSS, yang awalnya benci jadi cinta 😁
+cover: https://res.cloudinary.com/mpw-img/image/upload/v1776002675/undescribed_2_hsmx8k.jpg
 tags:
   - css
   - scss

@@ -1,6 +1,7 @@
 ---
 title: Alasanku Suka Menulis Di Obsidian
 description: Cerita tentang pengalaman pribadiku, terkait proses pembelajaran, eksplorasi, dan rintangan yang aku hadapi selama belajar dan mencatat.
+cover: https://res.cloudinary.com/mpw-img/image/upload/v1776002671/diligent_child_wljrsu.jpg
 tags:
   - menulis
   - catatan

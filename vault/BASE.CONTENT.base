@@ -6,9 +6,11 @@ views:
         - file.inFolder("content")
     order:
       - title
-      - pubDate
       - description
       - tags
+    sort:
+      - property: cover
+        direction: ASC
     imageAspectRatio: 0.6
     image: note.cover
-    cardSize: 370
+    cardSize: 300

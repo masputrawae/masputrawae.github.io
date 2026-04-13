@@ -1,6 +1,7 @@
 ---
 title: Dalang Tidak Kencing Semalaman
 description: Pembahasan mitos yang beredar di masyarakat, tentang seorang dalang yang tidak kencing semalaman
+cover: https://res.cloudinary.com/mpw-img/image/upload/v1776002665/wayang_kulit_illustration_arxc70.jpg
 tags:
   - sosial
   - budaya
