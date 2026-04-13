@@ -1,6 +1,7 @@
 ---
 title: Alasanku Masih Tetap Bertahan di Hugo
 description: Pengalaman pribadi ketika mencoba memindahkan blog ini ke Astro, dan alasan tetap memiliki untuk bertahan di Hugo.
+cover: https://res.cloudinary.com/mpw-img/image/upload/v1776090392/illustration_of_the_choice_between_hugo_and_astro_it8gvi.png
 tags:
   - astro
   - hugo

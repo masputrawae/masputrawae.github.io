@@ -1,6 +1,7 @@
 ---
 title: Antara Gengsi dan Kenyamanan dalam Hajatan
 description: Refleksi sederhana tentang hajatan, sound system, dan bagaimana kenyamanan sering kalah oleh gengsi sosial.
+cover: https://res.cloudinary.com/mpw-img/image/upload/v1776090387/sound_system_noise_at_a_celebration_nnlasv.jpg
 tags:
   - opini
   - sosial

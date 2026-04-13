@@ -1,6 +1,7 @@
 ---
 title: Ketika Ego Masuk ke Dalam Rumah Tangga
 description: Catatan sederhana tentang bagaimana ego, komunikasi, dan kerja sama memengaruhi hubungan dalam pernikahan.
+cover: https://res.cloudinary.com/mpw-img/image/upload/v1776090914/two_lovers_facing_each_other_c8lya9.jpg
 tags:
   - pernikahanego
   - komunikasi

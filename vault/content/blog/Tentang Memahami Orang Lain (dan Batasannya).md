@@ -1,12 +1,13 @@
 ---
 title: Tentang Memahami Orang Lain (dan Batasannya)
 description: Catatan pribadi tentang memahami orang lain, komunikasi, dan batas dalam bersosialisasi.
+cover: https://res.cloudinary.com/mpw-img/image/upload/v1776090387/someone_who_is_surrounded_by_many_people_pfeyqb.jpg
 tags:
   - refleksi
   - sosial
   - komunikasi
 pubDate: 2026-04-08
-updatedDate: 2026-04-08
+updatedDate: 2026-04-13
 ---
 
 Memahami perasaan orang lain itu penting (menurutku 🤔). Mengingat banyak aspek seperti cara berbicara, pemilihan kata, nada, perilaku, dan sebagainya, yang bisa saja melukai perasaan seseorang.
@@ -59,4 +60,4 @@ Namun, ketika sudah lelah, kita juga punya hak untuk menjaga jarak.
 
 Dan pada akhirnya, catatan ini hanya pengingat untuk diriku sendiri:
 
-_tetaplah menjadi manusia yang terus berusaha memanusiakan manusia lainnya_
+> tetaplah menjadi manusia yang terus berusaha memanusiakan manusia lainnya
