@@ -7,7 +7,6 @@ tags:
   - lingkungan
   - refleksi
 pubDate: 2026-04-13
-draft: true
 ---
 
 Hari ini, Senin 13 April 2026, aku sedikit terkejut. Ternyata masih ada sebagian masyarakat yang benar-benar memahami arti kenyamanan bagi orang lain.
