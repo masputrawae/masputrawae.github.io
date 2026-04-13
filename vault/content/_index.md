@@ -1,6 +1,7 @@
 ---
 title: Hallo Semua!, Selamat Datang 🤗
 description: Tempat yang sempurna bagi ku untuk mencurahkan isi hati dan pemikiran 😅. Atau mungkin cuma sebatas halaman kosong?, siapa yang tahu 🫢.
+cover: https://res.cloudinary.com/mpw-img/image/upload/v1776002660/beautiful_scenery_sketch_lhizah.jpg
 tags:
   - blog
   - wawasan
@@ -10,7 +11,6 @@ tags:
   - catatan
 pubDate: 2026-04-05
 updatedDate: 2026-04-05
-cover: https://res.cloudinary.com/mpw-img/image/upload/v1776002660/beautiful_scenery_sketch_lhizah.jpg
 ---
 
 Nggak tahu?...., aku nggak terlalu bisa mendeskripsikan [[about|tentang diriku]] sendiri 😁.
