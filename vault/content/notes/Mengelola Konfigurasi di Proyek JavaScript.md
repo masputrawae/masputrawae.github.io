@@ -16,8 +16,6 @@ Tapi ya… seperti biasa, tidak ada cara yang 100% paling benar.
 
 Jadi, apa saja yang aku temukan?
 
----
-
 ## Sederhana, Simpel… Tapi Ini Masalahku
 
 Cara paling simpel adalah membuat satu file di root, misalnya `site.config.ts`, lalu langsung definisikan di sana.
@@ -45,8 +43,6 @@ import { SITE } from "./site.config.ts"
 
 Beres 😁
 
----
-
 ### Masalahnya...
 
 Di kasusku, ada value yang sifatnya opsional, jadi aku harus sering bikin default value di setiap pemanggilan.
@@ -70,13 +66,9 @@ Harus nulis hal yang sama berulang-ulang 🤯
 
 Dan ini berpotensi bikin tidak konsisten.
 
----
-
 ## Menggunakan Spread Operator
 
 Akhirnya aku coba cara yang menurutku lebih rapi: pakai fungsi untuk merge default config.
-
----
 
 ### 1. Buat File Helper
 
@@ -100,8 +92,6 @@ export default function createConfig(userConfig: SiteOptions): SiteOptions {
 }
 ```
 
----
-
 ### 2. Gunakan di File Konfigurasi
 
 ```ts
@@ -124,8 +114,6 @@ Hasilnya:
 }
 ```
 
----
-
 ### Kenapa Ini Lebih Enak?
 
 Karena:
@@ -134,21 +122,15 @@ Karena:
 - Tidak perlu fallback di banyak tempat
 - Lebih konsisten 😁
 
----
-
 ## Ketemu yang Lebih Keren 😎
 
 Nah, ini cara yang menurutku paling aman dan powerful: pakai **Zod**.
-
----
 
 ### 1. Install Zod
 
 ```bash
 npm install zod
 ```
-
----
 
 ### 2. Buat Schema Konfigurasi
 
@@ -169,16 +151,12 @@ export function createConfig(userConfig: ConfigInput): ConfigOutput {
 }
 ```
 
----
-
 ### Kenapa Ini Lebih Mantap?
 
 - Ada **validasi otomatis**
 - Default value langsung dari schema
 - TypeScript jadi lebih kuat (auto inference 🔥)
 - Lebih aman untuk skala besar
-
----
 
 ## Kesimpulan
 
