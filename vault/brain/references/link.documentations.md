@@ -1,4 +1,3 @@
-
 - [Astro Nvim](https://docs.astronvim.com/)
 - [Uiverse](https://uiverse.io/)
 - [Superfile | terminal-based file manager](https://superfile.dev/)

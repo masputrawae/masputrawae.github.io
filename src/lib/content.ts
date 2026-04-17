@@ -23,31 +23,25 @@ export async function getContents(): Promise<CollectionEntry<'content'>[]> {
     const now = Date.now()
 
     const result = entries
-      .filter(
-        (e) =>
-          !e.data.draft &&
-          e.data.pubDate.getTime() <= now &&
-          e.id !== '/'
-      )
+      .filter((e) => !e.data.draft && e.data.pubDate.getTime() <= now && e.id !== '/')
       .sort((a, b) => {
-        const pinnedDiff = Number(b.data.pinned) - Number(a.data.pinned);
-        if (pinnedDiff) return pinnedDiff;
+        const pinnedDiff = Number(b.data.pinned) - Number(a.data.pinned)
+        if (pinnedDiff) return pinnedDiff
 
         // 2. weight check dulu (tanpa arithmetic dulu)
-        const aHasWeight = a.data.weight !== 0;
-        const bHasWeight = b.data.weight !== 0;
+        const aHasWeight = a.data.weight !== 0
+        const bHasWeight = b.data.weight !== 0
 
         if (aHasWeight !== bHasWeight) {
-          return aHasWeight ? -1 : 1;
+          return aHasWeight ? -1 : 1
         }
 
         // 3. kalau dua-duanya punya weight → baru bandingkan
         if (aHasWeight && bHasWeight) {
           if (a.data.weight !== b.data.weight) {
-            return a.data.weight < b.data.weight ? -1 : 1;
+            return a.data.weight < b.data.weight ? -1 : 1
           }
         }
-
 
         return b.data.pubDate.getTime() - a.data.pubDate.getTime()
       })
@@ -78,7 +72,10 @@ export function getPages(entries: CollectionEntry<'content'>[]): CollectionEntry
 }
 
 // get sections with pages
-export function getSectionsWithPages(sections: CollectionEntry<'content'>[], contents: CollectionEntry<'content'>[]): Map<string, CollectionEntry<'content'>[]> {
+export function getSectionsWithPages(
+  sections: CollectionEntry<'content'>[],
+  contents: CollectionEntry<'content'>[]
+): Map<string, CollectionEntry<'content'>[]> {
   if (!isDev && cachedSectionsWithPages) return cachedSectionsWithPages
 
   let sectionWithPages = new Map<string, CollectionEntry<'content'>[]>()
@@ -120,4 +117,3 @@ export function clearContentCache() {
   cachedPages = null
   cachedSections = null
 }
-

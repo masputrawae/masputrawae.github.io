@@ -24,7 +24,7 @@ Biasanya, aku sering dipusingkan oleh suara sound system yang sampai membuat pla
 
 Hal kedua yang menarik: tidak menerima sumbangan 😊
 
-Entah benar atau tidak, aku tidak terlalu mempermasalahkan. Tapi jujur saja, sering kali aku merasa stres melihat budaya di mana orang merasa *wajib* menyumbang. Ketika ada yang secara terbuka mengatakan *tidak menerima sumbangan*, itu memberi rasa lega—setidaknya bagi sebagian orang.
+Entah benar atau tidak, aku tidak terlalu mempermasalahkan. Tapi jujur saja, sering kali aku merasa stres melihat budaya di mana orang merasa _wajib_ menyumbang. Ketika ada yang secara terbuka mengatakan _tidak menerima sumbangan_, itu memberi rasa lega—setidaknya bagi sebagian orang.
 
 ## Cerita dan Bisik-Bisik Tetangga
 
@@ -40,9 +40,10 @@ Jujur, aku tidak berpikir seperti si A. Bagiku, kalau yang sederhana sudah cukup
 Hajatan itu tidak harus mewah. Yang penting cukup, nyaman, dan tidak mengganggu—atau bahkan, tidak perlu hajatan besar sama sekali 😊
 
 Soal “sound system murah”, justru ini menarik. Kalau memang benar yang lebih murah itu:
-- lebih tenang  
-- lebih tertib  
-- lebih tidak mengganggu  
+
+- lebih tenang
+- lebih tertib
+- lebih tidak mengganggu
 
 Lalu pertanyaannya sederhana: **kenapa harus yang mahal?**
 
@@ -54,6 +55,7 @@ Kalau terlalu keras sampai kaca rumah bergetar, yang muncul bukan kenikmatan—t
 Tidak sepenuhnya.
 
 Tapi aku sangat menghargai orang-orang seperti ini. Mereka memberi contoh bahwa:
+
 - tidak perlu heboh untuk terlihat “wah”
 - tetap bisa menghormati lingkungan
 - tetap bisa patuh pada aturan
@@ -77,9 +79,10 @@ Dan itu sering terjadi 🙂‍↕️
 Kita hidup bermasyarakat bukan untuk menunjukkan siapa kita, tapi untuk memberi dampak yang baik bagi orang lain.
 
 Kalau belum bisa memberi banyak, setidaknya:
-- hormati orang lain  
-- jaga kenyamanan bersama  
-- jangan egois hanya karena gengsi  
+
+- hormati orang lain
+- jaga kenyamanan bersama
+- jangan egois hanya karena gengsi
 
 Karena pada akhirnya, yang diingat bukan seberapa “wah” acaranya—tapi seberapa nyaman suasananya.
 
@@ -92,6 +95,8 @@ Karena pada akhirnya, yang diingat bukan seberapa “wah” acaranya—tapi sebe
 
 ---
 
-[^1]: [[Kebisingan Izin dan Etika Hidup Bermasyarakat]]  
-[^2]: [[Fomo Hajatan Pernikahan di Desaku]]  
+[^1]: [[Kebisingan Izin dan Etika Hidup Bermasyarakat]]
+
+[^2]: [[Fomo Hajatan Pernikahan di Desaku]]
+
 [^3]: [[Kebutuhan vs Keinginan]]

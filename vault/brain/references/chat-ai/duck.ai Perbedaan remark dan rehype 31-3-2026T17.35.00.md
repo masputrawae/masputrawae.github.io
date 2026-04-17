@@ -14,6 +14,7 @@ Berdasarkan hasil pencarian, berikut adalah perbedaan utama antara **Remark** da
 ### Remark (untuk Markdown)
 
 **Remark** adalah processor yang berfokus pada **Markdown**. Karakteristiknya:
+
 - **Memproses syntax tree Markdown (MDAST)**
 - Mengubah Markdown menjadi struktur data terorganisir
 - **Plugin remark-\* beroperasi pada markdown syntax tree**
@@ -23,6 +24,7 @@ Berdasarkan hasil pencarian, berikut adalah perbedaan utama antara **Remark** da
 ### Rehype (untuk HTML)
 
 **Rehype** adalah processor yang berfokus pada **HTML**. Karakteristiknya:
+
 - **Memproses syntax tree HTML (HAST)**
 - Mengubah HTML menjadi struktur data terorganisir
 - **Plugin rehype-\* beroperasi pada HTML syntax tree**

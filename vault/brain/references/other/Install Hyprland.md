@@ -1,4 +1,3 @@
-
 Minimal install
 
 ```bash

@@ -17,12 +17,13 @@ Pertanyaan Anda tentang kemampuan generate image otomatis saat build di Astro se
 ## Solusi untuk Astro
 
 ### 1. **Menggunakan Astro Image Integration**
+
 Astro menyediakan **`astro:assets`** (built-in sejak versi 2.0) yang memungkinkan optimasi gambar dasar:
 
 ```astro
 ---
-import { Image } from 'astro:assets';
-import myImage from '../images/my-image.png';
+import { Image } from 'astro:assets'
+import myImage from '../images/my-image.png'
 ---
 
 <Image src={myImage} alt="Deskripsi gambar" />
@@ -31,11 +32,12 @@ import myImage from '../images/my-image.png';
 Fitur ini akan mengoptimalkan gambar saat build, termasuk resizing dan format conversion.
 
 ### 2. **Integrasi dengan Sharp atau ImageMagick**
+
 Anda bisa membuat custom build script yang menggunakan **Sharp** (library Node.js populer untuk image processing):
 
 ```javascript
 // astro.config.mjs
-import sharp from 'sharp';
+import sharp from 'sharp'
 
 export default {
   integrations: [
@@ -48,11 +50,13 @@ export default {
       }
     }
   ]
-};
+}
 ```
 
 ### 3. **Menggunakan Adapter/Plugin Pihak Ketiga**
+
 Beberapa opsi populer:
+
 - **`astro-imagetools`** - untuk responsive images dan berbagai format
 - **`astro-compress`** - untuk kompresi otomatis
 - **Integrasi dengan Cloudinary atau Imgix** - untuk image delivery yang lebih powerful
@@ -62,11 +66,13 @@ Beberapa opsi populer:
 ## Apakah Bisa Sepenuhnya Seperti Next.js?
 
 **Tidak sepenuhnya**, karena:
+
 - Astro tidak memiliki image component yang secanggih Next.js
 - Tidak ada automatic lazy loading dan srcset generation bawaan
 - Memerlukan setup manual atau plugin tambahan
 
 **Namun bisa**, jika:
+
 - Anda siap menggunakan `astro:assets` untuk optimasi dasar
 - Atau mengintegrasikan tools image processing custom
 - Atau menggunakan CDN service seperti Cloudinary untuk handling otomatis
@@ -75,7 +81,7 @@ Beberapa opsi populer:
 
 Apakah Anda tertarik mengeksplorasi salah satu solusi ini lebih dalam? Atau ada use case spesifik yang ingin Anda capai dengan image generation di Astro?
 
---------------------
+---
 
 Permintaan pengguna 2 dari 2 - 31/3/2026, 12.22.42:
 Ya aku ingin buat og:image otomatis, jadi cuma latar belakang putih, logo kecil dan judul.
@@ -97,10 +103,10 @@ npm install satori sharp
 
 ```javascript
 // src/utils/generateOgImage.js
-import satori from 'satori';
-import sharp from 'sharp';
-import fs from 'fs';
-import path from 'path';
+import satori from 'satori'
+import sharp from 'sharp'
+import fs from 'fs'
+import path from 'path'
 
 export async function generateOgImage(title, outputPath) {
   const html = (
@@ -113,7 +119,7 @@ export async function generateOgImage(title, outputPath) {
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#ffffff',
-        fontFamily: 'system-ui, -apple-system, sans-serif',
+        fontFamily: 'system-ui, -apple-system, sans-serif'
       }}
     >
       {/* Logo */}
@@ -122,7 +128,7 @@ export async function generateOgImage(title, outputPath) {
         style={{
           width: '100px',
           height: '100px',
-          marginBottom: '30px',
+          marginBottom: '30px'
         }}
         alt="Logo"
       />
@@ -136,13 +142,13 @@ export async function generateOgImage(title, outputPath) {
           textAlign: 'center',
           margin: '0',
           padding: '0 60px',
-          lineHeight: '1.2',
+          lineHeight: '1.2'
         }}
       >
         {title}
       </h1>
     </div>
-  );
+  )
 
   // Generate SVG dari HTML
   const svg = await satori(html, {
@@ -152,16 +158,16 @@ export async function generateOgImage(title, outputPath) {
       {
         name: 'system-ui',
         data: fs.readFileSync('path/to/font.ttf'),
-        weight: 400,
-      },
-    ],
-  });
+        weight: 400
+      }
+    ]
+  })
 
   // Convert SVG ke PNG dengan Sharp
-  const pngBuffer = await sharp(Buffer.from(svg)).png().toBuffer();
+  const pngBuffer = await sharp(Buffer.from(svg)).png().toBuffer()
 
   // Simpan ke file
-  fs.writeFileSync(outputPath, pngBuffer);
+  fs.writeFileSync(outputPath, pngBuffer)
 }
 ```
 
@@ -169,10 +175,10 @@ export async function generateOgImage(title, outputPath) {
 
 ```javascript
 // astro.config.mjs
-import { defineConfig } from 'astro/config';
-import { generateOgImage } from './src/utils/generateOgImage.js';
-import fs from 'fs';
-import path from 'path';
+import { defineConfig } from 'astro/config'
+import { generateOgImage } from './src/utils/generateOgImage.js'
+import fs from 'fs'
+import path from 'path'
 
 export default defineConfig({
   integrations: [
@@ -180,35 +186,32 @@ export default defineConfig({
       name: 'og-image-generator',
       hooks: {
         'astro:build:done': async ({ dir }) => {
-          const postsDir = './src/content/blog';
-          const files = fs.readdirSync(postsDir);
+          const postsDir = './src/content/blog'
+          const files = fs.readdirSync(postsDir)
 
           for (const file of files) {
             if (file.endsWith('.md') || file.endsWith('.mdx')) {
-              const content = fs.readFileSync(
-                path.join(postsDir, file),
-                'utf-8'
-              );
+              const content = fs.readFileSync(path.join(postsDir, file), 'utf-8')
 
               // Parse frontmatter untuk ambil title
-              const titleMatch = content.match(/title:\s*["']?(.+?)["']?$/m);
-              const title = titleMatch ? titleMatch[1] : 'Untitled';
+              const titleMatch = content.match(/title:\s*["']?(.+?)["']?$/m)
+              const title = titleMatch ? titleMatch[1] : 'Untitled'
 
               // Generate OG image
               const outputPath = path.join(
                 dir.pathname,
                 'og-images',
                 `${file.replace(/\.(md|mdx)$/, '')}.png`
-              );
+              )
 
-              await generateOgImage(title, outputPath);
+              await generateOgImage(title, outputPath)
             }
           }
-        },
-      },
-    },
-  ],
-});
+        }
+      }
+    }
+  ]
+})
 ```
 
 ---
@@ -223,11 +226,11 @@ npm install playwright
 
 ```javascript
 // src/utils/generateOgImage.js
-import { chromium } from 'playwright';
+import { chromium } from 'playwright'
 
 export async function generateOgImage(title, logoPath, outputPath) {
-  const browser = await chromium.launch();
-  const page = await browser.newPage();
+  const browser = await chromium.launch()
+  const page = await browser.newPage()
 
   const html = `
     <!DOCTYPE html>
@@ -267,11 +270,11 @@ export async function generateOgImage(title, logoPath, outputPath) {
         <h1>${title}</h1>
       </body>
     </html>
-  `;
+  `
 
-  await page.setContent(html);
-  await page.screenshot({ path: outputPath });
-  await browser.close();
+  await page.setContent(html)
+  await page.screenshot({ path: outputPath })
+  await browser.close()
 }
 ```
 
@@ -280,12 +283,14 @@ export async function generateOgImage(title, logoPath, outputPath) {
 ## Rekomendasi
 
 **Gunakan Satori** karena:
+
 - ✅ Lebih ringan dan cepat
 - ✅ Tidak perlu browser headless
 - ✅ Output PNG berkualitas tinggi
 - ✅ Perfect untuk OG images
 
 **Gunakan Playwright** jika:
+
 - Anda butuh styling yang lebih kompleks
 - Ingin preview sebelum generate
 - Memerlukan interaksi dengan elemen dinamis

@@ -70,4 +70,3 @@ Terima kasih sudah membaca.
 - [[Kebisingan Izin dan Etika Hidup Bermasyarakat]]
 - [[Tentang Memahami Orang Lain (dan Batasannya)]]
 - [[Antara Gengsi dan Kenyamanan dalam Hajatan]]
-

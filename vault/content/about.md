@@ -31,9 +31,6 @@ Ya daripada tidak ada yang di tampilkan.
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=masputrawae&radius=16&theme=dracula&area=true&order=5" height="300" alt="activity-graph graph"  />
 </div>
 
-
 ## Penutup
 
 Di sini, saya mencoba membagikan pemikiran dan pengalaman pribadi, tidak hanya seputar teknologi, tetapi juga tentang perilaku dan isu sosial di sekitar saya. Disini saya tidak bermaksud menggurui—hanya ingin berbagi sudut pandang dan ide dengan siapa pun yang tertarik.
-
-

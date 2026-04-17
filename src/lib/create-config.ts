@@ -13,7 +13,7 @@ const configSchema = z.object({
   // ===== Base Config =====
   title: z.string(),
   subtitle: z.string(),
-  baseURL: z.instanceof(URL).default(new URL("http://localhost:4321/")),
+  baseURL: z.instanceof(URL).default(new URL('http://localhost:4321/')),
 
   // ===== Content Dir =====
   vaultDir: z.string().default('vault'),

@@ -1,4 +1,3 @@
-
 Masalah moral, etika dan perilaku manusia. Mulai dari permasalahan, langkah terbaik, konsekuensi, dan pembahasan pola pikir manusia.
 
 ## Links

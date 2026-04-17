@@ -1,5 +1,5 @@
-import { menuToggle } from "./menu"
-import { themeToggle } from "./theme"
+import { menuToggle } from './menu'
+import { themeToggle } from './theme'
 
 // main function
 function main() {
@@ -10,4 +10,3 @@ function main() {
 }
 
 main()
-

@@ -1,4 +1,3 @@
-
 Pembahasan soal bagaimana kita bisa hidup tanpa merugikan orang lain, dan bagaimana agar kita bisa menjadi manusia yang benar-benar berguna bagi manusia lain.
 
 ## Links

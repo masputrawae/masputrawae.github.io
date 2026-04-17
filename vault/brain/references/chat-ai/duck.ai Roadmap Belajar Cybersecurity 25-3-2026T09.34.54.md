@@ -13,6 +13,7 @@ prompt: buatkan roadmap untuk belajar cybersecurity
 ## Fase 1: Fondasi (0-3 bulan)
 
 ### Dasar-dasar Networking dan Sistem Operasi
+
 Anda perlu memahami bagaimana jaringan dan sistem bekerja sebelum mempelajari cara mengamankannya.
 
 - **Networking**: Pelajari model OSI, TCP/IP, DNS, HTTP/HTTPS, firewall, dan routing dasar
@@ -26,6 +27,7 @@ Anda perlu memahami bagaimana jaringan dan sistem bekerja sebelum mempelajari ca
 ## Fase 2: Fondasi Cybersecurity (3-6 bulan)
 
 ### Konsep Dasar Security
+
 Pelajari prinsip-prinsip inti cybersecurity dan terminologi industri.
 
 - **CIA Triad**: Confidentiality, Integrity, Availability
@@ -43,6 +45,7 @@ Pelajari prinsip-prinsip inti cybersecurity dan terminologi industri.
 Pilih jalur yang sesuai dengan minat Anda. Ada beberapa arah yang bisa diambil:
 
 ### Jalur 1: Network & Infrastructure Security
+
 - Firewall configuration
 - Intrusion Detection/Prevention Systems (IDS/IPS)
 - Virtual Private Networks (VPN)
@@ -51,6 +54,7 @@ Pilih jalur yang sesuai dengan minat Anda. Ada beberapa arah yang bisa diambil:
 **Sertifikasi**: **CompTIA Network+**, **Cisco CCNA Security**
 
 ### Jalur 2: Web Application Security
+
 - OWASP Top 10 secara mendalam
 - SQL Injection, Cross-Site Scripting (XSS), CSRF
 - Secure coding practices
@@ -60,6 +64,7 @@ Pilih jalur yang sesuai dengan minat Anda. Ada beberapa arah yang bisa diambil:
 **Tools**: Burp Suite, OWASP ZAP
 
 ### Jalur 3: Ethical Hacking & Penetration Testing
+
 - Reconnaissance dan scanning
 - Exploitation techniques
 - Post-exploitation
@@ -69,6 +74,7 @@ Pilih jalur yang sesuai dengan minat Anda. Ada beberapa arah yang bisa diambil:
 **Sertifikasi**: **CEH (Certified Ethical Hacker)**, **eJPT**
 
 ### Jalur 4: Cloud Security
+
 - AWS, Azure, GCP security
 - Container security (Docker, Kubernetes)
 - Infrastructure as Code (IaC) security
@@ -79,6 +85,7 @@ Pilih jalur yang sesuai dengan minat Anda. Ada beberapa arah yang bisa diambil:
 ## Fase 4: Pengalaman Praktis (Berkelanjutan)
 
 ### Hands-On Practice
+
 - **HackTheBox**: Platform untuk praktik penetration testing
 - **TryHackMe**: Pembelajaran interaktif dengan challenges
 - **PortSwigger Web Security Academy**: Gratis dan komprehensif untuk web security
@@ -86,7 +93,9 @@ Pilih jalur yang sesuai dengan minat Anda. Ada beberapa arah yang bisa diambil:
 - **Capture The Flag (CTF)**: Kompetisi security
 
 ### Homelab
+
 Bangun lab sendiri di rumah untuk bereksperimen:
+
 - Virtual machines (VirtualBox, VMware)
 - Setup network lokal dengan firewall
 - Deploy vulnerable applications untuk practice
@@ -96,6 +105,7 @@ Bangun lab sendiri di rumah untuk bereksperimen:
 ## Fase 5: Pengembangan Lanjutan (12+ bulan)
 
 ### Spesialisasi Mendalam
+
 Setelah memiliki fondasi kuat, pilih spesialisasi:
 
 - **Incident Response & Forensics**: Menangani breach dan investigasi
@@ -112,6 +122,7 @@ Setelah memiliki fondasi kuat, pilih spesialisasi:
 ## Fase 6: Karir & Pertumbuhan Berkelanjutan
 
 ### Jalur Karir Potensial
+
 - **Security Analyst**: Monitoring dan analysis ancaman
 - **Penetration Tester**: Testing keamanan sistem klien
 - **Security Engineer**: Merancang dan mengimplementasikan solusi security
@@ -120,6 +131,7 @@ Setelah memiliki fondasi kuat, pilih spesialisasi:
 - **Security Consultant**: Memberikan advice kepada organisasi
 
 ### Pembelajaran Berkelanjutan
+
 - Ikuti industry certifications terbaru
 - Ikuti webinar dan konferensi (DEF CON, Black Hat, RSA Conference)
 - Baca security blogs dan research papers
@@ -131,17 +143,20 @@ Setelah memiliki fondasi kuat, pilih spesialisasi:
 ## Sumber Daya Penting
 
 **Platform Pembelajaran:**
+
 - **Coursera, Udemy, edX**: Kursus terstruktur
 - **TryHackMe, HackTheBox**: Praktik hands-on
 - **Professor Messer**: Video pembelajaran gratis berkualitas tinggi
 - **SANS Cyber Aces**: Tutorial gratis
 
 **Dokumentasi & References:**
+
 - OWASP documentation
 - NIST Cybersecurity Framework
 - CIS Controls
 
 **Community:**
+
 - Reddit: r/cybersecurity, r/learnprogramming
 - Discord communities
 - Local meetups dan user groups

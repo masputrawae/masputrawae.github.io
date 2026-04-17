@@ -1,4 +1,3 @@
-
 ## 1) Kumpulkan bukti dulu (penting)
 
 Biar laporan kamu kuat:

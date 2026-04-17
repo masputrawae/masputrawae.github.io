@@ -1,4 +1,3 @@
-
 Cara yang lebih mudah untuk sekarang, adalah menggunakan
 
 ```bash
@@ -48,10 +47,10 @@ Pilih **GPT** jika diminta.
 
 Buat partisi:
 
-|Partisi|Size|Type|
-|---|---|---|
-|EFI|512M|EFI System|
-|Root|Sisa|Linux filesystem|
+| Partisi | Size | Type             |
+| ------- | ---- | ---------------- |
+| EFI     | 512M | EFI System       |
+| Root    | Sisa | Linux filesystem |
 
 Save → Quit
 

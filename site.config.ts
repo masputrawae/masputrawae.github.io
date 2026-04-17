@@ -4,8 +4,8 @@ export const SITE = createConfig({
   title: 'Cah Bagus',
   subtitle: 'Hanya Manusia Biasa',
   author: {
-    name: "Putra Jaya",
-    twitterX: "@masputrawae"
+    name: 'Putra Jaya',
+    twitterX: '@masputrawae'
   },
   menus: [
     { icon: 'bi:house-fill', name: 'Home', href: '/' },
@@ -16,29 +16,29 @@ export const SITE = createConfig({
   ],
   social: [
     {
-      icon: "bi:twitter-x",
+      icon: 'bi:twitter-x',
       name: 'Twitter (X)',
-      href: 'https://x.com/masputrawae',
+      href: 'https://x.com/masputrawae'
     },
     {
-      icon: "bi:instagram",
+      icon: 'bi:instagram',
       name: 'Instagram',
-      href: 'https://www.instagram.com/masputrawae?igsh=NWQ5YW5vNHRhM3hu',
+      href: 'https://www.instagram.com/masputrawae?igsh=NWQ5YW5vNHRhM3hu'
     },
     {
-      icon: "bi:discord",
+      icon: 'bi:discord',
       name: 'Discord',
-      href: 'https://discord.gg/nM4EP8DJFZ',
+      href: 'https://discord.gg/nM4EP8DJFZ'
     },
     {
-      icon: "bi:envelope-at",
+      icon: 'bi:envelope-at',
       name: 'Email',
-      href: 'mailto:masputrawae.official@gmail.com',
+      href: 'mailto:masputrawae.official@gmail.com'
     },
     {
-      icon: "bi:github",
+      icon: 'bi:github',
       name: 'Github',
-      href: 'https://github.com/masputrawae',
+      href: 'https://github.com/masputrawae'
     }
   ]
 })

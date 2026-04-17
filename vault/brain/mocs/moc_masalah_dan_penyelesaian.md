@@ -1,4 +1,3 @@
-
 Memahami permasalahan dan mencari jalan serta sikap yang baik untuk penyelesainnya.
 
 ## Links

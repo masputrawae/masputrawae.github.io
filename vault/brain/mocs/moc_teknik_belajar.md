@@ -1,4 +1,3 @@
-
 Tidak ada teknik khusus untuk belajar, setiap orang mempunyai preferensi masih-masih. Dan disini aku sedang mencari preferensi yang cocok untuk aku gunakan.
 
 ## Links

@@ -1,4 +1,3 @@
-
 Membahas soal teknik dan masalah saat membangun kebiasaan mencatat
 
 ---

@@ -1,4 +1,3 @@
-
 Ketika kita langsung panik, marah, atau emosi tinggi, otak kita masuk ke mode **fight-or-flight** (reaksi stres akut). Hormon seperti kortisol dan adrenalin melonjak, yang memang berguna untuk bahaya fisik mendadak, tapi justru mengganggu fungsi prefrontal cortex — bagian otak yang bertanggung jawab atas pemikiran rasional, perencanaan, dan pemecahan masalah. Akibatnya:
 
 - Kita cenderung membuat keputusan impulsif yang buruk.

@@ -1,14 +1,14 @@
-const KEY_THEME = "theme"
+const KEY_THEME = 'theme'
 
 export interface ThemeChangeOptions {
-  theme: "dark" | "light"
+  theme: 'dark' | 'light'
   html: HTMLElement
   iconLight: HTMLElement | null | undefined
   iconDark: HTMLElement | null | undefined
 }
 
 export function themeChange({ theme, html, iconLight, iconDark }: ThemeChangeOptions) {
-  const isDark = theme === "dark"
+  const isDark = theme === 'dark'
 
   html.setAttribute('data-theme', theme)
   iconLight?.classList.toggle('hidden', !isDark)
@@ -24,13 +24,12 @@ export function themeToggle() {
   const iconDark = document.getElementById('theme-btn-icon-dark')
 
   // init
-  const init = sessionStorage.getItem(KEY_THEME) === "dark" ? "dark" : "light"
+  const init = sessionStorage.getItem(KEY_THEME) === 'dark' ? 'dark' : 'light'
   themeChange({ theme: init, html, iconDark, iconLight })
 
   // toggle
   btn?.addEventListener('click', () => {
-    const theme = sessionStorage.getItem(KEY_THEME) === "dark" ? "light" : "dark"
+    const theme = sessionStorage.getItem(KEY_THEME) === 'dark' ? 'light' : 'dark'
     themeChange({ theme, html, iconDark, iconLight })
   })
 }
-

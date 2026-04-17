@@ -30,15 +30,15 @@ interface SiteOptions {
 }
 
 export const SITE: SiteOptions = {
-  title: "Judul Dari Pengguna",
-  description: "Deskripsi Dari Penggunaan"
+  title: 'Judul Dari Pengguna',
+  description: 'Deskripsi Dari Penggunaan'
 }
-````
+```
 
 Lalu tinggal pakai:
 
 ```ts
-import { SITE } from "./site.config.ts"
+import { SITE } from './site.config.ts'
 ```
 
 Beres 😁
@@ -50,11 +50,11 @@ Di kasusku, ada value yang sifatnya opsional, jadi aku harus sering bikin defaul
 Contoh:
 
 ```ts
-import { SITE } from "./site.config.ts"
+import { SITE } from './site.config.ts'
 
-const title = SITE.title || "Default Title"
-const description = SITE.description || "Default Deskripsi"
-const author = SITE.author || "Jono"
+const title = SITE.title || 'Default Title'
+const description = SITE.description || 'Default Deskripsi'
+const author = SITE.author || 'Jono'
 
 console.log(title)
 console.log(description)
@@ -83,9 +83,9 @@ interface SiteOptions {
 
 export default function createConfig(userConfig: SiteOptions): SiteOptions {
   const defaultConfig: SiteOptions = {
-    title: "Judul Bawaan",
-    description: "Deskripsi Bawaan",
-    author: "Jono"
+    title: 'Judul Bawaan',
+    description: 'Deskripsi Bawaan',
+    author: 'Jono'
   }
 
   return { ...defaultConfig, ...userConfig }
@@ -95,10 +95,10 @@ export default function createConfig(userConfig: SiteOptions): SiteOptions {
 ### 2. Gunakan di File Konfigurasi
 
 ```ts
-import createConfig from "./lib/create-config.ts"
+import createConfig from './lib/create-config.ts'
 
 export const SITE = createConfig({
-  title: "Judul Dari Pengguna"
+  title: 'Judul Dari Pengguna'
 })
 
 console.log(SITE)
@@ -135,12 +135,12 @@ npm install zod
 ### 2. Buat Schema Konfigurasi
 
 ```ts
-import * as z from "zod"
+import * as z from 'zod'
 
 const configSchema = z.object({
-  title: z.string().default("Judul Default"),
-  description: z.string().default("Deskripsi Default"),
-  author: z.string().default("Jono")
+  title: z.string().default('Judul Default'),
+  description: z.string().default('Deskripsi Default'),
+  author: z.string().default('Jono')
 })
 
 type ConfigInput = z.input<typeof configSchema>

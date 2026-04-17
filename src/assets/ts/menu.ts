@@ -6,10 +6,13 @@ export interface MenuChangeOptions {
 }
 
 export function menuChange({ open, menuElm, iconOpen, iconClose }: MenuChangeOptions) {
-  setTimeout(() => {
-    menuElm?.classList.toggle('hidden', open)
-    menuElm?.classList.toggle('hidden', !open)
-  }, !open ? 400 : 0)
+  setTimeout(
+    () => {
+      menuElm?.classList.toggle('hidden', open)
+      menuElm?.classList.toggle('hidden', !open)
+    },
+    !open ? 400 : 0
+  )
 
   setTimeout(() => {
     menuElm?.classList.toggle('scale-y-0', !open)
@@ -26,7 +29,7 @@ export function menuToggle() {
   const iconOpen = document.getElementById('menu-btn-icon-open')
   const iconClose = document.getElementById('menu-btn-icon-close')
 
-  btn?.addEventListener("click", (e) => {
+  btn?.addEventListener('click', (e) => {
     e.stopPropagation()
     open = !open
     menuChange({ open, menuElm, iconOpen, iconClose })

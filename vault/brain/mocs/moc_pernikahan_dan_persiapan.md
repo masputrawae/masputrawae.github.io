@@ -1,4 +1,3 @@
-
 ## Links
 
 - [[260327000646]] - Kesiapan mental dan finensial.
