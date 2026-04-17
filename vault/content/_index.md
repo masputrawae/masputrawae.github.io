@@ -13,13 +13,7 @@ pubDate: 2026-04-05
 updatedDate: 2026-04-05
 ---
 
-Nggak tahu?...., aku nggak terlalu bisa mendeskripsikan tentang diriku sendiri 😁.
-Atau mungkin beberapa hal berikut bisa membantu mencerminkan siapa diriku 😃👇
-
-- 🎓 Self-taught
-- 🤖 Like coding
-- 💡 Thinker
-- 😴 Lazy person
+Tempat yang sempurna bagi ku untuk mencurahkan isi hati dan pemikiran 😅. Atau mungkin cuma sebatas halaman kosong?, siapa yang tahu 🫢.
 
 Oh ya, sedikit-sedikit aku sedang mempelajari beberapa bahasa pemrograman,
 seperti **Go-lang** & **Python**. Atau kadang juga cuma tiduran seharian 😅,
