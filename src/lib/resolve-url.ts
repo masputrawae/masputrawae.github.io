@@ -1,11 +1,3 @@
-/**
- * config on astro.config.mjs
- * {
- *  site: "...",
- *  base: "..."
- * }
- *
- */
 const { BASE_URL, SITE } = import.meta.env
 
 /**
@@ -13,6 +5,7 @@ const { BASE_URL, SITE } = import.meta.env
  */
 export function relURL(raw: string | null | undefined): string {
   if (!raw) return BASE_URL
+
   const base = BASE_URL.endsWith('/') ? BASE_URL : BASE_URL + '/'
   const normalized = raw.replace(/^\/+/, '')
   return base + normalized

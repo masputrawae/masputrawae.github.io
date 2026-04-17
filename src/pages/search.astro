@@ -1,67 +1,49 @@
 ---
 import Search from 'astro-pagefind/components/Search'
-import { getCollection } from 'astro:content'
-import { Icon } from 'astro-icon/components'
-import Layout from '../layouts/Layout.astro'
-import { absURL, relURL } from '../utils/url'
-
-const posts = await getCollection('page')
-const tags = [
-  ...new Set(
-    posts
-      .filter((p) => p.data.tags)
-      .map((p) => p.data.tags)
-      .flat()
-  )
-]
-
-const tagURL = import.meta.env.BASE_URL + 'tag'
+import Base from '../layouts/Base.astro'
+import Prose from '../components/Prose.astro'
 ---
 
-<Layout title={'Search'} description={'Halaman Pencarian'} image={absURL('og-image/default.png')}>
-  <h1 class="text-center">Search</h1>
-  <Search id="search" />
-  <div class="mt-8">
-    <h2 class="text-center">Tags</h2>
-    <nav class="not-prose">
-      <ul class="flex flex-wrap items-center justify-center">
-        {
-          tags.map((t) => (
-            <li>
-              <a
-                href={relURL(`${tagURL}/${t}`)}
-                class="flex items-center gap-2 rounded-full px-4 py-2 text-sm hover:text-amber-600"
-              >
-                <Icon name="bi:tag" />
-                <span>{t}</span>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
+<Base title="Pencarian" description="Search page and contents">
+  <Prose>
+    <h1 class="border-b border-neutral-200 pb-8 text-center dark:border-neutral-800">
+      Apa yang kamu cari?
+    </h1>
+    <nav class="search-nav">
+      <Search id="search" className="pagefind-ui" />
     </nav>
-  </div>
-</Layout>
+  </Prose>
+</Base>
 
 <style is:global>
+  .search-nav {
+    display: grid;
+    place-items: center;
+  }
+
   .pagefind-ui {
     --pagefind-ui-scale: 0.75;
-    --pagefind-ui-primary: black;
+    --pagefind-ui-primary: var(--color-blue-700);
     --pagefind-ui-text: black;
-    --pagefind-ui-border: #e5e5e5;
+    --pagefind-ui-border: var(--color-neutral-300);
     --pagefind-ui-border-width: 1px;
     --pagefind-ui-border-radius: 0.25rem;
     --pagefind-ui-font: sans-serif;
 
-    width: 50%;
+    width: 100%;
   }
 
-  html[data-theme='dark'] .pagefind-ui {
-    --pagefind-ui-primary: #eeeeee;
-    --pagefind-ui-text: #eeeeee;
-    --pagefind-ui-background: #171717;
-    --pagefind-ui-border: #262626;
-    --pagefind-ui-tag: #404040;
+  [data-theme='dark'] .pagefind-ui {
+    --pagefind-ui-scale: 0.75;
+    --pagefind-ui-primary: var(--color-amber-400);
+    --pagefind-ui-text: var(--color-neutral-300);
+    --pagefind-ui-border: var(--color-neutral-700);
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: 0.25rem;
+    --pagefind-ui-font: sans-serif;
+    --pagefind-ui-background: var(--color-neutral-800);
+
+    width: 100%;
   }
 
   .pagefind-ui .pagefind-ui__drawer:not(.pagefind-ui__hidden) {
@@ -69,7 +51,7 @@ const tagURL = import.meta.env.BASE_URL + 'tag'
     left: 0;
     right: 0;
     margin-top: 0px;
-    z-index: 0;
+    z-index: 9999;
     padding: 0 2em 1em;
     overflow-y: auto;
     box-shadow:

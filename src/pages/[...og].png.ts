@@ -1,7 +1,7 @@
 import fs from 'fs/promises'
 import type { APIRoute } from 'astro'
 import { ImageResponse } from '@vercel/og'
-import { SITE } from '../../consts'
+import { SITE } from '../../site.config'
 import { getCollection } from 'astro:content'
 
 export const prerender = true
@@ -10,15 +10,13 @@ export const prerender = true
 const interRegular = await fs.readFile('./src/assets/fonts/Inter-Regular.ttf')
 const interBold = await fs.readFile('./src/assets/fonts/Inter-Bold.ttf')
 
-const logoBuffer = await fs.readFile(SITE.logo.source)
+const logoBuffer = await fs.readFile('./src/assets/images/logo.png')
 const logoBase64 = `data:image/png;base64,${logoBuffer.toString('base64')}`
 
 export async function getStaticPaths() {
-  const pages = await getCollection('page')
-  const sections = await getCollection('section')
-  const entries = [...pages, ...sections]
+  const entries = await getCollection('content')
   return entries.map((p) => ({
-    params: { path: p.id === '/' ? 'default' : p.id },
+    params: { og: `og-images/${p.id === '/' ? 'default' : p.id}` },
     props: {
       title: p.data.title,
       description: p.data.description,
@@ -43,7 +41,7 @@ export const GET: APIRoute = async ({ props }) => {
         justifyContent: 'space-between',
         background: 'radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000000 100%)',
         fontFamily: 'Inter',
-        padding: 60
+        padding: 70
       },
       children: [
         // Header: logo + site title

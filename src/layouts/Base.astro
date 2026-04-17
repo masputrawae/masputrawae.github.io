@@ -1,116 +1,75 @@
 ---
-// ./src/layouts/Base.astro
-
-import '../assets/css/global.css'
-import type { HTMLAttributes } from 'astro/types'
-import { ClientRouter } from 'astro:transitions'
+import '../assets/css/main.css'
 import { Font } from 'astro:assets'
 
-import { SITE } from '../consts'
-import { absURL } from '../utils/url'
+import HeaderWrapper from '../components/header/HeaderWrapper.astro'
+import HeaderBrand from '../components/header/HeaderBrand.astro'
+import HeaderMenu from '../components/header/HeaderMenu.astro'
+import HeaderNavWrapper from '../components/header/HeaderNavWrapper.astro'
+import HeaderButtons from '../components/header/HeaderButtons.astro'
+import HeaderBarriers from '../components/header/HeaderBarriers.astro'
+import MainWrapper from '../components/main/MainWrapper.astro'
+import FooterWrapper from '../components/footer/FooterWrapper.astro'
+import FooterCopyright from '../components/footer/FooterCopyright.astro'
+import FooterSocial from '../components/footer/FooterSocial.astro'
 
-export type Props = {
-  title: string
-  description: string
-  pageType?: 'website' | 'article' | 'product' | 'profile'
-  image?: string
-  keywords?: string[]
-  locale?: string
-  extend?: {
-    meta?: HTMLAttributes<'meta'>[]
-    link?: HTMLAttributes<'link'>[]
-  }
-}
-
-const {
-  title,
-  description,
-  image,
-  keywords,
-  extend,
-  pageType = 'website',
-  locale = SITE.languageCode
-} = Astro.props
-
-const extendLink = extend?.link
-const extendMeta = extend?.meta
-
-const { pathname } = Astro.url
-const canonicalURL = absURL(pathname)
+import Seo, { type Props as SeoProps } from '../components/Seo.astro'
+type Props = SeoProps
+const seo = Astro.props
 ---
 
 <!doctype html>
 <html
-  lang={SITE.languageCode}
+  lang="en"
   data-theme="dark"
   class:list={[
-    'font-sans scroll-smooth',
-    'bg-white text-neutral-800',
+    'scroll-smooth font-sans',
+    'bg-white text-neutral-800 transition-colors duration-300',
     'dark:bg-neutral-900 dark:text-neutral-300'
   ]}
 >
   <head>
-    <!-- Global Tag -->
+    <script is:inline>
+      const mQuery = window.matchMedia('(prefers-color-scheme: dark)')
+      const storage = sessionStorage.getItem('theme')
+      let theme
+
+      if (storage) {
+        theme = storage === 'dark' ? 'dark' : 'light'
+      } else {
+        theme = mQuery.matches ? 'dark' : 'light'
+      }
+
+      document.documentElement.setAttribute('data-theme', theme)
+      sessionStorage.setItem('theme', theme)
+    </script>
+
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
-    <meta name="author" content={SITE.author.name} />
-    <link rel="alternate" type="application/rss+xml" title={SITE.title} href={absURL('rss.xml')} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
 
-    <!-- (optional keywords) -->
-    {keywords && <meta name="keywords" content={keywords.join(', ')} />}
+    <Seo {...seo} />
 
-    <!-- Canocical -->
-    <link rel="canonical" href="https://example.com" />
-
-    <!-- Page Title -->
-    <title>{title}</title>
-
-    <!-- Open Graph -->
-    <meta property="og:site_name" content={SITE.title} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content={pageType} />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:locale" content={locale.replace('-', '_')} />
-    {
-      pageType == 'article' &&
-        keywords &&
-        keywords.map((i) => <meta property="article:tag" content={i} />)
-    }
-
-    <!-- (optional image) -->
-    {image && <meta property="og:image" content={image} />}
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:site" content={SITE.author.twitterX} />
-    <meta name="twitter:creator" content={SITE.author.twitterX} />
-
-    <!-- (optional image) -->
-    {image && <meta name="twitter:image" content={image} />}
-
-    <!-- (optional extend meta tag) -->
-    {extendMeta && extendMeta.map((i) => <meta {...i} />)}
-    {extendLink && extendLink.map((i) => <link {...i} />)}
-
-    <!-- Favicons -->
-    {SITE.favicons.map((i) => <link {...i} />)}
-
-    <!-- Fonts -->
     <Font cssVariable="--font-sans" preload />
-    <Font cssVariable="--font-sans" />
+    <Font cssVariable="--font-serif" />
     <Font cssVariable="--font-mono" />
-
-    <!-- ClientRouter -->
-    <ClientRouter />
-
-    <!-- Script -->
     <script src="../assets/ts/main.ts"></script>
   </head>
   <body>
-    <slot />
+    <HeaderWrapper>
+      <HeaderBrand />
+      <HeaderNavWrapper>
+        <HeaderMenu />
+        <HeaderBarriers />
+        <HeaderButtons />
+      </HeaderNavWrapper>
+    </HeaderWrapper>
+    <MainWrapper>
+      <slot />
+    </MainWrapper>
+    <FooterWrapper>
+      <FooterSocial />
+      <FooterCopyright />
+    </FooterWrapper>
   </body>
 </html>

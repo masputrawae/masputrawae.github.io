@@ -1,0 +1,22 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+type Props = HTMLAttributes<'a'>
+
+const { class: className, 'aria-disabled': ariaDisabled, ...attr } = Astro.props
+---
+
+<a
+  {...attr}
+  aria-disabled={ariaDisabled}
+  class:list={[
+    'inline-flex items-center gap-2 text-xs',
+    'rounded-md border px-3 py-1.5 transition',
+    ariaDisabled
+      ? 'pointer-events-none opacity-40'
+      : 'hover:bg-neutral-100 dark:hover:bg-neutral-700',
+    'md:text-base'
+  ]}
+>
+  <slot />
+</a>

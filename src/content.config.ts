@@ -1,44 +1,31 @@
-import { glob } from 'astro/loaders'
+import { defineCollection } from 'astro:content'
 import { z } from 'astro/zod'
-import { defineCollection, type ImageFunction } from 'astro:content'
+import { glob } from 'astro/loaders'
+import { genId } from './lib/gen-id'
+import { SITE } from '../site.config'
 
-import { SITE } from './consts'
-import { genID } from './utils/gen-id'
-
-// ----- Schema -----
-const schema = ({ image }: { image: ImageFunction }) =>
-  z.object({
+const content = defineCollection({
+  loader: glob({
+    base: `${SITE.vaultDir}/content`,
+    pattern: "**/*.{md,mdx}",
+    generateId: ({ entry }) => genId(entry)
+  }),
+  schema: ({ image }) => z.object({
     title: z.string(),
     description: z.string(),
+    pubDate: z.coerce.date(),
+
+    updatedDate: z.coerce.date().optional(),
 
     tags: z.array(z.string()).optional(),
     categories: z.array(z.string()).optional(),
-    heroImage: z.optional(image()),
 
-    pubDate: z.coerce.date().optional(),
-    updatedDate: z.coerce.date().optional(),
+    pinned: z.boolean().default(false),
+    draft: z.boolean().default(false),
+    weight: z.number().default(0),
 
-    draft: z.boolean().optional().default(false)
+    cover: image().optional()
   })
-
-// ----- Page -----
-const page = defineCollection({
-  loader: glob({
-    pattern: ['**/*{md,mdx}', '!**/*_index.{md,mdx}'],
-    base: SITE.contentDir,
-    generateId: ({ entry }) => genID(entry)
-  }),
-  schema: schema
 })
 
-// ----- Section -----
-const section = defineCollection({
-  loader: glob({
-    pattern: ['**/*_index.{md,mdx}'],
-    base: SITE.contentDir,
-    generateId: ({ entry }) => genID(entry)
-  }),
-  schema: schema
-})
-
-export const collections = { page, section }
+export const collections = { content }

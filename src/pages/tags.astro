@@ -1,0 +1,53 @@
+---
+import { buildTaxonomyIndex } from '../lib/taxonomy-term'
+import { relURL } from '../lib/resolve-url'
+
+import Base from '../layouts/Base.astro'
+import Prose from '../components/Prose.astro'
+import { getContents, getPages } from '../lib/content'
+import { SITE } from '../../site.config'
+
+const contents = await getContents()
+const pages = getPages(contents)
+const { tags } = buildTaxonomyIndex(pages)
+---
+
+<Base
+  title="Tags"
+  description={`Daftar tags yang ditemukan di situs: ${SITE.title}`}
+  pubDate={new Date()}
+  updatedDate={new Date()}
+>
+  <Prose>
+    <h1 class:list={['border-b pb-4 text-center', 'border-neutral-200', 'dark:border-neutral-800']}>
+      Tags
+    </h1>
+  </Prose>
+  <nav class="my-8 flex flex-wrap items-center justify-center gap-4">
+    {
+      tags.map((tag) => (
+        <a
+          href={relURL(`tag/${tag.id}`)}
+          class:list={[
+            'group flex items-center gap-2 rounded-full border px-3 py-1.5 shadow-xs transition-all duration-300',
+            'hover:text-black hover:shadow-xs/100',
+            'dark:hover:text-white',
+            'border-neutral-300',
+            'dark:border-neutral-700'
+          ]}
+        >
+          <span
+            class:list={[
+              'inline-flex h-6 w-6 items-center justify-center rounded-full border p-2 transition-all duration-300 group-hover:animate-spin',
+              'border-neutral-200',
+              'dark:border-neutral-800 dark:bg-neutral-950'
+            ]}
+          >
+            {tag.count}
+          </span>
+          <span>{tag.id}</span>
+        </a>
+      ))
+    }
+  </nav>
+</Base>

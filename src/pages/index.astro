@@ -1,80 +1,56 @@
 ---
-import { getCollection } from 'astro:content'
-import { SITE } from '../consts'
-import { findPageBySection } from '../utils/find-page-by-section'
-import { absURL, relURL } from '../utils/url'
-import type { CollectionEntry } from 'astro:content'
-import { getEntry } from 'astro:content'
-import { render } from 'astro:content'
+import { type CollectionEntry, render, getEntry } from 'astro:content'
+import { getContents, getSections, getSectionsWithPages } from '../lib/content'
+import { relURL } from '../lib/resolve-url'
 
-import Layout from '../layouts/Layout.astro'
-
-const home = (await getEntry('section', '/')) as CollectionEntry<'section'>
-const { data } = home
-const { Content } = await render(home)
-
-const entries = await getCollection('page')
-const blog = findPageBySection('blog', entries)
-  .filter((p) => p.data.pubDate && p.data.pubDate <= new Date())
-  .filter((p) => !p.data.draft)
-  .sort((a, b) => {
-    const aDate = a.data.pubDate?.getTime() || new Date(0).getTime()
-    const bDate = b.data.pubDate?.getTime() || new Date(0).getTime()
-    return bDate - aDate
-  })
-  .slice(0, 6)
-
-const notes = findPageBySection('notes', entries)
-  .filter((p) => p.data.pubDate && p.data.pubDate <= new Date())
-  .filter((p) => !p.data.draft)
-  .sort((a, b) => {
-    const aDate = a.data.pubDate?.getTime() || new Date(0).getTime()
-    const bDate = b.data.pubDate?.getTime() || new Date(0).getTime()
-    return bDate - aDate
-  })
-  .slice(0, 6)
-
-import { Picture } from 'astro:assets'
+import Base from '../layouts/Base.astro'
+import Prose from '../components/Prose.astro'
 import PostCard from '../components/PostCard.astro'
-import PostGrid from '../components/PostGrid.astro'
+
+const index = (await getEntry('content', '/')) as CollectionEntry<'content'>
+const { title, description, tags } = index.data
+const { Content } = await render(index)
+
+const contents = await getContents()
+const sections = getSections(contents)
+const sectionWithPages = getSectionsWithPages(sections, contents)
 ---
 
-<Layout title={SITE.title} description={data.description} image={absURL('og-image/default.png')}>
-  <article>
-    <header>
-      <h1>{data.title}</h1>
-      {
-        data.heroImage && (
-          <Picture
-            src={data.heroImage}
-            alt={data.title}
-            layout="constrained"
-            priority={true}
-            inferSize={true}
-            class:list={['rounded-sm shadow-sm/100']}
-          />
-        )
-      }
-    </header>
-    <section>
-      <Content />
-    </section>
-  </article>
-  <section>
-    <h2>Konten Terbaru</h2>
-    <PostGrid>
-      {blog.map((p) => <PostCard item={p} />)}
-    </PostGrid>
-    <br />
-    <a href={relURL('blog')} class="text-amber-600 dark:text-amber-400">👉 Lihat Lebih Banyak</a>
-  </section>
-
-  <section>
-    <h2>Catatan Terbaru</h2>
-    <PostGrid>
-      {notes.map((p) => <PostCard item={p} />)}
-    </PostGrid>
-    <br />
-    <a href={relURL('notes')} class="text-amber-600 dark:text-amber-400">👉 Lihat Lebih Banyak</a>
-  </section>
-</Layout>
+<Base title={title} description={description} keywords={tags}>
+  <Prose>
+    <h1>{title}</h1>
+    <Content />
+  </Prose>
+  {
+    sections.map((section) => {
+      const items = sectionWithPages.get(section.id) || []
+      return (
+        <section class="my-8">
+          <Prose>
+            <h2>
+              <span class="text-3xl">{section.data.title}</span>
+            </h2>
+            <nav class="not-prose grid gap-8 md:grid-cols-2">
+              {items.map((item) => <PostCard item={item} />).slice(0, 4)}
+            </nav>
+          </Prose>
+          <nav class="my-16 text-center">
+            <a
+              href={relURL(section.id)}
+              class:list={[
+                'flex items-center gap-2 rounded-lg text-xl font-semibold',
+                'inline-flex items-center justify-center border px-6 py-3.5',
+                'transition-all duration-300 hover:scale-105',
+                'border-neutral-200 shadow-xs/20 hover:bg-blue-700 hover:text-white',
+                'dark:border-neutral-800 dark:shadow-xs/100 dark:hover:bg-amber-700'
+              ]}
+            >
+              <span>Lihat Lebih Banyak</span>
+              <span class="sr-only">di {section.data.title}</span>
+            </a>
+          </nav>
+        </section>
+      )
+    })
+  }
+</Base>

@@ -1,0 +1,14 @@
+---
+import { type Page } from 'astro'
+import PaginationLink from './PaginationLink.astro'
+type Props = Page
+const { url, currentPage, lastPage } = Astro.props
+---
+
+<nav class="my-12 flex items-center justify-center gap-2">
+  <PaginationLink href={url.first ?? '#'} aria-disabled={!url.first}>First</PaginationLink>
+  <PaginationLink href={url.prev ?? '#'} aria-disabled={!url.prev}>Prev</PaginationLink>
+  <span class="px-3 py-1.5 text-neutral-600">{currentPage} / {lastPage}</span>
+  <PaginationLink href={url.next ?? '#'} aria-disabled={!url.next}>Next</PaginationLink>
+  <PaginationLink href={url.last ?? '#'} aria-disabled={!url.last}>Last</PaginationLink>
+</nav>

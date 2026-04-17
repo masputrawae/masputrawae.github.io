@@ -1,36 +1,39 @@
-interface MenuToggleType {
-  open?: boolean
-  menu?: HTMLElement | null
-  iOpen?: HTMLElement | null
-  iClose?: HTMLElement | null
+export interface MenuChangeOptions {
+  open: boolean
+  menuElm?: HTMLElement | null | undefined
+  iconOpen?: HTMLElement | null | undefined
+  iconClose?: HTMLElement | null | undefined
 }
 
-function menuToggle({ open, menu, iOpen, iClose }: MenuToggleType) {
-  menu?.classList.toggle('invisible', !open)
-  menu?.classList.toggle('scale-y-0', !open)
+export function menuChange({ open, menuElm, iconOpen, iconClose }: MenuChangeOptions) {
+  setTimeout(() => {
+    menuElm?.classList.toggle('hidden', open)
+    menuElm?.classList.toggle('hidden', !open)
+  }, !open ? 400 : 0)
 
-  iOpen?.classList.toggle('hidden', open)
-  iClose?.classList.toggle('hidden', !open)
+  setTimeout(() => {
+    menuElm?.classList.toggle('scale-y-0', !open)
+    iconOpen?.classList.toggle('hidden', open)
+    iconClose?.classList.toggle('hidden', !open)
+  }, 100)
 }
 
-export function menuHandler() {
-  // document element
-  const menu = document.getElementById('menu')
-  const btn = document.getElementById('btn-menu')
-  const iOpen = document.getElementById('icon-menu-open')
-  const iClose = document.getElementById('icon-menu-close')
-
-  // state
+export function menuToggle() {
   let open = false
 
-  btn?.addEventListener('click', (e) => {
+  const menuElm = document.getElementById('menu-elm')
+  const btn = document.getElementById('menu-btn')
+  const iconOpen = document.getElementById('menu-btn-icon-open')
+  const iconClose = document.getElementById('menu-btn-icon-close')
+
+  btn?.addEventListener("click", (e) => {
     e.stopPropagation()
     open = !open
-    menuToggle({ open, menu, iOpen, iClose })
+    menuChange({ open, menuElm, iconOpen, iconClose })
   })
 
   document.addEventListener('click', () => {
     open = false
-    menuToggle({ open, menu, iOpen, iClose })
+    menuChange({ open, menuElm, iconOpen, iconClose })
   })
 }

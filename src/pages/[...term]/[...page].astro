@@ -1,0 +1,59 @@
+---
+// src/pages/[...term]/[...page].astro
+//
+import type { GetStaticPaths } from 'astro'
+import { getContents, getPages } from '../../lib/content'
+import { buildTaxonomyIndex } from '../../lib/taxonomy-term'
+
+import Base from '../../layouts/Base.astro'
+import Prose from '../../components/Prose.astro'
+import PostCard from '../../components/PostCard.astro'
+import PaginationNav from '../../components/pagination/PaginationNav.astro'
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const contents = await getContents()
+  const pages = getPages(contents)
+  const index = buildTaxonomyIndex(pages)
+
+  const allPaths = []
+  // ===== TAGS =====
+  for (const tag of index.tags) {
+    const pages = index.pagesByTag.get(tag.id) || []
+    const paginated = paginate(pages, {
+      params: { term: `tag/${tag.id}` },
+      props: { entry: tag, taxonomy: 'Tag' },
+      pageSize: 8
+    })
+    allPaths.push(...paginated)
+  }
+
+  // ===== CATEGORIES =====
+  for (const category of index.categories) {
+    const pages = index.pagesByCategory.get(category.id) || []
+    const paginated = paginate(pages, {
+      params: { term: `category/${category.id}` },
+      props: { entry: category, taxonomy: 'Category' },
+      pageSize: 8
+    })
+    allPaths.push(...paginated)
+  }
+  return allPaths
+}) satisfies GetStaticPaths
+
+const { entry, page, taxonomy } = Astro.props
+---
+
+<Base
+  title={`${taxonomy}: ${entry.id}`}
+  description={`Daftar postingan dengan ${taxonomy}: ${entry.id}`}
+  pubDate={new Date()}
+  updatedDate={new Date()}
+>
+  <Prose>
+    <h1>{entry.id}</h1>
+    <div class="not-prose grid gap-8 md:grid-cols-2">
+      {page.data.map((i) => <PostCard item={i} />)}
+    </div>
+  </Prose>
+  {page.lastPage !== 1 && <PaginationNav {...page} />}
+</Base>

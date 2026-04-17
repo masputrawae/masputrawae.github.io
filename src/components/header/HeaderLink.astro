@@ -1,0 +1,30 @@
+---
+import { Icon } from 'astro-icon/components'
+import { relURL } from '../../lib/resolve-url'
+
+type Props = {
+  name: string
+  href: string
+  icon: string
+}
+
+const { pathname: p } = Astro.url
+const { BASE_URL: b } = import.meta.env
+const { name, href, icon } = Astro.props
+
+const isActive = href === p || (p.startsWith(href) && href !== b)
+---
+
+<li
+  class:list={[
+    'transition-colors duration-300',
+    'hover:text-blue-600',
+    'dark:hover:text-amber-500',
+    isActive ? 'text-blue-700 dark:text-amber-400' : 'text-neutral-700 dark:text-neutral-300'
+  ]}
+>
+  <a href={relURL(href)} class:list={['flex items-center gap-2 font-medium']}>
+    <Icon class="md:hidden" name={icon} size={18} />
+    <span class="text-lg">{name}</span>
+  </a>
+</li>

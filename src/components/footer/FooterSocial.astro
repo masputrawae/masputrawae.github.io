@@ -1,28 +1,19 @@
 ---
 import { Icon } from 'astro-icon/components'
-import { SITE } from '../../consts'
-import { getMenuIcon } from '../../utils/get-menu-icon'
-const { social } = SITE.menus
+import { SITE } from '../../../site.config'
 ---
 
 <nav class="flex items-center justify-center gap-4">
   {
-    social.map((s) => {
-      const { name, class: cls, ...attr } = s
-      const { name: n, icon: i } = getMenuIcon(name)
-      return (
-        <a
-          {...attr}
-          class:list={[
-            'flex items-center',
-            'text-black hover:text-amber-600',
-            'dark:text-white hover:text-amber-500'
-          ]}
-        >
-          <Icon name={i} size={26} />
-          <span class="sr-only">{n}</span>
-        </a>
-      )
-    })
+    SITE.social.map((s) => (
+      <a
+        href={s.href}
+        target="_blank"
+        class:list={['hover:text-blue-700', 'dark:hover:text-amber-400']}
+      >
+        <Icon name={s.icon} size={28} />
+        <span class="sr-only">{s.name}</span>
+      </a>
+    ))
   }
 </nav>

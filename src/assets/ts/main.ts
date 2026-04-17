@@ -1,11 +1,13 @@
-import { menuHandler } from './menu'
-import { themeHandler } from './theme'
+import { menuToggle } from "./menu"
+import { themeToggle } from "./theme"
 
+// main function
 function main() {
-  document.addEventListener('astro:page-load', () => {
-    themeHandler()
-    menuHandler()
+  document.addEventListener('DOMContentLoaded', () => {
+    themeToggle()
+    menuToggle()
   })
 }
 
 main()
+

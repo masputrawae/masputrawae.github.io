@@ -1,49 +1,92 @@
 ---
-import { getCollection } from 'astro:content'
-import Layout from '../layouts/Layout.astro'
+import type { GetStaticPaths } from 'astro'
+import { getContents, getPages } from '../lib/content'
 import { render } from 'astro:content'
-import { absURL } from '../utils/url'
+
+import Base from '../layouts/Base.astro'
+import Prose from '../components/Prose.astro'
+import { relURL } from '../lib/resolve-url'
+import { Icon } from 'astro-icon/components'
 import { Picture } from 'astro:assets'
+import { formattedDate } from '../lib/formatted-date'
 
-export async function getStaticPaths() {
-  const pages = await getCollection('page')
+export const getStaticPaths = (async () => {
+  const contents = await getContents()
+  const pages = getPages(contents)
 
-  return pages
-    .filter((p) => p.id != '/')
-    .map((p) => ({
+  return [
+    ...pages.map((p) => ({
       params: { page: p.id },
       props: p
     }))
-}
+  ]
+}) satisfies GetStaticPaths
 
-const pages = Astro.props
-const { data } = pages
-const { Content } = await render(pages)
+const page = Astro.props
+const { title, description, pubDate, updatedDate, tags, cover } = page.data
+const { Content, remarkPluginFrontmatter: rpf } = await render(page)
 ---
 
-<Layout
-  title={data.title}
-  description={data.description}
-  image={absURL(`og-image/${pages.id}.png`)}
-  keywords={data.tags}
+<Base
+  title={title}
+  description={description}
+  pubDate={pubDate}
+  updatedDate={updatedDate}
+  keywords={tags}
+  ogImage={relURL(`og-images/${page.id}.png`)}
   pageType="article"
 >
   <article>
-    <header>
-      <h1>{data.title}</h1>
-      {
-        data.heroImage && (
-          <Picture
-            src={data.heroImage}
-            alt={data.title}
-            layout="constrained"
-            priority={true}
-            inferSize={true}
-            class:list={['rounded-sm']}
-          />
-        )
-      }
-    </header>
-    <Content />
+    {
+      tags && (
+        <nav class="flex flex-wrap items-center gap-2 py-6">
+          {tags.map((i) => (
+            <a
+              href={relURL(`tag/${i}`)}
+              class:list={[
+                'inline-flex items-center gap-2 border text-xs no-underline',
+                'rounded-full border-neutral-300 px-3 py-1 shadow-xs',
+                'dark:border-neutral-700 dark:shadow-xs/100'
+              ]}
+            >
+              <Icon name="bi:tag-fill" />
+              <span>{i}</span>
+            </a>
+          ))}
+        </nav>
+      )
+    }
+
+    <Prose>
+      <header>
+        <h1 class="md:text-6xl">{title}</h1>
+        <p class="font-medium text-neutral-700 md:text-lg dark:text-neutral-400">{description}</p>
+        <div class="flex flex-wrap items-center gap-4">
+          <time datetime={pubDate.toISOString()} class="inline-flex items-center gap-2">
+            <Icon name="bi:calendar4" />
+            <span>{formattedDate(pubDate)}</span>
+          </time>
+          <p class="inline-flex items-center gap-2">
+            <Icon name="bi:clock-history" />
+            <span>{rpf.minutesRead}</span>
+          </p>
+        </div>
+        {
+          cover && (
+            <Picture
+              src={cover}
+              alt={title}
+              inferSize={true}
+              priority={true}
+              quality={'max'}
+              formats={['webp', 'avif']}
+              class:list={['rounded-xl shadow-xs', 'dark:shadow-xs/100']}
+            />
+          )
+        }
+        <hr />
+      </header>
+      <Content />
+    </Prose>
   </article>
-</Layout>
+</Base>

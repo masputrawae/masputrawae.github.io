@@ -23,6 +23,5 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-# Obsidian
-.obsidian
-.trash
+# symlink vault
+vault

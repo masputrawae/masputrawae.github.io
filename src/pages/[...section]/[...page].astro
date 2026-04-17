@@ -1,0 +1,60 @@
+---
+import type { GetStaticPaths } from 'astro'
+import { render, type CollectionEntry } from 'astro:content'
+
+import { getContents, getSections, getSectionsWithPages } from '../../lib/content'
+
+import Base from '../../layouts/Base.astro'
+import Prose from '../../components/Prose.astro'
+import PostCard from '../../components/PostCard.astro'
+import PaginationNav from '../../components/pagination/PaginationNav.astro'
+import { relURL } from '../../lib/resolve-url'
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const contents = await getContents()
+  const sections = getSections(contents)
+  const sectionWithPages = getSectionsWithPages(sections, contents)
+
+  const sectionIds = sections.map(({ id }) => id)
+  const allPaths = []
+
+  for (const s of sectionIds) {
+    const posts = sectionWithPages.get(s) || []
+
+    const paginated = paginate(posts, {
+      params: { section: s },
+      props: {
+        entry: sections.find((sec) => sec.id === s) as CollectionEntry<'content'>
+      },
+      pageSize: 8
+    })
+
+    allPaths.push(...paginated)
+  }
+
+  return allPaths
+}) satisfies GetStaticPaths
+
+const { page, entry } = Astro.props
+const { Content } = page.currentPage === 1 ? await render(entry) : {}
+const { title, description, pubDate, updatedDate, tags } = entry.data
+---
+
+<Base
+  title={title}
+  description={description}
+  pubDate={pubDate}
+  updatedDate={updatedDate}
+  keywords={tags}
+  ogImage={relURL(`og-images/${entry.id}.png`)}
+>
+  <Prose>
+    <h1>{entry.data.title}</h1>
+    {Content && <Content />}
+    {Content && <hr />}
+  </Prose>
+  <nav class="not-prose my-8 grid gap-8 md:grid-cols-2">
+    {page.data.map((item) => <PostCard item={item} />)}
+  </nav>
+  {page.lastPage !== 1 && <PaginationNav {...page} />}
+</Base>

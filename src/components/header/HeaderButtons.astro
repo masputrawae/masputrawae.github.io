@@ -1,0 +1,30 @@
+---
+import { Icon } from 'astro-icon/components'
+
+import { relURL } from '../../lib/resolve-url'
+
+const className = {
+  btn: [
+    'flex items-center cursor-pointer',
+    'text-black hover:text-blue-700',
+    'dark:text-white dark:hover:text-amber-400'
+  ]
+}
+---
+
+<div class:list={['flex items-center justify-center gap-4']}>
+  <a href={relURL('search')} class:list={[...className.btn]}>
+    <Icon name="bi:search" size={18} />
+    <span class="sr-only"> Search... </span>
+  </a>
+  <button id="theme-btn" class:list={[...className.btn]}>
+    <Icon name="bi:sun" size={20} id="theme-btn-icon-light" />
+    <Icon name="bi:moon-stars" size={20} id="theme-btn-icon-dark" class="hidden" />
+    <span class="sr-only">Theme Toggle</span>
+  </button>
+  <button id="menu-btn" class:list={[...className.btn, 'md:hidden']}>
+    <Icon name="bi:list" size={24} id="menu-btn-icon-open" />
+    <Icon name="bi:x" class="hidden" size={24} id="menu-btn-icon-close" />
+    <span class="sr-only">Menu Toggle</span>
+  </button>
+</div>

@@ -1,8 +1,20 @@
 ---
-import { SITE } from '../../consts'
-const { copyright } = SITE
+import { SITE } from '../../../site.config'
+const { license, year, url } = SITE.copyright
+const { name } = SITE.author
 ---
 
-<aside class="text-sm text-center">
-  <p>{copyright}</p>
+<aside>
+  <p class="text-center text-sm">
+    <span>Copyright &copy; {year} <a href={SITE.baseURL} class="underline">{name}</a>.</span>
+    {
+      url ? (
+        <a href={url} class="underline">
+          {license}
+        </a>
+      ) : (
+        <span>{license}</span>
+      )
+    }
+  </p>
 </aside>

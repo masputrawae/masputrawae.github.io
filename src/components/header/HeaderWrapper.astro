@@ -1,11 +1,7 @@
 <header
-  class:list={[
-    'border-b fixed top-0 left-0 w-full z-100',
-    'border-neutral-200 bg-white',
-    'dark:border-neutral-700 dark:bg-neutral-900'
-  ]}
+  class:list={['relative border-b', 'border-neutral-200 shadow-xs', 'dark:border-neutral-800']}
 >
-  <div class:list={['container mx-auto px-4 min-h-20', 'flex items-center justify-between']}>
+  <div class:list={['container mx-auto min-h-20 px-4', 'flex items-center justify-between']}>
     <slot />
   </div>
 </header>

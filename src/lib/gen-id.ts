@@ -1,6 +1,8 @@
+// src/lib/gen-id.ts
+
 import GithubSlugger from 'github-slugger'
 
-export function genID(raw: string): string {
+export function genId(raw: string): string {
   if (!raw || !raw.trim()) return ''
 
   const slugger = new GithubSlugger()

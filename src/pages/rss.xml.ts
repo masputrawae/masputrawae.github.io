@@ -1,19 +1,21 @@
-import rss from '@astrojs/rss'
-import { getCollection } from 'astro:content'
-import { SITE } from '../consts.ts'
-import { absURL } from '../utils/url'
+import rss from '@astrojs/rss';
+import { relURL } from '../lib/resolve-url';
+import { SITE } from '../../site.config';
+import { getContents } from '../lib/content';
+import { getEntry, type CollectionEntry } from 'astro:content';
 
 export async function GET(context: any) {
-  const pages = await getCollection('page')
-  const sections = await getCollection('section')
-  const all = [...pages, ...sections]
+  const posts = await getContents();
+  const index = await getEntry('content', '/') as CollectionEntry<'content'>
+
   return rss({
     title: SITE.title,
-    description: SITE.description,
+    description: index.data.description,
     site: context.site,
-    items: all.map((p) => ({
-      ...p.data,
-      link: absURL(p.id)
-    }))
-  })
+    items: posts.map((post) => ({
+      ...post.data,
+      link: relURL(post.id),
+      author: SITE.author.name,
+    })),
+  });
 }
