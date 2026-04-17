@@ -4,6 +4,8 @@ export const SITE = createConfig({
   baseURL: new URL('https://masputrawae.github.io/'),
   title: 'Cah Bagus',
   subtitle: 'Hanya Manusia Biasa',
+  langCode: "id",
+  locale: "id-ID",
   author: {
     name: 'Putra Jaya',
     twitterX: '@masputrawae'
