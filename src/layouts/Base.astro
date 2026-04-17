@@ -1,7 +1,9 @@
 ---
 import '../assets/css/main.css'
 import { Font } from 'astro:assets'
+import { SITE } from '../../site.config'
 
+import Seo, { type Props as SeoProps } from '../components/Seo.astro'
 import HeaderWrapper from '../components/header/HeaderWrapper.astro'
 import HeaderBrand from '../components/header/HeaderBrand.astro'
 import HeaderMenu from '../components/header/HeaderMenu.astro'
@@ -13,14 +15,13 @@ import FooterWrapper from '../components/footer/FooterWrapper.astro'
 import FooterCopyright from '../components/footer/FooterCopyright.astro'
 import FooterSocial from '../components/footer/FooterSocial.astro'
 
-import Seo, { type Props as SeoProps } from '../components/Seo.astro'
 type Props = SeoProps
 const seo = Astro.props
 ---
 
 <!doctype html>
 <html
-  lang="en"
+  lang={SITE.langCode}
   data-theme="dark"
   class:list={[
     'scroll-smooth font-sans',
