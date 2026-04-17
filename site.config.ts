@@ -1,6 +1,7 @@
 import { createConfig } from './src/lib/create-config'
 
 export const SITE = createConfig({
+  baseURL: new URL('https://masputrawae.github.io/'),
   title: 'Cah Bagus',
   subtitle: 'Hanya Manusia Biasa',
   author: {
