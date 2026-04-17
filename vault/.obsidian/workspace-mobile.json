@@ -1,0 +1,209 @@
+{
+  "main": {
+    "id": "c4cce4e59f1cf693",
+    "type": "split",
+    "children": [
+      {
+        "id": "13b6a06684640f4d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a7b1d58227311e95",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "brain/inbox/260416202530.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "260416202530"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "6c6ae0674ba5d0e5",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "0728d7e26dbadc7e",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "alphabetical",
+            "autoReveal": false
+          },
+          "icon": "lucide-folder-closed",
+          "title": "Penjelajah berkas"
+        }
+      },
+      {
+        "id": "f28624b81addd36a",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          },
+          "icon": "lucide-search",
+          "title": "Penelusuran"
+        }
+      },
+      {
+        "id": "808294c37a18d15f",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true,
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-tags",
+          "title": "Tag"
+        }
+      },
+      {
+        "id": "0fe5b11158f0926f",
+        "type": "leaf",
+        "state": {
+          "type": "all-properties",
+          "state": {
+            "sortOrder": "frequency",
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-archive",
+          "title": "Semua properti"
+        }
+      },
+      {
+        "id": "5d741fcc954668cd",
+        "type": "leaf",
+        "state": {
+          "type": "bookmarks",
+          "state": {},
+          "icon": "lucide-bookmark",
+          "title": "Penanda"
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "1f2c60de1472cd18",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "ce6ed3922645196d",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "brain/inbox/260416101303.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-coming-in",
+          "title": "Backlink"
+        }
+      },
+      {
+        "id": "a95ef09387e4d754",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "file": "README.md",
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-going-out",
+          "title": "Tautan Keluar"
+        }
+      },
+      {
+        "id": "2602ccb757620ba4",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {
+            "file": "README.md",
+            "followCursor": false,
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-list",
+          "title": "Kerangka"
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Buka peralih cepat": false,
+      "graph:Buka tampilan grafik": false,
+      "templates:Masukkan template": false,
+      "command-palette:Buka palet perintah": false,
+      "bases:Buat basis baru": false,
+      "zk-prefixer:Buat catatan unik baru": false
+    }
+  },
+  "active": "a7b1d58227311e95",
+  "lastOpenFiles": [
+    "brain/inbox/260416202530.md",
+    "brain/inbox/260416101303.md",
+    "brain/inbox/260416100627.md",
+    "brain/inbox/260415135459.md",
+    "brain/inbox/260414202145.md",
+    "brain/inbox/260414201821.md",
+    "brain/core/260414201731.md",
+    "brain/mocs/moc_sosial_dan_kehidupan.md",
+    "brain/inbox/260414194857.md",
+    "brain/inbox/260414201159.md",
+    "brain/inbox/260413120655.md",
+    "brain/inbox/260413100611.md",
+    "brain/inbox/260410213738.md",
+    "brain/inbox/260404164117.md",
+    "brain/core/260403132043.md",
+    "brain/mocs/moc_pernikahan_dan_persiapan.md",
+    "brain/mocs/moc_membangun_kebiasaan_mencatat.md",
+    "brain/inbox/260402011654.md",
+    "brain/inbox/260328232353.md",
+    "brain/inbox/260309073408.md",
+    "brain/mocs/moc_rumah_tangga_dan_kesiapan.md",
+    "brain/mocs/moc_etika_dan_perilaku.md",
+    "brain/inbox/260416203109.md",
+    "brain/core/260416204116.md",
+    "brain/mocs/moc_teknik_belajar.md",
+    "brain/core/260416204247.md",
+    "BASE.CONTENT.base",
+    "content/notes",
+    "brain/core",
+    "bases/content.base",
+    "bases",
+    "content/notes/projects/write-first-obsidian",
+    "content/notes/projects",
+    "content/docs",
+    "assets/pdf",
+    "assets/images"
+  ]
+}

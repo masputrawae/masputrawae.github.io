@@ -8,3 +8,4 @@ Memahami permasalahan dan mencari jalan serta sikap yang baik untuk penyelesainn
 - [[260317001822]] - Overthinking vs Panic Action.
 - [[260403132839]] - Pandai berteori != pandai implementasi.
 - [[260403134501]] - Pengalaman dan Strategi.
+- [[260416204247]] - Kompleksitas yang tidak terduga

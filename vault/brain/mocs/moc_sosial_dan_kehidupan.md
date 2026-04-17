@@ -30,3 +30,4 @@ Pembahasan soal bagaimana kita bisa hidup tanpa merugikan orang lain, dan bagaim
 - [[260322164420]] - Konsekuensi dari kesalahan tindakan dan perilaku.
 - [[260309071734]] - Hukum dan aturan untuk membatasi perilaku yang merugikan.
 - [[260403135237]] - Penampilan yang mengubah sudut pandang orang lain terhadap kita.
+- [[260414201731]] - Adat dan budaya bukan acuan pasti, namun opsional.

@@ -9,3 +9,4 @@ Tidak ada teknik khusus untuk belajar, setiap orang mempunyai preferensi masih-m
 - [[260318231723]] - Capture ide secepatnya.
 - [[260309071955]] - Kesalahan adalah pengalaman.
 - [[260320055202]] - Apakah wajib menghafal aritmatika?.
+- [[260416204116]] - Keterlambatan keinginan untuk belajar.
