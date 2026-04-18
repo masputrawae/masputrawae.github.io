@@ -31,3 +31,6 @@ Pembahasan soal bagaimana kita bisa hidup tanpa merugikan orang lain, dan bagaim
 - [[260309071734]] - Hukum dan aturan untuk membatasi perilaku yang merugikan.
 - [[260403135237]] - Penampilan yang mengubah sudut pandang orang lain terhadap kita.
 - [[260414201731]] - Adat dan budaya bukan acuan pasti, namun opsional.
+- [[260418131316]] - Belajar untuk tidak memperdulikan omongan seseorang.
+- [[260414201821]] - Lelah dan kekecewaan karena tidak pernah didengarkan.
+- [[260414202145]] - Mundur ketika sudah tidak diperlukan.

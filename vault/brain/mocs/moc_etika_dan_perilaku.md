@@ -14,3 +14,4 @@ Masalah moral, etika dan perilaku manusia. Mulai dari permasalahan, langkah terb
 - [[260322205549]] - Perduli/khawatir tidak berarti mengambil kendali atas pilihan orang lain.
 - [[260322164420]] - Konsekuensi dari kesalahan tindakan dan perilaku.
 - [[260309071734]] - Hukum dan aturan untuk membatasi perilaku yang merugikan.
+- [[260413100611]] - Sewa sound system murah namun lebih taat aturan.
