@@ -10,7 +10,11 @@ pubDate: 2025-12-27T05:51:41+07:00
 updatedDate: 2025-12-30T00:36:38+07:00
 ---
 
-Kemarin sempat membahas tentang [[Satu SSG Yang Keren]] yaitu Astro. Entah kenapa, selama iseng-iseng mencoba bikin blog, rasanya nyaman. Aku juga sempat bilang bahwa kemungkinan besar aku **tidak akan memindahkan website ini dari Hugo ke Astro**, tapi sepertinya sekarang aku mulai berubah pikiran 🤔.
+Kemarin sempat membahas tentang:
+
+- [[AstroJS - Pengalaman SSG Keren & Fitur Unggulan]]
+
+Entah kenapa, selama iseng-iseng mencoba bikin blog, rasanya nyaman. Aku juga sempat bilang bahwa kemungkinan besar aku **tidak akan memindahkan website ini dari Hugo ke Astro**, tapi sepertinya sekarang aku mulai berubah pikiran 🤔.
 
 ## Alasan kuat ingin migrasi ke Astro
 
@@ -114,6 +118,6 @@ Hugo dan Astro hanyalah alat. Tools yang tepat akan mempermudah pekerjaan, semen
 
 ## Related
 
-- [[Satu SSG Yang Keren]]
+- [[AstroJS - Pengalaman SSG Keren & Fitur Unggulan]]
 - [[Kebutuhan vs Keinginan]]
-- [[Akhirnya Migrasi ke Astro]]
+- [[Migrasi ke Astro - Dari Hugo ke Astro Build]]

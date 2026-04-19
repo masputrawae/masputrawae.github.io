@@ -53,4 +53,4 @@ Semoga bermanfaat 😊
 
 ## Postingan Menarik Lainnya
 
-- [[Alasanku Suka Menulis Di Obsidian]]
+- [[Mengapa Saya Suka Menulis di Obsidian - Pengalaman Belajar]]

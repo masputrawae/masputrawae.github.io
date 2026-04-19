@@ -6,6 +6,7 @@ tags:
   - hukum
   - sosial
   - etika
+  - refleksi
 pubDate: 2025-12-19T16:50:22+07:00
 updatedDate: 2026-03-16
 ---
@@ -40,7 +41,7 @@ bahwa kebebasan kita berhenti ketika mulai mengganggu orang lain.
 
 - [[Fomo Hajatan Pernikahan di Desaku]]
 - [[Kebutuhan vs Keinginan]]
-- [[Tentang Memahami Orang Lain (dan Batasannya)]]
-- [[Antara Gengsi dan Kenyamanan dalam Hajatan]]
+- [[Memahami Orang Lain dan Batasannya - Komunikasi & Adaptasi Sosial]]
+- [[Gengsi vs Kenyamanan Hajatan - Refleksi Sosial]]
 
 [^1]: [[Fomo Hajatan Pernikahan di Desaku]]

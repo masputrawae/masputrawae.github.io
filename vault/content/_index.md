@@ -13,8 +13,6 @@ pubDate: 2026-04-05
 updatedDate: 2026-04-05
 ---
 
-Tempat yang sempurna bagi ku untuk mencurahkan isi hati dan pemikiran 😅. Atau mungkin cuma sebatas halaman kosong?, siapa yang tahu 🫢.
-
-Oh ya, sedikit-sedikit aku sedang mempelajari beberapa bahasa pemrograman,
+Tempat yang sempurna bagi ku untuk mencurahkan isi hati dan pemikiran 😅. Atau mungkin cuma sebatas halaman kosong?, siapa yang tahu 🫢. Oh ya, sedikit-sedikit aku sedang mempelajari beberapa bahasa pemrograman,
 seperti **Go-lang** & **Python**. Atau kadang juga cuma tiduran seharian 😅,
 dan _Seni tidak melakukan apa-apa_ 🧘.

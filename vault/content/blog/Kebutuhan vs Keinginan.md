@@ -63,4 +63,4 @@ Dan itu adalah bentuk **kesadaran diri** yang banyaknya orang kehilangan hal ter
 - [[Kebisingan Izin dan Etika Hidup Bermasyarakat]]
 - [[Dari Mau Nangis Kejebak Vim Sampai Jadi Pecandu Berat]]
 - [[Cobain Arch Linux]]
-- [[Antara Gengsi dan Kenyamanan dalam Hajatan]]
+- [[Gengsi vs Kenyamanan Hajatan - Refleksi Sosial]]

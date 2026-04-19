@@ -1,12 +1,16 @@
 ---
-title: Dalang Tidak Kencing Semalaman
-description: Pembahasan mitos yang beredar di masyarakat, tentang seorang dalang yang tidak kencing semalaman
+title: Mitos Dalang Tak Kencing Semalaman - Fakta atau Fiksi?
+description: Ungkap misteri dalang tak buang air kecil semalam suntuk. Pembahasan logis mitos populer ini. Cari tahu kebenarannya di sini!
 cover: https://res.cloudinary.com/mpw-img/image/upload/v1776002665/wayang_kulit_illustration_arxc70.jpg
 tags:
   - sosial
+  - dalang
+  - kencing
+  - mitos
+  - fakta
   - budaya
   - wayang
-  - mitos
+  - penjelasan_logis
 pubDate: 2025-12-15T15:56:18+07:00
 updatedDate: 2025-12-30T00:37:06+07:00
 ---

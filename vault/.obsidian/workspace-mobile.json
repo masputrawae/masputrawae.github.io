@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "02edf12cdf5438cf",
+        "id": "9f066621a8e11357",
         "type": "tabs",
         "children": [
           {
-            "id": "155bfc362cdaa6e2",
+            "id": "b11a3f9917e3809d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "brain/inbox/260418180529.md",
+                "file": "content/blog/Mencatat Itu Menyenangkan.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "260418180529"
+              "title": "Mencatat Itu Menyenangkan"
             }
           }
         ]
@@ -112,7 +112,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "260418142331.md",
+            "file": "content/blog/Mitos Dalang Tak Kencing Semalaman - Fakta atau Fiksi.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -167,36 +167,36 @@
       "zk-prefixer:Buat catatan unik baru": false
     }
   },
-  "active": "155bfc362cdaa6e2",
+  "active": "b11a3f9917e3809d",
   "lastOpenFiles": [
-    "brain/references/kutipan/Guru Terbaik.md",
-    "brain/inbox/260418180529.md",
-    "brain/references/kutipan",
-    "brain/inbox/260418180345.md",
-    "content/blog/Anak Tidak Butuh Sempurna, Tapi Butuh Kehadiran.md",
-    "content/blog/Alasanku Suka Menulis Di Obsidian.md",
-    "content/blog/Antara Gengsi dan Kenyamanan dalam Hajatan.md",
-    "brain/core/260416204247.md",
-    "brain/core/260414202145.md",
-    "brain/core/260413100611.md",
-    "brain/core/260322161930.md",
-    "brain/core/260309070611.md",
-    "brain/core/260309065610.md",
-    "brain/inbox/260418142331.md",
-    "brain/inbox/260418142156.md",
-    "brain/core/260413214854.md",
-    "brain/mocs/moc_membangun_kebiasaan_mencatat.md",
-    "brain/mocs/moc_memaknai_kata.md",
-    "brain/mocs/moc_teknik_belajar.md",
-    "brain/core/260321021754.md",
-    "brain/mocs/moc_etika_dan_perilaku.md",
-    "brain/references/quran/al-baqarah (2-275).md",
-    "brain/inbox/260402011654.md",
-    "brain/inbox/260328232353.md",
-    "brain/inbox/260404164117.md",
-    "brain/inbox/260413120655.md",
-    "brain/inbox/260416203109.md",
+    "content/blog/Membebaskan Diri Dari Tutorial Hell.md",
+    "content/blog/Kekonyolan Yang Sering Aku Alami Part 2.md",
+    "content/blog/Kekonyolan Yang Sering Aku Alami Part 1.md",
+    "content/blog/Kebutuhan vs Keinginan.md",
+    "content/blog/Mitos Dalang Tak Kencing Semalaman - Fakta atau Fiksi.md",
+    "content/blog/Sepotong Kata Yang Membuat Ku Sedih.md",
+    "content/blog/Pengalaman 1 Bulan Ngulik AstroJS.md",
+    "content/blog/AstroJS - Pengalaman SSG Keren & Fitur Unggulan.md",
+    "content/blog/Motivasi Belajar.md",
+    "content/blog/Migrasi ke Astro - Dari Hugo ke Astro Build.md",
+    "content/notes/Mengelola Konfigurasi di Proyek JavaScript.md",
+    "content/notes/Bikin Dark Mode Website Tanpa Ribet.md",
+    "content/blog/Dari Mau Nangis Kejebak Vim Sampai Jadi Pecandu Berat.md",
+    "content/blog/Cobain Arch Linux.md",
+    "content/blog/Ego dalam Rumah Tangga - Komunikasi & Kerjasama Kunci Harmoni.md",
+    "content/blog/Fomo Hajatan Pernikahan di Desaku.md",
+    "content/blog/Ingin Jadi Programmer Tapi Enggan Ngoding.md",
+    "content/blog/Kebisingan Izin dan Etika Hidup Bermasyarakat.md",
+    "content/blog/Memahami Orang Lain dan Batasannya - Komunikasi & Adaptasi Sosial.md",
+    "content/blog/Mencatat Itu Menyenangkan.md",
+    "content/blog/Mengapa Saya Suka Menulis di Obsidian - Pengalaman Belajar.md",
+    "content/blog/Mengapa Saya Tetap Bertahan di Hugo - Pengalaman & Alasan.md",
+    "content/blog/Nilai Hanyalah Angka.md",
+    "content/blog/Gengsi vs Kenyamanan Hajatan - Refleksi Sosial.md",
+    "content/blog/Jatuh Cinta Pada TailwindCSS.md",
+    "content/blog/Chaos is Better - Mencatat Pengetahuan Ala Manusia.md",
     "BASE.CONTENT.base",
+    "brain/references/kutipan",
     "content/notes",
     "brain/core",
     "bases/content.base",

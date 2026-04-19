@@ -1,10 +1,10 @@
 ---
-title: Cobain Arch Linux
-description: Pengalaman pertama mencoba Arch Linux dari nol tanpa tutorial.
+title: "Cobain Arch Linux 2026: Pengalaman Install dari Nol Tanpa Tutorial"
+description: Ikuti pengalaman pertama install Arch Linux 2026 dari nol tanpa panduan. Temukan suka duka, aplikasi terpasang, dan kesimpulan jujur. Cocok untuk pemula!
 tags:
-  - arch
-  - linux
+  - arch_linux
   - pengalaman
+  - cerita
 pubDate: 2026-03-18
 updatedDate: 2026-03-28
 ---

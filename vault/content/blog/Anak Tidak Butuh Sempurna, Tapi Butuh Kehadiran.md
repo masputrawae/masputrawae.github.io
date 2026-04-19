@@ -3,10 +3,14 @@ title: Anak Tidak Butuh Sempurna, Tapi Butuh Kehadiran
 description: Sebuah refleksi tentang peran ibu, waktu, dan bagaimana kehadiran sederhana bisa membentuk masa depan seorang anak.
 cover: https://res.cloudinary.com/mpw-img/image/upload/v1776002673/sad_little_boy_cbx66h.jpg
 tags:
-  - opinion
-  - ibu
-  - anak
-  - tumbuh_kembang
+  - peran_ibu
+  - kehadiran_anak
+  - ikatan_emosional
+  - mendidik_anak
+  - parenting
+  - refleksi
+  - kasih_sayang
+  - opini
 pubDate: 2026-04-06
 updatedDate: 2026-04-07
 ---

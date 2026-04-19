@@ -1,11 +1,15 @@
 ---
-title: Alasanku Suka Menulis Di Obsidian
-description: Cerita tentang pengalaman pribadiku, terkait proses pembelajaran, eksplorasi, dan rintangan yang aku hadapi selama belajar dan mencatat.
+title: "Mengapa Saya Suka Menulis di Obsidian: Pengalaman Belajar"
+description: Temukan alasan di balik kecintaanku pada Obsidian untuk mencatat dan belajar. Pelajari perjalanan, eksplorasi, dan rintangan dalam menulis di Obsidian. Baca selengkapnya!
 cover: https://res.cloudinary.com/mpw-img/image/upload/v1776002671/diligent_child_wljrsu.jpg
 tags:
   - menulis
+  - obsidian
+  - belajar
   - catatan
   - pengalaman
+  - produktif
+  - mencatat
 pubDate: 2025-12-15T15:56:19+07:00
 updatedDate: 2025-12-21T20:17:59+07:00
 ---
@@ -16,7 +20,7 @@ Awalnya, sekitar tahun 2023, aku baru tahu ternyata aku bisa membuat Wikipedia v
 
 Sejak saat itu aku belajar tentang **HTML, CSS, dan JavaScript** hanya untuk memenuhi keinginan ku sendiri 😅, walaupun ujung-ujungnya semua kode yang aku tulis itu hasil copy paste dari **ChatGPT**. Dan disitulah awalnya aku juga tertarik ke dunia website.
 
-Setelah lama bergulat sendiri, ada satu titik dimana aku baru tersadar, website yang aku buat itu static dan ditulis pure **HTML, CSS, dan JavaScript** alhasil aku putus harapan deh 🥹. Tapi di saat aku berhenti, entah dapat bisikan ghaib 😅, ada [[Satu SSG Yang Keren]] waktu itu, yaitu **Jekyll**. Aku iseng-iseng tuh install dan pakai, walaupun balik lagi, semua kodenya hasil copy paste dari **ChatGPT** 😅, dan aku mengenal **markdown** pertamakali dari situ.
+Setelah lama bergulat sendiri, ada satu titik dimana aku baru tersadar, website yang aku buat itu static dan ditulis pure **HTML, CSS, dan JavaScript** alhasil aku putus harapan deh 🥹. Tapi di saat aku berhenti, entah dapat bisikan ghaib 😅, ada [[AstroJS - Pengalaman SSG Keren & Fitur Unggulan]] waktu itu, yaitu **Jekyll**. Aku iseng-iseng tuh install dan pakai, walaupun balik lagi, semua kodenya hasil copy paste dari **ChatGPT** 😅, dan aku mengenal **markdown** pertamakali dari situ.
 
 ## Kok Nyambung Ke Obsidian?
 

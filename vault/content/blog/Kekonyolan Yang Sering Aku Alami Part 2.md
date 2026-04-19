@@ -12,14 +12,14 @@ updatedDate: 2026-01-01T12:20:47+07:00
 Aku sedikit heran dengan tingkahku sendiri 🤔.  
 Kenapa aku selalu kesulitan merencanakan sesuatu? Setiap kali mencoba rapi dan terstruktur, rasanya itu selalu sulit tercapai.
 
-Apa ini ada hubungannya dengan [[Chaos is Better]]? 😅  
+Apa ini ada hubungannya dengan [[Chaos is Better - Mencatat Pengetahuan Ala Manusia]]? 😅  
 Entahlah, aku juga tidak tahu.
 
 Sebenarnya postingan ini bukan lanjutan langsung dari [[Kekonyolan Yang Sering Aku Alami Part 1]]. Tapi biar lebih asik (dan konsisten setidaknya di judul 😁), aku bikin saja _Part 2_.
 
 ## Mencoba Terstruktur, Tapi Selalu Chaos
 
-Kasus di [[Chaos is Better]] agak berbeda, karena itu murni catatan pemikiran.  
+Kasus di [[Chaos is Better - Mencatat Pengetahuan Ala Manusia]] agak berbeda, karena itu murni catatan pemikiran.  
 Di sini aku lebih ke mencoba membuat rencana belajar: tracking progress, aktivitas harian, dan sejenisnya.
 
 Aku juga tidak merasa overplanning. Biasanya aku cuma merencanakan satu hari sebelumnya, dan itu pun super ringkas. Contohnya:
@@ -89,6 +89,6 @@ Nantikan juga _Part 3_ (kalau ada). Biasanya sih, seperti yang sudah-sudah: dire
 ## Postingan Menarik Lainnya
 
 - [[Kekonyolan Yang Sering Aku Alami Part 1]]
-- [[Chaos is Better]]
+- [[Chaos is Better - Mencatat Pengetahuan Ala Manusia]]
 - [[Mencatat Itu Menyenangkan]]
 - [[Motivasi Belajar]]

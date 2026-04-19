@@ -1,13 +1,15 @@
 ---
-title: Antara Gengsi dan Kenyamanan dalam Hajatan
-description: Refleksi sederhana tentang hajatan, sound system, dan bagaimana kenyamanan sering kalah oleh gengsi sosial.
+title: "Gengsi vs Kenyamanan Hajatan: Refleksi Sosial"
+description: Refleksi mendalam tentang dilema gengsi dan kenyamanan di hajatan. Temukan pandangan baru soal sound system & sosial. Baca opini terbaru 2026!
 cover: https://res.cloudinary.com/mpw-img/image/upload/v1776090387/sound_system_noise_at_a_celebration_nnlasv.jpg
 tags:
-  - opini
-  - sosial
-  - lingkungan
+  - hajatan
+  - kenyamanan
+  - gengsi
+  - sound_system
   - refleksi
-pubDate: 2026-04-13
+  - opini
+pubDate: 2026-04-19
 ---
 
 Hari ini, Senin 13 April 2026, aku sedikit terkejut. Ternyata masih ada sebagian masyarakat yang benar-benar memahami arti kenyamanan bagi orang lain.
@@ -91,7 +93,7 @@ Karena pada akhirnya, yang diingat bukan seberapa “wah” acaranya—tapi sebe
 - [[Fomo Hajatan Pernikahan di Desaku]]
 - [[Kebisingan Izin dan Etika Hidup Bermasyarakat]]
 - [[Kebutuhan vs Keinginan]]
-- [[Tentang Memahami Orang Lain (dan Batasannya)]]
+- [[Memahami Orang Lain dan Batasannya - Komunikasi & Adaptasi Sosial]]
 
 ---
 

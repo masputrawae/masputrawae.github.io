@@ -1,11 +1,15 @@
 ---
-title: Tentang Memahami Orang Lain (dan Batasannya)
-description: Catatan pribadi tentang memahami orang lain, komunikasi, dan batas dalam bersosialisasi.
+title: "Memahami Orang Lain dan Batasannya: Komunikasi & Adaptasi Sosial"
+description: Pelajari cara memahami orang lain, pentingnya komunikasi, dan batasan dalam bersosialisasi. Temukan tips adaptasi sosial yang efektif!
 cover: https://res.cloudinary.com/mpw-img/image/upload/v1776090387/someone_who_is_surrounded_by_many_people_pfeyqb.jpg
 tags:
-  - refleksi
-  - sosial
+  - memahami_orang_lain
   - komunikasi
+  - batasan_sosial
+  - adaptasi_sosial
+  - refleksi
+  - bersosialisasi
+  - perasaan_orang_lain
 pubDate: 2026-04-08
 updatedDate: 2026-04-13
 ---

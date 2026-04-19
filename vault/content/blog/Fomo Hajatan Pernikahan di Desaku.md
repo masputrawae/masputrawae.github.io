@@ -68,5 +68,5 @@ Terima kasih sudah membaca.
 
 - [[Kebutuhan vs Keinginan]]
 - [[Kebisingan Izin dan Etika Hidup Bermasyarakat]]
-- [[Tentang Memahami Orang Lain (dan Batasannya)]]
-- [[Antara Gengsi dan Kenyamanan dalam Hajatan]]
+- [[Memahami Orang Lain dan Batasannya - Komunikasi & Adaptasi Sosial]]
+- [[Gengsi vs Kenyamanan Hajatan - Refleksi Sosial]]

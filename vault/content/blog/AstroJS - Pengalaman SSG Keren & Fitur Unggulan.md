@@ -1,12 +1,16 @@
 ---
-title: Satu SSG Yang Keren
-description: Pengalaman pribadi dan tanggapan ku soal AstroJS
+title: "AstroJS: Pengalaman SSG Keren & Fitur Unggulan"
+description: Temukan mengapa AstroJS adalah SSG pilihan! Pelajari Island Hydration, Image Processing, dan Zero JavaScript by Default. Tingkatkan performa website Anda sekarang!
 tags:
-  - ssg
   - astro
-  - hugo
+  - ssg
   - javascript
-  - golang
+  - react
+  - svelte
+  - web_development
+  - zero_javascript
+  - island_hydration
+  - image_processing
 pubDate: 2025-12-15T15:56:19+07:00
 updatedDate: 2026-03-27
 cover: https://res.cloudinary.com/mpw-img/image/upload/v1776002659/rocket_launch_mjqb3r.jpg
@@ -72,4 +76,4 @@ Tapi dibanding learning curve templating vs performa dan build time, aku tetap m
 
 - [[Pengalaman 1 Bulan Ngulik AstroJS]]
 - [[Kebutuhan vs Keinginan]]
-- [[Akhirnya Migrasi ke Astro]]
+- [[Migrasi ke Astro - Dari Hugo ke Astro Build]]

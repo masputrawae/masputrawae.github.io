@@ -1,18 +1,20 @@
 ---
-title: Alasanku Masih Tetap Bertahan di Hugo
-description: Pengalaman pribadi ketika mencoba memindahkan blog ini ke Astro, dan alasan tetap memiliki untuk bertahan di Hugo.
+title: "Mengapa Saya Tetap Bertahan di Hugo: Pengalaman & Alasan"
+description: Temukan alasan kuat mengapa saya memilih tetap pakai Hugo daripada Astro untuk blog di tahun 2025. Pelajari performa, taxonomy, dan shortcode Hugo di sini!
 cover: https://res.cloudinary.com/mpw-img/image/upload/v1776090392/illustration_of_the_choice_between_hugo_and_astro_it8gvi.png
 tags:
-  - astro
   - hugo
-  - javascript
-  - golang
-  - pengalaman
+  - astro
+  - blog
+  - taxonomy
+  - performa
+  - shortcode
+  - cms
 pubDate: 2025-12-29
-updatedDate: 2026-04-05
+updatedDate: 2026-04-19
 ---
 
-Kemarin aku sempat menulis tentang ketertarikanku pada Astro[^1], sekaligus pengalaman pertamaku mencobanya[^2]. Sempat terpikir untuk memindahkan blog ini ke Astro, dan setelah beberapa hari benar-benar kucoba, ternyata muncul banyak masalah yang tidak sesuai dengan ekspektasiku 😅.
+Kemarin aku sempat menulis tentang ketertarikan ku pada Astro[^1], sekaligus pengalaman pertamaku mencobanya[^2]. Sempat terpikir untuk memindahkan blog ini ke Astro, dan setelah beberapa hari benar-benar kucoba, ternyata muncul banyak masalah yang tidak sesuai dengan ekspektasi ku 😅.
 
 Bukan berarti Astro itu buruk. Justru sebaliknya, ada banyak hal yang aku suka. Tapi pada akhirnya, ada beberapa kendala yang membuatku memutuskan untuk tetap bertahan di Hugo—setidaknya untuk saat ini.
 
@@ -104,7 +106,7 @@ Terima kasih sudah membaca 😊
 
 ## Postingan Menarik Lainnya
 
-- [[Satu SSG Yang Keren]]
+- [[AstroJS - Pengalaman SSG Keren & Fitur Unggulan]]
 - [[Pengalaman 1 Bulan Ngulik AstroJS]]
 - [[Kebutuhan vs Keinginan]]
 - [[Dari Mau Nangis Kejebak Vim Sampai Jadi Pecandu Berat]]
@@ -112,4 +114,4 @@ Terima kasih sudah membaca 😊
 
 [^1]: [[Pengalaman 1 Bulan Ngulik AstroJS]]
 
-[^2]: [[Satu SSG Yang Keren]]
+[^2]: [[AstroJS - Pengalaman SSG Keren & Fitur Unggulan]]

@@ -1,18 +1,20 @@
 ---
-title: Chaos is Better
-description: Pendekatan mencatat pengetahuan dengan gaya chaos yang lebih jujur pada cara berpikir manusia.
+title: "Chaos is Better: Mencatat Pengetahuan Ala Manusia"
+description: Temukan pendekatan mencatat pengetahuan ala chaos yang jujur pada cara berpikir manusia. Tingkatkan produktivitas berpikir, bukan kerapihan. Pelajari cara efektif mencatat!
 cover: https://res.cloudinary.com/mpw-img/image/upload/v1776002672/flying_notes_kmaw7u.jpg
-tags:
-  - zettelkasten
+tags: 
+  - mencatat
+  - pengetahuan
+  - produktivitas
+  - berpikir
+  - efektif
   - obsidian
   - catatan
-  - menulis
-  - pengalaman
 pubDate: 2025-12-30T17:41:14+07:00
 updatedDate: 2026-01-01T02:06:50+07:00
 ---
 
-Aku teringat pada postingan [[Mencatat Itu Menyenangkan]] dan [[Alasanku Suka Menulis Di Obsidian]]. Dulu, ada satu fase di mana aku justru lebih sibuk **mengorganisir catatan** daripada **mencatat itu sendiri**.
+Aku teringat pada postingan [[Mencatat Itu Menyenangkan]] dan [[Mengapa Saya Suka Menulis di Obsidian - Pengalaman Belajar]]. Dulu, ada satu fase di mana aku justru lebih sibuk **mengorganisir catatan** daripada **mencatat itu sendiri**.
 
 Di postingan kali ini, aku hanya ingin berbagi pengalaman dan cara yang sekarang aku pakai untuk mencatat pengetahuan. Menurutku, cara ini lebih efektif karena fokus pada **produktifitas berpikir**, bukan kerapihan sistem.
 
@@ -137,7 +139,7 @@ Terima kasih sudah membaca 😊.
 
 ## Postingan Menarik Lainnya
 
-- [[Alasanku Suka Menulis Di Obsidian]]
+- [[Mengapa Saya Suka Menulis di Obsidian - Pengalaman Belajar]]
 - [[Mencatat Itu Menyenangkan]]
 - [[Motivasi Belajar]]
 - [[Kekonyolan Yang Sering Aku Alami Part 1]]

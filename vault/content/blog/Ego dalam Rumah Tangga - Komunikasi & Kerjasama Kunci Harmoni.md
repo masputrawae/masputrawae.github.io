@@ -1,11 +1,15 @@
 ---
-title: Ketika Ego Masuk ke Dalam Rumah Tangga
-description: Catatan sederhana tentang bagaimana ego, komunikasi, dan kerja sama memengaruhi hubungan dalam pernikahan.
+title: "Ego dalam Rumah Tangga: Komunikasi & Kerjasama Kunci Harmoni"
+description: Pelajari bagaimana ego memengaruhi pernikahan. Temukan cara meningkatkan komunikasi dan kerjasama untuk hubungan yang harmonis. Baca opini dan pengamatan terbaru 2026!
 cover: https://res.cloudinary.com/mpw-img/image/upload/v1776090914/two_lovers_facing_each_other_c8lya9.jpg
 tags:
-  - pernikahanego
+  - ego
+  - rumah_tangga
+  - pernikahan
   - komunikasi
+  - kerjasama
   - hubungan
+  - harmonis
   - opini
 pubDate: 2026-04-08
 updatedDate: 2026-04-08
