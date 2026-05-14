@@ -1,0 +1,38 @@
+---
+import { formattedDate } from '@utils/formatted-date';
+import type { CollectionEntry } from 'astro:content';
+
+type Props = {
+  title?: string;
+  posts: CollectionEntry<'content'>[];
+};
+
+const { title, posts } = Astro.props;
+---
+
+{title && <h2>Konten Yang Disematkan</h2>}
+<ul class="not-prose divide-y divide-neutral-300 dark:divide-neutral-700">
+  {
+    posts.map(({ id, data }, index) => (
+      <li class="group flex items-start gap-6 py-6 sm:px-4">
+        <strong class="hidden pt-1 font-mono text-3xl font-bold group-hover:text-black sm:block dark:group-hover:text-white">
+          {index + 1}
+        </strong>
+        <a href={id} class="block space-y-4">
+          <time
+            datetime={data.pubDate.toISOString()}
+            class="text-xs font-bold text-neutral-600 dark:text-neutral-400"
+          >
+            {formattedDate(data.pubDate)}
+          </time>
+          <strong class="line-clamp-1 group-hover:text-black dark:group-hover:text-white">
+            {data.title}
+          </strong>
+          <p class="line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">
+            {data.description}
+          </p>
+        </a>
+      </li>
+    ))
+  }
+</ul>

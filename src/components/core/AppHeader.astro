@@ -1,0 +1,45 @@
+---
+import { SITE } from '@config';
+import NavLink from './NavLink.astro';
+import { Icon } from 'astro-icon/components';
+import { cn } from '@utils/cn';
+const { title, menus } = SITE;
+
+const baseURL = new URL(import.meta.env.BASE_URL, Astro.site);
+---
+
+<header
+  class="relative flex items-center justify-between border-b border-neutral-200 p-4 sm:px-6 md:px-8 dark:border-neutral-800"
+>
+  {/* site title */}
+  <a href={baseURL} class="text-lg font-semibold text-black dark:text-white">{title}</a>
+
+  {/* desktop menu */}
+  <nav
+    class="hidden items-center divide-x divide-neutral-200 text-sm sm:flex dark:divide-neutral-800"
+  >
+    {
+      menus.header.map((item, i) => (
+        <NavLink class={cn(i === menus.header.length - 1 ? 'pl-4' : 'px-4')} {...item} />
+      ))
+    }
+  </nav>
+
+  {/* mobile menu */}
+  <details class="sm:hidden not-open:[&_#icon-menu-close]:hidden open:[&_#icon-menu-open]:hidden">
+    <summary class="list-none text-2xl text-black dark:text-white">
+      <Icon name="bi:list" id="icon-menu-open" />
+      <Icon name="bi:x" id="icon-menu-close" />
+      <span class="sr-only">Toggle Menu</span>
+    </summary>
+    <nav
+      class={cn(
+        'absolute top-full left-0 grid w-full divide-y  border-y px-4 py-2',
+        'divide-neutral-200 border-neutral-200 bg-white',
+        'dark:divide-neutral-800 dark:border-neutral-800 dark:bg-neutral-900',
+      )}
+    >
+      {menus.header.map((item) => <NavLink class="py-2" {...item} />)}
+    </nav>
+  </details>
+</header>

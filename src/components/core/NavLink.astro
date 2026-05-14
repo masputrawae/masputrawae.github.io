@@ -1,0 +1,33 @@
+---
+import { cn } from '@utils/cn';
+import type { HTMLAttributes } from 'astro/types';
+
+export interface NavLinkProps extends HTMLAttributes<'a'> {
+  href: string | URL;
+  isExternal?: boolean;
+}
+
+const { href, isExternal, name, class: className, ...rest } = Astro.props;
+
+const { pathname } = Astro.url;
+const { BASE_URL } = import.meta.env;
+const isCurrent = pathname === href.toString();
+const isAncestor = pathname.startsWith(href.toString()) && href.toString() !== BASE_URL;
+const isActive = isCurrent || isAncestor;
+---
+
+<a
+  href={href}
+  class={cn(
+    'font-medium text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white',
+    isActive && 'text-black dark:text-white',
+    className,
+  )}
+  {...isExternal && { target: '_blank', rel: 'external nofollow noreferrer noopener' }}
+  {...isCurrent && { 'aria-current': 'page' }}
+  {...isAncestor && { 'aria-current': 'true' }}
+  {...rest}
+>
+  {name}
+  <slot />
+</a>

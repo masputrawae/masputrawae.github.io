@@ -1,76 +1,82 @@
 // @ts-check
-import { defineConfig, fontProviders } from 'astro/config'
+import { defineConfig, fontProviders } from 'astro/config';
 
-import tailwindcss from '@tailwindcss/vite'
-import mdx from '@astrojs/mdx'
-import sitemap from '@astrojs/sitemap'
-import icon from 'astro-icon'
-import metaTags from 'astro-meta-tags'
-import sentry from '@sentry/astro'
-import spotlightjs from '@spotlightjs/astro'
-import pagefind from 'astro-pagefind'
+import sitemap from '@astrojs/sitemap';
+import mdx from '@astrojs/mdx';
+import tailwindcss from '@tailwindcss/vite';
+import icon from 'astro-icon';
+import pagefind from 'astro-pagefind';
 
-import { SITE } from './site.config'
+import remarkWikiLink from './src/plugins/remark-wiki-link';
+import remarkCallout from '@r4ai/remark-callout';
 
-import FastGlob from 'fast-glob'
-import remarkWikiLink from '@flowershow/remark-wiki-link'
-import remarkCallout from '@r4ai/remark-callout'
-
-import { relURL } from './src/lib/resolve-url'
-import { genId } from './src/lib/gen-id'
-import { remarkReadingTime } from './src/plugins/remark-reading-time.mjs'
-
-const files = FastGlob.sync('**/*', { cwd: SITE.vaultDir })
-const permalinks = Object.fromEntries(
-  files.map((f) => [f, relURL(genId(f.replace('content/', '')))])
-)
+// path
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // https://astro.build/config
 export default defineConfig({
-  site: SITE.baseURL.origin,
-  base: SITE.baseURL.pathname,
+  site: import.meta.env.DEV ? 'http://localhost:4321' : 'https://masputrawae.github.io',
+  base: '/',
 
-  vite: {
-    plugins: [tailwindcss()]
-  },
-
-  integrations: [mdx(), sitemap(), icon(), metaTags(), sentry(), spotlightjs(), pagefind()],
-
-  image: {
-    domains: ['res.cloudinary.com'],
-    remotePatterns: [{ protocol: 'https' }],
-    responsiveStyles: true,
-    layout: 'constrained'
-  },
+  integrations: [sitemap(), mdx(), icon(), pagefind()],
 
   markdown: {
     shikiConfig: {
       themes: {
-        light: 'github-light',
-        dark: 'github-dark'
-      }
+        light: 'github-light-high-contrast',
+        dark: 'github-dark-high-contrast',
+      },
     },
-    remarkPlugins: [remarkReadingTime, remarkCallout, [remarkWikiLink, { files, permalinks }]]
+    remarkPlugins: [remarkWikiLink, remarkCallout],
+  },
+
+  // Turned off (because of annoyance)
+  devToolbar: {
+    enabled: false,
+  },
+
+  vite: {
+    plugins: [tailwindcss()],
+    publicDir: path.resolve(__dirname, './registry/public/'),
+    resolve: {
+      alias: {
+        '@components': path.resolve(__dirname, './src/components'),
+        '@layouts': path.resolve(__dirname, './src/layouts'),
+        '@utils': path.resolve(__dirname, './src/utils'),
+        '@styles': path.resolve(__dirname, './src/styles'),
+        '@assets': path.resolve(__dirname, './registry/assets'),
+        '@config': path.resolve(__dirname, './site.config.ts'),
+      },
+    },
   },
 
   fonts: [
     {
+      // IBM Plex Sans (Backup): 'IBM Plex Sans'
       provider: fontProviders.google(),
-      name: 'Inter',
+      name: 'Public Sans',
       cssVariable: '--font-sans',
-      weights: [400, 500, 600, 700]
+      weights: [400, 500, 600, 700],
+      formats: ['woff2', 'otf', 'ttf'],
+      subsets: ['latin'],
     },
     {
       provider: fontProviders.google(),
-      name: 'Noto Serif',
+      name: 'IBM Plex Sans',
       cssVariable: '--font-serif',
-      weights: [400, 700]
+      weights: [400, 700],
+      formats: ['woff2', 'otf', 'ttf'],
+      subsets: ['latin'],
     },
     {
       provider: fontProviders.google(),
-      name: 'JetBrains Mono',
+      name: 'IBM Plex Mono',
       cssVariable: '--font-mono',
-      weights: [400, 700]
-    }
-  ]
-})
+      weights: [400, 700],
+      formats: ['woff2', 'otf', 'ttf'],
+    },
+  ],
+});

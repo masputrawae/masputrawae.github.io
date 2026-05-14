@@ -1,56 +1,45 @@
 ---
-import { type CollectionEntry, render, getEntry } from 'astro:content'
-import { getContents, getSections, getSectionsWithPages } from '../lib/content'
-import { relURL } from '../lib/resolve-url'
+import { getContents, getPages } from '@utils/content';
+import { getEntry, render, type CollectionEntry } from 'astro:content';
+import { SITE } from '@config';
+import { absURL } from '@utils/resolve-url';
 
-import Base from '../layouts/Base.astro'
-import Prose from '../components/Prose.astro'
-import PostCard from '../components/PostCard.astro'
+import FeaturedPosts from '@components/FeaturedPosts.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
 
-const index = (await getEntry('content', '/')) as CollectionEntry<'content'>
-const { title, description, tags } = index.data
-const { Content } = await render(index)
+const index = (await getEntry('content', 'index')) as CollectionEntry<'content'>;
+const { Content } = await render(index);
+const { title, description, pubDate, updatedDate, tags, categories } = index.data;
 
-const contents = await getContents()
-const sections = getSections(contents)
-const sectionWithPages = getSectionsWithPages(sections, contents)
+const entries = await getContents();
+const pinnedPosts = getPages(entries)
+  .filter(({ data }) => data.pinned)
+  .slice(0, 5);
 ---
 
-<Base title={title} description={description} keywords={tags}>
-  <Prose>
-    <h1>{title}</h1>
-    <Content />
-  </Prose>
-  {
-    sections.map((section) => {
-      const items = sectionWithPages.get(section.id) || []
-      return (
-        <section class="my-8">
-          <Prose>
-            <h2>
-              <span class="text-3xl">{section.data.title}</span>
-            </h2>
-            <nav class="not-prose grid gap-8 md:grid-cols-2">
-              {items.map((item) => <PostCard item={item} />).slice(0, 4)}
-            </nav>
-          </Prose>
-          <nav class="my-16 text-center">
-            <a
-              href={relURL(section.id)}
-              class:list={[
-                'flex items-center gap-2 rounded-lg text-xl font-semibold',
-                'inline-flex items-center justify-center border px-6 py-3.5',
-                'transition-all duration-300 hover:scale-105',
-                'border-neutral-200 shadow-xs/20 hover:bg-blue-700 hover:text-white',
-                'dark:border-neutral-800 dark:shadow-xs/100 dark:hover:bg-amber-700'
-              ]}
-            >
-              <span>Lihat Lebih Banyak</span>
-              <span class="sr-only">di {section.data.title}</span>
-            </a>
-          </nav>
-        </section>
-      )
-    })
-  }
-</Base>
+<BaseLayout
+  seo={{
+    title,
+    description,
+    pubDate,
+    updatedDate,
+    keywords: tags || categories || SITE.keywords,
+    ogImage: {
+      url: absURL('og-images/default.png'),
+      width: '1200px',
+      height: '630px',
+    },
+  }}
+>
+  <section>
+    <article>
+      <h1>{title}</h1>
+      <Content />
+    </article>
+  </section>
+  <section>
+    <article>
+      <FeaturedPosts title="Konten Yang Disematkan" posts={pinnedPosts} />
+    </article>
+  </section>
+</BaseLayout>

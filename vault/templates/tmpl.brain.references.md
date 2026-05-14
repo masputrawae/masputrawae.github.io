@@ -1,9 +1,0 @@
-**Source**: [Sumber](https://)
-
-...
-
----
-
-## Insight
-
-...

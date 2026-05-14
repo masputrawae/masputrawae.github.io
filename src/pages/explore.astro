@@ -1,0 +1,49 @@
+---
+import { SITE } from '@config';
+import { getContents, getPages } from '@utils/content';
+import { buildTaxonomyIndex } from '@utils/taxonomy-term';
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Search from '@components/Search.astro';
+import PostList from '@components/PostList.astro';
+import TaxonomyTerm from '@components/TaxonomyTerm.astro';
+import { absURL } from '@utils/resolve-url';
+
+const entries = await getContents();
+const pages = getPages(entries);
+
+const recentPosts = pages.slice(0, 5);
+const pinnedPosts = pages.filter(({ data }) => data.pinned).slice(0, 5);
+
+const { tags, categories } = buildTaxonomyIndex(pages);
+---
+
+<BaseLayout
+  seo={{
+    title: 'Pencarian',
+    description: 'Halaman pencarian konten',
+    keywords: SITE.keywords,
+    ogImage: {
+      url: absURL('og-images/default.png'),
+      width: '1200px',
+      height: '630px',
+    },
+  }}
+>
+  <section>
+    <article>
+      <h1>Pencarian</h1>
+      <Search />
+    </article>
+  </section>
+  <section>
+    <PostList title="Pinned Posts" entries={pinnedPosts} />
+    <PostList title="Recent Posts" entries={recentPosts} />
+    <TaxonomyTerm title="Tags" taxonomy="tag" terms={tags.filter(({ count }) => count > 2)} />
+    <TaxonomyTerm
+      title="Categories"
+      taxonomy="category"
+      terms={categories.filter(({ count }) => count > 2)}
+    />
+  </section>
+</BaseLayout>

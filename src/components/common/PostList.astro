@@ -1,0 +1,30 @@
+---
+import { formattedDate } from '@utils/formatted-date';
+import { relURL } from '@utils/resolve-url';
+import type { CollectionEntry } from 'astro:content';
+
+type Props = {
+  title?: string;
+  entries: CollectionEntry<'content'>[];
+};
+
+const { title, entries } = Astro.props;
+---
+
+{title && <h2>{title}</h2>}
+<ol class="space-y-2 text-sm">
+  {
+    entries.map((i) => (
+      <li class="border-b border-neutral-200 dark:border-neutral-800">
+        <div class="flex items-end justify-between gap-8">
+          <a href={relURL(i.id)} class="line-clamp-1 no-underline">
+            {i.data.title}
+          </a>
+          <time datetime={i.data.pubDate.toISOString()} class="sr-only shrink-0 sm:not-sr-only">
+            {formattedDate(i.data.pubDate)}
+          </time>
+        </div>
+      </li>
+    ))
+  }
+</ol>

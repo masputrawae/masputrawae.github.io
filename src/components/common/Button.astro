@@ -1,0 +1,25 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { cn } from '@utils/cn';
+
+interface ButtonProps {
+  variant?: 'primary' | 'base';
+}
+type Props = HTMLAttributes<'a'> & HTMLAttributes<'button'> & ButtonProps;
+
+const { href, variant = 'base', class: className, ...rest } = Astro.props;
+const Tag = href ? 'a' : 'button';
+---
+
+<Tag
+  href={href}
+  class={cn(
+    'not-prose cursor-pointer px-5 py-2 border font-bold text-black bg-neutral-100 border-neutral-300 dark:text-white dark:border-neutral-700 dark:bg-neutral-800',
+    variant === 'primary' &&
+      'border-transparent dark:border-transparent bg-black text-white dark:bg-white dark:text-black',
+    className,
+  )}
+  {...rest}
+>
+  <slot />
+</Tag>

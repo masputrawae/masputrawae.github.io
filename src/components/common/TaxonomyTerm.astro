@@ -1,0 +1,29 @@
+---
+import { generateId } from '@utils/generate-id';
+import { relURL } from '@utils/resolve-url';
+interface TermProps {
+  id: string;
+  count?: number;
+}
+
+type Props = {
+  title: string;
+  taxonomy: string;
+  terms: TermProps[];
+};
+
+const { title, taxonomy, terms } = Astro.props;
+---
+
+<h2>{title}</h2>
+<div
+  class="not-prose flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-medium text-neutral-600 dark:text-neutral-400 [&_a]:hover:underline"
+>
+  {
+    terms.map(({ id, count }) => (
+      <a href={relURL(generateId(`${taxonomy}/${id}`))}>
+        {id} ({count && count})
+      </a>
+    ))
+  }
+</div>

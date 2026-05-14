@@ -1,3 +1,0 @@
-- [Turso](https://turso.tech/)
-- [Cloudinary](https://cloudinary.com/)
-- [Proton mail](https://mail.proton.me/)

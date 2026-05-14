@@ -1,0 +1,52 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getContents, getPages } from '@utils/content';
+import { render } from 'astro:content';
+import { absURL } from '@utils/resolve-url';
+
+import BaseLayout from '@layouts/BaseLayout.astro';
+
+export const getStaticPaths = (async () => {
+  const entries = await getContents();
+  const pages = getPages(entries);
+
+  return pages.map((page) => ({
+    params: { slug: page.id },
+    props: { page },
+  }));
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+const { title, description, pubDate, updatedDate, tags, categories } = page.data;
+const { Content } = await render(page);
+---
+
+<BaseLayout
+  seo={{
+    title,
+    description,
+    pubDate,
+    updatedDate,
+    keywords: tags || categories,
+    pageType: 'article',
+    ogImage: {
+      url: absURL(`og-images/${page.id}.png`),
+      width: '1200px',
+      height: '630px',
+    },
+  }}
+>
+  <section>
+    <article>
+      <h1>{title}</h1>
+      <Content />
+    </article>
+  </section>
+
+  {/* digunakan untuk pagefind */}
+  <div class="hidden">
+    {tags?.map((i) => <p data-pagefind-filter="tag">{i}</p>)}
+    {categories?.map((i) => <p data-pagefind-filter="category">{i}</p>)}
+    <p data-pagefind-filter="year">{pubDate.getFullYear()}</p>
+  </div>
+</BaseLayout>

@@ -1,32 +1,27 @@
-import { defineCollection } from 'astro:content'
-import { z } from 'astro/zod'
-import { glob } from 'astro/loaders'
-import { genId } from './lib/gen-id'
-import { SITE } from '../site.config'
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
+import { glob } from 'astro/loaders';
+import { generateId } from '@utils/generate-id';
+import { rssSchema } from '@astrojs/rss';
 
 const content = defineCollection({
   loader: glob({
-    base: `${SITE.vaultDir}/content`,
+    base: 'registry/content',
     pattern: '**/*.{md,mdx}',
-    generateId: ({ entry }) => genId(entry)
+    generateId: ({ entry }) => generateId(entry),
   }),
-  schema: ({ image }) =>
-    z.object({
-      title: z.string(),
-      description: z.string(),
-      pubDate: z.coerce.date(),
+  schema: rssSchema.extend({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.coerce.date().default(new Date()),
 
-      updatedDate: z.coerce.date().optional(),
+    updatedDate: z.coerce.date().optional(),
+    tags: z.array(z.string()).optional(),
+    categories: z.array(z.string()).optional(),
 
-      tags: z.array(z.string()).optional(),
-      categories: z.array(z.string()).optional(),
+    pinned: z.boolean().default(false),
+    draft: z.boolean().default(false),
+  }),
+});
 
-      pinned: z.boolean().default(false),
-      draft: z.boolean().default(false),
-      weight: z.number().default(0),
-
-      cover: image().optional()
-    })
-})
-
-export const collections = { content }
+export const collections = { content };

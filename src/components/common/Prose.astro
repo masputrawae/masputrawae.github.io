@@ -1,0 +1,22 @@
+---
+import { cn } from '@utils/cn';
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = HTMLAttributes<'div'>;
+const { class: className, ...rest } = Astro.props;
+---
+
+<div
+  class={cn(
+    'prose prose-neutral dark:prose-invert prose-sm sm:prose-base max-w-full',
+    'prose-headings:not-prose-th:flow-root prose-headings:not-prose-th:border-b prose-headings:not-prose-th:pb-0.5',
+    'prose-headings:not-prose-th:text-base sm:prose-headings:not-prose-th:text-lg',
+    'prose-headings:not-prose-th:border-neutral-200 dark:prose-headings:not-prose-th:border-neutral-800',
+    'prose-blockquote:font-serif prose-blockquote:not-italic prose-em:font-serif',
+    'prose-a:text-blue-600 prose-a:hover:text-blue-700 dark:prose-a:text-blue-400 dark:prose-a:hover:text-blue-500',
+    className,
+  )}
+  {...rest}
+>
+  <slot />
+</div>

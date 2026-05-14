@@ -1,0 +1,21 @@
+---
+import { SITE } from '@config';
+import NavLink from './NavLink.astro';
+import { cn } from '@utils/cn';
+const { copyright, menus } = SITE;
+---
+
+<footer
+  class="flex flex-col-reverse items-center justify-between gap-4 border-t border-neutral-200 p-4 text-xs md:flex-row dark:border-neutral-800"
+>
+  <aside>
+    <p set:html={copyright} />
+  </aside>
+  <nav class="items-center divide-x divide-neutral-200 sm:flex dark:divide-neutral-800">
+    {
+      menus.footer.map((item, i) => (
+        <NavLink class={cn(i === menus.footer.length - 1 ? 'pl-4' : 'px-4')} {...item} />
+      ))
+    }
+  </nav>
+</footer>

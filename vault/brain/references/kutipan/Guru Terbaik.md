@@ -1,1 +1,0 @@
-Guru terbaik adalah yang bisa membuat murid menghormati mereka tanpa perlu ditakuti, dan yang memahami bahwa ilmu yang ditinggalkan akan dilupakan, tapi karakter dan kesan yang ditinggalkan akan diingat selamanya

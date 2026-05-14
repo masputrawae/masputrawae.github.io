@@ -1,0 +1,43 @@
+---
+import '@styles/global.css';
+import { Font } from 'astro:assets';
+
+import Seo, { type SeoProps } from '@components/Seo.astro';
+import AppFooter from '@components/AppFooter.astro';
+import AppHeader from '@components/AppHeader.astro';
+import Prose from '@components/Prose.astro';
+import { SITE } from '@config';
+
+type Props = {
+  seo: SeoProps;
+  languageCode?: string;
+};
+
+const { seo, languageCode = SITE.languageCode } = Astro.props;
+---
+
+<!doctype html>
+<html
+  lang={languageCode}
+  class="scroll-smooth bg-neutral-100 font-sans text-neutral-800 dark:bg-black/90 dark:text-neutral-200"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <Font cssVariable="--font-sans" preload />
+    <Font cssVariable="--font-serif" preload />
+    <Font cssVariable="--font-mono" preload />
+    <Seo {...seo} />
+  </head>
+  <body
+    class="mx-auto max-w-3xl border-x border-neutral-200 bg-white antialiased shadow-lg dark:border-neutral-800 dark:bg-neutral-900 dark:shadow-lg/100"
+  >
+    <AppHeader />
+    <main class="mx-auto min-h-screen px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10 lg:px-12">
+      <Prose>
+        <slot />
+      </Prose>
+    </main>
+    <AppFooter />
+  </body>
+</html>

@@ -1,0 +1,145 @@
+---
+// PATH: ./src/components/core/Seo.astro
+
+import { absURL } from '@utils/resolve-url';
+import type { HTMLAttributes } from 'astro/types';
+import { SITE } from '@config';
+
+export interface SeoProps {
+  // Wajib di isi
+  title: string;
+  description: string;
+
+  // Opsional
+  pubDate?: Date;
+  updatedDate?: Date;
+  keywords?: string[];
+  author?: string;
+
+  // OG image
+  ogImage?: {
+    url: URL | string;
+    width?: string;
+    height?: string;
+  };
+
+  jsonLD?: Record<string, any>;
+
+  // Opsional dengan default value
+  pageType?: string;
+  canonicalURL?: URL | string;
+  siteName?: string;
+  locale?: string;
+
+  // Opsional tambahan
+  extend?: {
+    meta?: HTMLAttributes<'meta'>[];
+    link?: HTMLAttributes<'link'>[];
+  };
+}
+
+type Props = SeoProps;
+
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  ogImage,
+  jsonLD,
+  pageType = 'website',
+  canonicalURL = absURL(Astro.url.pathname),
+  keywords = SITE.keywords,
+  author = SITE.author,
+  siteName = SITE.title,
+  locale = SITE.locale,
+  extend,
+} = Astro.props;
+
+const defaultJsonLD =
+  pageType === 'article'
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: title,
+        description: description,
+        author: [
+          {
+            '@type': 'Person',
+            name: author,
+            url: absURL('about'),
+          },
+        ],
+        datePublished: pubDate?.toISOString(),
+        dateModified: updatedDate?.toISOString() || pubDate?.toISOString(),
+        image: ogImage ? absURL(ogImage.url) : undefined,
+      }
+    : {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: siteName,
+        description: description,
+        url: absURL(''),
+      };
+
+const finalJsonLD = jsonLD || defaultJsonLD;
+---
+
+{/* Primary Meta Tags */}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="generator" content={Astro.generator} />
+<meta name="author" content={author} />
+
+<title>{title}</title>
+
+<link rel="canonical" href={canonicalURL} />
+<link rel="sitemap" href={absURL('sitemap-index.xml')} />
+<link rel="alternate" type="application/rss+xml" title={siteName} href={absURL('rss.xml')} />
+
+{keywords && <meta name="keywords" content={keywords.join(', ')} />}
+{updatedDate && <meta name="revised" content={updatedDate.toISOString()} />}
+
+{/* Open Graph */}
+<meta property="og:type" content={pageType} />
+<meta property="og:title" content={title} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:locale" content={locale.replace('-', '_')} />
+{ogImage && <meta property="og:image" content={absURL(ogImage.url)} />}
+{ogImage?.width && <meta property="og:image:width" content={ogImage.width} />}
+{ogImage?.height && <meta property="og:image:height" content={ogImage.height} />}
+
+{
+  pageType === 'article' && (
+    <>
+      {pubDate && <meta itemprop="article:published_time" content={pubDate.toISOString()} />}
+      {updatedDate && <meta itemprop="article:modified_time" content={updatedDate.toISOString()} />}
+      {author && <meta itemprop="article:author" content={author} />}
+      {keywords && keywords.map((item) => <meta itemprop="article:tag" content={item} />)}
+    </>
+  )
+}
+
+{/* TWITTER CARD */}
+<meta property="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:domain" content={Astro.site?.hostname} />
+<meta property="twitter:url" content={canonicalURL} />
+{ogImage && <meta property="twitter:image" content={absURL(ogImage.url)} />}
+
+{/* Extend */}
+{extend?.meta?.map((item) => <meta {...item} />)}
+{extend?.link?.map((item) => <link {...item} />)}
+
+{
+  finalJsonLD && (
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(finalJsonLD)} />
+  )
+}
+
+{SITE.favicons.map((i) => <link {...i} />)}
