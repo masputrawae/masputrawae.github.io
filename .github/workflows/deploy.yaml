@@ -25,7 +25,9 @@ jobs:
         with:
           repository: masputrawae/notes
           token: ${{ secrets.OBSIDIAN_VAULT }}
-          path: registry
+          path: notes 
+      - name: Copy Registry
+        run: cp -r ./notes/registry ./registry
 
       - name: Install, build, and upload your site
         uses: withastro/action@v5
