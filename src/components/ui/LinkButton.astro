@@ -1,0 +1,25 @@
+---
+import { cn } from "@utils/cn"
+import type { HTMLAttributes } from "astro/types"
+
+export interface LinkButtonProps extends HTMLAttributes<"a"> {
+  variant?: "primary" | "base"
+}
+
+type Props = LinkButtonProps
+
+const { variant = "base", name, class: className, ...rest } = Astro.props
+---
+
+<a
+  class={cn(
+    "not-prose inline-flex items-center border border-neutral-300 px-4 py-2 font-bold text-black dark:border-neutral-700 dark:text-white",
+    variant === "primary" &&
+      "border-transparent bg-black text-white dark:border-transparent dark:bg-white dark:text-black",
+    className
+  )}
+  {...rest}
+>
+  {name}
+  <slot />
+</a>

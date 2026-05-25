@@ -1,0 +1,63 @@
+---
+import { getEntry, render, type CollectionEntry } from "astro:content"
+import { getAll, getSections, getSectionsWithPages } from "@utils/content"
+import { relURL, ogURL } from "@utils/resolve-url"
+
+import Document from "@layouts/Document.astro"
+import LinkButton from "@components/LinkButton.astro"
+import PostList from "@components/PostList.astro"
+
+const entries = await getAll()
+const sections = getSections(entries)
+const sectionsWithPosts = getSectionsWithPages(sections, entries)
+
+const noteEntries = sectionsWithPosts.get("notes")
+const blogEntries = sectionsWithPosts.get("blog")
+
+const pinnedBlogs = blogEntries?.filter(({ data }) => data.pinned).slice(0, 5)
+const recentNotes = noteEntries?.slice(0, 5)
+
+const index = (await getEntry("content", "/")) as CollectionEntry<"content">
+const { Content } = await render(index)
+const { title, description, pubDate, updatedDate, tags, categories } =
+  index.data
+const keywords = tags || categories
+const ogImage = ogURL("/")
+---
+
+<Document seo={{ title, description, pubDate, updatedDate, keywords, ogImage }}>
+  <article>
+    <h1>{index.data.title}</h1>
+    <Content />
+  </article>
+  <section>
+    {
+      pinnedBlogs && (
+        <PostList title="Konten Yang Disematkan" entries={pinnedBlogs} />
+      )
+    }
+    {recentNotes && <PostList title="Catatan Terbaru" entries={recentNotes} />}
+  </section>
+  <hr />
+  <section
+    class="not-prose my-8 grid gap-4 border border-neutral-200 px-4 py-8 text-center shadow-sm dark:border-neutral-800 dark:shadow-sm/50"
+  >
+    <h2 class="text-lg font-bold text-neutral-900 dark:text-neutral-100">
+      Apa Selanjutnya?
+    </h2>
+    <p class="my-4 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+      Yuk kenalan lebih jauh, atau lihat postingan lainnya
+    </p>
+    <nav
+      class="flex items-center justify-center gap-2"
+      aria-label="Ajakan Bertindak"
+    >
+      <LinkButton
+        href={relURL("about")}
+        name="Tentang Saya"
+        variant="primary"
+      />
+      <LinkButton href={relURL("blog")} name="Baca Blog" />
+    </nav>
+  </section>
+</Document>

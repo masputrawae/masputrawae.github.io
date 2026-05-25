@@ -1,0 +1,33 @@
+---
+import { cn } from "@utils/cn"
+import type { HTMLAttributes } from "astro/types"
+
+type Props = HTMLAttributes<"a">
+
+const { name, href, class: className, ...rest } = Astro.props
+
+const { pathname } = Astro.url
+const { BASE_URL } = import.meta.env
+
+const isCurrent = pathname === href
+const isAncestor =
+  pathname.startsWith(href?.toString() || "") && BASE_URL !== href
+const isActive = isCurrent || isAncestor
+---
+
+<a
+  href={href}
+  class={cn(
+    "text-neutral-600 hover:text-black dark:text-neutral-400 dark:hover:text-white",
+    isActive &&
+      "text-black hover:text-neutral-600 dark:text-white dark:hover:text-neutral-400",
+    className
+  )}
+  {...isCurrent
+    ? { "aria-current": "page" }
+    : isAncestor && { "aria-current": true }}
+  {...rest}
+>
+  {name}
+  <slot />
+</a>

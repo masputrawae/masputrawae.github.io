@@ -1,0 +1,54 @@
+---
+import type { GetStaticPaths } from "astro"
+import { slugger } from "@utils/generate-id"
+import { getAll, getPages } from "@utils/content"
+import { buildTaxonomyIndex } from "@utils/taxonomy-term"
+
+import PostList from "@components/PostList.astro"
+import Paginator from "@components/Paginator.astro"
+import Document from "@layouts/Document.astro"
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const contents = await getAll()
+  const posts = getPages(contents)
+  const index = buildTaxonomyIndex(posts)
+
+  const allPaths = []
+  // ===== TAGS =====
+  for (const tag of index.tags) {
+    const pages = index.pagesByTag.get(tag.id) || []
+    const paginated = paginate(pages, {
+      params: { term: slugger(`tag/${tag.id}`) },
+      props: { entry: tag, taxonomy: "Tag" },
+      pageSize: 8,
+    })
+    allPaths.push(...paginated)
+  }
+
+  // ===== CATEGORIES =====
+  for (const category of index.categories) {
+    const pages = index.pagesByCategory.get(category.id) || []
+    const paginated = paginate(pages, {
+      params: { term: slugger(`category/${category.id}`) },
+      props: { entry: category, taxonomy: "Category" },
+      pageSize: 8,
+    })
+    allPaths.push(...paginated)
+  }
+  return allPaths
+}) satisfies GetStaticPaths
+
+const { entry, taxonomy, page } = Astro.props
+const title = `${taxonomy}: ${entry.id}`
+const description = `Daftar konten dari: ${entry.id} ${taxonomy}`
+---
+
+<Document seo={{ title, description, pubDate: new Date() }}>
+  <section>
+    <article>
+      <h1>{title}</h1>
+      <PostList entries={page.data} />
+      <Paginator page={page} />
+    </article>
+  </section>
+</Document>

@@ -1,0 +1,73 @@
+---
+import type { GetStaticPaths } from "astro"
+import { getAll, getSections, getSectionsWithPages } from "@utils/content"
+import { render, type CollectionEntry } from "astro:content"
+import { ogURL } from "@utils/resolve-url"
+
+import PostList from "@components/PostList.astro"
+import Paginator from "@components/Paginator.astro"
+import Document from "@layouts/Document.astro"
+import Search from "@components/Search.astro"
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const contents = (await getAll()).filter(({ id }) => id !== "/")
+  const sections = getSections(contents)
+
+  const sectionWithPages = getSectionsWithPages(sections, contents)
+  const sectionIds = Array.from(sectionWithPages.keys())
+
+  const allPaths = []
+  for (const sid of sectionIds) {
+    const posts = sectionWithPages.get(sid) || []
+
+    const paginated = paginate(posts, {
+      params: { section: sid },
+      props: {
+        entry: sections.find((s) => s.id === sid) as CollectionEntry<"content">,
+      },
+      pageSize: 8,
+    })
+
+    allPaths.push(...paginated)
+  }
+
+  return allPaths
+}) satisfies GetStaticPaths
+
+const { entry, page } = Astro.props
+const { Content } = page.currentPage === 1 ? await render(entry) : {}
+
+const {
+  title: pTitle,
+  description,
+  pubDate,
+  updatedDate,
+  tags,
+  categories,
+} = entry.data
+
+const title = Content ? pTitle : `${pTitle} | Page ${page.currentPage}`
+const keywords = tags || categories
+const ogImage = ogURL(entry.id)
+---
+
+<Document seo={{ title, description, pubDate, updatedDate, keywords, ogImage }}>
+  <section>
+    <article>
+      <h1>{title}</h1>
+      {Content && <Content />}
+      {
+        !Content && (
+          <>
+            <Search /> <hr />
+          </>
+        )
+      }
+    </article>
+  </section>
+  <section>
+    <PostList title={Content && "Daftar Postingan"} entries={page.data} />
+    <hr />
+    <Paginator page={page} />
+  </section>
+</Document>

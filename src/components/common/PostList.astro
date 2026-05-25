@@ -1,0 +1,38 @@
+---
+import { formattedDate } from "@utils/formatted-date"
+import { relURL } from "@utils/resolve-url"
+import type { CollectionEntry } from "astro:content"
+
+export interface PostListProps {
+  title?: string
+  entries: CollectionEntry<"content">[]
+}
+
+type Props = PostListProps
+const { title, entries } = Astro.props
+---
+
+{title && <h2>{title}</h2>}
+<ul class="not-prose text-sm">
+  {
+    entries.map(({ id, data }) => (
+      <li class="group py-1">
+        <a
+          href={relURL(id)}
+          class="items-center justify-between border-b border-neutral-300 md:flex dark:border-neutral-700"
+        >
+          <span class="line-clamp-1 text-blue-600 group-hover:text-blue-700 dark:text-blue-400 dark:group-hover:text-blue-500">
+            {data.title}
+          </span>
+
+          <time
+            datetime={data.pubDate.toISOString()}
+            class="hidden font-mono text-xs text-nowrap group-hover:text-black md:inline group-hover:dark:text-white"
+          >
+            {formattedDate(data.pubDate)}
+          </time>
+        </a>
+      </li>
+    ))
+  }
+</ul>

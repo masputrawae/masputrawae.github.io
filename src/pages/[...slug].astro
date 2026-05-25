@@ -1,0 +1,75 @@
+---
+import { getAll, getPages } from "@utils/content"
+import { formattedDate } from "@utils/formatted-date"
+import type { GetStaticPaths } from "astro"
+import { render } from "astro:content"
+
+import Document from "@layouts/Document.astro"
+import { ogURL, relURL } from "@utils/resolve-url"
+import LinkButton from "@components/LinkButton.astro"
+
+export const getStaticPaths = (async () => {
+  const pages = getPages(await getAll())
+  return pages.map((page) => ({
+    params: { slug: page.id },
+    props: page,
+  }))
+}) satisfies GetStaticPaths
+
+const page = Astro.props
+const { title, description, pubDate, draft, updatedDate, tags, categories } =
+  page.data
+
+const keywords = tags || categories
+const ogImage = ogURL(page.id)
+const isFuture = pubDate.getTime() > new Date().getTime()
+
+const { Content, remarkPluginFrontmatter: rpf } =
+  draft || isFuture ? {} : await render(page)
+---
+
+<Document
+  seo={{
+    title,
+    description,
+    pubDate,
+    updatedDate,
+    keywords,
+    ogImage,
+    words: rpf?.words,
+    pageType: "article",
+  }}
+>
+  <article>
+    <h1>
+      {
+        draft
+          ? "Masih Dalam Pengerjaan"
+          : isFuture
+            ? "Akan Segera Datang"
+            : title
+      }
+    </h1>
+    {Content && <Content />}
+    {draft && <p>Konten masih dalam tahap pengerjaan</p>}
+    {
+      isFuture && (
+        <p>Konten akan diterbitkan pada tanggal: {formattedDate(pubDate)}</p>
+      )
+    }
+    {
+      (draft || isFuture) && (
+        <nav>
+          <LinkButton href={relURL("explore")} name="Cari Konten Lain?" />
+        </nav>
+      )
+    }
+  </article>
+
+  {/* digunakan untuk pagefind */}
+  <div class="hidden">
+    {tags?.map((i) => <p data-pagefind-filter="tag">{i}</p>)}
+    {categories?.map((i) => <p data-pagefind-filter="category">{i}</p>)}
+    <p data-pagefind-filter="year">{pubDate.getFullYear()}</p>
+  </div>
+</Document>

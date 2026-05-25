@@ -1,0 +1,56 @@
+---
+import NavLink from "@components/NavLink.astro"
+import { CFG } from "@config"
+import { relURL } from "@utils/resolve-url"
+import type { HTMLAttributes } from "astro/types"
+
+const { BASE_URL, SITE } = import.meta.env
+
+const menus: HTMLAttributes<"a">[] = [
+  { name: "Beranda", href: relURL() },
+  { name: "Blog", href: relURL("blog") },
+  { name: "Tentang", href: relURL("about") },
+  { name: "Jelajah", href: relURL("explore") },
+  {
+    name: "Github",
+    href: "https://github.com/masputrawae",
+    target: "_blank",
+    rel: "external nofollow noreferrer noopener",
+  },
+]
+---
+
+<header
+  class="relative flex min-h-16 items-center justify-between border-b border-neutral-200 md:px-2 dark:border-neutral-800"
+>
+  <a
+    href={new URL(BASE_URL, SITE)}
+    class="px-4 text-lg font-bold text-black dark:text-white"
+  >
+    {CFG.title}
+  </a>
+
+  <nav
+    aria-label="Menu Navigation"
+    class="hidden items-center divide-x divide-neutral-300 text-sm font-medium md:flex dark:divide-neutral-700"
+  >
+    {menus.map((i) => <NavLink {...i} class="px-4" />)}
+  </nav>
+
+  <details
+    class="z-99999 md:hidden not-open:[&_#menu-close]:hidden open:[&_#menu-open]:hidden"
+  >
+    <summary
+      class="flex list-none items-center px-4 text-sm font-bold select-none"
+    >
+      <span id="menu-open">MENU</span>
+      <span id="menu-close">CLOSE</span>
+    </summary>
+    <nav
+      aria-label="Menu Navigation di Mobile"
+      class="absolute top-full left-0 grid w-full gap-2 border-y border-neutral-200 bg-white py-4 font-medium dark:border-neutral-800 dark:bg-neutral-900"
+    >
+      {menus.map((i) => <NavLink {...i} class="px-4" />)}
+    </nav>
+  </details>
+</header>

@@ -1,0 +1,47 @@
+---
+import { getAll, getPages } from "@utils/content"
+import { buildTaxonomyIndex } from "@utils/taxonomy-term"
+
+import Search from "@components/Search.astro"
+import PostList from "@components/PostList.astro"
+import TaxonomyTerm from "@components/TaxonomyTerm.astro"
+import Document from "@layouts/Document.astro"
+import { ogURL } from "@utils/resolve-url"
+
+const pages = getPages(await getAll())
+
+const recentPosts = pages.slice(0, 5)
+const pinnedPosts = pages.filter(({ data }) => data.pinned).slice(0, 5)
+
+const { tags, categories } = buildTaxonomyIndex(pages)
+---
+
+<Document
+  seo={{
+    title: "Pencarian",
+    description: "Halaman pencarian konten",
+    pubDate: new Date(),
+    ogImage: ogURL("explore"),
+  }}
+>
+  <section>
+    <article>
+      <h1>Pencarian</h1>
+      <Search />
+    </article>
+  </section>
+  <section>
+    <PostList title="Konten Yang Disematkan" entries={pinnedPosts} />
+    <PostList title="Postingan Terbaru" entries={recentPosts} />
+    <TaxonomyTerm
+      title="Tags"
+      taxonomy="tag"
+      terms={tags.filter(({ count }) => count > 2)}
+    />
+    <TaxonomyTerm
+      title="Categories"
+      taxonomy="category"
+      terms={categories.filter(({ count }) => count > 2)}
+    />
+  </section>
+</Document>

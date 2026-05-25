@@ -1,0 +1,25 @@
+---
+const { BASE_URL, SITE } = import.meta.env
+---
+
+<footer
+  class="flex min-h-16 flex-col items-center justify-center gap-2 border-t border-neutral-200 px-4 py-8 text-center text-xs sm:flex-row sm:justify-between sm:px-8 sm:py-0 dark:border-neutral-800 [&_a]:underline"
+>
+  <p>
+    Di buat dengan
+    <span aria-label="Kopi Hangat">☕</span>
+    menggunakan
+    <a href="https://astro.build/" rel="external" target="_blank">
+      <span>{Astro.generator}</span>
+    </a>
+  </p>
+  <p>
+    Copyright &copy; {new Date().getFullYear()}
+    <a href={new URL(BASE_URL, SITE)}>Putra Jaya</a>. License under
+    <a
+      href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      rel="external license"
+      target="_blank">CC BY-NC-SA 4.0</a
+    >
+  </p>
+</footer>

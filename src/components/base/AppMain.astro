@@ -1,0 +1,22 @@
+---
+import { cn } from "@utils/cn"
+---
+
+<main
+  class={cn(
+    "prose prose-sm prose-neutral sm:prose-base dark:prose-invert",
+    "prose-headings:not-prose-th:border-b",
+    "prose-headings:not-prose-th:flow-root",
+    "prose-headings:not-prose-th:pb-0.5",
+    "prose-headings:not-prose-th:text-base",
+    "sm:prose-headings:not-prose-th:text-lg",
+    "prose-headings:not-prose-th:border-neutral-300 dark:prose-headings:not-prose-th:border-neutral-700",
+    "prose-pre:rounded-none prose-pre:border prose-pre:border-neutral-300 dark:prose-pre:border-neutral-700",
+    "prose-blockquote:not-italic",
+    "prose-blockquote:font-serif",
+    "prose-a:text-blue-600 prose-a:hover:text-blue-700 dark:prose-a:text-blue-400 dark:prose-a:hover:text-blue-500",
+    "mx-auto min-h-[calc(100dvh-8rem)] max-w-full p-4 sm:p-6 md:min-h-[calc(90dvh-8rem)] md:p-8 lg:p-10 xl:p-12"
+  )}
+>
+  <slot />
+</main>

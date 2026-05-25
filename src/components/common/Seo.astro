@@ -1,0 +1,224 @@
+---
+import { CFG } from "@config"
+import { absURL } from "@utils/resolve-url"
+import type { HTMLAttributes } from "astro/types"
+
+export interface SeoProps {
+  siteName?: string
+  locale?: string
+  canonical?: string | URL
+
+  title: string
+  description: string
+  pubDate: Date
+  updatedDate?: Date
+  author?: string
+  keywords?: string[]
+  ogImage?: string
+  pageType?: string
+  jsonLD?: Record<string, any>[]
+  twitterX?: string
+  words?: number
+  robots?: string
+
+  extend?: {
+    link?: HTMLAttributes<"link">[]
+    meta?: HTMLAttributes<"meta">[]
+  }
+}
+
+type Props = SeoProps
+
+const {
+  siteName = CFG.title,
+  locale = CFG.locale,
+  author = CFG.author,
+  twitterX = CFG?.twitterX,
+  keywords = CFG?.keywords,
+  canonical = absURL(Astro.url.pathname),
+  pageType = "website",
+  ogImage = "og-images/default.png",
+  robots = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  jsonLD,
+  extend,
+  words,
+} = Astro.props
+
+const defaultJsonLD: Record<string, any>[] = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteName,
+    description: description,
+    url: absURL(""),
+    image: absURL("favicon.ico"),
+  },
+]
+
+if (pageType === "article") {
+  defaultJsonLD.push({
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: title,
+    description: description,
+    author: [
+      {
+        "@type": "Person",
+        name: author,
+        url: absURL("about"),
+      },
+    ],
+    datePublished: pubDate?.toISOString(),
+    dateModified: updatedDate?.toISOString() || pubDate?.toISOString(),
+    image: absURL(ogImage),
+  })
+}
+
+// Breadcrumbs
+const pathSegments = Astro.url.pathname.split("/").filter(Boolean)
+if (pathSegments.length > 0) {
+  const breadcrumbList = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: pathSegments.map((segment, index) => {
+      const url = absURL(pathSegments.slice(0, index + 1).join("/"))
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        name:
+          segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, " "),
+        item: url,
+      }
+    }),
+  }
+  defaultJsonLD.push(breadcrumbList)
+}
+
+const finalJsonLD = jsonLD || defaultJsonLD
+---
+
+{/* Primary Meta Tags */}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="generator" content={Astro.generator} />
+<meta name="author" content={author} />
+<meta name="robots" content={robots} />
+
+<title>{title}</title>
+
+{/* Favicons */}
+<link rel="icon" type="image/svg+xml" href={absURL("favicon.ico")} />
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href={absURL("apple-touch-icon.png")}
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href={absURL("favicon-32x32.png")}
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href={absURL("favicon-16x16.png")}
+/>
+<link rel="manifest" href={absURL("site.webmanifest")} />
+
+<link rel="canonical" href={canonical} />
+<link rel="sitemap" href={absURL("sitemap-index.xml")} />
+<link rel="sitemap" href={absURL("sitemap-0.xml")} />
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title={siteName}
+  href={absURL("rss.xml")}
+/>
+{keywords && <meta name="keywords" content={keywords.join(", ")} />}
+{updatedDate && <meta name="revised" content={updatedDate.toISOString()} />}
+
+{/* Open Graph */}
+<meta property="og:type" content={pageType} />
+<meta property="og:title" content={title} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:locale" content={locale.replace("-", "_")} />
+<meta property="og:image" content={absURL(ogImage)} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+{
+  pageType === "article" && (
+    <>
+      <meta itemprop="article:published_time" content={pubDate.toISOString()} />
+      <meta itemprop="article:author" content={author} />
+      {updatedDate && (
+        <meta
+          itemprop="article:modified_time"
+          content={updatedDate.toISOString()}
+        />
+      )}
+      {keywords?.map((item) => (
+        <meta itemprop="article:tag" content={item} />
+      ))}
+    </>
+  )
+}
+
+{/* TWITTER CARD */}
+<meta
+  name="twitter:card"
+  property="twitter:card"
+  content={"summary_large_image"}
+/>
+<meta name="twitter:title" property="twitter:title" content={title} />
+<meta
+  name="twitter:description"
+  property="twitter:description"
+  content={description}
+/>
+<meta
+  name="twitter:domain"
+  property="twitter:domain"
+  content={Astro.site?.hostname}
+/>
+<meta name="twitter:url" property="twitter:url" content={canonical} />
+<meta name="twitter:image" property="twitter:image" content={absURL(ogImage)} />
+<meta name="twitter:site" property="twitter:site" content={twitterX} />
+<meta name="twitter:creator" property="twitter:creator" content={twitterX} />
+
+{/* Schema */}
+<meta itemprop="name" content={title} />
+<meta itemprop="description" content={description} />
+<meta itemprop="datePublished" content={pubDate.toISOString()} />
+{words && <meta itemprop="wordCount" content={words.toString()} />}
+{keywords && <meta itemprop="keywords" content={keywords.join(", ")} />}
+{
+  updatedDate && (
+    <meta itemprop="dateModified" content={updatedDate.toISOString()} />
+  )
+}
+
+{/* Extend */}
+{extend?.meta?.map((item) => <meta {...item} />)}
+{extend?.link?.map((item) => <link {...item} />)}
+
+{/* Json-LD */}
+{
+  finalJsonLD && (
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(finalJsonLD)}
+    />
+  )
+}
