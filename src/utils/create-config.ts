@@ -2,25 +2,21 @@ import { z } from "astro/zod"
 
 // config schema
 const configSchema = z.object({
+  baseURL: z.instanceof(URL),
+
   title: z.string(),
   description: z.string(),
   author: z.string(),
   logo: z.string(),
 
-  /*
-   * languageCode:
-   * @default: "id"
-   */
   languageCode: z.string().default("id"),
-
-  /*
-   * locale:
-   * @default: "id-ID"
-   */
   locale: z.string().default("id-ID"),
 
   twitterX: z.string().optional(),
   keywords: z.array(z.string()).optional(),
+
+  contentDir: z.string(),
+  assetDir: z.string(),
 })
 
 type InputCfg = z.input<typeof configSchema>

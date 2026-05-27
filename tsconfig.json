@@ -12,7 +12,7 @@
       "@layouts/*": ["./src/layouts/*"],
       "@utils/*": ["./src/utils/*"],
       "@styles/*": ["./src/styles/*"],
-      "@assets/*": ["./vault/assets/*"],
+      "@assets/*": ["./docs/attachments/shared/*"],
       "@config": ["./site.config.ts"]
     }
   }

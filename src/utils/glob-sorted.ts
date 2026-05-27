@@ -4,7 +4,7 @@
 
 import FastGlob, { type Options } from "fast-glob"
 
-export function globShorted(pattern: string, options: Options) {
+export function globSorted(pattern: string, options: Options) {
   return FastGlob.sync(pattern, options).sort((a, b) => {
     const depthA = a.split("/").length
     const depthB = b.split("/").length

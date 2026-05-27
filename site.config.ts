@@ -1,9 +1,12 @@
 import { createConfig } from "./src/utils/create-config"
 
 export const CFG = createConfig({
+  baseURL: new URL("http://localhost:4321/"),
+
   title: "CahBagus",
   description:
     "Tempat yang sempurna bagi ku untuk mencurahkan isi hati dan pemikiran. Atau mungkin cuma sebatas halaman kosong?, siapa yang tahu.",
+
   keywords: [
     "blog",
     "catatan",
@@ -13,7 +16,12 @@ export const CFG = createConfig({
     "opini",
     "refleksi",
   ],
+
   author: "Putra Jaya",
-  logo: "./vault/assets/android-chrome-512x512.png",
+  logo: "./docs/attachments/shared/android-chrome-512x512.png",
   twitterX: "@masputrawae",
+
+  // Dirs
+  assetDir: "./docs/attachments/shared",
+  contentDir: "./docs/published",
 })

@@ -1,6 +1,7 @@
 // PATH: ./src/utils/resolve-url.ts
 
-const { BASE_URL, SITE } = import.meta.env
+import { CFG } from "../../site.config.ts"
+import path from "path"
 
 /**
  * Resolves a path to a relative URL, accounting for Astro's `base` configuration.
@@ -9,25 +10,13 @@ const { BASE_URL, SITE } = import.meta.env
  * @example relURL('about') -> '/about' (if base is '/')
  * @example relURL('about') -> '/blog/about' (if base is '/blog')
  */
-export function relURL(path?: string): string {
-  // Return early for empty paths or already absolute URLs/special protocols
-  if (!path) return BASE_URL
 
-  if (
-    path.startsWith("http://") ||
-    path.startsWith("https://") ||
-    path.startsWith("//") ||
-    path.startsWith("mailto:") ||
-    path.startsWith("tel:") ||
-    path.startsWith("#")
-  ) {
-    return path
-  }
+export function relURL(raw?: string): string {
+  if (!raw) return CFG.baseURL.pathname
 
-  // Remove leading slashes from path to avoid double slashes when joining with base
-  const normalizedPath = path.replace(/^\/+/, "")
+  if (/^(?:[a-z]+:|\/\/|#)/i.test(raw)) return raw
 
-  return `${BASE_URL}${normalizedPath}`
+  return path.posix.join(CFG.baseURL.pathname, raw.replace(/^\/+/, ""))
 }
 
 /**
@@ -37,26 +26,26 @@ export function relURL(path?: string): string {
  * @example absURL('rss.xml') -> 'https://example.com/rss.xml'
  */
 export function absURL(raw?: string | URL): string {
-  if (!raw) return new URL(BASE_URL, SITE).toString()
+  if (!raw) return CFG.baseURL.toString()
 
-  const path = raw.toString()
+  const rawStr = raw.toString()
 
   // If the path is already an absolute URL, return it
   if (
-    path.startsWith("http://") ||
-    path.startsWith("https://") ||
-    path.startsWith("//")
+    rawStr.startsWith("http://") ||
+    rawStr.startsWith("https://") ||
+    rawStr.startsWith("//")
   ) {
-    return path
+    return rawStr
   }
 
   try {
     // Combine site with the base-aware relative URL
     // relURL(path) ensures the path starts with BASE_URL (e.g., / or /blog/)
-    return new URL(relURL(path), SITE).toString()
+    return new URL(relURL(rawStr), CFG.baseURL).toString()
   } catch (error) {
     // Fallback if URL construction fails
-    return path
+    return rawStr
   }
 }
 

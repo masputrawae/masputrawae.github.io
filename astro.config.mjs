@@ -1,4 +1,5 @@
 // @ts-check
+import { CFG } from "./site.config.ts"
 import { defineConfig } from "astro/config"
 
 import tailwindcss from "@tailwindcss/vite"
@@ -8,31 +9,29 @@ import path from "path"
 import pagefind from "astro-pagefind"
 
 // plugins
+import remarkCallout from "@r4ai/remark-callout"
 import remarkWikiLink from "./src/plugins/remark-wiki-link"
 import remarkReadingTime from "./src/plugins/remark-reading-time"
-import remarkCallout from "@r4ai/remark-callout"
+import remarkRelativePath from "./src/plugins/remark-relative-path.ts"
 
-const root = process.cwd()
+const { baseURL, assetDir, contentDir } = CFG
 
 // https://astro.build/config
 export default defineConfig({
-  site: import.meta.env.PROD
-    ? "https://masputrawae.github.io"
-    : "http://localhost:4321",
-  base: "/",
-
+  site: baseURL.origin,
+  base: baseURL.pathname,
   integrations: [mdx(), sitemap(), pagefind()],
   vite: {
     plugins: [tailwindcss()],
-    publicDir: path.resolve(root, "./vault/assets"),
+    publicDir: path.resolve(assetDir),
     resolve: {
       alias: {
-        "@components": path.resolve(root, "./src/components"),
-        "@layouts": path.resolve(root, "./src/layouts"),
-        "@utils": path.resolve(root, "./src/utils"),
-        "@styles": path.resolve(root, "./src/styles"),
-        "@config": path.resolve(root, "./site.config.ts"),
-        "@assets": path.resolve(root, "./vault/assets"),
+        "@components": path.resolve("./src/components"),
+        "@layouts": path.resolve("./src/layouts"),
+        "@utils": path.resolve("./src/utils"),
+        "@styles": path.resolve("./src/styles"),
+        "@config": path.resolve("./site.config.ts"),
+        "@assets": path.resolve(assetDir),
       },
     },
   },
@@ -45,15 +44,8 @@ export default defineConfig({
       },
     },
     remarkPlugins: [
-      [
-        remarkWikiLink,
-        {
-          assetsAlias: "@assets",
-          baseURL: "/",
-          contentDir: "vault/content",
-          assetsDir: "vault/assets",
-        },
-      ],
+      remarkRelativePath,
+      [remarkWikiLink, { contentDir, assetDir }],
       remarkReadingTime,
       remarkCallout,
     ],

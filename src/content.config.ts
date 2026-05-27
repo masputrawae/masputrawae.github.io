@@ -2,11 +2,12 @@ import { z } from "astro/zod"
 import { glob } from "astro/loaders"
 import { defineCollection } from "astro:content"
 import { generateId } from "@utils/generate-id"
+import { CFG } from "@config"
 
 export const collections = {
   content: defineCollection({
     loader: glob({
-      base: "vault/content",
+      base: CFG.contentDir,
       pattern: "**/*.{md,mdx}",
       generateId: ({ entry }) => generateId(entry),
     }),
