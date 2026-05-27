@@ -70,7 +70,11 @@ if (pageType === "article") {
       {
         "@type": "Person",
         name: author,
-        url: absURL("about"),
+        url: CFG.footer?.authorLink
+          ? CFG.footer.authorLink.startsWith("/")
+            ? absURL(CFG.footer.authorLink)
+            : CFG.footer.authorLink
+          : absURL("about"),
       },
     ],
     datePublished: pubDate?.toISOString(),

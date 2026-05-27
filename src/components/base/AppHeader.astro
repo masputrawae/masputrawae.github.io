@@ -2,22 +2,24 @@
 import NavLink from "@components/NavLink.astro"
 import { CFG } from "@config"
 import { relURL } from "@utils/resolve-url"
-import type { HTMLAttributes } from "astro/types"
 
 const { BASE_URL, SITE } = import.meta.env
 
-const menus: HTMLAttributes<"a">[] = [
-  { name: "Beranda", href: relURL() },
-  { name: "Blog", href: relURL("blog") },
-  { name: "Tentang", href: relURL("about") },
-  { name: "Jelajah", href: relURL("explore") },
-  {
+const menus = CFG.menu.map((i) => ({
+  name: i.label,
+  href: i.href.startsWith("/") ? relURL(i.href) : i.href,
+  target: i.external ? "_blank" : undefined,
+  rel: i.external ? "external nofollow noreferrer noopener" : undefined,
+}))
+
+if (CFG.socials?.github) {
+  menus.push({
     name: "Github",
-    href: "https://github.com/masputrawae",
+    href: CFG.socials.github,
     target: "_blank",
     rel: "external nofollow noreferrer noopener",
-  },
-]
+  })
+}
 ---
 
 <header

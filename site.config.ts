@@ -24,4 +24,23 @@ export const CFG = createConfig({
   // Dirs
   assetDir: "./docs/attachments/shared",
   contentDir: "./docs/published",
+
+  // Theme
+  menu: [
+    { label: "Beranda", href: "/" },
+    { label: "Blog", href: "/blog" },
+    { label: "Tentang", href: "/about" },
+    { label: "Jelajah", href: "/explore" },
+  ],
+
+  socials: {
+    github: "https://github.com/masputrawae",
+  },
+
+  footer: {
+    authorName: "Putra Jaya",
+    authorLink: "/about",
+    license: "CC BY-NC-SA 4.0",
+    licenseLink: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  },
 })
