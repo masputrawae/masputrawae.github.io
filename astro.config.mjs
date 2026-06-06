@@ -5,11 +5,16 @@ import tailwindcss from "@tailwindcss/vite"
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://localhost:4321",
+  site: "http://localhost:4321",
   base: "/",
 
   vite: {
     plugins: [tailwindcss()],
+  },
+
+  prefetch: {
+    defaultStrategy: "viewport",
+    prefetchAll: true
   },
 
   fonts: [

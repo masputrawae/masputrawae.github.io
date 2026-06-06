@@ -1,0 +1,22 @@
+---
+import { formattedDate } from "@utils/formatted-date"
+import { relURL } from "@utils/resolve-url"
+import type { CollectionEntry } from "astro:content"
+
+type Props = CollectionEntry<"page" | "section">
+const { id, data } = Astro.props
+---
+
+<a
+  href={relURL(id)}
+  class="flex flex-col gap-4 border border-neutral-300 p-4 text-sm text-neutral-600 shadow-sm dark:border-neutral-700 dark:text-neutral-400 dark:shadow-sm/100"
+>
+  <h3 class="font-bold text-neutral-900 dark:text-neutral-100">{data.title}</h3>
+  <p class="line-clamp-3 flex-1">{data.description}</p>
+  <div class="flex items-center justify-between font-bold">
+    <time class="text-xs" datetime={data.pubDate.toISOString()}>
+      {formattedDate(data.pubDate)}
+    </time>
+    <span class="text-xs">Baca</span>
+  </div>
+</a>

@@ -1,0 +1,63 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro"
+import PostCard from "@components/PostCard.astro"
+
+import type { GetStaticPaths } from "astro"
+import { getCollection } from "astro:content"
+import { render, type CollectionEntry } from "astro:content"
+import { generateSectionPage } from "@utils/content"
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const sectionEntries = await getCollection("section")
+  const pageEntries = await getCollection("page")
+
+  const allEntries = [...pageEntries, ...sectionEntries].sort((a, b) => {
+    if (!a.data.pubDate || !b.data.pubDate) return 0
+    return b.data.pubDate?.getTime() - a.data.pubDate?.getTime()
+  })
+
+  const sectionWithPages = generateSectionPage(sectionEntries, allEntries)
+  const sectionIds = Array.from(sectionWithPages.keys())
+
+  const allPaths = []
+  for (const sid of sectionIds) {
+    const posts = sectionWithPages.get(sid) || []
+
+    const paginated = paginate(posts, {
+      params: { section: sid },
+      props: {
+        entry: sectionEntries.find((s) => s.id === sid) as CollectionEntry<"section">,
+      },
+      pageSize: 8,
+    })
+
+    allPaths.push(...paginated)
+  }
+
+  return allPaths
+}) satisfies GetStaticPaths
+
+const { entry, page } = Astro.props
+const { Content } = page.currentPage === 1 ? await render(entry) : {}
+
+const { title: pTitle } = entry.data
+
+const title = Content ? pTitle : `${pTitle} | Page ${page.currentPage}`
+---
+
+<BaseLayout>
+  <article>
+    <h1>{title}</h1>
+    {
+      Content && (
+        <>
+          <Content />
+          <h2>Daftar Konten</h2>
+        </>
+      )
+    }
+  </article>
+  <div class="not-prose grid gap-8 sm:grid-cols-2">
+    {page.data?.map((post) => <PostCard {...post} />)}
+  </div>
+</BaseLayout>

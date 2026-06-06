@@ -1,0 +1,31 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro"
+
+import type { GetStaticPaths } from "astro"
+import { getCollection } from "astro:content"
+import { render } from "astro:content"
+
+export const getStaticPaths = (async () => {
+  const pageEntries = await getCollection("page", ({ data, id }) => id !== "/" && !data.draft)
+
+  return pageEntries.map((entry) => ({
+    params: { page: entry.id },
+    props: entry,
+  }))
+}) satisfies GetStaticPaths
+
+const entry = Astro.props
+const { Content } = await render(entry)
+---
+
+<BaseLayout>
+  <article>
+    <h1>{entry.data.title}</h1>
+    <Content />
+  </article>
+  <div class="hidden">
+    {entry.data.tags?.map((i) => <p data-pagefind-filter="tag">{i}</p>)}
+    {entry.data.categories?.map((i) => <p data-pagefind-filter="categories">{i}</p>)}
+    <p data-pagefind-filter="year">{entry.data.pubDate.getFullYear()}</p>
+  </div>
+</BaseLayout>

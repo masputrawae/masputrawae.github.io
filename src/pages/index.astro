@@ -1,12 +1,46 @@
 ---
+import Button from "@components/Button.astro"
+import PostCard from "@components/PostCard.astro"
 import BaseLayout from "@layouts/BaseLayout.astro"
+import { relURL } from "@utils/resolve-url"
+
+import { getCollection } from "astro:content"
+import { render, type CollectionEntry } from "astro:content"
+
+const pageEntries = (await getCollection("page")).sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+)
+const entry = pageEntries.find(({ id }) => id === "/") as CollectionEntry<"page">
+
+const { Content } = await render(entry)
+const pinnedPage = pageEntries.filter(({ data }) => data.pinned)
 ---
 
 <BaseLayout>
-  <h1>Hello World</h1>
-  <p>
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam natus debitis quam hic nemo
-    a fugit ad suscipit officiis repudiandae amet similique velit labore, porro beatae, quaerat
-    architecto autem ea.
-  </p>
+  <article>
+    <h1>{entry.data.title}</h1>
+    <Content />
+    <nav class="flex flex-wrap items-center gap-4">
+      <Button href={relURL("/about/")} variant="primary">Tentang Saya</Button>
+      <Button href={relURL("/blog/")}>Baca Blog</Button>
+    </nav>
+  </article>
+  <hr />
+  <section>
+    <h2>Disematkan</h2>
+    <div class="not-prose grid gap-8 sm:grid-cols-2">
+      {pinnedPage.map((post) => <PostCard {...post} />)}
+    </div>
+  </section>
+  <hr />
+  <footer
+    class="not-prose grid gap-4 border border-neutral-300 px-4 py-16 text-center shadow-sm dark:border-neutral-700 dark:shadow-sm/100"
+  >
+    <h2 class="text-xl font-semibold text-black dark:text-white">Apa Selanjutnya?</h2>
+    <p>Kenalan lebih lanjut? atau baca konten menarik lainnya?</p>
+    <nav class="flex flex-wrap items-center justify-center gap-4">
+      <Button href={relURL("/about/")} variant="primary">Tentang Saya</Button>
+      <Button href={relURL("/blog/")}>Baca Blog</Button>
+    </nav>
+  </footer>
 </BaseLayout>
