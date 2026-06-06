@@ -26,8 +26,11 @@ jobs:
           token: ${{ secrets.DOCUMENTS }}
           path: vault
 
+      - name: Create dir
+        run: mkdir -p registry
+
       - name: Copy registry
-        run: cp -r ./vault/70_collection ./registry
+        run: cp -r ./vault/70_collection/* ./registry
 
       - name: Check registry
         run: ls ./registry
