@@ -27,8 +27,8 @@ export const SITE = {
 
 export const AUTHOR = {
   name: "Putra Jaya",
-  description: "Seorang yang suka memancing emosi",
-  url: "about",
+  description: "Hallo! Saya Putra, seseorang yang suka mengeksplorasi hal-hal baru, dan seorang pria pemalas (mungkin 🫢)",
+  url: "/about/",
   gender: "Male",
   image: "logo.png",
   email: "masputrawae.official@gmail.com",
@@ -91,7 +91,7 @@ export const MENUS: HTMLAttributes<"a">[] = [
   },
   {
     name: "Github",
-    href: "https://github.com/johndoe",
+    href: "https://github.com/masputrawae",
     target: "_blank",
     referrerpolicy: "origin-when-cross-origin",
     rel: "external nofollow noreferrer noopener",
@@ -99,8 +99,9 @@ export const MENUS: HTMLAttributes<"a">[] = [
 ]
 
 export const FAVICONS: HTMLAttributes<"link">[] = [
-  { rel: "icon", type: "image/svg+xml", href: "/favicon.ico" },
+  { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
   { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
   { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32x32.png" },
   { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png" },
+  { rel: "manifast", href: "/site.webmanifest" }
 ]

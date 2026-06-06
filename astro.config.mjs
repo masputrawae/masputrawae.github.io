@@ -2,20 +2,20 @@
 import { defineConfig, fontProviders } from "astro/config"
 
 import tailwindcss from "@tailwindcss/vite"
+import pagefind from "astro-pagefind"
+import sitemap from "@astrojs/sitemap";
 import path from "path"
 
 import { unified } from "@astrojs/markdown-remark"
+
 import remarkFrontmatter from "./src/plugins/remark-frontmatter"
 import remarkRelativePath from "./src/plugins/remark-relative-path"
 import remarkWikiLink from "./src/plugins/remark-wiki-link"
 import remarkCallout from "@r4ai/remark-callout"
-import pagefind from "astro-pagefind"
-
-import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "http://localhost:4321",
+  site: "http://masputrawae.github.io",
   base: "/",
 
   publicDir: path.resolve("registry/assets"),
