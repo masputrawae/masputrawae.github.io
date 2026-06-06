@@ -15,7 +15,7 @@ import remarkCallout from "@r4ai/remark-callout"
 
 // https://astro.build/config
 export default defineConfig({
-  site: "http://masputrawae.github.io",
+  site: "https://masputrawae.github.io",
   base: "/",
 
   publicDir: path.resolve("registry/assets"),
