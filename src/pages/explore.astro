@@ -1,0 +1,138 @@
+---
+import Search from "@components/Search.astro"
+import BaseLayout from "@layouts/BaseLayout.astro"
+import PostCard from "@components/PostCard.astro"
+
+import { buildTaxonomyIndex } from "@utils/taxonomy-term"
+import { relURL } from "@utils/resolve-url"
+import { getCollection } from "astro:content"
+import { generateId } from "@utils/generate-id"
+import { slugToTitle } from "@utils/slug-to-title"
+import path from "node:path"
+
+const pageEntries = await getCollection("page")
+const recentPost = pageEntries
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .slice(0, 4)
+
+const { tags, categories } = buildTaxonomyIndex(pageEntries)
+---
+
+<BaseLayout title="Explore" description="Halaman pencarian" pubDate={new Date()}>
+  <article>
+    <h1>Apa Yang Kamu Cari?</h1>
+    <Search />
+
+    <h2>Konten Terbaru</h2>
+
+    <div class="not-prose grid gap-8 sm:grid-cols-2">
+      {recentPost.map((post) => <PostCard {...post} />)}
+    </div>
+
+    <h2>Kategori</h2>
+    <nav class="not-prose flex flex-wrap items-center gap-2">
+      {
+        categories
+          .filter(({ count }) => count > 1)
+          .map(({ count, id }) => (
+            <a
+              class="inline-block border border-neutral-200 px-4 py-2 dark:border-neutral-700"
+              href={relURL(generateId(path.join("category", id))) + "/"}
+            >
+              {id} ({count})
+            </a>
+          ))
+      }
+    </nav>
+
+    <h2>Tags</h2>
+    <nav class="not-prose flex flex-wrap items-center gap-2 no-underline">
+      {
+        tags
+          .filter(({ count }) => count > 1)
+          .map(({ count, id }) => (
+            <a
+              class="inline-block border border-neutral-200 px-4 py-2 dark:border-neutral-700"
+              href={relURL(path.join("tag", id)) + "/"}
+            >
+              {slugToTitle(id)} ({count})
+            </a>
+          ))
+      }
+    </nav>
+  </article>
+  <script is:inline>
+    // get value search parameter
+    const queryString = window.location.search
+    const urlParams = new URLSearchParams(queryString)
+    const searchString = urlParams.get("q") || ""
+
+    // filter names to sync
+    const filterKeys = ["tag", "category", "year"]
+
+    async function initPagefind() {
+      // Wait for the custom element to be defined
+      await customElements.whenDefined("pagefind-searchbox")
+
+      const getPagefindInstance = () => {
+        if (window.PagefindComponents) {
+          return window.PagefindComponents.getInstanceManager().getInstance()
+        }
+        const sb = document.querySelector("pagefind-searchbox")
+        return sb?.instance
+      }
+
+      const instance = getPagefindInstance()
+      if (!instance) return
+
+      // parse initial filters from URL
+      const initialFilters = {}
+      for (const key of filterKeys) {
+        const val = urlParams.get(key)
+        if (val) {
+          initialFilters[key] = val.split(",")
+        }
+      }
+
+      // initialize search and filters from URL
+      if (searchString || Object.keys(initialFilters).length > 0) {
+        instance.triggerSearchWithFilters(searchString, initialFilters)
+      }
+
+      // sync search and filters to URL
+      instance.on("search", (term, filters) => {
+        const url = new URL(window.location)
+
+        // sync query
+        if (term) {
+          url.searchParams.set("q", term)
+        } else {
+          url.searchParams.delete("q")
+        }
+
+        // sync filters
+        filterKeys.forEach((key) => {
+          const values = filters?.[key]
+          if (values && values.length > 0) {
+            url.searchParams.set(key, values.join(","))
+          } else {
+            url.searchParams.delete(key)
+          }
+        })
+
+        window.history.replaceState({}, "", url)
+      })
+
+      // focus the input field
+      const input = document.querySelector(".pf-searchbox-input")
+      if (input) input.focus()
+    }
+
+    // initialize
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initPagefind)
+    } else {
+      initPagefind()
+    }
+  </script>
+</BaseLayout>

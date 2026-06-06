@@ -25,7 +25,7 @@ const { Content } = await render(entry)
   </article>
   <div class="hidden">
     {entry.data.tags?.map((i) => <p data-pagefind-filter="tag">{i}</p>)}
-    {entry.data.categories?.map((i) => <p data-pagefind-filter="categories">{i}</p>)}
+    {entry.data.categories?.map((i) => <p data-pagefind-filter="category">{i}</p>)}
     <p data-pagefind-filter="year">{entry.data.pubDate.getFullYear()}</p>
   </div>
 </BaseLayout>

@@ -1,0 +1,56 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro"
+import PostCard from "@components/PostCard.astro"
+import Paginator from "@components/Paginator.astro"
+
+import type { GetStaticPaths } from "astro"
+import { slugger } from "@utils/generate-id"
+import { buildTaxonomyIndex } from "@utils/taxonomy-term"
+
+import { getCollection } from "astro:content"
+import { slugToTitle } from "@utils/slug-to-title"
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const pageEntries = await getCollection("page")
+  const index = buildTaxonomyIndex(pageEntries)
+
+  const allPaths = []
+  // ===== TAGS =====
+  for (const tag of index.tags) {
+    const pages = index.pagesByTag.get(tag.id) || []
+    const paginated = paginate(pages, {
+      params: { term: slugger(`tag/${tag.id}`) },
+      props: { entry: tag, taxonomy: "Tag" },
+      pageSize: 8,
+    })
+    allPaths.push(...paginated)
+  }
+
+  // ===== CATEGORIES =====
+  for (const category of index.categories) {
+    const pages = index.pagesByCategory.get(category.id) || []
+    const paginated = paginate(pages, {
+      params: { term: slugger(`category/${category.id}`) },
+      props: { entry: category, taxonomy: "Category" },
+      pageSize: 8,
+    })
+    allPaths.push(...paginated)
+  }
+  return allPaths
+}) satisfies GetStaticPaths
+
+const { entry, taxonomy, page } = Astro.props
+const title = `${taxonomy}: ${slugToTitle(entry.id)}`
+const description = `Daftar konten dari ${title}`
+---
+
+<BaseLayout>
+  <article data-pagefind-ignore="all">
+    <h1>{title}</h1>
+    <p>{description}</p>
+  </article>
+  <div class="not-prose grid gap-8 sm:grid-cols-2" data-pagefind-ignore="all">
+    {page.data?.map((post) => <PostCard {...post} />)}
+  </div>
+  <Paginator {...page} />
+</BaseLayout>

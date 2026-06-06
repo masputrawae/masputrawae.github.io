@@ -2,12 +2,24 @@
 import { defineConfig, fontProviders } from "astro/config"
 
 import tailwindcss from "@tailwindcss/vite"
+import path from "path"
+
+import { unified } from "@astrojs/markdown-remark"
+import remarkFrontmatter from "./src/plugins/remark-frontmatter"
+import remarkRelativePath from "./src/plugins/remark-relative-path"
+import remarkWikiLink from "./src/plugins/remark-wiki-link"
+import remarkCallout from "@r4ai/remark-callout"
+import pagefind from "astro-pagefind"
+
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
   site: "http://localhost:4321",
   base: "/",
 
+  publicDir: path.resolve("registry/assets"),
+  integrations: [sitemap(), pagefind()],
   vite: {
     plugins: [tailwindcss()],
   },
@@ -15,6 +27,38 @@ export default defineConfig({
   prefetch: {
     defaultStrategy: "viewport",
     prefetchAll: true
+  },
+
+  redirects: {
+    "/tag": {
+      status: 301,
+      destination: "/explore/"
+    },
+    "/category": {
+      status: 301,
+      destination: "/explore/"
+    },
+    "/tags": {
+      status: 301,
+      destination: "/explore/"
+    },
+    "/categories": {
+      status: 301,
+      destination: "/explore/"
+    }
+  },
+
+  markdown: {
+    shikiConfig: {
+      themes: {
+        light: "github-light-high-contrast",
+        dark: "github-dark",
+      },
+    },
+
+    processor: unified({
+      remarkPlugins: [remarkFrontmatter, remarkRelativePath, remarkWikiLink, remarkCallout],
+    }),
   },
 
   fonts: [
