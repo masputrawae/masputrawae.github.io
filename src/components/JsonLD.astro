@@ -1,0 +1,278 @@
+---
+import { ADDRESS, AUTHOR, SITE, SOCIAL } from "@site.config"
+import { generateBreadcrumbs } from "@utils/breadcrumb"
+import { absURL } from "@utils/resolve-url"
+import type { CollectionEntry } from "astro:content"
+
+import type {
+  ImageObject,
+  Brand,
+  PostalAddress,
+  Organization,
+  Graph,
+  Person,
+  SearchAction,
+  WebSite,
+  BreadcrumbList,
+  WebPage,
+  AboutPage,
+  BlogPosting,
+  NewsArticle,
+  Article,
+  CollectionPage,
+  ItemList,
+} from "schema-dts"
+
+type Props = {
+  page?: CollectionEntry<"page" | "section">
+  postList?: CollectionEntry<"page" | "section">[]
+}
+
+const { page, postList } = Astro.props
+
+const logoID = absURL("#logo")
+const brandID = absURL("#brand")
+const organizationID = absURL("#organization")
+const personID = absURL("about/#person")
+const postalAddressID = absURL("#postalAddress")
+const searchActionID = absURL("explore/#searchAction")
+const webSiteID = absURL("#website")
+const breadcrumbListID = absURL("#breadcrumb")
+
+const logo: ImageObject = {
+  "@type": "ImageObject",
+  "@id": logoID,
+  url: absURL(SITE.logo),
+  contentUrl: absURL(SITE.logo),
+  width: "512",
+  height: "512",
+  caption: "Logo Image",
+}
+
+const brand: Brand = {
+  "@type": "Brand",
+  "@id": brandID,
+  name: SITE.name,
+  logo: {
+    "@id": logoID,
+  },
+}
+
+const postalAddress: PostalAddress = {
+  "@type": "PostalAddress",
+  "@id": postalAddressID,
+  ...ADDRESS,
+}
+
+const organization: Organization = {
+  "@type": "Organization",
+  "@id": organizationID,
+  name: SITE.name,
+  legalName: SITE.name,
+  slogan: SITE.slogan,
+  email: AUTHOR.email,
+  url: absURL(),
+  foundingDate: SITE.foundingDate,
+  logo: {
+    "@id": logoID,
+  },
+  founder: {
+    "@id": personID,
+  },
+  sameAs: SOCIAL.map(({ href }) => href).filter(Boolean) as string[],
+}
+
+const person: Person = {
+  "@type": "Person",
+  "@id": personID,
+  name: AUTHOR.name,
+  description: AUTHOR.description,
+  jobTitle: AUTHOR.jobTitle,
+  url: absURL(AUTHOR.url),
+  image: absURL(AUTHOR.image),
+  email: AUTHOR.email,
+  telephone: AUTHOR.telephone,
+  gender: AUTHOR.gender,
+  birthDate: AUTHOR.birthDate,
+  worksFor: {
+    "@id": organizationID,
+  },
+  ...(AUTHOR.alumniOf?.name && {
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      name: AUTHOR.alumniOf.name,
+    },
+  }),
+  sameAs: SOCIAL.map(({ href }) => href).filter(Boolean) as string[],
+  address: {
+    "@id": postalAddressID,
+  },
+}
+
+const searchAction: SearchAction = {
+  "@type": "SearchAction",
+  "@id": searchActionID,
+  target: {
+    "@type": "EntryPoint",
+    urlTemplate: absURL("explore/?q={search_term_string}"),
+  },
+  "query-input": "required name=search_term_string",
+} as any as SearchAction
+
+const webSite: WebSite = {
+  "@type": "WebSite",
+  "@id": webSiteID,
+  url: absURL(),
+  name: SITE.name,
+  description: SITE.description,
+  alternateName: SITE.alternateName,
+  inLanguage: SITE.lang,
+  publisher: {
+    "@id": organizationID,
+  },
+  potentialAction: {
+    "@id": searchActionID,
+  },
+}
+
+const breadcrumbs = generateBreadcrumbs(Astro.url.pathname)
+const breadcrumbList: BreadcrumbList = {
+  "@type": "BreadcrumbList",
+  "@id": breadcrumbListID,
+  itemListElement: breadcrumbs.map(({ name, href }, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: name?.toString(),
+    item: absURL(href?.toString()),
+  })),
+}
+
+const webPage = []
+if (page) {
+  const isRoot = page.id === "/" || page.id === ""
+  const pageImage = absURL(isRoot ? "og-images/default.png" : `og-images/${page.id}.png`)
+
+  const defaultWebPage: WebPage = {
+    "@type": "WebPage",
+    "@id": absURL(page.id + "#webPage"),
+    name: page.data.title,
+    url: absURL(page.id),
+    description: page.data.description,
+    inLanguage: SITE.lang,
+    datePublished: page.data.pubDate.toISOString(),
+    dateModified: page.data.updatedDate?.toISOString() || page.data.pubDate.toISOString(),
+    image: pageImage,
+    author: {
+      "@id": personID,
+    },
+    publisher: {
+      "@id": organizationID,
+    },
+    breadcrumb: {
+      "@id": breadcrumbListID,
+    },
+  }
+  webPage.push(defaultWebPage)
+
+  if (page.data.pageType === "AboutPage") {
+    const aboutPage: AboutPage = {
+      "@type": "AboutPage",
+      "@id": absURL(page.id + "#aboutPage"),
+      name: page.data.title,
+      url: absURL(page.id),
+      description: page.data.description,
+      image: pageImage,
+      datePublished: page.data.pubDate.toISOString(),
+      dateModified: page.data.updatedDate?.toISOString() || page.data.pubDate.toISOString(),
+      publisher: {
+        "@id": organizationID,
+      },
+    }
+    webPage.push(aboutPage)
+  }
+
+  if (postList) {
+    const collectionPage: CollectionPage = {
+      "@type": "CollectionPage",
+      "@id": absURL(page.id + "#collectionPage"),
+      name: page.data.title || "Blog",
+      url: absURL(page.id),
+      description: page.data.description,
+      image: pageImage,
+      publisher: {
+        "@id": organizationID,
+      },
+    }
+
+    const itemList: ItemList = {
+      "@type": "ItemList",
+      "@id": absURL(page.id + "#itemList"),
+      name: page.data.title || "Blog",
+      description: page.data.description,
+      mainEntityOfPage: {
+        "@id": absURL(page.id + "#collectionPage"),
+      },
+      itemListElement: postList.map(({ id, data }, index) => {
+        const itemRoot = id === "/" || id === ""
+        const itemImage = absURL(itemRoot ? "og-images/default.png" : `og-images/${id}.png`)
+        return {
+          "@type": "ListItem",
+          position: index + 1,
+          name: data.title,
+          url: absURL(id),
+          description: data.description,
+          image: itemImage,
+        }
+      }),
+    }
+    webPage.push(collectionPage)
+    webPage.push(itemList)
+  }
+
+  if (
+    page.data.pageType === "BlogPosting" ||
+    page.data.pageType === "Article" ||
+    page.data.pageType === "NewsArticle"
+  ) {
+    const blogPosting: BlogPosting | Article | NewsArticle = {
+      "@type": page.data.pageType,
+      "@id": absURL(page.id + `#${page.data.pageType}`),
+      headline: page.data.title,
+      description: page.data.description,
+      url: absURL(page.id),
+      image: pageImage,
+      datePublished: page.data.pubDate.toISOString(),
+      dateModified: page.data.updatedDate?.toISOString() || page.data.pubDate.toISOString(),
+      author: {
+        "@id": personID,
+      },
+      publisher: {
+        "@id": organizationID,
+      },
+      mainEntityOfPage: {
+        "@id": absURL(page.id + "#webPage"),
+      },
+      keywords: page.data.tags || page.data.categories,
+    }
+
+    webPage.push(blogPosting)
+  }
+}
+
+const graph: Graph = {
+  "@context": "https://schema.org",
+  "@graph": [
+    ...webPage,
+    logo,
+    brand,
+    postalAddress,
+    person,
+    searchAction,
+    webSite,
+    breadcrumbList,
+    organization,
+  ],
+}
+---
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(graph)} />

@@ -17,8 +17,8 @@
   "dependencies": {
     "@astrojs/check": "^0.9.9",
     "@astrojs/markdown-remark": "^7.2.0",
-    "@astrojs/sitemap": "^3.7.3",
     "@astrojs/rss": "^4.0.18",
+    "@astrojs/sitemap": "^3.7.3",
     "@r4ai/remark-callout": "^0.6.2",
     "@tailwindcss/vite": "^4.3.0",
     "@types/mdast": "^4.0.4",
@@ -42,7 +42,8 @@
     "@tailwindcss/typography": "^0.5.19",
     "prettier": "^3.8.3",
     "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.8.0"
+    "prettier-plugin-tailwindcss": "^0.8.0",
+    "schema-dts": "^2.0.0"
   },
   "packageManager": "pnpm@11.5.2+sha512.71c631e382066efc25625d5cf029075de07b61b37f6e27350fbd84b1bda5864c8c1967adc280776b45c30a715c0359a3be08fef42d5bb09e2b99029979692916"
 }

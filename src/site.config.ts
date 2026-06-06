@@ -10,7 +10,6 @@ export const SITE = {
   lang: "id",
   locale: "id-ID",
   logo: "logo.png",
-  ogImage: "og-images/default.png",
 
   keywords: ["blog", "opini", "wawasan", "cerita", "ide", "catatan", "pemikiran"],
   knowsAbout: [
@@ -28,12 +27,18 @@ export const SITE = {
 
 export const AUTHOR = {
   name: "Putra Jaya",
+  description: "Seorang yang suka memancing emosi",
   url: "about",
+  gender: "Male",
   image: "logo.png",
   email: "masputrawae.official@gmail.com",
   jobTitle: "An Emotional Fisherman",
   telephone: "+6283850908390",
   twitterX: "@masputrawae",
+  birthDate: new Date("2002-10-25").toISOString(),
+  alumniOf: {
+    name: "Emotional Fishing Engineering University",
+  },
 }
 
 export const ADDRESS = {

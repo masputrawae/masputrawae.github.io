@@ -9,6 +9,7 @@ import { buildTaxonomyIndex } from "@utils/taxonomy-term"
 
 import { getCollection } from "astro:content"
 import { slugToTitle } from "@utils/slug-to-title"
+import JsonLD from "@components/JsonLD.astro"
 
 export const getStaticPaths = (async ({ paginate }) => {
   const pageEntries = await getCollection("page")
@@ -44,7 +45,7 @@ const title = `${taxonomy}: ${slugToTitle(entry.id)}`
 const description = `Daftar konten dari ${title}`
 ---
 
-<BaseLayout>
+<BaseLayout title={title} description={description} pubDate={new Date()}>
   <article data-pagefind-ignore="all">
     <h1>{title}</h1>
     <p>{description}</p>
@@ -53,4 +54,19 @@ const description = `Daftar konten dari ${title}`
     {page.data?.map((post) => <PostCard {...post} />)}
   </div>
   <Paginator {...page} />
+  <JsonLD
+    page={{
+      id: Astro.params.term,
+      data: {
+        title,
+        description,
+        pubDate: new Date(),
+        pageType: "CollectionPage",
+        pinned: false,
+        draft: false,
+      },
+      collection: "section",
+    }}
+    postList={page.data}
+  />
 </BaseLayout>

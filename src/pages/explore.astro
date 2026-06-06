@@ -9,6 +9,7 @@ import { getCollection } from "astro:content"
 import { generateId } from "@utils/generate-id"
 import { slugToTitle } from "@utils/slug-to-title"
 import path from "node:path"
+import JsonLD from "@components/JsonLD.astro"
 
 const pageEntries = await getCollection("page")
 const recentPost = pageEntries
@@ -61,6 +62,21 @@ const { tags, categories } = buildTaxonomyIndex(pageEntries)
       }
     </nav>
   </article>
+  <JsonLD
+    page={{
+      id: "explore",
+      data: {
+        title: "Explore",
+        description: "Pencarian",
+        pubDate: new Date(),
+        pageType: "CollectionPage",
+        pinned: false,
+        draft: false,
+      },
+      collection: "section",
+    }}
+    postList={recentPost}
+  />
   <script is:inline>
     // get value search parameter
     const queryString = window.location.search

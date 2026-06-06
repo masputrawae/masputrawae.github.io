@@ -1,5 +1,7 @@
 ---
+import JsonLD from "@components/JsonLD.astro"
 import BaseLayout from "@layouts/BaseLayout.astro"
+import { absURL } from "@utils/resolve-url"
 
 import type { GetStaticPaths } from "astro"
 import { getCollection } from "astro:content"
@@ -18,7 +20,11 @@ const entry = Astro.props
 const { Content } = await render(entry)
 ---
 
-<BaseLayout>
+<BaseLayout
+  {...entry.data}
+  ogImage={absURL(`${entry.id}.png`)}
+  keywords={entry.data.tags || entry.data.categories}
+>
   <article>
     <h1>{entry.data.title}</h1>
     <Content />
@@ -28,4 +34,5 @@ const { Content } = await render(entry)
     {entry.data.categories?.map((i) => <p data-pagefind-filter="category">{i}</p>)}
     <p data-pagefind-filter="year">{entry.data.pubDate.getFullYear()}</p>
   </div>
+  <JsonLD page={entry} />
 </BaseLayout>

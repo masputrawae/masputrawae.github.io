@@ -7,6 +7,8 @@ import type { GetStaticPaths } from "astro"
 import { getCollection } from "astro:content"
 import { render, type CollectionEntry } from "astro:content"
 import { generateSectionPage } from "@utils/content"
+import JsonLD from "@components/JsonLD.astro"
+import { absURL } from "@utils/resolve-url"
 
 export const getStaticPaths = (async ({ paginate }) => {
   const sectionEntries = await getCollection("section")
@@ -46,7 +48,12 @@ const { title: pTitle } = entry.data
 const title = Content ? pTitle : `${pTitle} | Page ${page.currentPage}`
 ---
 
-<BaseLayout>
+<BaseLayout
+  {...entry.data}
+  title={title}
+  ogImage={absURL(`${entry.id}.png`)}
+  keywords={entry.data.tags || entry.data.categories}
+>
   <article>
     <h1>{title}</h1>
     {
@@ -68,4 +75,6 @@ const title = Content ? pTitle : `${pTitle} | Page ${page.currentPage}`
     {entry.data.categories?.map((i) => <p data-pagefind-filter="category">{i}</p>)}
     <p data-pagefind-filter="year">{entry.data.pubDate.getFullYear()}</p>
   </div>
+
+  <JsonLD page={entry} postList={page.data} />
 </BaseLayout>

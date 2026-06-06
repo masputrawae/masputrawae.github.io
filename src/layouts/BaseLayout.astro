@@ -1,13 +1,15 @@
 ---
+import Header from "@components/Header.astro"
+import Footer from "@components/Footer.astro"
+import Breadcrumb from "@components/Breadcrumb.astro"
+import Seo, { type Props } from "@components/Seo.astro"
+
 import "@styles/global.css"
 import { Font } from "astro:assets"
 import { ClientRouter } from "astro:transitions"
 
 import { SITE } from "@site.config"
 import { cn } from "@utils/cn"
-import Header from "@components/Header.astro"
-import Footer from "@components/Footer.astro"
-import Breadcrumb from "@components/Breadcrumb.astro"
 ---
 
 <!doctype html>
@@ -21,11 +23,7 @@ import Breadcrumb from "@components/Breadcrumb.astro"
   )}
 >
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-
+    <Seo {...Astro.props} />
     <script is:inline>
       document.addEventListener("astro:page-load", () => {
         const pagefindTheme = document.querySelector("[data-pf-theme]")
@@ -40,7 +38,7 @@ import Breadcrumb from "@components/Breadcrumb.astro"
   <body class="mx-auto min-h-dvh max-w-480 font-sans dark:bg-neutral-800">
     <Header />
     <main
-      class="mx-auto max-w-[80ch] prose min-h-[calc(100dvh-8rem)] px-4 py-16 prose-neutral dark:prose-invert"
+      class="mx-auto prose min-h-[calc(100dvh-8rem)] max-w-[80ch] px-4 py-16 prose-neutral dark:prose-invert"
     >
       <Breadcrumb />
       <slot />
