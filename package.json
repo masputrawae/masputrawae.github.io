@@ -7,11 +7,15 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "sync": "astro sync",
+    "check": "astro check",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^6.4.4"
+    "@astrojs/check": "^0.9.9",
+    "astro": "^6.4.4",
+    "typescript": "^6.0.3"
   }
 }
