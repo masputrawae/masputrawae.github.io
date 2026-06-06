@@ -1,6 +1,6 @@
-import { defineCollection } from "astro:content";
-import { glob } from "astro/loaders";
-import { z } from "astro/zod";
+import { defineCollection } from "astro:content"
+import { glob } from "astro/loaders"
+import { z } from "astro/zod"
 import path from "path"
 
 const contentDir = path.resolve("registry/content")
@@ -12,7 +12,7 @@ const pageType = z.enum([
   "AboutPage",
   "WebPage",
   "WebSite",
-  "CollectionPage"
+  "CollectionPage",
 ])
 
 const schema = z.object({
@@ -27,25 +27,23 @@ const schema = z.object({
 
   pinned: z.boolean().default(false),
   draft: z.boolean().default(false),
-  pageType: pageType
+  pageType: pageType,
 })
-
 
 export const collections = {
   // Section
   section: defineCollection({
     loader: glob({ base: contentDir, pattern: "**/*_index.md" }),
     schema: schema.extend({
-      pageType: pageType.default("CollectionPage")
-    })
+      pageType: pageType.default("CollectionPage"),
+    }),
   }),
 
   // Page
   page: defineCollection({
     loader: glob({ base: contentDir, pattern: ["**/*.md", "!**/*_index.md"] }),
     schema: schema.extend({
-      pageType: pageType.default("BlogPosting")
-    })
-  })
+      pageType: pageType.default("BlogPosting"),
+    }),
+  }),
 }
-

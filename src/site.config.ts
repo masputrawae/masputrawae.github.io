@@ -2,7 +2,8 @@ import type { HTMLAttributes } from "astro/types"
 
 export const SITE = {
   name: "CahBagus",
-  description: "Tempat yang sempurna bagi ku untuk mencurahkan isi hati dan pemikiran 😅. Atau mungkin cuma sebatas halaman kosong?, siapa yang tahu 🫢.",
+  description:
+    "Tempat yang sempurna bagi ku untuk mencurahkan isi hati dan pemikiran 😅. Atau mungkin cuma sebatas halaman kosong?, siapa yang tahu 🫢.",
   alternateName: "Masputrawae",
   slogan: "Hanya Seorang Manusia Biasa",
   foundingDate: new Date("2025-01-01").toISOString(),
@@ -43,7 +44,7 @@ export const ADDRESS = {
   addressCountry: "ID",
 }
 
-export const SOCIAL: HTMLAttributes<'a'>[] = [
+export const SOCIAL: HTMLAttributes<"a">[] = [
   {
     name: "Github",
     href: "https://github.com/masputrawae",
@@ -57,31 +58,31 @@ export const SOCIAL: HTMLAttributes<'a'>[] = [
     target: "_blank",
     referrerpolicy: "origin-when-cross-origin",
     rel: "external nofollow noreferrer noopener",
-  }
+  },
 ]
 
 export const MENUS: HTMLAttributes<"a">[] = [
   {
     name: "Home",
     href: "/",
-    referrerpolicy: "origin"
+    referrerpolicy: "origin",
   },
   {
     name: "About",
     href: "/about/",
     rel: "author",
-    referrerpolicy: "same-origin"
+    referrerpolicy: "same-origin",
   },
   {
     name: "Blog",
     href: "/blog/",
-    referrerpolicy: "same-origin"
+    referrerpolicy: "same-origin",
   },
   {
     name: "Explore",
     href: "/explore/",
     rel: "search",
-    referrerpolicy: "same-origin"
+    referrerpolicy: "same-origin",
   },
   {
     name: "Github",
