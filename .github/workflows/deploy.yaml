@@ -29,6 +29,9 @@ jobs:
       - name: Copy registry
         run: cp -r ./vault/70_collection ./registry
 
+      - name: Check registry
+        run: ls ./registry
+
       - name: Install, build, and upload your site
         uses: withastro/action@v5
         with:
