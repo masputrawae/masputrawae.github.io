@@ -1,0 +1,50 @@
+---
+import "@styles/global.css"
+import { Font } from "astro:assets"
+import { ClientRouter } from "astro:transitions"
+
+import { SITE } from "@site.config"
+import { cn } from "@utils/cn"
+import Header from "@components/Header.astro"
+import Footer from "@components/Footer.astro"
+import Breadcrumb from "@components/Breadcrumb.astro"
+---
+
+<!doctype html>
+<html
+  data-theme="light"
+  lang={SITE.lang}
+  class={cn(
+    "scroll-smooth font-sans leading-relaxed antialiased",
+    "bg-white text-neutral-800",
+    "dark:bg-neutral-950 dark:text-neutral-200"
+  )}
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+
+    <script is:inline>
+      document.addEventListener("astro:page-load", () => {
+        const pagefindTheme = document.querySelector("[data-pf-theme]")
+        const current = localStorage.getItem("theme") === "dark" ? "dark" : "light"
+        document.documentElement.setAttribute("data-theme", current)
+        pagefindTheme.setAttribute("data-pf-theme", current)
+      })
+    </script>
+    <Font cssVariable="--font-sans" preload />
+    <ClientRouter />
+  </head>
+  <body class="mx-auto min-h-dvh max-w-480 font-sans dark:bg-neutral-800">
+    <Header />
+    <main
+      class="mx-auto prose min-h-[calc(100dvh-8rem)] px-4 py-16 prose-neutral dark:prose-invert"
+    >
+      <Breadcrumb />
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

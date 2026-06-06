@@ -1,0 +1,36 @@
+<label
+  for="theme"
+  class:list={[
+    "relative ml-2 block h-4 w-8 rounded-full transition-colors [-webkit-tap-highlight-color:transparent]",
+    "bg-neutral-300 has-checked:bg-blue-500 dark:bg-neutral-600 dark:has-checked:bg-white",
+  ]}
+>
+  <input type="checkbox" id="theme" class="peer sr-only" />
+  <span class="sr-only">Change Theme</span>
+  <div
+    class:list={[
+      "absolute inset-y-0 inset-s-0 m-1 size-2 rounded-full transition-[inset-inline-start] peer-checked:inset-s-4",
+      "bg-white dark:bg-neutral-900",
+    ]}
+  >
+  </div>
+</label>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const themeToggle = document.getElementById("theme") as HTMLInputElement
+    const pagefindTheme = document.querySelector("[data-pf-theme]")
+
+    if (themeToggle) {
+      const currentTheme = document.documentElement.getAttribute("data-theme")
+      themeToggle.checked = currentTheme === "dark"
+
+      themeToggle.addEventListener("change", () => {
+        const nextTheme = themeToggle.checked ? "dark" : "light"
+        document.documentElement.setAttribute("data-theme", nextTheme)
+        pagefindTheme?.setAttribute("data-pf-theme", nextTheme)
+        localStorage.setItem("theme", nextTheme)
+      })
+    }
+  })
+</script>

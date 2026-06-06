@@ -1,0 +1,22 @@
+---
+import { generateBreadcrumbs } from "@utils/breadcrumb"
+
+import NavLink from "@components/NavLink.astro"
+
+const breadcrumbs = generateBreadcrumbs(Astro.url.pathname)
+---
+
+<nav
+  class="not-prose hidden items-center gap-2 pb-2 text-sm text-neutral-600 sm:flex dark:text-neutral-400"
+>
+  {
+    breadcrumbs.map(({ name, href }, index) => (
+      <>
+        <NavLink href={href} class="line-clamp-1">
+          {name}
+        </NavLink>
+        {index !== breadcrumbs.length - 1 && <span aria-hidden="true">&#187;</span>}
+      </>
+    ))
+  }
+</nav>

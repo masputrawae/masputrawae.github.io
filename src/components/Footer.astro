@@ -1,0 +1,20 @@
+---
+import { AUTHOR } from "@site.config"
+---
+
+<footer class="border-t border-neutral-200 p-4 text-xs dark:border-neutral-700">
+  <aside class="flex flex-wrap items-center justify-between gap-1">
+    <p>
+      Dibuat dengan <span aria-label="Coffee" title="Coffee">☕</span> dan
+      <a href="https://astro.build" class="underline" rel="external" target="_blank">
+        {Astro.generator}
+      </a>
+    </p>
+    <p>
+      Copyright &copy; {new Date().getFullYear()}
+      <a href={AUTHOR.url} rel="author" referrerpolicy="same-origin" class="underline">
+        {AUTHOR.name}
+      </a>. All Rights Reserved.
+    </p>
+  </aside>
+</footer>

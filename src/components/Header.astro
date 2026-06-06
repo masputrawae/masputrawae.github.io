@@ -1,0 +1,67 @@
+---
+import { SITE, MENUS } from "@site.config"
+import { cn } from "@utils/cn"
+
+import ThemeToggle from "./ThemeToggle.astro"
+import NavLink from "./NavLink.astro"
+---
+
+<header
+  class={cn(
+    "sticky top-0 flex items-center justify-between text-sm font-semibold",
+    "after:absolute after:h-3 after:w-full",
+    "after:bg-white dark:after:bg-neutral-700",
+    "after:shadow-md/100 dark:after:shadow-sm/100",
+    "after:top-0 after:left-0 after:-z-1"
+  )}
+>
+  <div
+    class={cn(
+      "relative inline-flex items-center gap-2 rounded-br-lg px-4 py-1.5",
+      "bg-white text-black dark:bg-neutral-700 dark:text-white",
+      "after:absolute after:rounded-br-lg",
+      "after:shadow-md/100 dark:after:shadow-sm/100",
+      "after:top-0 after:right-0 after:bottom-0 after:left-0 after:-z-2"
+    )}
+  >
+    <a href={new URL(import.meta.env.BASE_URL, import.meta.env.SITE)} referrerpolicy="origin">
+      {SITE.name}
+    </a>
+    <ThemeToggle />
+  </div>
+
+  <details class="relative md:hidden">
+    <summary
+      class={cn(
+        "relative inline-flex cursor-pointer rounded-bl-lg px-4 py-1.5 select-none",
+        "bg-white dark:bg-neutral-700",
+        "after:absolute after:rounded-bl-lg",
+        "after:shadow-md/100 dark:after:shadow-sm/100",
+        "after:top-0 after:right-0 after:bottom-0 after:left-0 after:-z-2"
+      )}
+    >
+      Menu
+    </summary>
+    <nav
+      class={cn(
+        "absolute top-full right-4 mt-4 grid gap-2 rounded-lg px-4 py-2",
+        "shadow-md/100 dark:shadow-sm/100",
+        "bg-white dark:bg-neutral-700"
+      )}
+    >
+      {MENUS.map(({ name, ...rest }) => <NavLink {...rest}>{name}</NavLink>)}
+    </nav>
+  </details>
+
+  <nav
+    class={cn(
+      "relative hidden items-center gap-4 rounded-bl-lg px-4 py-1.5 md:flex",
+      "bg-white dark:bg-neutral-700",
+      "after:absolute after:rounded-bl-lg",
+      "after:shadow-md/100 dark:after:shadow-sm/100",
+      "after:top-0 after:right-0 after:bottom-0 after:left-0 after:-z-2"
+    )}
+  >
+    {MENUS.map(({ name, ...rest }) => <NavLink {...rest}>{name}</NavLink>)}
+  </nav>
+</header>

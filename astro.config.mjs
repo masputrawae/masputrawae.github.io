@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from "astro/config"
+import { defineConfig, fontProviders } from "astro/config"
 
 import tailwindcss from "@tailwindcss/vite"
 
@@ -11,4 +11,23 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+
+  fonts: [
+    {
+      provider: fontProviders.google(),
+      name: "Public Sans",
+      cssVariable: "--font-sans",
+      weights: [400, 600, 700],
+      formats: ["woff2"],
+      fallbacks: [
+        "ui-sans-serif",
+        "system-ui",
+        "sans-serif",
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol",
+        "Noto Color Emoji"
+      ]
+    }
+  ]
 })

@@ -1,0 +1,22 @@
+---
+import type { HTMLAttributes } from "astro/types"
+
+type Props = HTMLAttributes<"a">
+const { href, class: className, ...rest } = Astro.props
+
+const n = (href?.toString() || "").replaceAll("/", "")
+const p = Astro.url.pathname.replaceAll("/", "")
+const b = import.meta.env.BASE_URL.replaceAll("/", "")
+
+const isCurrent = n === p
+const isAncestor = p.startsWith(n) || n !== b
+---
+
+<a
+  href={href}
+  {...isCurrent && { "aria-current": "page" }}
+  {...isAncestor && { "aria-current": true }}
+  {...rest}
+>
+  <slot />
+</a>
