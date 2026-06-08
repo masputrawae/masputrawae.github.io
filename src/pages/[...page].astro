@@ -22,7 +22,7 @@ const { Content } = await render(entry)
 
 <BaseLayout
   {...entry.data}
-  ogImage={absURL(`${entry.id}.png`)}
+  ogImage={absURL(`og-images/${entry.id}.png`)}
   keywords={entry.data.tags || entry.data.categories}
 >
   <article>
