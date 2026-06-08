@@ -51,7 +51,7 @@ const title = Content ? pTitle : `${pTitle} | Page ${page.currentPage}`
 <BaseLayout
   {...entry.data}
   title={title}
-  ogImage={absURL(`${entry.id}.png`)}
+  ogImage={absURL(`og-images/${entry.id}.png`)}
   keywords={entry.data.tags || entry.data.categories}
 >
   <article>
