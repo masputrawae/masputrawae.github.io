@@ -161,7 +161,7 @@ function handleLink(
 const remarkWikiLink: Plugin<[RemarkWikiLinkOptions?], Root> = (options = {}) => {
   const {
     assetAlias = "@assets",
-    contentDir = "registry/content",
+    contentDir = "registry",
     assetDir = "registry/assets",
   } = options
 

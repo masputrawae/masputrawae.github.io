@@ -4,7 +4,7 @@ import { z } from "astro/zod"
 import path from "path"
 import { generateId } from "@utils/generate-id"
 
-const contentDir = path.resolve("registry/content")
+const contentDir = path.resolve("registry")
 const pageType = z.enum([
   "BlogPosting",
   "Article",
