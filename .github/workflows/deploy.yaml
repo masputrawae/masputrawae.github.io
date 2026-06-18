@@ -22,7 +22,7 @@ jobs:
       - name: Clone document repository
         uses: actions/checkout@v5
         with:
-          repository: masputrawae/mpw
+          repository: masputrawae/notes
           token: ${{ secrets.DOCUMENTS }}
           path: vault
 
