@@ -28,7 +28,7 @@ jobs:
         run: mkdir -p registry
 
       - name: Copy registry
-        run: cp -r ./vault/Published/* ./registry
+        run: cp -r ./vault/posts/* ./registry
 
       - name: Check registry
         run: ls ./registry
