@@ -1,1 +1,1 @@
-# Inkwell | Astro Theme
+# Menyempatkan Diri Untuk Menulis
